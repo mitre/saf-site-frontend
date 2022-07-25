@@ -3,7 +3,15 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 /** @type {import("@types/tailwindcss/tailwind-config").TailwindConfig } */
 module.exports = {
   darkMode: 'class',
-  content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
+  content: [
+  './index.html', 
+  './src/**/*.{vue,js,ts,jsx,tsx}',    
+  "./components/**/*.{js,vue,ts}",
+  "./layouts/**/*.vue",
+  "./pages/**/*.vue",
+  "./plugins/**/*.{js,ts}",
+  "./nuxt.config.{js,ts}",
+  ],
   theme: {
     extend: { 
       colors: {
@@ -31,14 +39,6 @@ module.exports = {
     require('@tailwindcss/line-clamp'),
     require('@tailwindcss/aspect-ratio'),
   ],
-  mode: "jit",
-  purge: [
-    "./components/**/*.{vue,js}",
-    "./layouts/**/*.vue",
-    "./pages/**/*.vue",
-    "./plugins/**/*.{js,ts}",
-    "./nuxt.config.{js,ts}",
-  ]
 }
 
 

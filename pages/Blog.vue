@@ -2,7 +2,7 @@
   <div>
     <Header />
   </div>
-  <div class="relative bg-white dark:bg-dark-bg pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
+  <div class="relative bg-white dark:bg-dark-bg h-screen pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
     <div class="absolute inset-0">
       <div class="bg-white dark:bg-dark-bg h-1/3 sm:h-2/3" />
     </div>
@@ -13,8 +13,8 @@
       </div>
       <div class="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
         <div v-for="post in posts" :key="post.title"
-          class="flex flex-col rounded-lg shadow-xl border-2 hover:border-2 hover:border-dashed dark:border-gray-300 overflow-hidden">
-          <div class="flex-1 bg-white dark:bg-gray-300 p-6 flex flex-col justify-between">
+          class="flex flex-col rounded-lg shadow-xl border-2 hover:border-2 hover:border-blue-500 dark:hover:border-blue-500 dark:border-gray-600 overflow-hidden">
+          <div class="flex-1 bg-white dark:bg-dark-bg hover:bg-gray-100 dark:hover:bg-gray-700 p-6 flex flex-col justify-between">
             <div class="flex-1">
               <p class="text-sm font-medium text-indigo-600">
                 <a :href="post.category.href" class="hover:underline">
@@ -22,7 +22,7 @@
                 </a>
               </p>
               <a :href="post.href" class="block mt-2">
-                <p class="text-xl font-semibold text-gray-900">
+                <p class="text-xl font-semibold text-gray-900 dark:text-dark-text">
                   {{ post.title }}
                 </p>
                 <p class="mt-3 text-base text-gray-500">
@@ -38,7 +38,7 @@
                 </a>
               </div>
               <div class="ml-3">
-                <p class="text-sm font-medium text-gray-900">
+                <p class="text-sm font-medium text-gray-900 dark:text-dark-text ">
                   <a :href="post.author.href" class="hover:underline">
                     {{ post.author.name }}
                   </a>
@@ -116,8 +116,14 @@ export default {
   mounted() {
     this.$nextTick(async () => {
       console.log('here')
+
+      const { find } = useStrapi4()
+      //await this.getBlogPosts()
+
       await this.displayMessage();
       console.log(this.posts)
+
+
     });
   },
   methods: {
@@ -125,18 +131,23 @@ export default {
       this.posts = await axios
         .get("http://saf-site-backend.herokuapp.com/api/blog-posts")
         .then(({ data }) => {
+          console.log(data.data.attributes)
           return data.data.map((post) => ({
-            title: post.attributes.Title,
-            description: post.attributes.Content,
-            category: post.attributes.Tag,
+            title: post.attributes.title,
+            description: post.attributes.content,
+            category: post.attributes.category,
             author: {
               name: 'Gavin Mason'
             },
-            date: post.attributes.PublishDate,
-            href: '/blog-post'
+            date: post.attributes.date,
+            href: ''
           }))
         });
     },
+    async getBlogPosts() {
+      const response = await find('title')
+      console.log(response)
+    }
   }
 };
 </script>

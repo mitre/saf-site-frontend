@@ -1,13 +1,15 @@
 <template>
   <NuxtLayout>
+    <!-- <header1 /> -->
     <NuxtPage />
+    <!-- <footer1 /> -->
   </NuxtLayout>
 </template> 
 
 
 <script setup>
-// import { AppSetup } from './utils/app'
 import './assets/tailwind.css'
-// AppSetup()
+import Header from './components/Header.vue'
+import Footer from './components/Footer.vue'
 </script> 
 

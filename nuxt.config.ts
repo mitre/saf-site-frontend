@@ -7,7 +7,7 @@ export default defineNuxtConfig({
       postcssOptions: {
         plugins: {
           tailwindcss: {},
-          autoprefixer: {},
+          autoprefixer: {}
         },
       },
     },
@@ -16,10 +16,10 @@ export default defineNuxtConfig({
   modules: ['@nuxtjs/strapi'],
   strapi: {
     // Options for strapi
-    url: process.env.STRAPI_URL || 'http://localhost:1337',
+    url: process.env.STRAPI_URL || 'https://saf-site-backend.herokuapp.com',
     prefix: '/api',
     version: 'v4',
     cookie: {},
     cookieName: 'strapi_jwt'
-  }
+  },
 })

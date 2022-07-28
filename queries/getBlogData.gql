@@ -1,0 +1,14 @@
+query blogPosts{
+  blogPosts{
+    data{
+      attributes{
+        title,
+        category,
+        description,
+        content,
+        date,
+        author,
+      }
+    }
+  }
+} 

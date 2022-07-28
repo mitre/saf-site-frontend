@@ -7,8 +7,8 @@
     "preview": "nuxt preview"
   },
   "dependencies": {
-    "@strapi/plugin-graphql": "^4.2.3",
     "axios": "^0.27.2",
+    "nuxt-graphql-client": "^0.1.6",
     "vue": "^3.2.36"
   },
   "devDependencies": {

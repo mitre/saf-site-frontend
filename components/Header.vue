@@ -122,10 +122,10 @@
             </transition>
           </Popover>
 
-          <a href="/blog"
+          <NuxtLink to="/blog"
             class="text-base font-medium text-gray-500 dark:text-dark-text hover:text-gray-900 dark:hover:text-gray-200">
             Blog
-          </a>
+          </NuxtLink>
 
           <a href="#"
             class="text-base font-medium text-gray-500 dark:text-dark-text hover:text-gray-900 dark:hover:text-gray-200">

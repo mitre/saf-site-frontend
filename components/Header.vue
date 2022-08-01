@@ -208,7 +208,7 @@
               </div>
             </div>
           </div>
-          <Button id="theme-toggle" type="button"
+          <div id="theme-toggle" type="button" 
             class="text-gray-500 dark:text-dark-text hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5"
             @click="toggleTheme">
             <svg id="theme-toggle-dark-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none"
@@ -221,7 +221,7 @@
               <path stroke-linecap="round" stroke-linejoin="round"
                 d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
             </svg>
-          </Button>
+          </div>
         </div>
       </div>
     </div>

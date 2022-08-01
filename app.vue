@@ -2,6 +2,7 @@
   <NuxtLayout>
     <!-- <header1 /> -->
     <NuxtLoadingIndicator />
+    <!-- <NuxtLoadingBar :duration="1000" /> -->
     <NuxtPage />
     <!-- <footer1 /> -->
   </NuxtLayout>

@@ -23,14 +23,14 @@
                     {{ post.category.name }}
                   </a>
                 </p>
-                <a :href="post.href" class="block mt-2">
+                <NuxtLink :to="`/blog/{{ $post.id }}`" class="block mt-2">
                   <p class="text-xl font-semibold text-gray-900 dark:text-dark-text">
                     {{ post.title }}
                   </p>
                   <p class="mt-3 text-base text-gray-500">
                     {{ post.description }}
                   </p>
-                </a>
+                </NuxtLink>
               </div>
               <div class="mt-6 flex items-center">
                 <div class="flex-shrink-0">
@@ -112,40 +112,22 @@ export default defineComponent({
 import axios from 'axios'
 import { graphql } from 'graphql';
 import gql from 'graphql-tag'
-// import getBlogPosts from "~/apollo/queries/fetchBlogData.gql"
+
 
 export default {
   data() {
     return {
-      posts: [],
+      posts: ref([]),
     };
   },
   mounted() {
     this.$nextTick(async () => {
-      //await this.displayMessage();
       await this.getBlogPosts()
     });
   },
   methods: {
-    async displayMessage() {
-      this.posts = await axios
-        .get("http://saf-site-backend.herokuapp.com/api/blog-posts")
-        .then(({ data }) => {
-          console.log('Working method:' + data.data)
-          return data.data.map((post) => ({
-            title: post.attributes.title,
-            description: post.attributes.content,
-            category: post.attributes.category,
-            author: {
-              name: 'Gavin Mason'
-            },
-            date: post.attributes.date,
-            // href: ''
-          }))
-        });
-    },
     async getBlogPosts() {
-      this.posts = await useAsyncData('getBlogData', () => GqlBlogPosts())
+      this.posts = await useAsyncData('getAllBlogData', () => GqlBlogPosts())
         .then(({ data }) => {
           //blogDataFromAPI = data._value.blogPosts.data
           console.log(data._value.blogPosts.data)
@@ -158,7 +140,7 @@ export default {
               name: 'Gavin Mason'
             },
             date: post.attributes.date,
-            href: '/blog-post'
+            // href: post.attributes.id
           }))
         });
     }

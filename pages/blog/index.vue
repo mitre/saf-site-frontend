@@ -5,7 +5,7 @@
     </div>
     <div class="relative bg-white dark:bg-dark-bg h-screen pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
       <div class="absolute inset-0">
-        <div class="bg-white dark:bg-dark-bg h-1/3 sm:h-2/3" />
+        <div class="bg-white dark:bg-dark-bg sm:h-2/3 " />
       </div>
       <div class="relative max-w-7xl mx-auto">
         <div class="text-center">
@@ -18,7 +18,7 @@
             <div
               class="flex-1 bg-white dark:bg-dark-bg hover:bg-gray-100 dark:hover:bg-gray-700 p-6 flex flex-col justify-between">
               <div class="flex-1">
-                <p class="text-sm font-medium text-blueslugify-600">
+                <p class="text-sm font-medium text-blue-600">
                   <a :href="post.category.href" class="hover:underline">
                     {{ post.category.name }}
                   </a>
@@ -50,7 +50,7 @@
                       {{ post.date }}
                     </time>
                     <span aria-hidden="true"> &middot; </span>
-                    <span> {{ post.readingTime }} read </span>
+                    <span>  {{ post.readingTime }} min read </span>
                   </div>
                 </div>
               </div>
@@ -137,10 +137,12 @@ export default {
             description: post.attributes.content,
             category: {name: post.attributes.category},
             author: {
-              name: 'Gavin Mason'
+              name: post.author,
+              href: '/',
             },
             date: post.attributes.date,
-            id: post.id
+            id: post.id,
+            readingTime: this.readingTime(post.attributes.content)
           }))
         });
     },
@@ -153,7 +155,12 @@ export default {
       console.log(str)
       return str
     },
-  }
+    readingTime(text) {
+      const wpm = 225;
+      const words = text.trim().split(/\s+/).length;
+      return Math.ceil(words / wpm);
+    },
+  } 
 }
 </script>
 

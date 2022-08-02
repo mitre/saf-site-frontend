@@ -18,12 +18,12 @@
             <div
               class="flex-1 bg-white dark:bg-dark-bg hover:bg-gray-100 dark:hover:bg-gray-700 p-6 flex flex-col justify-between">
               <div class="flex-1">
-                <p class="text-sm font-medium text-blue-600">
+                <p class="text-sm font-medium text-blueslugify-600">
                   <a :href="post.category.href" class="hover:underline">
                     {{ post.category.name }}
                   </a>
                 </p>
-                <a href = `/blog/${post.date}/${slugify(post.id)}`, params: { postID: post.id }}" class="block mt-2"> 
+                <a :href ="`/blog/${post.date}/${slugify(post.title)}?id=${post.id}`" class="block mt-2"> 
                   <p class="text-xl font-semibold text-gray-900 dark:text-dark-text">
                     {{ post.title }}
                   </p>

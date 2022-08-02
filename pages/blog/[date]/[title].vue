@@ -1,8 +1,8 @@
 <template>
   <div>
     <div> <Header /> </div>
-    <div class="relative py-16 bg-white dark:bg-dark-bg overflow-hidden">
-      <div class="hidden lg:block lg:absolute lg:inset-y-0 lg:h-full lg:w-full">
+    <div class="relative py-16 bg-white dark:bg-dark-bg overflow-hidden h-screen">
+      <!-- <div class="hidden lg:block lg:absolute lg:inset-y-0 lg:h-full lg:w-full">
         <div class="relative h-full text-lg max-w-prose mx-auto" aria-hidden="true">
           <svg class="absolute top-12 left-full transform translate-x-32" width="404" height="384" fill="none" viewBox="0 0 404 384">
             <defs>
@@ -29,7 +29,7 @@
             <rect width="404" height="384" fill="url(#d3eb07ae-5182-43e6-857d-35c643af9034)" />
           </svg>
         </div>
-      </div>
+      </div> -->
       <div class="relative px-4 sm:px-6 lg:px-8">
         <div class="text-lg max-w-prose mx-auto">
           <h1>
@@ -73,7 +73,7 @@ export default {
        this.postData = data._value.blogPost.data.attributes
        console.log('look here')
        console.log(this.postData)
-       console.log( this.$route.params.id  )
+      //  console.log( this.$route.params.id  )
       });
     }
   }

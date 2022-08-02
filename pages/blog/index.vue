@@ -23,14 +23,14 @@
                     {{ post.category.name }}
                   </a>
                 </p>
-                <NuxtLink :to="`/blog/{{ $post.id }}`" class="block mt-2">
+                <a href = `/blog/${post.date}/${slugify(post.id)}`, params: { postID: post.id }}" class="block mt-2"> 
                   <p class="text-xl font-semibold text-gray-900 dark:text-dark-text">
                     {{ post.title }}
                   </p>
                   <p class="mt-3 text-base text-gray-500">
                     {{ post.description }}
                   </p>
-                </NuxtLink>
+                </a>
               </div>
               <div class="mt-6 flex items-center">
                 <div class="flex-shrink-0">
@@ -140,22 +140,29 @@ export default {
               name: 'Gavin Mason'
             },
             date: post.attributes.date,
-            // href: post.attributes.id
+            id: post.id
           }))
         });
-    }
-
-
+    },
+    slugify (str) {
+      str = str.toLowerCase()
+      str = str.trim()
+      str = str.replace(/[^\w\s-]/g, '')
+      str = str.replace(/[\s_-]+/g, '-')
+      str = str.replace(/^-+|-+$/g, '')
+      console.log(str)
+      return str
+    },
   }
-};
+}
 </script>
 
 
 
 <!-- // const posts = [
 //   {
-//     title: 'Boost your conversion rate',
-//     href: '/blog-post',
+//     title: ,
+//     href: ,
 //     category: {name: 'Temp Tag', color: 'bg-green-100 text-green-800'},
 //     description:
 //       'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',

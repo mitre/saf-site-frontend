@@ -34,8 +34,8 @@
       <div class="relative px-4 sm:px-6 lg:px-8">
         <div class="text-lg max-w-prose mx-auto">
           <h1>
-            <span class="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 dark:text-MITRE-silver sm:text-4xl">{{postData.title}}</span>
-            <span class="block text-base text-center text-indigo-600 font-semibold tracking-wide uppercase">by {{postData.author}}</span>
+            <span class="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 dark:text-MITRE-silver sm:text-4xl">{{title}}</span>
+            <span class="block text-base text-center text-indigo-600 font-semibold tracking-wide uppercase">by {{postData.author}} </span>
           </h1>
           <p class="mt-8 text-xl text-gray-500 leading-8">{{postData.content}}</p>
         </div>
@@ -74,6 +74,9 @@ import { graphql } from 'graphql';
 import gql from 'graphql-tag'
 
 export default {
+  setup() {
+
+  },
   data() {
     return {
       postData: {},
@@ -87,31 +90,12 @@ export default {
   },
   methods: {
   async getData() {
-    this.postData = await useAsyncData('getBlogDataFromID', () => GqlGetBlogDataFromID({id: 2}))
+    this.postData = await useAsyncData('getBlogDataFromID', () => GqlGetBlogDataFromID({id: this.$route.params.id}))
       .then(({ data }) => {
-        // console.log('data')
-        // console.log(data._value.blogPost.data.attributes)  
-        // console.log(data._value.blogPost.data)
-        // return Object.entries(data._value.blogPost.data).map((postData) => ({
-        //   title: postData.title,
-        //   description: postData.content,
-        //   category: {name: postData.category},
-        //   author: {
-        //     name: 'Gavin Mason'
-        //   },
-        //   date: postData.date,
-          // href: postData.attributes.id
-        // }))
        this.postData = data._value.blogPost.data.attributes
        console.log('look here')
        console.log(this.postData)
-        // title: postData.title,
-        // description: postData.content,
-        // category: {name: postData.category},
-        // author: {
-        //   name: 'Gavin Mason'
-        // },
-        // date: postData.date,
+       console.log( this.$route.params.id  )
       });
     }
   }

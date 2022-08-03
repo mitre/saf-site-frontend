@@ -40,11 +40,11 @@
                   </a>
                 </div>
                 <div class="ml-3">
-                  <p class="text-sm font-medium text-gray-900 dark:text-dark-text ">
+                  <span class="text-sm font-medium text-gray-900 dark:text-dark-text ">
                     <a :href="post.author.href" class="hover:underline">
                       {{ post.author.name }}
                     </a>
-                  </p>
+                  </span>
                   <div class="flex space-x-1 text-sm text-gray-500">
                     <time :datetime="post.datetime">
                       {{ post.date }}
@@ -134,7 +134,7 @@ export default {
           //this.posts = data._value.blogPosts.data
           return data._value.blogPosts.data.map((post) => ({
             title: post.attributes.title,
-            description: post.attributes.content,
+            description: post.attributes.description,
             category: {name: post.attributes.category},
             author: {
               name: post.author,

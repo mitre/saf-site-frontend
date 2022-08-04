@@ -1,7 +1,7 @@
 <template>
   <div>
     <div> <Header /> </div>
-    <div class="relative py-16 bg-white dark:bg-dark-bg overflow-hidden h-screen">
+    <div class="relative py-16 bg-white dark:bg-dark-bg overflow-hidden h-full prose">
       <!-- <div class="hidden lg:block lg:absolute lg:inset-y-0 lg:h-full lg:w-full">
         <div class="relative h-full text-lg max-w-prose mx-auto" aria-hidden="true">
           <svg class="absolute top-12 left-full transform translate-x-32" width="404" height="384" fill="none" viewBox="0 0 404 384">
@@ -34,7 +34,7 @@
         <div class="text-lg max-w-prose mx-auto">
           <h1>
             <span class="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 dark:text-MITRE-silver sm:text-4xl">{{postData.title}}</span>
-            <span class="block text-base text-center text-indigo-600 font-semibold tracking-wide uppercase">by {{postData.author}} </span>
+            <span class="block text-base text-center text-indigo-600 font-semibold tracking-wide">{{postData.date}} &nbsp; | &nbsp;  {{postData.author}}  </span>
           </h1>
           <p class="mt-8 text-xl text-gray-500 leading-8">{{postData.content}}</p>
         </div>

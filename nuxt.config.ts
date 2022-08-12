@@ -13,7 +13,7 @@ export default defineNuxtConfig({
     },
   },
   css: ["~/assets/tailwind.css"],
-  modules: ['@nuxtjs/strapi', 'nuxt-graphql-client'],
+  modules: ['@nuxtjs/strapi', 'nuxt-graphql-client', '@nuxt/content'],
   strapi: {
     // Options for strapi
     url: process.env.STRAPI_URL || 'https://saf-site-backend.herokuapp.com',

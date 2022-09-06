@@ -27,7 +27,7 @@
                   <p class="text-xl font-semibold text-gray-900 dark:text-dark-text">
                     {{ post.title }}
                   </p>
-                  <p class="mt-3 text-base text-gray-500">
+                  <p class="mt-3 text-base text-gray-500 line-clamp-2">
                     {{ post.description }}
                   </p>
                 </a>

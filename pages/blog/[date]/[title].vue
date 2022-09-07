@@ -36,14 +36,14 @@
             <span class="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 dark:text-MITRE-silver sm:text-4xl">
               {{postData.title}}
             </span>
-            <span class="block text-base text-center text-indigo-600 font-semibold tracking-wide">
+            <span class="pt-3 block text-base text-center text-blue-600 font-semibold tracking-wide">
               {{postData.date}} &nbsp; | &nbsp;  {{postData.author}} 
             </span>
           </h1>
-          <!-- <article class="mt-8 text-xl text-gray-500 leading-8 prose">{{postData.content}}</article> -->
-          <ContentRenderer :value="postData.content" class="prose" >
+          <article class="mt-8 text-xl text-gray-500 leading-8 prose">{{postData.content}}</article>
+          <!-- <ContentRenderer :value="postData.content" class="prose" >
             {{postData.content}}
-          </ContentRenderer>
+          </ContentRenderer> -->
         </div>
       </div>
     </div>

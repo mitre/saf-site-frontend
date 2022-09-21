@@ -34,16 +34,16 @@
               </div>
               <div class="mt-6 flex items-center">
                 <div class="flex-shrink-0">
-                  <a :href="post.author.href">
-                    <span class="sr-only">{{ post.author.name }}</span>
-                    <!-- <img class="h-10 w-10 rounded-full" :src="post.author.imageUrl" alt="" /> -->
-                  </a>
+                  <!-- <NuxtLink to="/author">
+                    <span class="sr-only">{{ post.author }}</span>
+                    <img class="h-10 w-10 rounded-full" :src="post.author.imageUrl" alt="" />
+                  </NuxtLink> -->
                 </div>
                 <div class="ml-3">
                   <span class="text-sm font-medium text-gray-900 dark:text-dark-text ">
-                    <a :href="post.author.href" class="hover:underline">
-                      {{ post.author.name }}
-                    </a>
+                    <NuxtLink to="`/`" class="hover:underline">
+                      <p class="">{{post.author}}</p>  
+                    </NuxtLink>
                   </span>
                   <div class="flex space-x-1 text-sm text-gray-500">
                     <time :datetime="post.datetime">
@@ -136,10 +136,11 @@ export default {
             title: post.attributes.title,
             description: post.attributes.description,
             category: {name: post.attributes.category},
-            author: {
-              name: post.author,
-              href: '/',
-            },
+            // author: {
+            //   name: post.author,
+            //   href: '/',
+            // },
+            author: post.attributes.author,
             date: post.attributes.date,
             id: post.id,
             readingTime: this.readingTime(post.attributes.content)

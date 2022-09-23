@@ -66,23 +66,23 @@
           <!-- <Prose>{children}</Prose> -->
         </article>
         <dl class="mt-12 flex border-t border-slate-200 pt-6 dark:border-slate-800">
-            <div v-if="previousPage">
+            <div v-if="allLinks[currentIndex-1]">
               <dt class="font-display text-sm font-medium text-slate-900 dark:text-white">
                 Previous
               </dt>
               <dd class="mt-1">
-                <a :href ="`/docs/`" class="text-base font-semibold text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300"> <!-- Change docData.title to find next page title -->
-                  <span aria-hidden="true">&larr;</span> {{previousPage.title}}
+                <a :href ="`/docs/${allLinks[currentIndex-1].href}`" class="text-base font-semibold text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300"> <!-- Change docData.title to find next page title -->
+                  <span aria-hidden="true">&larr;</span> {{allLinks[currentIndex-1].title}}
                 </a>
               </dd>
             </div>
-            <div v-if="nextPage" class="ml-auto text-right">
+            <div v-if="allLinks[currentIndex+1]" class="ml-auto text-right">
               <dt class="font-display text-sm font-medium text-slate-900 dark:text-white">
                 Next
               </dt>
               <dd class="mt-1">
-                <a :href ="`/docs/`" class="text-base font-semibold text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300"> <!-- Change docData.title to find next page title -->
-                  <span aria-hidden="true">&rarr;</span> {{nextPage.title}} 
+                <a :href ="`/docs/${allLinks[currentIndex+1].href}`" class="text-base font-semibold text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300"> <!-- Change docData.title to find next page title -->
+                  <span aria-hidden="true">&rarr;</span> {{allLinks[currentIndex+1].title}} 
                 </a>
               </dd>
             </div>
@@ -152,6 +152,8 @@
         docData: {},
         renderedContent: {},
         tableOfContents: {},
+        allLinks: [],
+        currentIndex: 0,
         currentSubsection: "",         // Hardcoded Temp Value
         currentSubsectionHref: "",
         previousPage: {title: "PP Title", href: "/"}, // Hardcoded Temp Value
@@ -174,6 +176,9 @@
             console.log("Current Subsection:", this.currentSubsection)
             console.log("Current Doc: ", data._value.currentDoc)
             console.log("All Links: ", data._value.allLinks)
+            this.allLinks = data._value.allLinks.data.flatMap(num => num.attributes.subsections)
+            this.currentIndex = this.allLinks.findIndex((link) => link.href==this.currentSubsectionHref);
+            console.log("Current Index: ", this.currentIndex)
 
             // let test = data._value.currentDoc.data[0].attributes.subsections[0].content
 

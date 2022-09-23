@@ -127,10 +127,10 @@
             Blog
           </NuxtLink>
 
-          <a href="#"
+          <NuxtLink to="/docs"
             class="text-base font-medium text-gray-500 dark:text-dark-text hover:text-gray-900 dark:hover:text-gray-200">
             Docs
-          </a>
+          </NuxtLink>
 
           <Popover class="relative" v-slot="{ open }">
             <PopoverButton :class="[

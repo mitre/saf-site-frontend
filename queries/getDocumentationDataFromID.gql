@@ -1,0 +1,14 @@
+query getDocumentationDataFromID($id: ID!){
+  documentation(id: $id){
+    data {
+      attributes {
+        section_title
+        subsections{
+          id
+          title
+          content
+        }
+      }
+    }
+  }
+}

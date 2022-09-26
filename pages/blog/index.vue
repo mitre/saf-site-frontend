@@ -41,9 +41,9 @@
                 </div>
                 <div class="ml-3">
                   <span class="text-sm font-medium text-gray-900 dark:text-dark-text ">
-                    <NuxtLink to="`/`" class="hover:underline">
+                    <a :href="`blog/author/${slugify(post.author)}?id=${post.author}`" class="hover:underline">
                       <p class="">{{post.author}}</p>  
-                    </NuxtLink>
+                    </a>
                   </span>
                   <div class="flex space-x-1 text-sm text-gray-500">
                     <time :datetime="post.datetime">

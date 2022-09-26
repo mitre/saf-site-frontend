@@ -4,7 +4,7 @@
         <Header />
     </div>
 
-    <!-- Add left side nav here for desktop and mobile  (See if vue or nuxt have a checker for mobile device) -->
+    <!-- Add left side nav here for mobile  (See if vue or nuxt have a checker for mobile device) -->
 
     <div class="relative bg-white dark:bg-dark-bg mx-auto flex max-w-8xl justify-center sm:px-2 lg:px-8 xl:px-12"> <!-- pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8 -->
 
@@ -138,12 +138,6 @@
   
   
     <script>
-  import axios from 'axios'
-  import { graphql } from 'graphql'
-  import gql from 'graphql-tag'
-  import { marked } from 'marked'
-  import { slugifyWithCounter } from '@sindresorhus/slugify'
-
   
   
   export default {
@@ -154,10 +148,8 @@
         tableOfContents: {},
         allLinks: [],
         currentIndex: 0,
-        currentSubsection: "",         // Hardcoded Temp Value
+        currentSubsection: "",        
         currentSubsectionHref: "",
-        previousPage: {title: "PP Title", href: "/"}, // Hardcoded Temp Value
-        nextPage: {title: "NP Title", href:"/blog"}, // Hardcoded Temp Value
       };
     },
     mounted() {
@@ -167,37 +159,15 @@
     },
     methods: {
       async getData() {
-        this.docData = await useAsyncData('getDocumentation', () => GqlGetDocumentation({href: this.$route.params.section}))  // Temporarily hardcoded the input
+        this.docData = await useAsyncData('getDocumentation', () => GqlGetDocumentation({href: this.$route.params.section}))
           .then(({ data }) => {
-            console.log("The route: ", this.$route.params.section)
             this.renderedContent = data._value.currentDoc.data[0].attributes.subsections[0].content
             this.currentSubsection = data._value.currentDoc.data[0].attributes.subsections[0].title
             this.currentSubsectionHref = this.$route.params.section
-            console.log("Current Subsection:", this.currentSubsection)
-            console.log("Current Doc: ", data._value.currentDoc)
-            console.log("All Links: ", data._value.allLinks)
             this.allLinks = data._value.allLinks.data.flatMap(num => num.attributes.subsections)
             this.currentIndex = this.allLinks.findIndex((link) => link.href==this.currentSubsectionHref);
-            console.log("Current Index: ", this.currentIndex)
 
-            // let test = data._value.currentDoc.data[0].attributes.subsections[0].content
-
-            // var parser = new DOMParser();
-            // var htmlDoc = parser.parseFromString(test, 'text/html');
-
-            // let onPage = []
-            
-            // let nodes = htmlDoc.body.childNodes
-            
-
-            // console.log(nodes[0].localName)
-            // console.log(htmlDoc.body.childNodes)
-
-            // console.log("Test: ",data._value.currentDoc.data[0].attributes.subsections[0].content)
-            // renderedContent.querySelectorAll
-            // const headings = [...renderedContent.querySelectorAll("h3.title")].map(node => node.textContent);
-            // console.log(headings);
-
+            // TO-DO: Add functionality for "On this page"
             
             return data._value.allLinks.data.map((doc) => ({
             section_title: doc.attributes.section_title,
@@ -205,172 +175,6 @@
           }))
           });
       },
-      slugify (str) {
-        str = str.toLowerCase()
-        str = str.trim()
-        str = str.replace(/[^\w\s-]/g, '')
-        str = str.replace(/[\s_-]+/g, '-')
-        str = str.replace(/^-+|-+$/g, '')
-        console.log(str)
-        return str
-      },
-      getNodeText(node) {
-        let text = ''
-        for (let child of node.children ?? []) {
-          if (typeof child === 'string') {
-            text += child
-          }
-          text += getNodeText(child)
-        }
-        return text
-      },
-      collectHeadings(nodes, slugify = slugifyWithCounter()) {
-        let sections = []
-
-        for (let node of nodes) {
-          if (node.name === 'h2' || node.name === 'h3') {
-            let title = getNodeText(node)
-            if (title) {
-              let id = slugify(title)
-              node.attributes.id = id
-              if (node.name === 'h3') {
-                if (!sections[sections.length - 1]) {
-                  throw new Error(
-                    'Cannot add `h3` to table of contents without a preceding `h2`'
-                  )
-                }
-                sections[sections.length - 1].children.push({
-                  ...node.attributes,
-                  title,
-                })
-              } else {
-                sections.push({ ...node.attributes, title, children: [] })
-              }
-            }
-          }
-
-          sections.push(...collectHeadings(node.children ?? [], slugify))
-        }
-
-        return sections
-      },
-      readingTime(text) {
-        const wpm = 225;
-        const words = text.trim().split(/\s+/).length;
-        return Math.ceil(words / wpm);
-      },
-      isActive(subsection) {
-      if (subsection === currentSubsection) {
-        return true
-      }
-      return false
-    },
     } 
   }
   </script>
-  
-    
-    <!-- <script setup>
-  
-    import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue'
-    import { MenuIcon, XIcon } from '@heroicons/vue/outline'
-    import Header from '@/components/Header.vue';
-    import Footer from '@/components/Footer.vue';
-    
-    const navigation = [
-      { name: 'Product', href: '#' },
-      { name: 'Features', href: '#' },
-      { name: 'Marketplace', href: '#' },
-      { name: 'Company', href: '#' },
-    ]
-  </script>  -->
-  
-  
-  // let getHeadings = useCallback((tableOfContents) => {
-  //     return tableOfContents
-  //       .flatMap((node) => [node.id, ...node.children.map((child) => child.id)])
-  //       .map((id) => {
-  //         let el = document.getElementById(id)
-  //         if (!el) return
-  
-  //         let style = window.getComputedStyle(el)
-  //         let scrollMt = parseFloat(style.scrollMarginTop)
-  
-  //         let top = window.scrollY + el.getBoundingClientRect().top - scrollMt
-  //         return { id, top }
-  //       })
-  //   }, [])
-
-
-  <!-- title: "Test Title",
-        section: {title: "Test Section"},
-        
-        tableOfContents:  [
-        {
-          title: 'Introduction',
-          links: [
-            { title: 'Getting started', href: '/' },
-            { title: 'Installation', href: '/docs/installation' },
-          ],
-        },
-        {
-          title: 'Core concepts',
-          links: [
-            { title: 'Understanding caching', href: '/docs/understanding-caching' },
-            {
-              title: 'Predicting user behavior',
-              href: '/docs/predicting-user-behavior',
-            },
-            { title: 'Basics of time-travel', href: '/docs/basics-of-time-travel' },
-            {
-              title: 'Introduction to string theory',
-              href: '/docs/introduction-to-string-theory',
-            },
-            { title: 'The butterfly effect', href: '/docs/the-butterfly-effect' },
-          ],
-        },
-        {
-          title: 'Advanced guides',
-          links: [
-            { title: 'Writing plugins', href: '/docs/writing-plugins' },
-            { title: 'Neuralink integration', href: '/docs/neuralink-integration' },
-            { title: 'Temporal paradoxes', href: '/docs/temporal-paradoxes' },
-            { title: 'Testing', href: '/docs/testing' },
-            { title: 'Compile-time caching', href: '/docs/compile-time-caching' },
-            {
-              title: 'Predictive data generation',
-              href: '/docs/predictive-data-generation',
-            },
-          ],
-        },
-        {
-          title: 'API reference',
-          links: [
-            { title: 'CacheAdvance.predict()', href: '/docs/cacheadvance-predict' },
-            { title: 'CacheAdvance.flush()', href: '/docs/cacheadvance-flush' },
-            { title: 'CacheAdvance.revert()', href: '/docs/cacheadvance-revert' },
-            { title: 'CacheAdvance.regret()', href: '/docs/cacheadvance-regret' },
-          ],
-        },
-        {
-          title: 'Contributing',
-          links: [
-            { title: 'How to contribute', href: '/docs/how-to-contribute' },
-            { title: 'Architecture guide', href: '/docs/architecture-guide' },
-            { title: 'Design principles', href: '/docs/design-principles' },
-          ],
-        },
-        ]  
-      
-        isActive(section) {
-      if (section.id === currentSection) {
-        return true
-      }
-      if (!section.children) {
-        return false
-      }
-      return section.children.findIndex(isActive) > -1
-    },-->
-  
-    
-    

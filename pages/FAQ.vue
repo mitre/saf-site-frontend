@@ -3,7 +3,7 @@
       <div>
         <Header />
       </div>
-      <div class="relative bg-white dark:bg-dark-bg h-screen pt-8 pb-20 px-4 sm:px-6 lg:px-8">
+      <div class="relative bg-white dark:bg-dark-bg h-full py-8 px-4 sm:px-6 lg:px-8">
         <div class="relative max-w-7xl mx-auto">
           <div class="mx-auto max-w-7xl px-4 sm:py-4 sm:px-6 lg:px-8">
             <div class="text-center">
@@ -12,8 +12,7 @@
             </div>
           </div>
 
-          <div class="">
-            <div class="mx-auto max-w-7xl py-12 px-4 sm:py-16 sm:px-6 lg:px-8">
+            <div class="mx-auto max-w-7xl pb-4 px-4 sm:pb-8 sm:px-6 lg:px-8">
               <div class="mx-auto max-w-3xl divide-y-2 divide-gray-200">
                 <dl class="mt-6 space-y-6 divide-y divide-gray-200">
                   <Disclosure as="div" v-for="faq in faqs" :key="faq.question" class="pt-6" v-slot="{ open }">
@@ -32,7 +31,6 @@
                 </dl>
               </div>
             </div>
-          </div>
 
         </div>
       </div>

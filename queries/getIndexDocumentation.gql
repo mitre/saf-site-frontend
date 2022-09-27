@@ -1,0 +1,26 @@
+query getIndexDocumentation($id: ID!){
+	currentDoc:documentation(id: $id){
+    data{
+      attributes{
+        section_title
+        subsections{
+          title
+          content
+          href
+        }
+      }
+    }
+  }
+
+  allLinks:documentations{
+    data{
+      attributes{
+        section_title
+        subsections{
+          title
+          href
+        }
+      }
+    }
+  }
+}

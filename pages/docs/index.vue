@@ -4,7 +4,7 @@
         <Header />
     </div>
 
-    <!-- Add left side nav here for desktop and mobile  (See if vue or nuxt have a checker for mobile device) -->
+    <!-- Add left side nav here for mobile  (See if vue or nuxt have a checker for mobile device) -->
 
     <div class="relative bg-white dark:bg-dark-bg mx-auto flex max-w-8xl justify-center sm:px-2 lg:px-8 xl:px-12"> <!-- pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8 -->
 
@@ -62,27 +62,27 @@
             </header>
           </div>
           <p class="text-4xl font-bold text-gray-900 border-b border-slate-200 pb-4 mb-6 dark:text-white">{{currentSubsection}}</p>
-          <span v-html="renderedContent" class="mt-8 mx-auto leading-8 prose dark:prose-invert"></span>
+          <span v-if="renderedContent" v-html="renderedContent" class="mt-8 mx-auto leading-8 prose dark:prose-invert"></span>
           <!-- <Prose>{children}</Prose> -->
         </article>
         <dl class="mt-12 flex border-t border-slate-200 pt-6 dark:border-slate-800">
-            <div v-if="previousPage">
+            <div v-if="allLinks[currentIndex-1]">
               <dt class="font-display text-sm font-medium text-slate-900 dark:text-white">
                 Previous
               </dt>
               <dd class="mt-1">
-                <a :href ="`/docs/`" class="text-base font-semibold text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300"> <!-- Change docData.title to find next page title -->
-                  <span aria-hidden="true">&larr;</span> {{previousPage.title}}
+                <a :href ="`/docs/${allLinks[currentIndex-1].href}`" class="text-base font-semibold text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300"> <!-- Change docData.title to find next page title -->
+                  <span aria-hidden="true">&larr;</span> {{allLinks[currentIndex-1].title}}
                 </a>
               </dd>
             </div>
-            <div v-if="nextPage" class="ml-auto text-right">
+            <div v-if="allLinks[currentIndex+1]" class="ml-auto text-right">
               <dt class="font-display text-sm font-medium text-slate-900 dark:text-white">
                 Next
               </dt>
               <dd class="mt-1">
-                <a :href ="`/docs/`" class="text-base font-semibold text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300"> <!-- Change docData.title to find next page title -->
-                  <span aria-hidden="true">&rarr;</span> {{nextPage.title}} 
+                <a :href ="`/docs/${allLinks[currentIndex+1].href}`" class="text-base font-semibold text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300"> <!-- Change docData.title to find next page title -->
+                  <span aria-hidden="true">&rarr;</span> {{allLinks[currentIndex+1].title}} 
                 </a>
               </dd>
             </div>
@@ -145,10 +145,10 @@
         docData: {},
         renderedContent: {},
         tableOfContents: {},
-        currentSubsection: "",         // Hardcoded Temp Value
+        allLinks: [],
+        currentIndex: 0,
+        currentSubsection: "",        
         currentSubsectionHref: "",
-        previousPage: {title: "PP Title", href: "/"}, // Hardcoded Temp Value
-        nextPage: {title: "NP Title", href:"/blog"}, // Hardcoded Temp Value
       };
     },
     mounted() {
@@ -158,20 +158,23 @@
     },
     methods: {
       async getData() {
-        this.docData = await useAsyncData('getDocumentation', () => GqlGetDocumentation({href: "class-overview"}))  // Temporarily hardcoded the input
+        this.docData = await useAsyncData('getIndexDocumentation', () => GqlGetIndexDocumentation({id: "1"}))
           .then(({ data }) => {
+            console.log("Data: ", data)
+            this.renderedContent = data._value.currentDoc.data.attributes.subsections[0].content
+            this.currentSubsection = data._value.currentDoc.data.attributes.subsections[0].title
+            this.currentSubsectionHref = data._value.currentDoc.data.attributes.subsections[0].href
+            this.allLinks = data._value.allLinks.data.flatMap(num => num.attributes.subsections)
+            this.currentIndex = 0;
+
+            // TO-DO: Add functionality for "On this page"
+            
             return data._value.allLinks.data.map((doc) => ({
             section_title: doc.attributes.section_title,
             subsections: doc.attributes.subsections,
           }))
           });
       },
-      isActive(subsection) {
-      if (subsection === currentSubsection) {
-        return true
-      }
-      return false
-    },
     } 
   }
-</script>   
+</script>

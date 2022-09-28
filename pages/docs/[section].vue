@@ -4,8 +4,36 @@
         <Header />
     </div>
 
-    <!-- Add left side nav here for mobile  (See if vue or nuxt have a checker for mobile device) -->
-
+    <div class="mr-6 flex lg:hidden">
+      <button
+        type="button"
+        @click="setIsOpen(true)"
+        class="relative"
+        aria-label="Open navigation"
+      >
+        <MenuIcon class="h-6 w-6 stroke-slate-500" />
+      </button>
+      <Dialog
+        :open="isOpen"
+        @close="setIsOpen"
+        class="fixed inset-0 z-50 flex items-start overflow-y-auto bg-slate-900/50 pr-10 backdrop-blur lg:hidden"
+        aria-label="Navigation"
+      >
+        <DialogPanel class="min-h-full w-full max-w-xs bg-white px-4 pt-5 pb-12 dark:bg-slate-900 sm:px-6">
+          <div class="flex items-center">
+            <button
+              type="button"
+              @click="setIsOpen(false)"
+              aria-label="Close navigation"
+            >
+              <XIcon class="h-6 w-6 stroke-slate-500" />
+            </button>
+          </div>
+          <!-- Insert subsection navigation component here for mobile view -->
+        </DialogPanel>
+      </Dialog>
+    </div>
+    
     <div class="relative bg-white dark:bg-dark-bg mx-auto flex max-w-8xl justify-center sm:px-2 lg:px-8 xl:px-12"> <!-- pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8 -->
 
       <div class="hidden lg:relative lg:block lg:flex-none">
@@ -138,6 +166,8 @@
   
   
 <script>
+import { Dialog, DialogPanel } from '@headlessui/vue'
+import { MenuIcon, XIcon } from '@heroicons/vue/outline'
   
   export default {
     data() {
@@ -149,6 +179,7 @@
         currentIndex: 0,
         currentSubsection: "",        
         currentSubsectionHref: "",
+        isOpen: ref(false),
       };
     },
     mounted() {
@@ -156,6 +187,7 @@
         await this.getData()
       });
     },
+    components: { Dialog, DialogPanel, MenuIcon, XIcon },
     methods: {
       async getData() {
         this.docData = await useAsyncData('getDocumentation', () => GqlGetDocumentation({href: this.$route.params.section}))
@@ -174,6 +206,9 @@
           }))
           });
       },
+      setIsOpen(value){
+        this.isOpen = value
+      }
     } 
   }
 </script>

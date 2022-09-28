@@ -263,7 +263,7 @@
                 Blog
               </a>
 
-              <a href="#" class="text-base font-medium text-gray-900 dark:text-MITRE-silver hover:text-gray-700">
+              <a href="/docs" class="text-base font-medium text-gray-900 dark:text-MITRE-silver hover:text-gray-700">
                 Docs
               </a>
               <a v-for="item in resources" :key="item.name" :href="item.href"

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div> <Header /> </div>
-    <div class="relative py-16 bg-white dark:bg-dark-bg overflow-hidden h-full">
+    <div class="relative py-16 bg-white dark:bg-dark-bg overflow-hidden min-h-screen h-full">
       <div class="relative px-4 sm:px-6 lg:px-8">
         <template v-if="isLoaded" class="text-lg prose prose-lg max-w-prose mx-auto ">
           <h1>

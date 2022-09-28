@@ -5,9 +5,9 @@
       <div class="flex justify-center space-x-6 md:order-2">
         <a v-for="item in navigation" :key="item.name" :href="item.href" class="text-gray-400 hover:text-gray-500 dark:hover:text-gray-200">
           <span class="sr-only">{{ item.name }}</span>
-          <component :is="item.icon" class="h-12 w-12 md:h-8 md:w-8" aria-hidden="true" />
+          <component :is="item.icon" class="h-12 w-12 md:h-10 md:w-10" aria-hidden="true" />
         </a>
-        <a href="https://www.netlify.com" class="mx-auto">
+        <a href="https://www.netlify.com" class="mx-auto w-24">
            <img src="https://www.netlify.com/v3/img/components/netlify-color-accent.svg" alt="Deploys by Netlify" /> 
         </a>
       </div>

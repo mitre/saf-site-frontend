@@ -1,0 +1,14 @@
+query getBlogDataFromAuthor($author: String!){
+  blogPosts(filters:{author:{eq: $author}}){
+    data {
+      attributes {
+        title,
+        category,
+        description,
+        content,
+        date,
+        author,
+      }
+    }
+  }
+}

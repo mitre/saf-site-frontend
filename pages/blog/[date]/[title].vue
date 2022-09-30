@@ -9,7 +9,11 @@
               {{postData.title}}
             </span>
             <span class="pt-3 block text-base text-center text-blue-600 font-semibold tracking-wide">
-              {{postData.date}} &nbsp; | &nbsp;  {{postData.author}} 
+               {{postData.date}}
+              &nbsp; | &nbsp; 
+              <a :href="`/blog/author/${slugify(postData.author)}?id=${postData.author}`" class="hover:underline">
+               {{postData.author}}
+              </a> 
             </span>
           </h1>
           <!-- <span v-html="renderedContent" class="mt-8 text-xl mx-auto leading-8 prose prose-sm dark:prose-invert"></span> -->
@@ -59,6 +63,15 @@ export default {
       });
      
   },
+  slugify (str) {
+      str = str.toLowerCase()
+      str = str.trim()
+      str = str.replace(/[^\w\s-]/g, '')
+      str = str.replace(/[\s_-]+/g, '-')
+      str = str.replace(/^-+|-+$/g, '')
+      console.log(str)
+      return str
+    },
   }
 }
 </script>

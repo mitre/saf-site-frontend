@@ -259,9 +259,10 @@
           </div>
           <div class="py-6 px-5 space-y-6">
             <div class="grid grid-cols-2 gap-y-4 gap-x-8">
-              <a href="#" class="text-base font-medium text-gray-900 dark:text-MITRE-silver hover:text-gray-700">
+              <NuxtLink to="/blog" 
+              class="text-base font-medium text-gray-900 dark:text-MITRE-silver hover:text-gray-700">
                 Blog
-              </a>
+              </NuxtLink>
 
               <a href="#" class="text-base font-medium text-gray-900 dark:text-MITRE-silver hover:text-gray-700">
                 Docs

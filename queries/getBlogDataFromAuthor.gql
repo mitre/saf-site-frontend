@@ -12,14 +12,6 @@ query getBlogDataFromAuthor($author: String!){
           data{
             attributes{
               name,
-              displayEmail,
-              company,
-              jobTitle,
-              description,
-              linkedIn,
-              twitter,
-              facebook,
-              instagram,
             }
           }
         }

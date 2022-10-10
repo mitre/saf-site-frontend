@@ -1,0 +1,17 @@
+query getBlogAuthor($author: String!){
+  usersPermissionsUsers(filters:{name:{eq: $author}}){
+    data{
+      attributes{
+        name,
+        displayEmail,
+        company,
+        jobTitle,
+        description,
+        linkedIn,
+        twitter,
+        facebook,
+        instagram,
+      }
+    }
+  }
+}

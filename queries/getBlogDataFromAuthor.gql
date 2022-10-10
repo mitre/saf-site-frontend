@@ -1,15 +1,52 @@
 query getBlogDataFromAuthor($author: String!){
-  blogPosts(filters:{author:{eq: $author}}){
-    data {
+  blogPosts(filters:{users_permissions_user:{name:{eq:$author}}}){
+    data{
       id,
-      attributes {
+      attributes{
         title,
         category,
         description,
         content,
         date,
-        author,
-      }
+        users_permissions_user{
+          data{
+            attributes{
+              name,
+              displayEmail,
+              company,
+              jobTitle,
+              description,
+              linkedIn,
+              twitter,
+              facebook,
+              instagram,
+            }
+          }
+        }
+      },
+
     }
   }
-}
+} 
+
+
+
+
+
+
+
+# query getBlogDataFromAuthor($author: String!){
+#   blogPosts(filters:{author:{eq: $author}}){
+#     data {
+#       id,
+#       attributes {
+#         title,
+#         category,
+#         description,
+#         content,
+#         date,
+#         author,
+#       }
+#     }
+#   }
+# }

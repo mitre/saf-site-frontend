@@ -8,7 +8,13 @@ query blogPosts{
         description,
         content,
         date,
-        author,
+        users_permissions_user{
+          data{
+            attributes{
+              name,
+            }
+          }
+        }
       }
     }
   }

@@ -34,10 +34,6 @@
               </div>
               <div class="mt-6 flex items-center">
                 <div class="flex-shrink-0">
-                  <!-- <NuxtLink to="/author">
-                    <span class="sr-only">{{ post.author }}</span>
-                    <img class="h-10 w-10 rounded-full" :src="post.author.imageUrl" alt="" />
-                  </NuxtLink> -->
                 </div>
                 <div class="ml-3">
                   <span class="text-sm font-medium text-gray-900 dark:text-dark-text ">
@@ -109,11 +105,6 @@ export default defineComponent({
 </script> -->
 
 <script>
-import axios from 'axios'
-import { graphql } from 'graphql';
-import gql from 'graphql-tag'
-
-
 export default {
   data() {
     return {
@@ -129,18 +120,15 @@ export default {
     async getBlogPosts() {
       this.posts = await useAsyncData('getAllBlogData', () => GqlBlogPosts())
         .then(({ data }) => {
-          //blogDataFromAPI = data._value.blogPosts.data
           console.log(data._value.blogPosts.data)
+          //blogDataFromAPI = data._value.blogPosts.data
+          // console.log(data._value.blogPosts.data)
           //this.posts = data._value.blogPosts.data
           return data._value.blogPosts.data.map((post) => ({
             title: post.attributes.title,
             description: post.attributes.description,
             category: {name: post.attributes.category},
-            // author: {
-            //   name: post.author,
-            //   href: '/',
-            // },
-            author: post.attributes.author,
+            author: post.attributes.users_permissions_user.data.attributes.name,
             date: post.attributes.date,
             id: post.id,
             readingTime: this.readingTime(post.attributes.content)
@@ -153,7 +141,6 @@ export default {
       str = str.replace(/[^\w\s-]/g, '')
       str = str.replace(/[\s_-]+/g, '-')
       str = str.replace(/^-+|-+$/g, '')
-      console.log(str)
       return str
     },
     readingTime(text) {
@@ -167,19 +154,4 @@ export default {
 
 
 
-<!-- // const posts = [
-//   {
-//     title: ,
-//     href: ,
-//     category: {name: 'Temp Tag', color: 'bg-green-100 text-green-800'},
-//     description:
-//       'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
-//     date: 'Mar 16, 2020',
-//     datetime: '2020-03-16',
-//     author: {
-//       name: 'Dessie Ryan',
-//       href: '#',
-//       readingTime: '6 min',
-//       imageUrl:
-//         'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-//     }, -->
+

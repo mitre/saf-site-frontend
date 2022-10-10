@@ -11,14 +11,13 @@
             <span class="pt-3 block text-base text-center text-blue-600 font-semibold tracking-wide">
                {{postData.date}}
               &nbsp; | &nbsp; 
-              <a :href="`/blog/author/${slugify(postData.author)}?id=${postData.author}`" class="hover:underline">
-               {{postData.author}}
+              <a :href="`/blog/author/${slugify(postAuthor)}?id=${postAuthor}`" class="hover:underline">
+               {{postAuthor}}
               </a> 
             </span>
           </h1>
           <!-- <span v-html="renderedContent" class="mt-8 text-xl mx-auto leading-8 prose prose-sm dark:prose-invert"></span> -->
           <div class="mt-8 mx-auto leading-8 text-center prose prose-sm lg:prose-lg dark:prose-invert prose-li:text-start prose-code:text-start" v-html="renderedContent" ></div>
-
         </template>
         <template v-else> 
           <div class="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 dark:text-MITRE-silver sm:text-4xl" >
@@ -40,6 +39,7 @@ export default {
     return {
       post: {},
       postData: {},
+      postAuthor: {},
       renderedContent: {},
       isLoaded: false,
     };
@@ -57,8 +57,10 @@ export default {
       .then(({ data }) => {
         console.log(this.post)
         this.postData = data._value.blogPost.data.attributes
+        console.log('This is postdata')
+        console.log(this.postData)
         this.renderedContent = marked(this.postData.content)
-        this.postTitle = this.postData.title
+        this.postAuthor = this.postData.users_permissions_user.data.attributes.name
         this.isLoaded = true
       });
      
@@ -69,7 +71,6 @@ export default {
       str = str.replace(/[^\w\s-]/g, '')
       str = str.replace(/[\s_-]+/g, '-')
       str = str.replace(/^-+|-+$/g, '')
-      console.log(str)
       return str
     },
   }

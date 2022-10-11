@@ -18,9 +18,10 @@
           </h1>
           <!-- <span v-html="renderedContent" class="mt-8 text-xl mx-auto leading-8 prose prose-sm dark:prose-invert"></span> -->
           <div class="mt-8 mx-auto leading-8 text-center prose prose-sm lg:prose-lg dark:prose-invert prose-li:text-start prose-code:text-start" v-html="renderedContent" ></div>
+
         </template>
         <template v-else> 
-          <div class="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 dark:text-MITRE-silver sm:text-4xl" >
+          <div class="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight min-h-screen h-full text-gray-900 dark:text-MITRE-silver sm:text-4xl" >
              Loading ... 
           </div>
         </template>

@@ -7,6 +7,14 @@ query getBlogAuthor($author: String!){
         company,
         jobTitle,
         description,
+        photo{
+          data{
+            attributes{
+              name,
+              url,
+            }
+          }
+        }
         linkedIn,
         twitter,
         facebook,

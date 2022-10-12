@@ -11,17 +11,19 @@
             </div>
             <div class="sm:flex justify-between items-center">
               <div v-if="author.photo" class="relative order-2 sm:mr-8">
-                <img v-bind:src="author.photo.url" v-bind:alt="author.photo.name" class="max-w-full h-auto max-h-36 mx-auto pt-10 sm:py-0 align-middle" /> 
+                <img v-bind:src="author.photo.url" v-bind:alt="author.photo.name" class="max-w-full h-auto max-h-28 sm:max-h-36 mx-auto pt-10 sm:py-6 align-middle" /> 
               </div>
-              <div class="relative order-1 max-w-7xl ml-8 py-12 px-4 sm:py-12 sm:px-6 lg:px-1">
+              <div class="relative order-1 max-w-7xl ml-4 sm:ml-8 py-6 px-4 sm:py-4 sm:pt-0 sm:px-6 lg:px-1">
                 <h1 class="mt-2 block text-2xl sm:text-3xl leading-8 font-extrabold tracking-tight text-white">
                   {{ authorName }} 
                 </h1>
                 <div class="mt-2 max-w-3xl text-lg text-dark-text pl-1"> {{author.company}} - {{author.title}} </div>
-                
               </div>  
             </div>
-            <div class="prose mt-2 ml-8 mr-8 pb-4 sm:justify-center max-w-3xl text-white dark:text-MITRE-silver" v-html="author.description" /> 
+            <div class="prose mt-2 ml-8 mr-8 pb-4 sm:justify-center max-w-3xl text-sm sm:text-base tracking-wide sm:tracking-normal text-white dark:text-MITRE-silver" v-html="author.description" /> 
+            <div class="flex">
+
+            </div>
           </div>
         </div>
         <span class="block text-xl pt-12 text-center underline dark:text-dark-text">

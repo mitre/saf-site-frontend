@@ -20,7 +20,7 @@
                 <div class="mt-2 max-w-3xl text-lg text-dark-text pl-1"> {{author.company}} - {{author.title}} </div>
               </div>  
             </div>
-            <div class="prose mt-2 ml-8 mr-8 pb-4 sm:justify-center max-w-3xl text-sm sm:text-base tracking-wide sm:tracking-normal text-white dark:text-MITRE-silver" v-html="author.description" /> 
+            <div class="prose mt-2 ml-8 mr-8 pb-4 sm:justify-center max-w-5xl text-sm sm:text-base tracking-wide sm:tracking-normal text-white dark:text-MITRE-silver" v-html="author.description" /> 
             <div class="flex">
 
             </div>

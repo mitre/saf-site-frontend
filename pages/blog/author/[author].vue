@@ -1,13 +1,13 @@
 <template>
   <div>
     <div> <Header /> </div>
-    <div class="relative py-16 bg-white dark:bg-dark-bg overflow-hidden min-h-screen h-full pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
+    <div class="relative py-16 bg-white dark:bg-dark-bg overflow-hidden min-h-screen h-full pt-12 pb-20 px-4 sm:px-6 lg:pt-12 lg:pb-28 lg:px-8">
       <template v-if="isLoaded">
         <div class="relative px-4 sm:px-6 lg:px-32">
-          <div class="relative bg-blue-800 rounded-3xl">
-            <div class="absolute inset-0">
+          <div class="relative bg-blue-900 rounded-3xl">
+            <div class="absolute ">
               <!-- <img class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1525130413817-d45c1d127c42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&q=60&&sat=-100" alt="" /> -->
-              <div class="absolute inset-0 bg-blue-500 mix-blend-multiply opacity-70 rounded-3xl" aria-hidden="true" />
+              <div class="absolute  bg-blue-500 mix-blend-multiply opacity-70 rounded-3xl" aria-hidden="true" />
             </div>
             <div class="sm:flex justify-between items-center">
               <div v-if="author.photo" class="relative order-2 sm:mr-8">
@@ -21,12 +21,28 @@
               </div>  
             </div>
             <div class="prose mt-2 ml-8 mr-8 pb-4 sm:justify-center max-w-5xl text-sm sm:text-base tracking-wide sm:tracking-normal text-white dark:text-MITRE-silver" v-html="author.description" /> 
-            <div class="flex">
-
+            <div id="Social Medias" class="flex gap-2 pl-8 pb-5">
+              <a v-if="author.emailLink" v-bind:href="author.emailLink">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" class="w-8 h-8">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                </svg>
+              </a>
+              <a v-if="author.twitter" v-bind:href="author.twitter">
+                <img src="~/assets/TwitterLogo.png" class="max-w-full h-auto max-h-8" alt="Twitter Logo" />
+              </a>
+              <a v-if="author.facebook" v-bind:href="author.facebook">
+                <img src="~/assets/FacebookLogo.png" class="max-w-full h-auto max-h-8" alt="Facebook Logo" />
+              </a>
+              <a v-if="author.instagram" v-bind:href="author.instagram">
+                <img src="~/assets/InstagramLogo.png" class="max-w-full h-auto max-h-8" alt="Instagram Logo" />
+              </a>
+              <a v-if="author.linkedin" v-bind:href="author.linkedin">
+                <img src="~/assets/LinkedInLogo.png" class="max-w-full h-auto max-h-8" alt="LinkedIn Logo" />
+              </a>
             </div>
           </div>
         </div>
-        <span class="block text-xl pt-12 text-center underline dark:text-dark-text">
+        <span class="block text-xl pt-12 text-center underline font-bold dark:text-dark-text">
                 Recent Articles
         </span>  
         <!-- <BlogPostCards graphql-query="author"/>  -->
@@ -136,6 +152,7 @@ export default {
                 url: author.attributes.photo.data.attributes.url,
               }, 
               displayEmail: author.attributes.displayEmail,
+              emailLink: 'mailto:' + author.attributes.displayEmail,
               linkedin: author.attributes.linkedIn,
               twitter: author.attributes.twitter,
               facebook: author.attributes.facebook,

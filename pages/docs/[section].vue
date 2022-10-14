@@ -4,41 +4,9 @@
         <Header />
     </div>
 
-    <div class="relative bg-white dark:bg-dark-bg flex lg:hidden">
-      <button
-        type="button"
-        @click="setIsOpen(true)"
-        class="mx-auto my-5 flex text-xl dark:text-white"
-        aria-label="Open navigation"
-      >
-        Subsection List
-        <MenuIcon class="h-6 w-6 ml-3 stroke-slate-500" />
-      </button>
-      <Dialog
-        :open="isOpen"
-        @close="setIsOpen"
-        class="fixed inset-0 z-50 flex items-start overflow-y-auto bg-slate-900/50 pr-10 backdrop-blur lg:hidden"
-        aria-label="Navigation"
-      >
-        <DialogPanel class="min-h-full w-full max-w-xs bg-white px-4 pt-5 pb-12 dark:bg-slate-900 sm:px-6">
-          <div class="flex items-center">
-            <button
-              type="button"
-              @click="setIsOpen(false)"
-              aria-label="Close navigation"
-            >
-              <XIcon class="h-6 w-6 stroke-slate-500" />
-            </button>
-          </div>
-          <div v-if="docData" class="mt-5">
-            <DocumentationNavigation  :doc-data="docData" :current-subsection-href="currentSubsectionHref"/>
-          </div>
-        </DialogPanel>
-      </Dialog>
-    </div>
+    <DocumentationMobileNavigation  :doc-data="docData" :current-subsection-href="currentSubsectionHref" :current-subsection="currentSubsection" :current-section-title="currentSectionTitle" />
     
-    <div class="relative bg-white dark:bg-dark-bg mx-auto flex max-w-8xl justify-center sm:px-2 lg:px-8 xl:px-12"> <!-- pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8 -->
-
+    <div class="relative bg-white dark:bg-dark-bg mx-auto flex max-w-8xl justify-center sm:px-2 lg:px-8 xl:px-12">
       <div class="hidden lg:relative lg:block lg:flex-none">
           <div class="absolute inset-y-0 right-0 w-[50vw] bg-slate-50 dark:hidden" />
           <div class="sticky top-[4.5rem] -ml-0.5 h-[calc(100vh-4.5rem)] overflow-y-auto py-16 pl-0.5">
@@ -52,77 +20,12 @@
           </div>
       </div>
 
-      <div class="min-w-0 max-w-2xl flex-auto px-4 lg:py-16 lg:max-w-none lg:pr-0 lg:pl-8 xl:px-16">
-        <article>
-          <p class="text-5xl font-bold text-gray-900 border-b border-slate-200 pb-4 mb-6 dark:text-white text-center">{{currentSubsection}}</p>
-          <span v-if="renderedContent" v-html="renderedContent" class="mt-8 mx-auto leading-8 prose dark:prose-invert"></span>
-        </article>
-        <dl class="mt-12 flex border-t border-slate-200 pt-6 dark:border-slate-800">
-            <div v-if="allLinks[currentIndex-1]">
-              <dt class="font-display text-sm font-medium text-slate-900 dark:text-white">
-                Previous
-              </dt>
-              <dd class="mt-1">
-                <a :href ="`/docs/${allLinks[currentIndex-1].href}`" class="text-base font-semibold text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300"> <!-- Change docData.title to find next page title -->
-                  <span aria-hidden="true">&larr;</span> {{allLinks[currentIndex-1].title}}
-                </a>
-              </dd>
-            </div>
-            <div v-if="allLinks[currentIndex+1]" class="ml-auto text-right">
-              <dt class="font-display text-sm font-medium text-slate-900 dark:text-white">
-                Next
-              </dt>
-              <dd class="mt-1">
-                <a :href ="`/docs/${allLinks[currentIndex+1].href}`" class="text-base font-semibold text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300"> <!-- Change docData.title to find next page title -->
-                  <span aria-hidden="true">&rarr;</span> {{allLinks[currentIndex+1].title}} 
-                </a>
-              </dd>
-            </div>
-        </dl>
+      <div class="min-w-0 max-w-2xl flex-auto px-6 lg:py-10 lg:max-w-none lg:pr-0 lg:pl-8 xl:px-16">
+        <DocumentationCurrentPage  :rendered-content="renderedContent" :current-subsection="currentSubsection" :all-links="allLinks" :current-index="currentIndex" /> 
       </div>
   
       <div class="hidden xl:sticky xl:top-[4.5rem] xl:-mr-6 xl:block xl:h-[calc(100vh-4.5rem)] xl:flex-none xl:overflow-y-auto xl:py-16 xl:pr-6">
-        <nav aria-labelledby="on-this-page-title" class="w-56">
-          <div v-if="tableOfContents.length>0"> <!--Change this to a function to get the headings in the markdown text-->
-              <h2
-                id="on-this-page-title"
-                class="font-display text-sm font-medium text-slate-900 dark:text-white"
-              >
-                On this page
-              </h2>
-              <ol role="list" class="mt-4 space-y-3 text-sm">
-                <div v-for="(heading, key) in tableOfContents" :key="key">
-                  <li key={{heading.title}}>
-                    <h3>
-                      <NuxtLink
-                        :href="`/docs/${currentSubsectionHref}#${slugify(heading.title)}`"
-                        :class="currentSubtitle == heading.title  ? 'text-sky-500' : 'font-normal text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300'"
-                      >
-                        {{heading.title}}
-                      </NuxtLink>
-                    </h3>
-                    <div v-if="heading.subtitles.length > 0">
-                      <ol
-                        role="list"
-                        class="mt-2 space-y-3 pl-5 text-slate-500 dark:text-slate-400"
-                      >
-                      <div v-for="subtitle in heading.subtitles">
-                          <li key={{subtitle}}>
-                            <a
-                              :href="`/docs/${currentSubsectionHref}#${slugify(subtitle)}`"
-                              :class="currentSubtitle == subtitle ? 'text-sky-500':'hover:text-slate-600 dark:hover:text-slate-300'"
-                            >
-                              {{subtitle}}
-                          </a>
-                          </li>
-                      </div>
-                      </ol>
-                    </div>
-                  </li>
-                </div>
-              </ol>
-          </div>
-        </nav>
+        <DocumentationPageNavigation  :table-of-contents="tableOfContents" :current-subsection-href="currentSubsectionHref" :current-heading="currentHeading"/>
       </div> 
     </div>
   </div>
@@ -139,7 +42,8 @@ import { MenuIcon, XIcon } from '@heroicons/vue/outline'
         docData: {},
         renderedContent: {},
         tableOfContents: [],
-        currentSubtitle: "",
+        currentSectionTitle: "",
+        currentHeading: "",
         allLinks: [],
         currentIndex: 0,
         currentSubsection: "",        
@@ -160,22 +64,25 @@ import { MenuIcon, XIcon } from '@heroicons/vue/outline'
       str = str.replace(/[^\w\s-]/g, '')
       str = str.replace(/[.\s_-]+/g, '-')
       str = str.replace(/^-+|-+$/g, '')
-      console.log(str)
       return str
     },
       async getData() {
         this.docData = await useAsyncData('getDocumentation', () => GqlGetDocumentation({href: this.$route.params.section}))
           .then(({ data }) => {
             let content = data._value.currentDoc.data[0].attributes.subsections[0].content
-            this.currentSubsection = data._value.currentDoc.data[0].attributes.subsections[0].title 
+            this.currentSubsection = data._value.currentDoc.data[0].attributes.subsections[0].title
+            this.currentSectionTitle = data._value.currentDoc.data[0].attributes.section_title 
             this.currentSubsectionHref = this.$route.params.section  
             this.allLinks = data._value.allLinks.data.flatMap(num => num.attributes.subsections)
+            this.currentHeading = this.$route.hash.substring(1,this.$route.hash.length)   
             this.currentIndex = this.allLinks.findIndex((link) => link.href==this.currentSubsectionHref);
+
+            console.log(this.$route.hash.substring(1,this.$route.hash.length) )
             
+            // Parse HTML section content
             let onPage = [];
             let parser = new DOMParser();
             let htmlDoc = parser.parseFromString(content, 'text/html')
-            console.log(htmlDoc)
 
             let currentHeader = -1;
             for (let element in htmlDoc.body.childNodes){
@@ -197,16 +104,12 @@ import { MenuIcon, XIcon } from '@heroicons/vue/outline'
             this.renderedContent = htmlDoc.documentElement.outerHTML
             this.tableOfContents = onPage
 
-            console.log(onPage)
             
             return data._value.allLinks.data.map((doc) => ({
             section_title: doc.attributes.section_title,
             subsections: doc.attributes.subsections,
           }))
           });
-      },
-      setIsOpen(value){
-        this.isOpen = value
       }
     } 
   }

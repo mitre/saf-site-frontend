@@ -14,7 +14,7 @@ query getDocumentation($href: String!){
     }
   }
   
-  allLinks:documentations{
+  allLinks:documentations(sort: "order_id:asc"){
     data{
       attributes{
         section_title

@@ -28,16 +28,16 @@
                 </svg>
               </a>
               <a v-if="author.twitter" v-bind:href="author.twitter">
-                <img src="~/assets/TwitterLogo.png" class="max-w-full h-auto max-h-8" alt="Twitter Logo" />
+                <img src="~/assets/TwitterLogoWhite.png" class="max-w-full h-auto max-h-8" alt="Twitter Logo" />
               </a>
               <a v-if="author.facebook" v-bind:href="author.facebook">
-                <img src="~/assets/FacebookLogo.png" class="max-w-full h-auto max-h-8" alt="Facebook Logo" />
+                <img src="~/assets/FacebookLogoWhite.png" class="max-w-full h-auto max-h-8" alt="Facebook Logo" />
               </a>
               <a v-if="author.instagram" v-bind:href="author.instagram">
-                <img src="~/assets/InstagramLogo.png" class="max-w-full h-auto max-h-8" alt="Instagram Logo" />
+                <img src="~/assets/InstagramLogoWhite.png" class="max-w-full h-auto max-h-8" alt="Instagram Logo" />
               </a>
               <a v-if="author.linkedin" v-bind:href="author.linkedin">
-                <img src="~/assets/LinkedInLogo.png" class="max-w-full h-auto max-h-8" alt="LinkedIn Logo" />
+                <img src="~/assets/LinkedInLogoWhite.png" class="max-w-full h-auto max-h-8" alt="LinkedIn Logo" />
               </a>
             </div>
           </div>

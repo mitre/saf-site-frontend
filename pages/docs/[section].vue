@@ -56,6 +56,9 @@ import { MenuIcon, XIcon } from '@heroicons/vue/outline'
         await this.getData()
       });
     },
+    beforeRouteUpdate (to, from) {
+      this.currentHeading = to.hash.replace(/^#+/, '') 
+    },
     components: { Dialog, DialogPanel, MenuIcon, XIcon },
     methods: {
       slugify (str) {
@@ -74,10 +77,8 @@ import { MenuIcon, XIcon } from '@heroicons/vue/outline'
             this.currentSectionTitle = data._value.currentDoc.data[0].attributes.section_title 
             this.currentSubsectionHref = this.$route.params.section  
             this.allLinks = data._value.allLinks.data.flatMap(num => num.attributes.subsections)
-            this.currentHeading = this.$route.hash.substring(1,this.$route.hash.length)   
+            this.currentHeading = this.$route.hash.replace(/^#+/, '')  
             this.currentIndex = this.allLinks.findIndex((link) => link.href==this.currentSubsectionHref);
-
-            console.log(this.$route.hash.substring(1,this.$route.hash.length) )
             
             // Parse HTML section content
             let onPage = [];

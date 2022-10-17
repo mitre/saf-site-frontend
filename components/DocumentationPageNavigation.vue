@@ -12,12 +12,12 @@
         <div v-for="(heading, key) in props.tableOfContents" :key="key">
           <li key={{heading.title}}>
             <h3>
-              <NuxtLink
-                :href="`/docs/${props.currentSubsectionHref}#${slugify(heading.title)}`"
-                class="font-normal text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300"
+              <a
+                :href="`#${slugify(heading.title)}`"
+                :class="props.currentHeading == slugify(heading.title) ? 'text-sky-500':`font-normal text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300`"
               >
                 {{heading.title}}
-              </NuxtLink>
+              </a>
             </h3>
             <div v-if="heading.subtitles.length > 0">
               <ol
@@ -27,9 +27,10 @@
               <div v-for="subtitle in heading.subtitles">
                   <li key={{subtitle}}>
                     <a
-                      :href="`/docs/${props.currentSubsectionHref}#${slugify(subtitle)}`"
-                      :class="props.currentHeading == subtitle ? 'text-sky-500':'hover:text-slate-600 dark:hover:text-slate-300'"
-                    >
+                      :href="`#${slugify(subtitle)}`"
+                      :class="props.currentHeading == slugify(subtitle) ? 'text-sky-500':'hover:text-slate-600 dark:hover:text-slate-300'"
+                      @click="methodThatForcesUpdate"
+                      >
                       {{subtitle}}
                   </a>
                   </li>
@@ -47,6 +48,7 @@
 
     
 <script setup>
+import { getCurrentInstance } from 'vue';
 
 const props = defineProps(["tableOfContents","currentSubsectionHref", "currentHeading"]);
 const slugify = (str) => {
@@ -57,7 +59,13 @@ const slugify = (str) => {
       str = str.replace(/^-+|-+$/g, '')
       return str
     }
-
+    const methodThatForcesUpdate = () => {
+  // ...
+  console.log("This is a test")
+  const instance = getCurrentInstance();
+  instance.proxy.forceUpdate();
+  // ...
+};
 </script>
 
   

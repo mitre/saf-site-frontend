@@ -37,7 +37,7 @@
                 </div>
                 <div class="ml-3">
                   <span class="text-sm font-medium text-gray-900 dark:text-dark-text ">
-                    <a :href="`blog/author/${slugify(post.author)}?id=${post.author}`" class="hover:underline">
+                    <a :href="`blog/${slugify(post.author)}?id=${post.author}`" class="hover:underline">
                       <p class="">{{post.author}}</p>  
                     </a>
                   </span>

@@ -11,7 +11,7 @@
             <span class="pt-3 block text-base text-center text-blue-600 font-semibold tracking-wide">
                {{postData.date}}
               &nbsp; | &nbsp; 
-              <a :href="`/blog/author/${slugify(postAuthor)}?id=${postAuthor}`" class="hover:underline">
+              <a :href="`/blog/${slugify(postAuthor)}?id=${postAuthor}`" class="hover:underline">
                {{postAuthor}}
               </a> 
             </span>

@@ -4,7 +4,7 @@
   <div v-if="props.tableOfContents.length>0"> <!--Change this to a function to get the headings in the markdown text-->
       <h2
         id="on-this-page-title"
-        class="font-display text-sm font-medium text-slate-900 dark:text-white"
+        class="font-display text-sm font-medium text-slate-900 dark:text-slate-200"
       >
         On this page
       </h2>

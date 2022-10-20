@@ -1,8 +1,8 @@
 <template>
 
 <article class="pt-6 lg:pt-0">
-    <p class="text-5xl font-bold text-gray-900 border-b border-slate-200 pb-4 mb-6 dark:text-white text-center">{{props.currentSubsection}}</p>
-    <span v-if="props.renderedContent" v-html="props.renderedContent" class="mt-8 mx-auto leading-8 prose dark:prose-invert"></span>
+    <h1 class="text-5xl font-bold text-gray-900 border-b border-slate-400 pb-4 mb-6 dark:text-slate-200 text-center">{{props.currentSubsection}}</h1>
+    <span v-if="props.renderedContent" v-html="props.renderedContent" class="mt-8 mx-auto leading-8 prose dark:prose-invert dark:prose-headings:text-MITRE-silver dark:prose-p:text-dark-text "></span>
 </article>
 <dl class="mt-12 mb-6 lg:mb-0 flex border-t border-slate-200 pt-6 dark:border-slate-800">
     <div v-if="props.allLinks[props.currentIndex-1]">

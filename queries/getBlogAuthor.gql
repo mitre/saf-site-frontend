@@ -3,8 +3,6 @@ query getBlogAuthor($author: String!){
     data{
       attributes{
         name,
-        displayEmail,
-        company,
         jobTitle,
         description,
         photo{
@@ -15,10 +13,37 @@ query getBlogAuthor($author: String!){
             }
           }
         }
-        linkedIn,
-        twitter,
-        facebook,
-        instagram,
+        partner{
+          data{
+            attributes{
+              partner_name
+            }
+          }
+        }
+        SocialMedia{
+					__typename
+          ... on ComponentSocialMediaFacebook {
+          ProfileLink
+          }
+          ... on ComponentSocialMediaTwitter {
+          ProfileLink
+          }
+          ... on ComponentSocialMediaInstagram {
+          ProfileLink
+          }
+          ... on ComponentSocialMediaGitHub {
+          ProfileLink
+          }
+          ... on ComponentSocialMediaLinkedIn {
+          ProfileLink
+          }
+          ... on ComponentSocialMediaDisplayEmail {
+          DisplayEmail
+          }
+          ... on ComponentSocialMediaOther {
+          ProfileLink
+          }
+        }
       }
     }
   }

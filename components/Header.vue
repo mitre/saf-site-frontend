@@ -1,9 +1,9 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 <template>
-  <Popover class="relative bg-white dark:bg-dark-bg">
+  <Popover class="sticky top-0 z-50 w-full bg-white dark:bg-dark-bg border-b-2 border-gray-100 dark:border-gray-500 ">
     <div class="max-w-8xl mx-auto px-4 sm:px-1">
       <div
-        class="flex justify-between items-center border-b-2 border-gray-100 dark:border-gray-500 py-3 lg:py-5 pl-0 sm:pl-3 md:pl-3 md:justify-start md:space-x-10">
+        class="flex justify-between items-center py-3 pl-0 sm:pl-3 md:pl-3 md:justify-start md:space-x-10">
         <div class="flex justify-left md:flex-1 lg:w-0 lg:flex-1">
           <a href="/">
             <span class="sr-only">Workflow</span>
@@ -290,12 +290,12 @@
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M17.715 15.15A6.5 6.5 0 0 1 9 6.035C6.106 6.922 4 9.645 4 12.867c0 3.94 3.153 7.136 7.042 7.136 3.101 0 5.734-2.032 6.673-4.853Z" class="fill-transparent"></path>
                   <path d="m17.715 15.15.95.316a1 1 0 0 0-1.445-1.185l.495.869ZM9 6.035l.846.534a1 1 0 0 0-1.14-1.49L9 6.035Zm8.221 8.246a5.47 5.47 0 0 1-2.72.718v2a7.47 7.47 0 0 0 3.71-.98l-.99-1.738Zm-2.72.718A5.5 5.5 0 0 1 9 9.5H7a7.5 7.5 0 0 0 7.5 7.5v-2ZM9 9.5c0-1.079.31-2.082.845-2.93L8.153 5.5A7.47 7.47 0 0 0 7 9.5h2Zm-4 3.368C5 10.089 6.815 7.75 9.292 6.99L8.706 5.08C5.397 6.094 3 9.201 3 12.867h2Zm6.042 6.136C7.718 19.003 5 16.268 5 12.867H3c0 4.48 3.588 8.136 8.042 8.136v-2Zm5.725-4.17c-.81 2.433-3.074 4.17-5.725 4.17v2c3.552 0 6.553-2.327 7.622-5.537l-1.897-.632Z" class="fill-slate-400"></path>
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M17 3a1 1 0 0 1 1 1 2 2 0 0 0 2 2 1 1 0 1 1 0 2 2 2 0 0 0-2 2 1 1 0 1 1-2 0 2 2 0 0 0-2-2 1 1 0 1 1 0-2 2 2 0 0 0 2-2 1 1 0 0 1 1-1Z" class="fill-slate-400"></path>
-                </svg>Dark<svg class="w-6 h-6 ml-2 text-slate-400" fill="none"><path d="m15 11-3 3-3-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>{{selected}}<svg class="w-6 h-6 ml-2 text-slate-400" fill="none"><path d="m15 11-3 3-3-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
                 </svg>
-                <select id="theme" class="absolute appearance-none inset-0 w-full h-full opacity-0">
-                  <option value="light">Light</option>
-                  <option value="dark">Dark</option>
-                  <option value="system">System</option>
+                <select id="theme" class="absolute appearance-none inset-0 w-full h-full opacity-0 dark:bg-slate-600" @change="switchSelect($event)">
+                  <option>Light</option>
+                  <option>Dark</option>
+                  <option>System</option>
                 </select>
               </div>
                 <!-- <a v-html="htmlCurrent" href="#" id="themeMobileMenuButton"
@@ -310,7 +310,8 @@
       </div>
     </transition>
   </Popover>
-  <div id="newsBannerDIV" class="relative bg-blue-600">
+  <!-- Check back later -->
+  <!-- <div id="newsBannerDIV" class="relative bg-blue-600">
     <div class="max-w-7xl mx-auto py-3 px-3 sm:px-6 lg:px-8">
       <div class="pr-16 text-center px-16">
         <p class="font-medium text-white">
@@ -333,7 +334,7 @@
         </button>
       </div>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <script setup>
@@ -343,7 +344,7 @@ import {
   PopoverGroup,
   PopoverPanel,
   PopoverOverlay,
-  Switch
+  Switch,
 } from '@headlessui/vue';
 import { ref } from 'vue';
 import {
@@ -452,9 +453,24 @@ export default {
       htmlDark: "Dark Mode",
       htmlLight: "Light Mode",
       htmlCurrent: "",
+      selected: "System",
     };
   },
   methods: {
+    switchSelect(event) {
+      console.log("Event: ", event.target.value);
+      if (event.target.value === 'Light') {
+        this.disableDarkMode()
+        localStorage.setItem('user-theme', 'light');
+        this.selected = "Light"
+      }
+      else if (event.target.value == 'Dark'){
+        this.enableDarkMode()
+        localStorage.setItem('user-theme', 'dark');
+        this.selected = "Dark"
+      }
+      //TODO: Handle system option
+    },
     enableDarkMode() {
       localStorage.setItem('color-theme', 'dark');
       document.documentElement.classList.add('dark');

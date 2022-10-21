@@ -7,24 +7,29 @@
         <div class="relative max-w-7xl mx-auto">
           <div class="mx-auto max-w-7xl px-4 sm:py-4 sm:px-6 lg:px-8">
             <div class="text-center">
-              <p class="text-4xl font-bold tracking-tight text-blue-600 sm:text-5xl lg:text-6xl">Frequently Asked Questions</p>
-              <p class="mx-auto mt-5 max-w-xl text-xl text-gray-500">Have a question you don't see covered here? Please contact <a href="mailto:saf@groups.mitre.org" class="text-blue-600">saf@groups.mitre.org</a></p>
+              <p class="text-4xl font-bold tracking-tight dark:text-slate-200 sm:text-5xl lg:text-6xl">Frequently Asked Questions</p>
+              <p class="mx-auto mt-5 text-lg dark:text-gray-500">Have a question you don't see covered here? Please contact <a href="mailto:saf@groups.mitre.org" class="text-blue-500 dark:text-white">saf@groups.mitre.org</a></p>
             </div>
           </div>
 
-            <div class="mx-auto max-w-7xl pb-4 px-4 sm:pb-8 sm:px-6 lg:px-8">
-              <div class="mx-auto max-w-3xl divide-y-2 divide-gray-200">
+            <div class="mx-auto max-w-7xl pb-4 px-1 sm:pb-8 sm:px-6 lg:px-8">
+              <div class="mx-auto max-w-7xl divide-y-2 divide-gray-200">
                 <dl class="mt-6 space-y-6 divide-y divide-gray-200">
-                  <Disclosure as="div" v-for="faq in faqs" :key="faq.question" class="pt-6" v-slot="{ open }">
+                  <Disclosure as="div" v-for="faq in faqs" :key="faq.question" class="pt-6 pb-3 sm:pb-0" v-slot="{ open }">
                     <dt class="text-lg">
                       <DisclosureButton class="flex w-full items-start justify-between text-left text-gray-400">
-                        <span class="font-medium text-gray-900 dark:text-MITRE-silver">{{ faq.question }}</span>
+                        <div class="flex h-2">
+                          <span >
+                            <a :href="`#${slugify(faq.question)}`"><HashtagIcon :class="slugify(faq.question) == currentHash ? 'dark:bg-gray-500 bg-gray-300 dark:text-white text-black rounded-full h-8 w-8 p-1' : 'dark:text-white text-black h-8 w-8 p-1'" aria-hidden="true"/></a>
+                          </span>
+                          <span class="ml-4 font-bold text-xl text-gray-800 dark:text-slate-200" :id="`${slugify(faq.question)}`">{{ faq.question }}</span>
+                        </div>
                         <span class="ml-6 flex h-7 items-center">
-                          <ChevronDownIcon :class="[open ? '-rotate-180' : 'rotate-0', 'h-6 w-6 transform']" aria-hidden="true" />
+                          <ChevronDownIcon :class="[open || slugify(faq.question) == currentHash ? '-rotate-180' : 'rotate-0', 'h-6 w-6 transform']" aria-hidden="true" />
                         </span>
                       </DisclosureButton>
                     </dt>
-                    <DisclosurePanel as="dd" class="mt-2 pr-12">
+                    <DisclosurePanel as="dd" class="mt-6 pr-12 pl-2">
                       <span v-if="faq" v-html="faq.answer" class="mt-8 mx-auto leading-8 prose dark:prose-invert"></span>
                     </DisclosurePanel>
                   </Disclosure>
@@ -43,31 +48,49 @@
   
   <script>
   import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
-  import { ChevronDownIcon } from '@heroicons/vue/outline'
+  import { ChevronDownIcon, HashtagIcon } from '@heroicons/vue/outline'
   
   
   export default {
     data() {
       return {
         faqs: {},
+        currentHash: "",
       };
+    },
+    watch: {
+    $route() {
+        this.updateHash()
+    }
     },
     mounted() {
       this.$nextTick(async () => {
         await this.getFAQs()
       });
     },
-    components: { ChevronDownIcon, Disclosure, DisclosureButton, DisclosurePanel },
+    components: { ChevronDownIcon, HashtagIcon, Disclosure, DisclosureButton, DisclosurePanel },
     methods: {
+      slugify (str) {
+      str = str.toLowerCase()
+      str = str.trim()
+      str = str.replace(/[^\w\s-]/g, '')
+      str = str.replace(/[\s_-]+/g, '-')
+      str = str.replace(/^-+|-+$/g, '')
+      return str
+    },
       async getFAQs() {
         this.faqs = await useAsyncData('getAllFAQs', () => GqlFAQs())
           .then(({ data }) => {
+            this.currentHash = this.$route.hash.replace(/^#+/, '')
             return data._value.faqs.data.map((faq) => ({
               question: faq.attributes.question,
               answer: faq.attributes.answer,
             }))
           });
       },
+      updateHash() {
+     this.currentHash = this.$route.hash.replace(/^#+/, '')
+      }
     } 
   }
   </script>

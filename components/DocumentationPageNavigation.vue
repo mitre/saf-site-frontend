@@ -29,7 +29,6 @@
                     <a
                       :href="`#${slugify(subtitle)}`"
                       :class="props.currentHeading == slugify(subtitle) ? 'text-sky-500':'hover:text-slate-600 dark:hover:text-slate-300'"
-                      @click="methodThatForcesUpdate"
                       >
                       {{subtitle}}
                   </a>
@@ -59,13 +58,6 @@ const slugify = (str) => {
       str = str.replace(/^-+|-+$/g, '')
       return str
     }
-    const methodThatForcesUpdate = () => {
-  // ...
-  console.log("This is a test")
-  const instance = getCurrentInstance();
-  instance.proxy.forceUpdate();
-  // ...
-};
 </script>
 
   

@@ -3,15 +3,15 @@
     <div> <Header /> </div>
     <div class="relative py-16 bg-white dark:bg-dark-bg overflow-hidden min-h-screen h-full pt-12 pb-20 px-4 sm:px-6 lg:pt-12 lg:pb-28 lg:px-8">
       <template v-if="isLoaded">
-        <div class="relative px-4 sm:px-6 lg:px-32">
+        <div class="relative px-4 sm:px-6">
           <article>
             <!-- Profile header -->
             <div>
               <div>
                 <div class="h-16 w-full object-cover" />
               </div>
-              <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-                <div class="-mt-12 sm:-mt-16 sm:flex sm:items-end sm:space-x-5">
+              <div class="mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="mt-12 sm:-mt-16 sm:flex sm:items-end sm:space-x-5">
                   <div v-if="author.photo" class="flex">
                     <img class="h-24 w-24 rounded-full ring-4 ring-white sm:h-32 sm:w-32" :src="author.photo.url" v-bind:alt="author.photo.name" />
                   </div>
@@ -28,8 +28,8 @@
             </div>
 
             <!-- Description list -->
-            <div class="mx-auto mt-6 max-w-5xl px-4 sm:px-6 lg:px-8">
-              <dl class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
+            <div class="mx-auto mt-6 px-4 sm:px-6 lg:px-8">
+              <dl class="grid grid-cols-1 gap-y-8 sm:grid-cols-2">
                   <div>
                     <dt class="text-sm font-medium text-gray-500 dark:text-dark-text"> Title </dt>
                     <dd class="sm:mt-1 text-sm text-gray-900 dark:text-dark-text">{{ author.fields.title }}</dd>

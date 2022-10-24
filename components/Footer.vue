@@ -5,10 +5,13 @@
       <div class="flex justify-center space-x-6 md:order-2">
         <a v-for="item in navigation" :key="item.name" :href="item.href" class="text-gray-400 hover:text-gray-500 dark:hover:text-gray-200">
           <span class="sr-only">{{ item.name }}</span>
-          <component :is="item.icon" class="h-6 w-6" aria-hidden="true" />
+          <component :is="item.icon" class="h-12 w-12 md:h-10 md:w-10" aria-hidden="true" />
+        </a>
+        <a href="https://www.netlify.com" class="mx-auto w-24">
+           <img src="https://www.netlify.com/v3/img/components/netlify-color-accent.svg" alt="Deploys by Netlify" /> 
         </a>
       </div>
-      <div class="mt-8 md:mt-0 md:order-1">
+      <div class="mt-8 mr-4 md:mt-0 md:order-1">
         <p class="block text-center text-gray-400">Copyright © 1997-2021, The MITRE Corporation. All rights reserved. </p>
         <p class="block text-center text-base text-gray-400">MITRE is a registered trademark of The MITRE Corporation. Material on this site may be copied and distributed with permission only.</p>
       </div>

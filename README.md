@@ -19,7 +19,7 @@ This repository contains the source code for the upcomming new https://saf.mitre
 
 
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/web2033/vite-vue3-tailwind-starter)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://mitre-saf-v2.netlify.app/)
 
 ## Backend Development
 - Backend is handled in the [saf-site backend repository](https://github.com/mitre/saf-site-backend)

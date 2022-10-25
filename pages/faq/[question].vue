@@ -30,11 +30,12 @@
         </div>
         <div class="mt-8 mx-auto leading-8 prose dark:prose-invert max-w-5xl">
             <span v-if="faq" v-html="faq.answer"></span>
-            <p class="dark:text-white font-bold mt-8">Updated: {{faq.updated}}</p>
+            <p class="dark:text-white font-bold my-8">Updated: {{faq.updated}}</p>
         </div>
       </div>
       
     </div>
+    <Footer />
   </template>
   
   <!-- <template>
@@ -118,10 +119,8 @@
         return str
       },
         async getFAQ() {
-            console.log("ID: ",this.$route)
           this.faq = await useAsyncData('getFaqById', () => GqlGetFaqById({id: this.$route.params.question}))
             .then(({data}) => {
-             console.log()
              var date = new Date(data._value.faq.data.attributes.updatedAt)
               this.currentHash = this.$route.hash.replace(/^#+/, '')
               return {

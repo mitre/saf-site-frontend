@@ -34,10 +34,10 @@
                     <dt class="text-sm font-medium text-gray-500 dark:text-dark-text"> Title </dt>
                     <dd class="sm:mt-1 text-sm text-gray-900 dark:text-dark-text">{{ author.fields.title }}</dd>
                   </div>
-                  <div>
+                  <a>  <!-- TODO: Add a internal link to the relavent partner page here -->
                     <dt class="text-sm font-medium text-gray-500 dark:text-dark-text"> Company </dt>
                     <dd class="sm:mt-1 text-sm text-gray-900 dark:text-dark-text">{{ author.fields.company }}</dd>
-                  </div>
+                  </a>
                 <div class="sm:col-span-2">
                   <dt class="text-sm font-medium text-gray-500 dark:text-dark-text">About</dt>
                   <div class="prose mt-1 max-w-prose space-y-5 text-sm text-gray-900 dark:text-dark-text" v-html="author.description" />

@@ -8,10 +8,10 @@
             <!-- Profile header -->
             <div>
               <div>
-                <div class="h-16 w-full object-cover" />
+                <div class="sm:h-16 w-full object-cover" />
               </div>
               <div class="mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="mt-12 sm:-mt-16 sm:flex sm:items-end sm:space-x-5">
+                <div class="mt-2 sm:-mt-16 sm:flex sm:items-end sm:space-x-5">
                   <div v-if="author.photo" class="flex">
                     <img class="h-24 w-24 rounded-full ring-4 ring-white sm:h-32 sm:w-32" :src="author.photo.url" v-bind:alt="author.photo.name" />
                   </div>
@@ -77,48 +77,8 @@
         <span class="block text-xl pt-12 text-center underline font-bold dark:text-dark-text">
                 Recent Articles
         </span>  
-        <!-- <BlogPostCards graphql-query="author"/>  -->
-        <div class="mt-4 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
-          <div v-for="post in posts" :key="post.title"
-            class="flex flex-col rounded-lg shadow-xl border-2 hover:border-2 hover:border-blue-500 dark:hover:border-blue-500 dark:border-gray-600 overflow-hidden">
-            <div
-              class="flex-1 bg-white dark:bg-dark-bg hover:bg-gray-100 dark:hover:bg-gray-700 p-6 flex flex-col justify-between">
-              <div class="flex-1">
-                <p class="text-sm font-medium text-blue-600">
-                  <a :href="post.category.href" class="hover:underline">
-                    {{ post.category.name }}
-                  </a>
-                </p>
-                <a :href ="`/blog/${post.date}/${slugify(post.title)}?id=${post.id}`" class="block mt-2"> 
-                  <p class="text-xl font-semibold text-gray-900 dark:text-dark-text">
-                    {{ post.title }}
-                  </p>
-                  <p class="mt-3 text-base text-gray-500 line-clamp-2">
-                    {{ post.description }}
-                  </p>
-                </a>
-              </div>
-              <div class="mt-6 flex items-center">
-                <div class="flex-shrink-0">
-                </div>
-                <div class="ml-3">
-                  <span class="text-sm font-medium text-gray-900 dark:text-dark-text ">
-                    <a :href="`/blog/${slugify(post.author)}?id=${post.author}`" class="hover:underline">
-                      <p class="">{{post.author}}</p>  
-                    </a>
-                  </span>
-                  <div class="flex space-x-1 text-sm text-gray-500">
-                    <time :datetime="post.datetime">
-                      {{ post.date }}
-                    </time>
-                    <span aria-hidden="true"> &middot; </span>
-                    <span>  {{ post.readingTime }} min read </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <!-- Blog Cards -->
+        <BlogPostCards v-bind:posts="posts" />
       </template>
       <template v-else class="min-h-screen h-full ">
         <h1 class="mt-2 block text-2xl sm:text-3xl leading-8 font-extrabold tracking-tight text-black dark:text-white">Loading...</h1> 
@@ -180,7 +140,8 @@ export default {
               author: post.attributes.users_permissions_user.data.attributes.name,
               date: post.attributes.date,
               id: post.id,
-              readingTime: this.readingTime(post.attributes.content),
+              content: post.attributes.content
+              // readingTime: this.readingTime(post.attributes.content),
           }))
             
         });
@@ -220,19 +181,6 @@ export default {
               }, 
           }))
         })
-    },
-    readingTime(text) {
-      const wpm = 225;
-      const words = text.trim().split(/\s+/).length;
-      return Math.ceil(words / wpm);
-    },
-    slugify (str) {
-      str = str.toLowerCase()
-      str = str.trim()
-      str = str.replace(/[^\w\s-]/g, '')
-      str = str.replace(/[\s_-]+/g, '-')
-      str = str.replace(/^-+|-+$/g, '')
-      return str
     },
   }
 

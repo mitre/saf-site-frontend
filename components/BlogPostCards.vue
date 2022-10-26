@@ -11,7 +11,7 @@
                 {{ post.category.name }}
               </a>
             </p>
-            <a :href ="`/blog/${post.date}/${slugify(post.title)}?id=${post.id}`" class="block mt-2"> 
+            <a :href="`/blog/${post.date}/${slugify(post.title)}?id=${post.id}`" class="block mt-2">
               <p class="text-xl font-semibold text-gray-900 dark:text-dark-text">
                 {{ post.title }}
               </p>
@@ -26,7 +26,7 @@
             <div class="ml-3">
               <span class="text-sm font-medium text-gray-900 dark:text-dark-text ">
                 <a :href="`/blog/${slugify(post.author)}?id=${post.author}`" class="hover:underline">
-                  <p class="">{{post.author}}</p>  
+                  <p>{{post.author}}</p>
                 </a>
               </span>
               <div class="flex space-x-1 text-sm text-gray-500">
@@ -34,7 +34,7 @@
                   {{ post.date }}
                 </time>
                 <span aria-hidden="true"> &middot; </span>
-                <span>   {{ this.readingTime(post.content) }} min read </span>
+                <span> {{ this.readingTime(post.content) }} min read </span>
               </div>
             </div>
           </div>
@@ -42,8 +42,8 @@
       </div>
     </div>
   </div>
-  <div v-else class="h-screen"> 
-      <p> Loading .... </p>
+  <div v-else class="h-screen">
+    <p> Loading .... </p>
   </div>
 </template>
 
@@ -78,8 +78,6 @@ export default {
   },
   mounted() {
     this.$nextTick(async () => {
-      // console.log('I am in blog card component!')
-      // console.log(this.posts)
       this.isLoaded = true
     });
   },
@@ -89,7 +87,7 @@ export default {
       const words = text.trim().split(/\s+/).length;
       return Math.ceil(words / wpm);
     },
-    slugify (str) {
+    slugify(str) {
       str = str.toLowerCase()
       str = str.trim()
       str = str.replace(/[^\w\s-]/g, '')
@@ -99,5 +97,4 @@ export default {
     },
   }
 }
-
 </script>

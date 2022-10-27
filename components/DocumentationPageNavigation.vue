@@ -1,7 +1,7 @@
 <template>
 
 <nav aria-labelledby="on-this-page-title" class="w-56">
-  <div v-if="props.tableOfContents.length>0"> <!--Change this to a function to get the headings in the markdown text-->
+  <div v-if="props.tableOfContents.length>0">
       <h2
         id="on-this-page-title"
         class="font-display text-sm font-medium text-slate-900 dark:text-slate-200"

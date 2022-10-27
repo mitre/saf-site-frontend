@@ -10,9 +10,9 @@
 
       <dl class="mt-12 grid grid-cols-1 gap-y-10 sm:mt-16 md:grid-cols-2 md:gap-x-6 lg:grid-cols-3">
         <div v-for="faq in faqs" :key="faq.id">
-          <dt class="text-lg font-bold text-lg dark:text-slate-200">{{ faq.question }}</dt>
+          <dt class="text-lg font-bold text-lg dark:text-slate-200">{{faq.questionNumber}}. {{ faq.question }}</dt>
           <dd class="mt-3 text-sm prose dark:prose-invert line-clamp-3" v-html="faq.answer"></dd>
-          <dd class="mt-4 text-blue-500 dark:text-white font-bold" ><a :href ="`/faq/${faq.id}`">View More</a></dd>
+          <dd class="mt-4 text-blue-500 font-bold" ><a :href ="`/faq/${faq.questionNumber}`">View More</a></dd>
         </div>
       </dl>
     </div>
@@ -104,9 +104,10 @@
       async getFAQs() {
         this.faqs = await useAsyncData('getAllFAQs', () => GqlFAQs())
           .then(({ data }) => {
+            console.log(data)
             this.currentHash = this.$route.hash.replace(/^#+/, '')
             return data._value.faqs.data.map((faq) => ({
-              id: faq.id,
+              questionNumber: faq.attributes.question_number,
               question: faq.attributes.question,
               answer: faq.attributes.answer,
             }))

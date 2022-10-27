@@ -21,7 +21,7 @@
             Next
             </dt>
             <dd class="mt-1">
-                <span aria-hidden="true">&rarr;</span> {{props.allLinks[props.currentIndex+1].title}} 
+                {{props.allLinks[props.currentIndex+1].title}} <span aria-hidden="true">&rarr;</span>  
             </dd>
         </a>
     </div>

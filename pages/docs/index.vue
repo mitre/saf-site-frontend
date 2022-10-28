@@ -17,7 +17,7 @@
         </div>
     </div>
 
-    <div class="min-w-0 max-w-2xl flex-auto px-6 lg:py-10 lg:max-w-none lg:pr-0 lg:pl-8 xl:px-16">
+    <div class="min-w-0 max-w-2xl flex-auto px-6 lg:py-10 lg:max-w-6xl lg:pr-0 lg:pl-8 xl:px-16">
       <DocumentationCurrentPage  :rendered-content="renderedContent" :current-subsection="currentSubsection" :all-links="allLinks" :current-index="currentIndex" /> 
     </div>
 

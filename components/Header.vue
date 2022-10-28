@@ -132,6 +132,11 @@
             Docs
           </NuxtLink>
 
+          <NuxtLink to="/faq"
+            class="text-base font-medium text-gray-500 dark:text-dark-text hover:text-gray-900 dark:hover:text-gray-200">
+            FAQ
+          </NuxtLink>
+
           <Popover class="relative" v-slot="{ open }">
             <PopoverButton :class="[
               open
@@ -265,6 +270,7 @@
                   Blog
                 </a>
 
+
                 <a href="/docs" class="text-base font-medium text-gray-900 dark:text-MITRE-silver hover:text-gray-700">
                   Docs
                 </a>
@@ -275,6 +281,7 @@
                 <a v-html="htmlCurrent" href="#" id="themeMobileMenuButton"
                   class="text-base font-medium text-gray-900 dark:text-MITRE-silver hover:text-gray-700"
                   @click='toggleTheme()'>
+
 
                 </a>
               </div>

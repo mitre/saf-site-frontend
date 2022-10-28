@@ -1,9 +1,9 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 <template>
-  <Popover class="relative bg-white dark:bg-dark-bg">
+  <Popover class="sticky top-0 z-50 w-full bg-white dark:bg-dark-bg border-b-2 border-gray-100 dark:border-gray-500 ">
     <div class="max-w-8xl mx-auto px-4 sm:px-1">
       <div
-        class="flex justify-between items-center border-b-2 border-gray-100 dark:border-gray-500 py-3 lg:py-5 pl-0 sm:pl-3 md:pl-3 md:justify-start md:space-x-10">
+        class="flex justify-between items-center py-3 pl-0 sm:pl-3 md:pl-3 md:justify-start md:space-x-10">
         <div class="flex justify-left md:flex-1 lg:w-0 lg:flex-1">
           <a href="/">
             <span class="sr-only">Workflow</span>
@@ -60,7 +60,7 @@
           <PopoverButton
             class="bg-white dark:bg-dark-bg rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
             <span class="sr-only">Open menu</span>
-            <MenuIcon class="h-6 w-6" aria-hidden="true" />
+            <DotsVerticalIcon class="h-6 w-6 text-gray-400" aria-hidden="true" />
           </PopoverButton>
         </div>
 
@@ -127,10 +127,10 @@
             Blog
           </NuxtLink>
 
-          <a href="#"
+          <NuxtLink to="/docs"
             class="text-base font-medium text-gray-500 dark:text-dark-text hover:text-gray-900 dark:hover:text-gray-200">
             Docs
-          </a>
+          </NuxtLink>
 
           <NuxtLink to="/faq"
             class="text-base font-medium text-gray-500 dark:text-dark-text hover:text-gray-900 dark:hover:text-gray-200">
@@ -234,71 +234,91 @@
     <transition enter-active-class="duration-200 ease-out" enter-from-class="opacity-0 scale-95"
       enter-to-class="opacity-100 scale-100" leave-active-class="duration-100 ease-in"
       leave-from-class="opacity-100 scale-100" leave-to-class="opacity-0 scale-95">
-      <PopoverPanel focus class="relative top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
-        <div
-          class="rounded-lg shadow-lg ring-1 ring-black dark:ring-gray-500 ring-opacity-5 bg-white dark:bg-dark-bg divide-y-2 divide-gray-50">
-          <div class="pt-2 pb-4 px-5">
-            <div class="flex items-center justify-between">
-              <div>
-                <!-- <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-blue-600.svg" alt="Workflow" /> -->
+      <div class="fixed z-50 top-4 right-4 w-full max-w-xs px-6">  
+        <PopoverOverlay class="fixed z-auto inset-0 bg-black/20 backdrop-blur-sm dark:bg-slate-900/80" />
+        <PopoverPanel focus class="fixed w-full max-w-xs px-6">
+          <div
+            class="rounded-lg shadow-lg ring-1 ring-black dark:ring-gray-500 ring-opacity-5 bg-white dark:bg-dark-bg divide-y-2 divide-gray-50">
+            <div class="pt-2 pb-4 px-5">
+              <div class="flex items-center justify-between">
+                <div>
+                  <!-- <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-blue-600.svg" alt="Workflow" /> -->
+                </div>
+                <div class="-mr-2">
+                  <PopoverButton
+                    class="bg-white dark:bg-dark-bg rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                    <span class="sr-only">Close menu</span>
+                    <XIcon class="h-6 w-6" aria-hidden="true" />
+                  </PopoverButton>
+                </div>
               </div>
-              <div class="-mr-2">
-                <PopoverButton
-                  class="bg-white dark:bg-dark-bg rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
-                  <span class="sr-only">Close menu</span>
-                  <XIcon class="h-6 w-6" aria-hidden="true" />
-                </PopoverButton>
+              <div class="my-3">
+                <nav class="grid gap-y-8">
+                  <a v-for="item in toolkit" :key="item.name" :href="item.href"
+                    class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-700">
+                    <component :is="item.icon" class="flex-shrink-0 h-6 w-6 text-blue-600" aria-hidden="true" />
+                    <span class="ml-3 text-base font-medium text-gray-900 dark:text-MITRE-silver">
+                      {{ item.name }}
+                    </span>
+                  </a>
+                </nav>
               </div>
             </div>
-            <div class="">
-              <nav class="grid gap-y-8">
-                <a v-for="item in toolkit" :key="item.name" :href="item.href"
-                  class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-700">
-                  <component :is="item.icon" class="flex-shrink-0 h-6 w-6 text-blue-600" aria-hidden="true" />
-                  <span class="ml-3 text-base font-medium text-gray-900 dark:text-MITRE-silver">
-                    {{ item.name }}
-                  </span>
+            <!-- <div class="py-6 px-5 space-y-6">
+              <div class="grid grid-cols-2 gap-y-4 gap-x-8">
+                <a href="#" class="text-base font-medium text-gray-900 dark:text-MITRE-silver hover:text-gray-700">
+                  Blog
                 </a>
-              </nav>
-            </div>
-          </div>
-          <div class="py-6 px-5 space-y-6">
-            <div class="grid grid-cols-2 gap-y-4 gap-x-8">
-              <a href="#" class="text-base font-medium text-gray-900 dark:text-MITRE-silver hover:text-gray-700">
-                Blog
-              </a>
 
-              <a href="#" class="text-base font-medium text-gray-900 dark:text-MITRE-silver hover:text-gray-700">
-                Docs
-              </a>
 
-              <a href="/faq" class="text-base font-medium text-gray-900 dark:text-MITRE-silver hover:text-gray-700">
-                FAQ
-              </a>
-              <a v-for="item in resources" :key="item.name" :href="item.href"
-                class="text-base font-medium text-gray-900 dark:text-MITRE-silver hover:text-gray-700">
-                {{ item.name }}
-              </a>
-              <a v-html="htmlCurrent" href="#" id="themeMobileMenuButton"
-                class="text-base font-medium text-gray-900 dark:text-MITRE-silver hover:text-gray-700"
-                @click='toggleTheme()'>
+                <a href="/docs" class="text-base font-medium text-gray-900 dark:text-MITRE-silver hover:text-gray-700">
+                  Docs
+                </a>
+                <a v-for="item in resources" :key="item.name" :href="item.href"
+                  class="text-base font-medium text-gray-900 dark:text-MITRE-silver hover:text-gray-700">
+                  {{ item.name }}
+                </a>
+                <a v-html="htmlCurrent" href="#" id="themeMobileMenuButton"
+                  class="text-base font-medium text-gray-900 dark:text-MITRE-silver hover:text-gray-700"
+                  @click='toggleTheme()'>
 
-              </a>
-            </div>
-            <!-- <div>
-              <a href="#" class="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-600 hover:bg-indigo-700"> Sign up </a>
-              <p class="mt-6 text-center text-base font-medium text-gray-500">
-                Existing customer?
-                {{ ' ' }}
-                <a href="#" class="text-blue-600 hover:text-indigo-500"> Sign in </a>
-              </p>
+
+                </a>
+              </div>
             </div> -->
+            <div class="flex items-center justify-between py-6 px-4">
+              <label class="text-gray-900 text-base font-medium dark:text-MITRE-silver">Switch theme</label>
+              <div class="relative flex items-center ring-1 ring-slate-900/10 rounded-lg shadow-sm p-2 text-slate-700 font-semibold dark:bg-slate-600 dark:ring-0 dark:highlight-white/5 dark:text-slate-200">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 mr-2 dark:hidden">
+                  <path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" class="stroke-slate-400 dark:stroke-slate-500"></path>
+                  <path d="M12 4v1M17.66 6.344l-.828.828M20.005 12.004h-1M17.66 17.664l-.828-.828M12 20.01V19M6.34 17.664l.835-.836M3.995 12.004h1.01M6 6l.835.836" class="stroke-slate-400 dark:stroke-slate-500"></path>
+                </svg>
+                <svg viewBox="0 0 24 24" fill="none" class="w-6 h-6 mr-2 hidden dark:block">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M17.715 15.15A6.5 6.5 0 0 1 9 6.035C6.106 6.922 4 9.645 4 12.867c0 3.94 3.153 7.136 7.042 7.136 3.101 0 5.734-2.032 6.673-4.853Z" class="fill-transparent"></path>
+                  <path d="m17.715 15.15.95.316a1 1 0 0 0-1.445-1.185l.495.869ZM9 6.035l.846.534a1 1 0 0 0-1.14-1.49L9 6.035Zm8.221 8.246a5.47 5.47 0 0 1-2.72.718v2a7.47 7.47 0 0 0 3.71-.98l-.99-1.738Zm-2.72.718A5.5 5.5 0 0 1 9 9.5H7a7.5 7.5 0 0 0 7.5 7.5v-2ZM9 9.5c0-1.079.31-2.082.845-2.93L8.153 5.5A7.47 7.47 0 0 0 7 9.5h2Zm-4 3.368C5 10.089 6.815 7.75 9.292 6.99L8.706 5.08C5.397 6.094 3 9.201 3 12.867h2Zm6.042 6.136C7.718 19.003 5 16.268 5 12.867H3c0 4.48 3.588 8.136 8.042 8.136v-2Zm5.725-4.17c-.81 2.433-3.074 4.17-5.725 4.17v2c3.552 0 6.553-2.327 7.622-5.537l-1.897-.632Z" class="fill-slate-400"></path>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M17 3a1 1 0 0 1 1 1 2 2 0 0 0 2 2 1 1 0 1 1 0 2 2 2 0 0 0-2 2 1 1 0 1 1-2 0 2 2 0 0 0-2-2 1 1 0 1 1 0-2 2 2 0 0 0 2-2 1 1 0 0 1 1-1Z" class="fill-slate-400"></path>
+                </svg>{{selected}}<svg class="w-6 h-6 ml-2 text-slate-400" fill="none"><path d="m15 11-3 3-3-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                <select id="theme" class="absolute appearance-none inset-0 w-full h-full opacity-0 dark:bg-slate-600" @change="switchSelect($event)">
+                  <option>Light</option>
+                  <option>Dark</option>
+                  <option>System</option>
+                </select>
+              </div>
+                <!-- <a v-html="htmlCurrent" href="#" id="themeMobileMenuButton"
+                  class="text-base font-medium text-gray-900 dark:text-MITRE-silver hover:text-gray-700"
+                  @click='toggleTheme()'>
+
+                </a> -->
+
+            </div>
           </div>
-        </div>
-      </PopoverPanel>
+        </PopoverPanel>
+      </div>
     </transition>
   </Popover>
-  <div id="newsBannerDIV" class="relative bg-blue-600">
+  <!-- Check back later -->
+  <!-- <div id="newsBannerDIV" class="relative bg-blue-600">
     <div class="max-w-7xl mx-auto py-3 px-3 sm:px-6 lg:px-8">
       <div class="pr-16 text-center px-16">
         <p class="font-medium text-white">
@@ -321,7 +341,7 @@
         </button>
       </div>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <script setup>
@@ -330,7 +350,8 @@ import {
   PopoverButton,
   PopoverGroup,
   PopoverPanel,
-  Switch
+  PopoverOverlay,
+  Switch,
 } from '@headlessui/vue';
 import { ref } from 'vue';
 import {
@@ -349,7 +370,8 @@ import {
   CubeIcon,
   ClipboardCheckIcon,
   CodeIcon,
-  SearchIcon
+  SearchIcon,
+  DotsVerticalIcon
 } from '@heroicons/vue/outline';
 import { ChevronDownIcon } from '@heroicons/vue/solid';
 
@@ -438,9 +460,24 @@ export default {
       htmlDark: "Dark Mode",
       htmlLight: "Light Mode",
       htmlCurrent: "",
+      selected: "System",
     };
   },
   methods: {
+    switchSelect(event) {
+      console.log("Event: ", event.target.value);
+      if (event.target.value === 'Light') {
+        this.disableDarkMode()
+        localStorage.setItem('user-theme', 'light');
+        this.selected = "Light"
+      }
+      else if (event.target.value == 'Dark'){
+        this.enableDarkMode()
+        localStorage.setItem('user-theme', 'dark');
+        this.selected = "Dark"
+      }
+      //TODO: Handle system option
+    },
     enableDarkMode() {
       localStorage.setItem('color-theme', 'dark');
       document.documentElement.classList.add('dark');

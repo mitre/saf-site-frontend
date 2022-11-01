@@ -32,16 +32,16 @@
             <div class="mx-auto mt-6 px-4 sm:px-6 lg:px-8">
               <dl class="grid grid-cols-1 gap-y-8 sm:grid-cols-2">
                 <div>
-                  <dt class="text-sm font-medium text-gray-500 dark:text-dark-text"> Title </dt>
+                  <dt class="text-sm font-medium text-gray-500 dark:text-MITRE-silver"> Title </dt>
                   <dd class="sm:mt-1 text-sm text-gray-900 dark:text-dark-text">{{ author.fields.title }}</dd>
                 </div>
                 <a>
                   <!-- TODO: Add a internal link to the relavent partner page here -->
-                  <dt class="text-sm font-medium text-gray-500 dark:text-dark-text"> Company </dt>
+                  <dt class="text-sm font-medium text-gray-500 dark:text-MITRE-silver"> Company </dt>
                   <dd class="sm:mt-1 text-sm text-gray-900 dark:text-dark-text">{{ author.fields.company }}</dd>
                 </a>
                 <div class="sm:col-span-2">
-                  <dt class="text-sm font-medium text-gray-500 dark:text-dark-text">About</dt>
+                  <dt class="text-sm font-medium text-gray-500 dark:text-MITRE-silver">About</dt>
                   <div class="prose mt-1 max-w-prose space-y-5 text-sm text-gray-900 dark:text-dark-text"
                     v-html="author.description" />
 
@@ -126,7 +126,7 @@ export default {
   },
   methods: {
     async getBlogData() {
-      this.posts = await useAsyncData('getBlogDataFromAuthor', () => GqlGetBlogDataFromAuthor({ author: this.$route.query.id }))
+      this.posts = await useAsyncData('getBlogDataFromAuthor', () => GqlGetBlogDataFromAuthor({ author: this.$route.query.name }))
         .then(({ data }) => {
           return data._value.blogPosts.data.map((post) => ({
             title: post.attributes.title,
@@ -140,7 +140,7 @@ export default {
         });
     },
     async getBlogAuthor() {
-      this.author = await useAsyncData('getBlogAuthor', () => GqlGetBlogAuthor({ author: this.$route.query.id }))
+      this.author = await useAsyncData('getBlogAuthor', () => GqlGetBlogAuthor({ author: this.$route.query.name }))
         .then(({ data }) => {
           let socialMedia = data._value.usersPermissionsUsers.data[0].attributes.SocialMedia
           for (let i = 0; i < socialMedia.length; i++) {

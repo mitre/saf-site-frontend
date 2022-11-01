@@ -10,13 +10,13 @@
         <template v-if="isLoaded" class="text-lg prose prose-lg max-w-prose mx-auto ">
           <h1>
             <span
-              class="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 dark:text-MITRE-silver sm:text-4xl">
+              class="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
               {{postData.title}}
             </span>
             <span class="pt-3 block text-base text-center text-blue-600 font-semibold tracking-wide">
               {{postData.date}}
               &nbsp; | &nbsp;
-              <a :href="`/blog/${slugify(postAuthor)}?id=${postAuthor}`" class="hover:underline">
+              <a :href="`/blog/authors?name=${postAuthor}`" class="hover:underline">
                 {{postAuthor}}
               </a>
             </span>

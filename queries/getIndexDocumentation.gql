@@ -1,0 +1,28 @@
+query getIndexDocumentation{
+  currentDoc:documentations(filters: {order_id: {eq: 0}}){
+    data{
+      id
+      attributes{
+        section_title
+        subsections{
+          id
+          title
+          href
+          content
+        }
+      }
+    }
+  }
+  
+  allLinks:documentations(sort: "order_id:asc"){
+    data{
+      attributes{
+        section_title
+        subsections{
+          title
+          href
+        }
+      }
+    }
+  }
+}

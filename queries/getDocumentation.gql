@@ -1,0 +1,28 @@
+query getDocumentation($href: String!){
+  currentDoc:documentations(filters: {subsections: {href: {eq: $href}}}){
+    data{
+      id
+      attributes{
+        section_title
+        subsections(filters: {href: {eq: $href}}){
+          id
+          title
+          href
+          content
+        }
+      }
+    }
+  }
+  
+  allLinks:documentations(sort: "order_id:asc"){
+    data{
+      attributes{
+        section_title
+        subsections{
+          title
+          href
+        }
+      }
+    }
+  }
+}

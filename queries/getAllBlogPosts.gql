@@ -1,0 +1,21 @@
+query blogPosts{
+  blogPosts{
+    data{
+      id,
+      attributes{
+        title,
+        category,
+        description,
+        content,
+        date,
+        users_permissions_user{
+          data{
+            attributes{
+              name,
+            }
+          }
+        }
+      }
+    }
+  }
+} 

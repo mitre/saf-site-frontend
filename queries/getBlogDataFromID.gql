@@ -1,0 +1,20 @@
+query getBlogDataFromID($id: ID!){
+  blogPost(id: $id){
+    data {
+      attributes {
+        title,
+        category,
+        description,
+        content,
+        date,
+        users_permissions_user{
+          data{
+            attributes{
+              name,
+            }
+          }
+        }
+      }
+    }
+  }
+}

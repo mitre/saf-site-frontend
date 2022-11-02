@@ -1,0 +1,44 @@
+query getBlogDataFromAuthor($author: String!){
+  blogPosts(filters:{users_permissions_user:{name:{eq:$author}}}){
+    data{
+      id,
+      attributes{
+        title,
+        category,
+        description,
+        content,
+        date,
+        users_permissions_user{
+          data{
+            attributes{
+              name,
+            }
+          }
+        }
+      },
+
+    }
+  }
+} 
+
+
+
+
+
+
+
+# query getBlogDataFromAuthor($author: String!){
+#   blogPosts(filters:{author:{eq: $author}}){
+#     data {
+#       id,
+#       attributes {
+#         title,
+#         category,
+#         description,
+#         content,
+#         date,
+#         author,
+#       }
+#     }
+#   }
+# }

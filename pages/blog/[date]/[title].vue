@@ -1,85 +1,80 @@
 <template>
-  <div>
-    <div> <Header /> </div>
-    <div class="relative py-16 bg-white dark:bg-dark-bg overflow-hidden h-full prose">
-      <!-- <div class="hidden lg:block lg:absolute lg:inset-y-0 lg:h-full lg:w-full">
-        <div class="relative h-full text-lg max-w-prose mx-auto" aria-hidden="true">
-          <svg class="absolute top-12 left-full transform translate-x-32" width="404" height="384" fill="none" viewBox="0 0 404 384">
-            <defs>
-              <pattern id="74b3fd99-0a6f-4271-bef2-e80eeafdf357" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
-              </pattern>
-            </defs>
-            <rect width="404" height="384" fill="url(#74b3fd99-0a6f-4271-bef2-e80eeafdf357)" />
-          </svg>
-          <svg class="absolute top-1/2 right-full transform -translate-y-1/2 -translate-x-32" width="404" height="384" fill="none" viewBox="0 0 404 384">
-            <defs>
-              <pattern id="f210dbf6-a58d-4871-961e-36d5016a0f49" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
-              </pattern>
-            </defs>
-            <rect width="404" height="384" fill="url(#f210dbf6-a58d-4871-961e-36d5016a0f49)" />
-          </svg>
-          <svg class="absolute bottom-12 left-full transform translate-x-32" width="404" height="384" fill="none" viewBox="0 0 404 384">
-            <defs>
-              <pattern id="d3eb07ae-5182-43e6-857d-35c643af9034" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
-              </pattern>
-            </defs>
-            <rect width="404" height="384" fill="url(#d3eb07ae-5182-43e6-857d-35c643af9034)" />
-          </svg>
-        </div>
-      </div> -->
+  <Header />
+  <div class="relative py-16 bg-white dark:bg-dark-bg overflow-hidden min-h-screen h-full">
+    <div
+      class="absolute inset-0 bg-[url(/assets/grid.svg)] bg-top [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]">
+    </div>
+    <div
+      class="relative w-full bg-white dark:bg-gray-800 px-6 py-12 shadow-2xl shadow-slate-700/10 ring-1 ring-gray-900/5 md:mx-auto md:max-w-3xl lg:max-w-4xl lg:pt-16 lg:pb-28">
       <div class="relative px-4 sm:px-6 lg:px-8">
-        <div class="text-lg max-w-prose mx-auto">
+        <template v-if="isLoaded" class="text-lg prose prose-lg max-w-prose mx-auto ">
           <h1>
-            <span class="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 dark:text-MITRE-silver sm:text-4xl">{{postData.title}}</span>
-            <span class="block text-base text-center text-indigo-600 font-semibold tracking-wide">{{postData.date}} &nbsp; | &nbsp;  {{postData.author}}  </span>
+            <span
+              class="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+              {{postData.title}}
+            </span>
+            <span class="pt-3 block text-base text-center text-blue-600 font-semibold tracking-wide">
+              {{postData.date}}
+              &nbsp; | &nbsp;
+              <a :href="`/blog/authors?name=${postAuthor}`" class="hover:underline">
+                {{postAuthor}}
+              </a>
+            </span>
           </h1>
-          <p class="mt-8 text-xl text-gray-500 leading-8">{{postData.content}}</p>
-        </div>
+          <div
+            class="mt-8 mx-auto leading-8 text-left prose prose-sm lg:prose-lg dark:prose-invert dark:text-dark-text prose-li:text-start prose-code:text-start"
+            v-html="renderedContent"></div>
+        </template>
+        <template v-else>
+          <div
+            class="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight min-h-screen h-full text-gray-900 dark:text-MITRE-silver sm:text-4xl">
+            Loading ...
+          </div>
+        </template>
       </div>
     </div>
-    <div> <Footer /> </div>
   </div>
+  <Footer />
 </template>
 
 <script>
-import Header from '@/components/Header.vue';
-import Footer from '@/components/Footer.vue';
-import { graphql } from 'graphql';
-import gql from 'graphql-tag'
+import { marked } from 'marked'
+
 
 export default {
-  setup() {
-
-  },
   data() {
     return {
+      post: {},
       postData: {},
+      postAuthor: {},
+      renderedContent: {},
+      isLoaded: false,
     };
   },
   mounted() {
     this.$nextTick(async () => {
       await this.getData()
-      // console.log(postData)
     });
   },
   methods: {
-  async getData() {
-    console.log(this.$route)
-    this.postData = await useAsyncData('getBlogDataFromID', () => GqlGetBlogDataFromID({id: this.$route.query.id}))
-      .then(({ data }) => {
-       this.postData = data._value.blogPost.data.attributes
-       console.log('look here')
-       console.log(this.postData)
-      //  console.log( this.$route.params.id  )
-      });
-    }
+    async getData() {
+      this.post = await useAsyncData('getBlogDataFromID', () => GqlGetBlogDataFromID({ id: this.$route.query.id }))
+        .then(({ data }) => {
+          this.postData = data._value.blogPost.data.attributes
+          this.renderedContent = marked(this.postData.content)
+          this.postAuthor = this.postData.users_permissions_user.data.attributes.name
+          this.isLoaded = true
+        });
+
+    },
+    slugify(str) {
+      str = str.toLowerCase()
+      str = str.trim()
+      str = str.replace(/[^\w\s-]/g, '')
+      str = str.replace(/[\s_-]+/g, '-')
+      str = str.replace(/^-+|-+$/g, '')
+      return str
+    },
   }
-
-
 }
-
-
 </script>

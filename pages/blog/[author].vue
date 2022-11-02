@@ -77,7 +77,7 @@
             <div class="border-b border-gray-200 pb-5" />
           </article>
         </div>
-        <span class="block text-xl pt-12 text-center underline font-bold dark:text-dark-text">
+        <span class="block text-xl pt-12 text-center underline font-bold dark:text-white">
           Recent Articles
         </span>
         <!-- Blog Cards -->

@@ -8,7 +8,7 @@
       </div>
       <div class="relative max-w-7xl mx-auto">
         <div class="text-center">
-          <h2 class="text-3xl tracking-tight font-extrabold text-gray-900 dark:text-MITRE-silver sm:text-4xl">Blog</h2>
+          <h2 class="text-3xl tracking-tight font-extrabold text-gray-900 dark:text-white sm:text-4xl">Blog</h2>
           <p class="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">Start Exploring our Recent Developments.</p>
         </div>
         <!-- Blog Cards -->

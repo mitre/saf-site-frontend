@@ -1,24 +1,26 @@
 <template>
-  <Header />
-  <div class="relative bg-white dark:bg-dark-bg min-h-screen h-full pt-4 px-4 sm:px-6 lg:px-8">
-  <section aria-labelledby="faq-heading">
-    <div class="max-2xl mx-auto py-4 px-4 sm:py-4 sm:px-6 lg:max-w-7xl lg:px-8">
-      <div class="max-w-xl">
-        <h2 id="faq-heading" class="text-3xl font-bold tracking-tight dark:text-slate-200 ">Frequently asked questions</h2>
-        <p class="mt-4 text-base dark:text-gray-500">Have a question you don't see covered here? Please contact <a href="mailto:saf@groups.mitre.org" class="text-blue-500 dark:text-white">saf@groups.mitre.org</a></p>
-      </div>
+  <div>
+    <Header />
+    <div class="relative bg-white dark:bg-dark-bg min-h-screen h-full pt-4 px-4 sm:px-6 lg:px-8">
+      <section aria-labelledby="faq-heading">
+        <div class="max-2xl mx-auto py-4 px-4 sm:py-4 sm:px-6 lg:max-w-7xl lg:px-8">
+          <div class="max-w-xl">
+            <h2 id="faq-heading" class="text-3xl font-bold tracking-tight dark:text-slate-200 ">Frequently asked questions</h2>
+            <p class="mt-4 text-base dark:text-gray-500">Have a question you don't see covered here? Please contact <a href="mailto:saf@groups.mitre.org" class="text-blue-500 dark:text-white">saf@groups.mitre.org</a></p>
+          </div>
 
-      <dl class="mt-12 grid grid-cols-1 gap-y-10 sm:mt-16 md:grid-cols-2 md:gap-x-6 lg:grid-cols-3">
-        <div v-for="faq in faqs" :key="faq.id">
-          <dt class="text-lg font-bold text-lg dark:text-slate-200">{{faq.questionNumber}}. {{ faq.question }}</dt>
-          <dd class="mt-3 text-sm prose dark:prose-invert line-clamp-3" v-html="faq.answer"></dd>
-          <dd class="mt-4 text-blue-500 font-bold" ><a :href ="`/faq/${faq.questionNumber}`">View More</a></dd>
+          <dl class="mt-12 grid grid-cols-1 gap-y-10 sm:mt-16 md:grid-cols-2 md:gap-x-6 lg:grid-cols-3">
+            <div v-for="faq in faqs" :key="faq.id">
+              <dt class="text-lg font-bold text-lg dark:text-slate-200">{{faq.questionNumber}}. {{ faq.question }}</dt>
+              <dd class="mt-3 text-sm prose dark:prose-invert line-clamp-3" v-html="faq.answer"></dd>
+              <dd class="mt-4 text-blue-500 font-bold" ><a :href ="`/faq/${faq.questionNumber}`">View More</a></dd>
+            </div>
+          </dl>
         </div>
-      </dl>
+      </section>
     </div>
-  </section>
-</div>
-<Footer />
+    <Footer />
+  </div>
 </template>
 
 <script>

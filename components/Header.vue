@@ -67,18 +67,18 @@
 
         <PopoverGroup as="nav" class="hidden md:flex space-x-7 xl:space-x-10">
 
-          <a href="#"
+          <!-- <a href="#"
             class="text-base font-medium text-gray-500 dark:text-dark-text hover:text-gray-900 dark:hover:text-gray-200">
             Home
-          </a>
+          </a> -->
 
-
+          <!-- TODO: Remove pointer-events-none and change 'text-red-500' to 'text-gray-500' in this button to reenable it -->
           <Popover class="relative" v-slot="{ open }">
             <PopoverButton :class="[
               open
                 ? 'text-gray-900 dark:text-gray-200'
-                : 'text-gray-500 dark:text-dark-text',
-              'group bg-white dark:bg-dark-bg rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 dark:hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+                : 'text-red-500 dark:text-dark-text',
+              'group bg-white dark:bg-dark-bg rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 dark:hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 pointer-events-none'
             ]">
               <span>Toolkit</span>
               <ChevronDownIcon :class="[
@@ -136,13 +136,14 @@
             class="text-base font-medium text-gray-500 dark:text-dark-text hover:text-gray-900 dark:hover:text-gray-200">
             FAQ
           </NuxtLink>
-
+          
+          <!-- TODO: Remove pointer-events-none and change 'text-red-500' to 'text-gray-500' in this button to reenable it -->
           <Popover class="relative" v-slot="{ open }">
             <PopoverButton :class="[
               open
                 ? 'text-gray-900 dark:text-gray-300'
-                : 'text-gray-500 dark:text-dark-text',
-              'group bg-white dark:bg-dark-bg rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 dark:hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+                : 'text-red-500 dark:text-dark-text',
+              'group bg-white dark:bg-dark-bg rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 dark:hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500  pointer-events-none' 
             ]">
               <span>More</span>
               <ChevronDownIcon :class="[

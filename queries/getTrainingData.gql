@@ -1,0 +1,13 @@
+query getTrainingData{
+  trainingCourses{
+    data{
+      id,
+      attributes{
+        name,
+        description,
+        recording,
+        materials,
+      }
+    }
+  }
+}

@@ -67,10 +67,10 @@
 
         <PopoverGroup as="nav" class="hidden md:flex space-x-7 xl:space-x-10">
 
-          <a href="#"
+          <!-- <a href="#"
             class="text-base font-medium text-gray-500 dark:text-dark-text hover:text-gray-900 dark:hover:text-gray-200">
             Home
-          </a>
+          </a> -->
 
 
           <Popover class="relative" v-slot="{ open }">
@@ -135,6 +135,11 @@
           <NuxtLink to="/faq"
             class="text-base font-medium text-gray-500 dark:text-dark-text hover:text-gray-900 dark:hover:text-gray-200">
             FAQ
+          </NuxtLink>
+
+          <NuxtLink to="/training"
+            class="text-base font-medium text-gray-500 dark:text-dark-text hover:text-gray-900 dark:hover:text-gray-200">
+            Train
           </NuxtLink>
 
           <Popover class="relative" v-slot="{ open }">

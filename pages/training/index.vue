@@ -60,8 +60,8 @@
                 </div>
               </div>
             </div>
-            <div id="Schedule for Meetings" class="sticky top-0 pointer-events-auto pr-6 hidden min-w-fit sm:flex">
-              <div  class="">
+            <div id="Schedule for Meetings" class="sticky top-28 pointer-events-auto pr-6 hidden min-w-fit pl-4 sm:block h-fit">
+              <div  class="relative">
                 <h2 class="text-lg font-semibold text-gray-900 sm:pl-3 pt-6 dark:text-white">Upcoming meetings</h2>
                 <div class="lg:grid lg:grid-cols-2">
                   <ol class="mt-4 divide-y divide-gray-100 text-sm leading-6 lg:col-span-7 xl:col-span-8">

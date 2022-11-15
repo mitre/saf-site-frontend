@@ -1,0 +1,12 @@
+query getMeetingData{
+  courseMeetings{
+    data{
+      attributes{
+        title,
+        date,
+        link,
+        index
+      }
+    }
+  }
+}

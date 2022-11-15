@@ -16,14 +16,14 @@
                 </a> 
                 <hr class="mt-4" />
               </div>
-              <div id="Schedule for Meetings Mobile" class="relative pointer-events-auto order-2 pr-6 sm:hidden">
+              <div v-if="meetings != null" id="Schedule for Meetings Mobile" class="relative pointer-events-auto order-2 pr-6 sm:hidden">
                 <div  class="">
                   <h2 class="text-lg font-semibold text-gray-900 sm:pl-3 pt-6 dark:text-white">Upcoming meetings</h2>
                   <div class="lg:grid lg:grid-cols-2">
                     <ol class="mt-4 divide-y divide-gray-100 text-sm leading-6 lg:col-span-7 xl:col-span-8">
-                      <li v-for="meeting in meetings" :key="meeting.id" class="relative flex space-x-6 py-6 ">
+                      <li v-for="meeting in meetings" :key="meeting.index" class="relative flex space-x-6 py-6 ">
                         <div class="flex-0 pl-4">
-                          <h3 class="font-semibold text-gray-900 dark:text-MITRE-silver">{{ meeting.name }}</h3>
+                          <h3 class="font-semibold text-gray-900 dark:text-MITRE-silver">{{ meeting.title }}</h3>
                           <dl class="mt-2 flex flex-col text-gray-500 xl:flex-row">
                             <div class="flex items-start space-x-3 pl-1">
                               <dt class="mt-0.5">
@@ -31,7 +31,7 @@
                                 <CalendarIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
                               </dt>
                               <dd>
-                                <time :datetime="meeting.datetime">{{ meeting.date }} at {{ meeting.time }}</time>
+                                <!-- <time :datetime="meeting.datetime">{{ meeting.date }} at {{ meeting.time }}</time> -->
                               </dd>
                             </div>
                           </dl>
@@ -45,11 +45,11 @@
                 </div>
                 <hr class="mt-4" />
               </div>
-              <div id="Embeded Videos" v-if="courses != null" class="sm:flex-1 order-1">
+              <div id="Embeded Videos" v-if="courses != null" class="sm:flex-1 order-1 md:max-w-3xl">
                 <h2 class="block text-2xl leading-8 font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl pt-4 sm:pl-4" > Courses </h2>
                 <div v-for="course in courses" :key="course.name">
                   <div class="sm:pl-4 mt-7">
-                    <p class="text-xl font-semibold text-gray-900 dark:text-dark-text">
+                    <p class="text-xl font-semibold text-gray-900 dark:text-MITRE-silver">
                       {{ course.name }}
                     </p>
                     <div class="mt-8 mb-8 leading-8 text-left prose prose-sm lg:prose-lg dark:prose-invert dark:text-dark-text prose-li:text-start prose-code:text-start"
@@ -60,14 +60,14 @@
                 </div>
               </div>
             </div>
-            <div id="Schedule for Meetings" class="sticky top-28 pointer-events-auto pr-6 hidden min-w-fit pl-4 sm:block h-fit">
+            <div v-if="meetings != null" id="Schedule for Meetings" class="sticky top-28 pointer-events-auto pr-6 hidden min-w-fit pl-4 sm:block h-fit">
               <div  class="relative">
                 <h2 class="text-lg font-semibold text-gray-900 sm:pl-3 pt-6 dark:text-white">Upcoming meetings</h2>
                 <div class="lg:grid lg:grid-cols-2">
                   <ol class="mt-4 divide-y divide-gray-100 text-sm leading-6 lg:col-span-7 xl:col-span-8">
-                    <li v-for="meeting in meetings" :key="meeting.id" class="relative flex space-x-6 py-6 ">
+                    <li v-for="meeting in meetings" :key="meeting.index" class="relative flex space-x-6 py-6 ">
                       <div class="flex-0 pl-4">
-                        <h3 class="font-semibold text-gray-900 dark:text-MITRE-silver">{{ meeting.name }}</h3>
+                        <h3 class="font-semibold text-gray-900 dark:text-MITRE-silver">{{ meeting.title }}</h3>
                         <dl class="mt-2 flex flex-col text-gray-500 xl:flex-row">
                           <div class="flex items-start space-x-3 pl-1">
                             <dt class="mt-0.5">
@@ -75,21 +75,27 @@
                               <CalendarIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
                             </dt>
                             <dd>
-                              <time :datetime="meeting.datetime">{{ meeting.date }} at {{ meeting.time }}</time>
+                              <!-- <time :datetime="meeting.datetime">{{ meeting.date }} at {{ meeting.time }}</time> -->
+                              <time :datetime="meeting.date"> {{formatDate(meeting.date)}} at {{formatTime(meeting.date)}} EST </time> 
                             </dd>
                           </div>
                         </dl>
                       </div>
                       <div class="right-2 top-0 ">
-                        <button type="button" class="inline-flex items-center rounded-full border border-transparent bg-blue-600 sm:px-3 sm:py-1.5 px-1 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Sign Up</button>
+                        <a type="button" :href="meeting.link" target="_blank" class="inline-flex items-center rounded-full border border-transparent bg-blue-600 sm:px-3 sm:py-1.5 px-1 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Sign Up</a>
                       </div>
                     </li>
                   </ol>
                 </div>
               </div>
             </div>
+            <div v-else>
+              <p> Sorry there are no upcoming meetings at this time. If you would like to host a meeting please contact saf@groups.mitre.org </p>
+            </div>
           </div>
         </div>
+
+        
         <!-- <div class="">
           <div v-if="courses != null">
             <Carousel v-slot="{currentSlide}" class="relative max-h-full h-full">
@@ -116,7 +122,6 @@
         </div> -->
 
 
-
       </div>
     <Footer />
   </div>
@@ -131,35 +136,35 @@ import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 
 
 
-const meetings = [
-  {
-    id: 1,
-    date: 'January 10th, 2022',
-    time: '5:00 PM',
-    datetime: '2022-01-10T17:00',
-    name: 'Leslie Alexander',
-    imageUrl: null,
-      // 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-  },
-  {
-    id: 2,
-    date: 'January 10th, 2022',
-    time: '5:00 PM',
-    datetime: '2022-01-10T17:00',
-    name: 'Leslie Alexander',
-    imageUrl: null,
-      // 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-  },
-  {
-    id: 3,
-    date: 'January 10th, 2022',
-    time: '5:00 PM',
-    datetime: '2022-01-10T17:00',
-    name: 'Leslie Alexander',
-    imageUrl: null,
-      // 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-  },
-]
+// const meetings = [
+//   {
+//     id: 1,
+//     date: 'January 10th, 2022',
+//     time: '5:00 PM',
+//     datetime: '2022-01-10T17:00',
+//     name: 'Leslie Alexander',
+//     imageUrl: null,
+//       // 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+//   },
+//   {
+//     id: 2,
+//     date: 'January 10th, 2022',
+//     time: '5:00 PM',
+//     datetime: '2022-01-10T17:00',
+//     name: 'Leslie Alexander',
+//     imageUrl: null,
+//       // 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+//   },
+//   {
+//     id: 3,
+//     date: 'January 10th, 2022',
+//     time: '5:00 PM',
+//     datetime: '2022-01-10T17:00',
+//     name: 'Leslie Alexander',
+//     imageUrl: null,
+//       // 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+//   },
+// ]
 
 </script>
 <script>
@@ -168,12 +173,13 @@ export default {
   data() {
     return {
       courses: [],
-      CarouselSlides: ['1', '2', '3'],
+      meetings: [],
     };
   },
   mounted() {
     this.$nextTick(async () => {
       await this.getTrainingData()
+      await this.getMeetingData()
     });
   },
   methods: {
@@ -189,6 +195,24 @@ export default {
           }))
         });
     },
+    async getMeetingData() {
+      this.meetings = await useAsyncData('getMeetingData', () => GqlGetMeetingData())
+        .then(({ data }) => {
+          console.log(data._value.courseMeetings.data)
+          return data._value.courseMeetings.data.map((meeting) => ({
+            title: meeting.attributes.title,
+            date: meeting.attributes.date,
+            link: meeting.attributes.link,
+            index: meeting.attributes.index,
+          }))
+        });
+    },
+    formatDate(value, locale='en-US'){
+      return new Date(value).toLocaleDateString(locale)
+    },
+    formatTime(value, locale='en-US'){
+      return new Date(value).toLocaleTimeString(locale, {hour:'2-digit', minute:'2-digit'})
+    }
   }
 }
 

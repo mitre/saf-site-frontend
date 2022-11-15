@@ -60,10 +60,10 @@
                 </div>
               </div>
             </div>
-            <div v-if="meetings != null" id="Schedule for Meetings" class="sticky top-28 pointer-events-auto pr-6 hidden min-w-fit pl-4 sm:block h-fit">
+            <div id="Schedule for Meetings" class="sticky top-28 pointer-events-auto pr-6 hidden min-w-fit pl-4 sm:block h-fit">
               <div  class="relative">
                 <h2 class="text-lg font-semibold text-gray-900 sm:pl-3 pt-6 dark:text-white">Upcoming meetings</h2>
-                <div class="lg:grid lg:grid-cols-2">
+                <div v-if="meetings != null" class="lg:grid lg:grid-cols-2">
                   <ol class="mt-4 divide-y divide-gray-100 text-sm leading-6 lg:col-span-7 xl:col-span-8">
                     <li v-for="meeting in meetings" :key="meeting.index" class="relative flex space-x-6 py-6 ">
                       <div class="flex-0 pl-4">
@@ -87,10 +87,10 @@
                     </li>
                   </ol>
                 </div>
+                <div v-else class="relative max-w-sm mt-6 pl-2 dark:text-dark-text"> 
+                  <p> Sorry there are no upcoming meetings at this time. If you would like to host a meeting please contact saf@groups.mitre.org </p>
+                </div>
               </div>
-            </div>
-            <div v-else>
-              <p> Sorry there are no upcoming meetings at this time. If you would like to host a meeting please contact saf@groups.mitre.org </p>
             </div>
           </div>
         </div>
@@ -127,47 +127,13 @@
   </div>
 </template>
 
-<script setup>
+
+<script>
 import {
   CalendarIcon,
   DotsHorizontalIcon,
 } from '@heroicons/vue/solid'
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
-
-
-
-// const meetings = [
-//   {
-//     id: 1,
-//     date: 'January 10th, 2022',
-//     time: '5:00 PM',
-//     datetime: '2022-01-10T17:00',
-//     name: 'Leslie Alexander',
-//     imageUrl: null,
-//       // 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-//   },
-//   {
-//     id: 2,
-//     date: 'January 10th, 2022',
-//     time: '5:00 PM',
-//     datetime: '2022-01-10T17:00',
-//     name: 'Leslie Alexander',
-//     imageUrl: null,
-//       // 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-//   },
-//   {
-//     id: 3,
-//     date: 'January 10th, 2022',
-//     time: '5:00 PM',
-//     datetime: '2022-01-10T17:00',
-//     name: 'Leslie Alexander',
-//     imageUrl: null,
-//       // 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-//   },
-// ]
-
-</script>
-<script>
 export default {
 
   data() {

@@ -14,12 +14,12 @@
                 <a href="https://mitre-saf-training.netlify.app/" class="hover:underline">
                   <p class="mt-4 text-blue-500"> SAF Training Site - Netlify</p>
                 </a> 
-                <hr class="mt-4" />
+                <hr class="mt-4 w-full" />
               </div>
-              <div v-if="meetings != null" id="Schedule for Meetings Mobile" class="relative pointer-events-auto order-2 pr-6 sm:hidden">
+              <div id="Schedule for Meetings Mobile" class="relative pointer-events-auto order-2 pr-6 sm:hidden">
                 <div  class="">
                   <h2 class="text-lg font-semibold text-gray-900 sm:pl-3 pt-6 dark:text-white">Upcoming meetings</h2>
-                  <div class="lg:grid lg:grid-cols-2">
+                  <div v-if="meetings != null" class="lg:grid lg:grid-cols-2">
                     <ol class="mt-4 divide-y divide-gray-100 text-sm leading-6 lg:col-span-7 xl:col-span-8">
                       <li v-for="meeting in meetings" :key="meeting.index" class="relative flex space-x-6 py-6 ">
                         <div class="flex-0 pl-4">
@@ -32,30 +32,34 @@
                               </dt>
                               <dd>
                                 <!-- <time :datetime="meeting.datetime">{{ meeting.date }} at {{ meeting.time }}</time> -->
+                                <time :datetime="meeting.date"> {{formatDate(meeting.date)}} at {{formatTime(meeting.date)}} EST </time>
                               </dd>
                             </div>
                           </dl>
                         </div>
                         <div class="right-2 top-0 ">
-                          <button type="button" class="inline-flex items-center rounded-full border border-transparent bg-blue-600 sm:px-3 sm:py-1.5 px-1 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Sign Up</button>
+                          <a type="button" :href="meeting.link" target="_blank" class="inline-flex items-center rounded-full border border-transparent bg-blue-600 sm:px-3 sm:py-1.5 px-1 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Sign Up</a>
                         </div>
                       </li>
                     </ol>
                   </div>
+                  <div v-else class="relative max-w-sm mt-6 pl-2 dark:text-dark-text"> 
+                    <p> Sorry there are no upcoming meetings at this time. If you would like to host a meeting please contact saf@groups.mitre.org </p>
+                  </div>
                 </div>
-                <hr class="mt-4" />
+                <hr class="mt-4 w-full" />
               </div>
               <div id="Embeded Videos" v-if="courses != null" class="sm:flex-1 order-1 md:max-w-3xl">
-                <h2 class="block text-2xl leading-8 font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl pt-4 sm:pl-4" > Courses </h2>
+                <h2 class="block text-3xl leading-8 font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl pt-4 sm:pl-4" > Courses </h2>
                 <div v-for="course in courses" :key="course.name">
                   <div class="sm:pl-4 mt-7">
                     <p class="text-xl font-semibold text-gray-900 dark:text-MITRE-silver">
                       {{ course.name }}
                     </p>
-                    <div class="mt-8 mb-8 leading-8 text-left prose prose-sm lg:prose-lg dark:prose-invert dark:text-dark-text prose-li:text-start prose-code:text-start"
+                    <div class="max-w-xl mt-8 mb-8 leading-8 text-left prose prose-sm lg:prose-lg dark:prose-invert dark:text-dark-text prose-li:text-start prose-code:text-start"
                     v-html="course.description">
                     </div>
-                    <hr class="mt-4" />
+                    <hr class="mt-4 w-full" />
                   </div>
                 </div>
               </div>
@@ -95,7 +99,7 @@
           </div>
         </div>
 
-        
+        <!-- TODO: Get Carousel component working -->
         <!-- <div class="">
           <div v-if="courses != null">
             <Carousel v-slot="{currentSlide}" class="relative max-h-full h-full">
@@ -135,7 +139,7 @@ import {
 } from '@heroicons/vue/solid'
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 export default {
-
+  components: {CalendarIcon, DotsHorizontalIcon},
   data() {
     return {
       courses: [],

@@ -8,15 +8,16 @@
               <div id="Overview Section" class="sm:pl-4 md:max-w-3xl lg:max-w-3xl">
                 <h1 class="block text-3xl leading-8 font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-4xl"> Our Training</h1>
                 <p class="mt-6 dark:text-dark-text"> The MITRE SAF team regularly offers training courses. Dates and sign-up links for future courses are posted on this page when training dates are finalized. See below for course details, materials, and recordings.</p>
-                <a href="https://mitre.github.io/saf-training/" class="hover:underline">
-                  <p class="mt-4 text-blue-500"> SAF Training Site - GitHub</p>
-                </a> 
-                <a href="https://mitre-saf-training.netlify.app/" class="hover:underline">
-                  <p class="mt-4 text-blue-500"> SAF Training Site - Netlify</p>
-                </a> 
-                <hr class="mt-4 w-full" />
+                <div class="flex gap-8">
+                  <a href="https://mitre.github.io/saf-training/" class="hover:underline">
+                    <p class="mt-4 text-blue-500"> SAF Training Site - GitHub</p>
+                  </a> 
+                  <a href="https://mitre-saf-training.netlify.app/" class="hover:underline">
+                    <p class="mt-4 text-blue-500"> SAF Training Site - Netlify</p>
+                  </a>
+                </div>
               </div>
-              <div id="Schedule for Meetings Mobile" class="relative pointer-events-auto order-2 pr-6 sm:hidden">
+              <div id="Schedule for Meetings Mobile" class="relative pointer-events-auto order-2 pr-6 md:hidden">
                 <div  class="">
                   <h2 class="text-lg font-semibold text-gray-900 sm:pl-3 pt-6 dark:text-white">Upcoming meetings</h2>
                   <div v-if="meetings != null" class="lg:grid lg:grid-cols-2">
@@ -49,8 +50,9 @@
                 </div>
                 <hr class="mt-4 w-full" />
               </div>
-              <div id="Embeded Videos" v-if="courses != null" class="sm:flex-1 order-1 md:max-w-3xl">
+              <div id="Embeded Videos" v-if="courses != null" class="sm:flex-1 order-1 md:max-w-3xl pt-9">
                 <h2 class="block text-3xl leading-8 font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl pt-4 sm:pl-4" > Courses </h2>
+                <hr class="mt-4 w-full" />
                 <div v-for="course in courses" :key="course.name">
                   <div class="sm:pl-4 mt-7">
                     <p class="text-xl font-semibold text-gray-900 dark:text-MITRE-silver">
@@ -64,7 +66,7 @@
                 </div>
               </div>
             </div>
-            <div id="Schedule for Meetings" class="sticky top-28 pointer-events-auto pr-6 hidden min-w-fit pl-4 sm:block h-fit">
+            <div id="Schedule for Meetings" class="sticky top-28 pointer-events-auto pr-6 hidden min-w-fit pl-4 md:block h-fit">
               <div  class="relative">
                 <h2 class="text-lg font-semibold text-gray-900 sm:pl-3 pt-6 dark:text-white">Upcoming meetings</h2>
                 <div v-if="meetings != null" class="lg:grid lg:grid-cols-2">

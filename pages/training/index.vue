@@ -4,7 +4,9 @@
       <div class="bg-white dark:bg-dark-bg min-h-screen h-full">
         <div class ="relative w-full px-6 py-12 lg:pt-16 lg:pb-28 "> <!-- shadow-2xl shadow-slate-700/10 ring-1 ring-gray-900/5-->
           <div class="md:flex">
-            <div id="Content Area" class="flex-1 sm:pl-4">
+            <div id="Left Side Bar" class="mx-auto hidden min-w-fit md:block h-fit">
+            </div>
+            <div id="Content Area" class="flex-1 items-center justify-center  ml-auto min-w-0 max-w-3xl">
               <div id="Overview Section" class="sm:pl-4 md:max-w-3xl lg:max-w-3xl">
                 <h1 class="block text-3xl leading-8 font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-4xl"> Our Training</h1>
                 <p class="mt-6 dark:text-dark-text"> The MITRE SAF team regularly offers training courses. Dates and sign-up links for future courses are posted on this page when training dates are finalized. See below for course details, materials, and recordings.</p>
@@ -32,7 +34,6 @@
                                 <CalendarIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
                               </dt>
                               <dd>
-                                <!-- <time :datetime="meeting.datetime">{{ meeting.date }} at {{ meeting.time }}</time> -->
                                 <time :datetime="meeting.date"> {{formatDate(meeting.date)}} at {{formatTime(meeting.date)}} EST </time>
                               </dd>
                             </div>
@@ -81,7 +82,6 @@
                               <CalendarIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
                             </dt>
                             <dd>
-                              <!-- <time :datetime="meeting.datetime">{{ meeting.date }} at {{ meeting.time }}</time> -->
                               <time :datetime="meeting.date"> {{formatDate(meeting.date)}} at {{formatTime(meeting.date)}} EST </time> 
                             </dd>
                           </div>
@@ -162,7 +162,6 @@ export default {
           return data._value.trainingCourses.data.map((course) => ({
             name: course.attributes.name,
             description: course.attributes.description,
-            recording: course.attributes.recording,
             index: course.attributes.index,
           }))
         });

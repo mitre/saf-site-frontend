@@ -1,5 +1,5 @@
-query getMeetingData{
-  courseMeetings{
+query getScheduleData{
+  courseSchedules{
     data{
       attributes{
         title,

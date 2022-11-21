@@ -5,7 +5,6 @@ query getTrainingData{
       attributes{
         name,
         description,
-        recording,
         index,
       }
     }

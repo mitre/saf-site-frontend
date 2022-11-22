@@ -35,11 +35,12 @@
               </g>
             </svg>
           </a>
-          <a href="/">
+          <a href="/" class="flex">
             <h1
               class="text-2xl tracking-tighter p-2 font-extrabold whitespace-nowrap text-gray-900 dark:text-MITRE-silver  md:text-3xl xl:text-4xl">
-              <span class="block xl:inline">MITRE SAF</span>
+              <span class="block xl:inline">MITRE SAF</span> 
             </h1>
+            <p class="mt-1 text-xs">©</p>
           </a>
         </div>
 

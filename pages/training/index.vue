@@ -86,7 +86,7 @@
             </div>
           </div>
           <div id="Schedule for schedules"
-            class="sticky top-28 pointer-events-auto pr-6 hidden max-w-xl min-w-min pl-4 md:block h-fit">
+            class="sticky top-28 pointer-events-auto pr-6 hidden max-w-xl min-w-min pl-6 md:block h-fit">
             <div class="relative">
               <h2 class="text-lg font-semibold text-gray-900 sm:pl-3 pt-6 dark:text-white">Upcoming Classes</h2>
               <div v-if="schedules.length" class="lg:grid lg:grid-cols-2">

@@ -26,6 +26,8 @@
         <DocumentationPageNavigation  :table-of-contents="tableOfContents" :current-subsection-href="currentSubsectionHref" :current-heading="currentHeading"/>
       </div>  
     </div>
+    
+    <Footer />
   </div>
 </template>
   

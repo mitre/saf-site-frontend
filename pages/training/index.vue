@@ -5,10 +5,10 @@
       <div class="relative w-full px-6 sm:py-12 lg:pt-16 lg:pb-28">
         <div v-if="isLoaded" class="md:flex">
           <!-- TODO: Put some kind of content or menu in left side bar -->
-          <div id="Left Side Bar" class="flex-1 mx-auto hidden min-w-fit md:block h-fit">
+          <div id="Left Side Bar" class="flex-1 mx-auto hidden max-w-full md:block h-fit">
           </div>
           <div id="Content Area"
-            class="relative flex-auto items-center justify-center lg:ml-auto mx-auto  min-w-0 sm:px-6 py-12 sm:max-w-3xl sm:shadow-2xl shadow-slate-700/10 dark:shadow-slate-100/10 ring-3 ring-gray-900/5">
+            class="relative flex-auto items-center justify-center lg:ml-auto mx-auto mr-10 min-w-0 sm:px-6 py-12 sm:max-w-3xl sm:shadow-2xl shadow-slate-700/10 dark:shadow-slate-100/10 ring-3 ring-gray-900/5">
             <div id="Overview Section" class="sm:pl-4 md:max-w-3xl lg:max-w-3xl">
               <h1
                 class="block text-3xl leading-8 font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-4xl">

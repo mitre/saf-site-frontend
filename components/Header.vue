@@ -137,10 +137,10 @@
             FAQ
           </NuxtLink>
 
-          <NuxtLink to="/training"
+          <!-- <NuxtLink to="/training"
             class="text-base font-medium text-gray-500 dark:text-dark-text hover:text-gray-900 dark:hover:text-gray-200">
             Train
-          </NuxtLink>
+          </NuxtLink> -->
 
           <Popover class="relative" v-slot="{ open }">
             <PopoverButton :class="[
@@ -265,6 +265,13 @@
                     <span class="ml-3 text-base font-medium text-gray-900 dark:text-MITRE-silver">
                       {{ item.name }}
                     </span>
+                  </a>
+                  <a href="/training"
+                      class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-700">
+                      <component :is="BookmarkAltIcon" class="flex-shrink-0 h-6 w-6 text-blue-600" aria-hidden="true" />
+                      <span class="ml-3 text-base font-medium text-gray-900 dark:text-MITRE-silver">
+                        Training
+                      </span>
                   </a>
                 </nav>
               </div>
@@ -442,7 +449,7 @@ const resources = [
     name: 'Training',
     description:
       'Learn how to maximize our platform to get the most out of it.',
-    href: '#',
+    href: '/training',
     icon: BookmarkAltIcon
   },
   {

@@ -8,7 +8,7 @@
           <div id="Left Side Bar" class="mx-auto hidden min-w-fit md:block h-fit">
           </div>
           <div id="Content Area"
-            class="flex-1 items-center justify-center  ml-auto min-w-0 sm:px-6 py-12 sm:max-w-3xl sm:shadow-2xl shadow-slate-700/10 dark:shadow-slate-100/10 ring-3 ring-gray-900/5">
+            class="flex-auto items-center justify-center  lg:ml-auto mx-auto  min-w-0 sm:px-6 py-12 sm:max-w-3xl sm:shadow-2xl shadow-slate-700/10 dark:shadow-slate-100/10 ring-3 ring-gray-900/5">
             <div id="Overview Section" class="sm:pl-4 md:max-w-3xl lg:max-w-3xl">
               <h1
                 class="block text-3xl leading-8 font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
@@ -47,9 +47,9 @@
                           </div>
                         </dl>
                       </div>
-                      <div class="right-2 top-0 ">
+                      <div class="right-2 top-0">
                         <a type="button" :href="schedule.link" target="_blank"
-                          class="inline-flex items-center rounded-full border border-transparent bg-blue-600 sm:px-3 sm:py-1.5 px-1 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Sign
+                          class="inline-flex items-center rounded-full border border-transparent bg-blue-600 sm:px-3 sm:py-1.5 px-3 py-1.5 text-xs text-center font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Sign
                           Up</a>
                       </div>
                     </li>
@@ -107,10 +107,10 @@
                         </div>
                       </dl>
                     </div>
-                    <div class="right-2 top-0 ">
+                    <div class="right-2 top-0 min-w-100%">
                       <a type="button" :href="schedule.link" target="_blank"
-                        class="inline-flex items-center rounded-full border border-transparent bg-blue-600 sm:px-3 sm:py-1.5 px-1 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Sign
-                        Up</a>
+                        class="inline-flex items-center rounded-full border border-transparent bg-blue-600 sm:px-3 sm:py-1.5 px-1 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                        Sign Up</a>
                     </div>
                   </li>
                 </ol>

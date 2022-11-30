@@ -1,4 +1,5 @@
 <template>
+
   <div v-if="isLoaded">
     <div class="mt-4 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
       <div v-for="post in posts" :key="post.title"
@@ -11,23 +12,23 @@
                 {{ post.category.name }}
               </a>
             </p>
-            <a :href="`/blog/${post.date}/${slugify(post.title)}?id=${post.id}`" class="block mt-2">
+            <NuxtLink :to="`/blog/${post.date}/${slugify(post.title)}?id=${post.id}`" class="block mt-2">
               <p class="text-xl font-semibold text-gray-900 dark:text-dark-text">
                 {{ post.title }}
               </p>
               <p class="mt-3 text-base text-gray-500 line-clamp-2">
                 {{ post.description }}
               </p>
-            </a>
+            </NuxtLink>
           </div>
           <div class="mt-6 flex items-center">
             <div class="flex-shrink-0">
             </div>
             <div class="ml-3">
               <span class="text-sm font-medium text-gray-900 dark:text-dark-text ">
-                <a :href="`/blog/authors?name=${post.author}`" class="hover:underline">
+                <NuxtLink :to="`/blog/authors?name=${post.author}`" class="hover:underline">
                   <p>{{post.author}}</p>
-                </a>
+                </NuxtLink>
               </span>
               <div class="flex space-x-1 text-sm text-gray-500">
                 <time :datetime="post.datetime">

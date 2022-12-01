@@ -5,7 +5,7 @@
         <div
           class="flex justify-between items-center py-3 pl-0 sm:pl-3 md:pl-3 md:justify-start md:space-x-10">
           <div class="flex justify-left md:flex-1 lg:w-0 lg:flex-1">
-            <a href="/">
+            <NuxtLink to="/">
               <span class="sr-only">Workflow</span>
               <svg class=" w-12 h-12 md:w-14 md:h-14 " viewBox="0 0 55 55" version="1.1"
                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -32,7 +32,7 @@
                   </g>
                 </g>
               </svg>
-            </a>
+            </NuxtLink>
             <NuxtLink to="/" class="flex">
               <h1
                 class="text-2xl tracking-tighter p-2 font-extrabold whitespace-nowrap text-gray-900 dark:text-MITRE-silver  md:text-3xl xl:text-4xl">
@@ -265,26 +265,29 @@
                   </nav>
                 </div>
               </div>
-              <div class="flex items-center justify-between py-6 px-4">
+              <div class="flex items-center justify-between py-6 px-3">
                 <label class="text-gray-900 text-base font-medium dark:text-MITRE-silver">Switch Theme</label>
                 <div class="relative flex items-center ring-1 ring-slate-900/10 rounded-lg shadow-sm p-2 text-slate-700 font-semibold dark:bg-slate-600 dark:ring-0 dark:highlight-white/5 dark:text-slate-200">
-                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 mr-2 dark:hidden">
-                    <path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" class="stroke-slate-400 dark:stroke-slate-500"></path>
-                    <path d="M12 4v1M17.66 6.344l-.828.828M20.005 12.004h-1M17.66 17.664l-.828-.828M12 20.01V19M6.34 17.664l.835-.836M3.995 12.004h1.01M6 6l.835.836" class="stroke-slate-400 dark:stroke-slate-500"></path>
+                  <svg xmlns="http://www.w3.org/2000/svg" :class="selected == 'Dark' ?  'h-6 w-6' : 'hidden'" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
                   </svg>
-                  <svg viewBox="0 0 24 24" fill="none" class="w-6 h-6 mr-2 hidden dark:block">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M17.715 15.15A6.5 6.5 0 0 1 9 6.035C6.106 6.922 4 9.645 4 12.867c0 3.94 3.153 7.136 7.042 7.136 3.101 0 5.734-2.032 6.673-4.853Z" class="fill-transparent"></path>
-                    <path d="m17.715 15.15.95.316a1 1 0 0 0-1.445-1.185l.495.869ZM9 6.035l.846.534a1 1 0 0 0-1.14-1.49L9 6.035Zm8.221 8.246a5.47 5.47 0 0 1-2.72.718v2a7.47 7.47 0 0 0 3.71-.98l-.99-1.738Zm-2.72.718A5.5 5.5 0 0 1 9 9.5H7a7.5 7.5 0 0 0 7.5 7.5v-2ZM9 9.5c0-1.079.31-2.082.845-2.93L8.153 5.5A7.47 7.47 0 0 0 7 9.5h2Zm-4 3.368C5 10.089 6.815 7.75 9.292 6.99L8.706 5.08C5.397 6.094 3 9.201 3 12.867h2Zm6.042 6.136C7.718 19.003 5 16.268 5 12.867H3c0 4.48 3.588 8.136 8.042 8.136v-2Zm5.725-4.17c-.81 2.433-3.074 4.17-5.725 4.17v2c3.552 0 6.553-2.327 7.622-5.537l-1.897-.632Z" class="fill-slate-400"></path>
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M17 3a1 1 0 0 1 1 1 2 2 0 0 0 2 2 1 1 0 1 1 0 2 2 2 0 0 0-2 2 1 1 0 1 1-2 0 2 2 0 0 0-2-2 1 1 0 1 1 0-2 2 2 0 0 0 2-2 1 1 0 0 1 1-1Z" class="fill-slate-400"></path>
-                  </svg>{{selected}}<svg class="w-6 h-6 ml-2 text-slate-400" fill="none"><path d="m15 11-3 3-3-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                  <svg xmlns="http://www.w3.org/2000/svg" :class="selected =='Light' ?  'h-6 w-6' : 'hidden'" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
                   </svg>
-                  <!-- <svg id="theme-toggle-system-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                   <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg> -->
-                  <select id="theme" class="absolute appearance-none inset-0 w-full h-full opacity-0 dark:bg-slate-600" @change="switchSelect($event.target.value)">
-                    <option>Light</option>
-                    <option>Dark</option>
-                    <option>System</option>
+                  <svg xmlns="http://www.w3.org/2000/svg" :class="selected == 'System' ?  'h-6 w-6' : 'hidden'" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  <div class="ml-2">{{selected}}</div>
+                  <svg class="w-5 h-6  text-slate-400" fill="none"><path d="m15 11-3 3-3-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                  <select id="theme" class="absolute appearance-none inset-0 w-full h-full opacity-0 dark:bg-slate-600" @change="switchSelect($event)">
+                  <option :selected="selected == 'Light'">Light</option>
+                  <option :selected="selected == 'Dark'">Dark</option>
+                  <option :selected="selected == 'System'">System</option>
                   </select>
                 </div>
               </div>
@@ -433,10 +436,6 @@ const enabled = ref(true);
 export default {
   data() {
     return {
-      darkMode: false,
-      htmlDark: "Dark Mode",
-      htmlLight: "Light Mode",
-      htmlCurrent: "",
       selected: "",
       options: ['Light', 'Dark', 'System'],
     };
@@ -447,14 +446,12 @@ export default {
       if (event.target.value === 'Light') {
         this.disableDarkMode()
         localStorage.setItem('user-theme', 'light');
-        // localStorage.setItem('selectedValue', 'Light')
         this.selected = "Light"
         this.setThemeState(this.selected)
       }
       else if (event.target.value == 'Dark'){
         this.enableDarkMode()
         localStorage.setItem('user-theme', 'dark');
-        // localStorage.setItem('selectedValue', 'Dark')
         this.selected = "Dark"
         this.setThemeState(this.selected)
       }
@@ -462,51 +459,30 @@ export default {
       else if (event.target.value == 'System')
       {
         const userIsInDarkModeOS = window.matchMedia('(prefers-color-scheme: dark)').matches
-        // localStorage.setItem('selectedValue', 'System')
         if (userIsInDarkModeOS) {
           this.enableDarkMode()
-          // console.log('System Dark!!!')
           localStorage.setItem('user-theme', 'dark');
           this.selected = "System";
-          this.setThemeState(this.selected)
-          // document.getElementById('theme-toggle-dark-icon').classList.add('hidden')
-          // document.getElementById('theme-toggle-light-icon').classList.add('hidden')
-          // document.getElementById('theme-toggle-system-icon').classList.remove('hidden')  
+          this.setThemeState(this.selected) 
         }
         else {
           this.disableDarkMode()
-          // console.log('System Light!!!')  
           this.selected = "System";
         }
       }
     },
     setThemeState(mode){
-      // console.log(document.getElementById('theme'))
-      // document.getElementById('theme').setAttribute('theme', mode)
       localStorage.setItem('theme', mode)
     },
     getThemeState(){
       let theme = localStorage.getItem('theme')
-      console.log('THIS IS VASLUE')
-      console.log(theme)
       this.selected = theme
-      // this.switchSelect(theme)
-      // const $select = document.querySelector('#theme')
-      // $select.value = theme
     },
     enableDarkMode() {
       document.documentElement.classList.add('dark');
-      // document.getElementById('theme-toggle-dark-icon').classList.remove('hidden')
-      // document.getElementById('theme-toggle-light-icon').classList.add('hidden')
-      // document.getElementById('theme-toggle-system-icon').classList.add('hidden')
-      this.htmlCurrent = this.htmlDark
     },
     disableDarkMode() {
       document.documentElement.classList.remove('dark');
-      // document.getElementById('theme-toggle-light-icon').classList.remove('hidden')
-      // document.getElementById('theme-toggle-dark-icon').classList.add('hidden')
-      // document.getElementById('theme-toggle-system-icon').classList.add('hidden')
-      this.htmlCurrent = this.htmlLight
     },
     hideBanner() {
       var bannerDIV = document.getElementById("newsBannerDIV")
@@ -520,36 +496,27 @@ export default {
     if (this.selected === 'Light') {
       this.disableDarkMode()
       localStorage.setItem('user-theme', 'light');
-      // localStorage.setItem('selectedValue', 'Light')
       this.selected = "Light"
       this.setThemeState(this.selected)
     }
     else if (this.selected == 'Dark'){
       this.enableDarkMode()
       localStorage.setItem('user-theme', 'dark');
-      // localStorage.setItem('selectedValue', 'Dark')
       this.selected = "Dark"
       this.setThemeState(this.selected)
     }
     else if (this.selected == 'System')
     {
       const userIsInDarkModeOS = window.matchMedia('(prefers-color-scheme: dark)').matches
-      // localStorage.setItem('selectedValue', 'System')
       if (userIsInDarkModeOS) {
         this.enableDarkMode()
-        localStorage.setItem('user-theme', 'dark');
-        this.selected = "System";
-        this.setThemeState(this.selected)
-        // document.getElementById('theme-toggle-dark-icon').classList.add('hidden')
-        // document.getElementById('theme-toggle-light-icon').classList.add('hidden')
-        // document.getElementById('theme-toggle-system-icon').classList.remove('hidden')  
+        localStorage.setItem('user-theme', 'dark')
+        this.selected = "System"
+        this.setThemeState(this.selected) 
       }
       else {
         this.disableDarkMode()
         this.selected = "System";
-        // document.getElementById('theme-toggle-dark-icon').classList.add('hidden')
-        // document.getElementById('theme-toggle-light-icon').classList.add('hidden')
-        // document.getElementById('theme-toggle-system-icon').classList.remove('hidden') 
       }
     }
   }

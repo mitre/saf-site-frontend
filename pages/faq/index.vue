@@ -13,7 +13,7 @@
             <div v-for="faq in faqs" :key="faq.id">
               <dt class="text-lg font-bold text-lg dark:text-slate-200">{{faq.questionNumber}}. {{ faq.question }}</dt>
               <dd class="mt-3 text-sm prose dark:prose-invert line-clamp-3" v-html="faq.answer"></dd>
-              <dd class="mt-4 text-blue-500 font-bold" ><a :href ="`/faq/${faq.questionNumber}`">View More</a></dd>
+              <dd class="mt-4 text-blue-500 font-bold" ><NuxtLink :to ="`/faq/${faq.questionNumber}`">View More</NuxtLink></dd>
             </div>
           </dl>
         </div>

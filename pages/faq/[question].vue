@@ -13,9 +13,9 @@
             <span class="pt-3 block text-base text-center text-blue-600 font-semibold tracking-wide">
                 Updated: {{faq.updated}}
               &nbsp; | &nbsp; 
-              <a :href="`/blog/${slugify(faq.author)}?id=${faq.author}`" class="hover:underline">
+              <NuxtLink :to="`/blog/${slugify(faq.author)}?id=${faq.author}`" class="hover:underline">
                 {{faq.author}}
-              </a> 
+              </NuxtLink> 
             </span>
           </h1>
           <div class="mt-8 mx-auto leading-8 text-left prose prose-sm lg:prose-lg dark:prose-invert dark:text-dark-text prose-li:text-start prose-code:text-start" v-html="faq.answer" ></div>

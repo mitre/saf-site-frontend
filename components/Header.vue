@@ -38,7 +38,7 @@
                 class="text-2xl tracking-tighter p-2 font-extrabold whitespace-nowrap text-gray-900 dark:text-MITRE-silver  md:text-3xl xl:text-4xl">
                 <span class="block xl:inline">MITRE SAF</span> 
               </h1>
-              <p class="mt-1 text-xs">©</p>
+              <p class="mt-1 text-xs dark:text-dark-text">©</p>
             </NuxtLink>
           </div>
 
@@ -87,7 +87,7 @@
                   class="absolute z-10 -ml-4 mt-3 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2">
                   <div class="rounded-lg shadow-lg ring-1 ring-black dark:ring-gray-500 ring-opacity-5 overflow-hidden">
                     <div class="relative grid gap-6 bg-white dark:bg-dark-bg px-5 py-6 sm:gap-8 sm:p-8">
-                      <a v-for="item in toolkit" :key="item.name" :href="item.href"
+                      <NuxtLink v-for="item in toolkit" :key="item.name" :to="item.href"
                         class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
                         <component :is="item.icon" class="flex-shrink-0 h-6 w-6 text-blue-600" aria-hidden="true" />
                         <div class="ml-4">
@@ -98,7 +98,7 @@
                             {{ item.description }}
                           </p>
                         </div>
-                      </a>
+                      </NuxtLink>
                     </div>
                     <div
                       class="px-5 py-5 bg-gray-50 dark:bg-dark-bg space-y-6 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8">
@@ -151,7 +151,7 @@
                   class="absolute z-10 left-1/2 transform -translate-x-1/2 mt-3 px-2 w-screen max-w-md sm:px-0">
                   <div class="rounded-lg shadow-lg ring-1 ring-black dark:ring-gray-500 ring-opacity-5 overflow-hidden">
                     <div class="relative grid gap-6 bg-white dark:bg-dark-bg px-5 py-6 sm:gap-8 sm:p-8">
-                      <a v-for="item in resources" :key="item.name" :href="item.href"
+                      <NuxtLink v-for="item in resources" :key="item.name" :to="item.href"
                         class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
                         <component :is="item.icon" class="flex-shrink-0 h-6 w-6 text-blue-600" aria-hidden="true" />
                         <div class="ml-4">
@@ -162,7 +162,7 @@
                             {{ item.description }}
                           </p>
                         </div>
-                      </a>
+                      </NuxtLink>
                     </div>
                     <div class="px-5 py-5 bg-gray-50 dark:bg-dark-bg sm:px-8 sm:py-8">
                       <div>
@@ -255,13 +255,13 @@
                 </div>
                 <div class="my-3">
                   <nav class="grid gap-y-8">
-                    <a v-for="item in toolkit" :key="item.name" :href="item.href"
+                    <NuxtLink v-for="item in toolkit" :key="item.name" :to="item.href"
                       class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-700">
                       <component :is="item.icon" class="flex-shrink-0 h-6 w-6 text-blue-600" aria-hidden="true" />
                       <span class="ml-3 text-base font-medium text-gray-900 dark:text-MITRE-silver">
                         {{ item.name }}
                       </span>
-                    </a>
+                    </NuxtLink>
                   </nav>
                 </div>
               </div>

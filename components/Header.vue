@@ -125,10 +125,10 @@
               Docs
             </NuxtLink>
 
-            <NuxtLink to="/faq"
+            <!-- <NuxtLink to="/faq"
               class="text-base font-medium text-gray-500 dark:text-dark-text hover:text-gray-900 dark:hover:text-gray-200">
               FAQ
-            </NuxtLink>
+            </NuxtLink> -->
             
             <Popover class="relative" v-slot="{ open }">
               <PopoverButton :class="[
@@ -384,7 +384,7 @@ const resources = [
     name: 'Help Center',
     description:
       'Get all of your questions answered in our forums or contact support.',
-    href: '#',
+    href: '/faq',
     icon: SupportIcon
   },
   {

@@ -65,12 +65,12 @@
 
 
           <PopoverGroup as="nav" class="hidden md:flex space-x-7 xl:space-x-10">
-            <!-- TODO: Remove pointer-events-none and change 'text-red-500' to 'text-gray-500' in this button to reenable it -->
+            <!-- TODO: Remove pointer-events-none and change 'text-red-500' to 'text-gray-500' and next to it make dark:text-red to dark:text-dark-text in this button to reenable it -->
             <Popover class="relative" v-slot="{ open }">
               <PopoverButton :class="[
                 open
                   ? 'text-gray-900 dark:text-gray-200'
-                  : 'text-red-500 dark:text-dark-text',
+                  : 'text-red-500 dark:text-red',
                 'group bg-white dark:bg-dark-bg rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 dark:hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 pointer-events-none'
               ]">
                 <span>Toolkit</span>
@@ -209,7 +209,7 @@
                 <SunIcon :class="selected =='Light' ?  'h-6 w-6' : 'hidden'" /> 
                 <MoonIcon :class="selected == 'Dark' ?  'h-6 w-6' : 'hidden'" /> 
                 <DesktopComputerIcon :class="selected == 'System' ?  'h-6 w-6' : 'hidden'" />
-                <select name="theme" id="theme" class="absolute appearance-none pr-3 w-full h-fit opacity-0 dark:bg-slate-600" @change="switchSelect($event)">
+                <select name="theme" id="theme" class="absolute appearance-none pr-3 w-full h-fit opacity-0 dark:bg-slate-600 dark:text-white" @change="switchSelect($event)">
                   <option :selected="selected == 'Light'">Light</option>
                   <option :selected="selected == 'Dark'">Dark</option>
                   <option :selected="selected == 'System'">System</option>
@@ -259,7 +259,7 @@
                   <div class="ml-2">{{selected}}</div>
                   <svg class="w-5 h-6  text-slate-400" fill="none"><path d="m15 11-3 3-3-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
                   </svg>
-                  <select id="theme" class="absolute appearance-none inset-0 w-full h-full opacity-0 dark:bg-slate-600" @change="switchSelect($event)">
+                  <select id="theme" class="absolute appearance-none inset-0 w-full h-full opacity-0 dark:bg-slate-600 dark:text-white" @change="switchSelect($event)">
                   <option :selected="selected == 'Light'">Light</option>
                   <option :selected="selected == 'Dark'">Dark</option>
                   <option :selected="selected == 'System'">System</option>

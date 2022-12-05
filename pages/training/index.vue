@@ -63,7 +63,6 @@
                       contact saf@groups.mitre.org </p>
                   </div>
                 </div>
-                <!-- <hr class="mt-4 w-full" /> -->
               </div>
               <div id="Embeded Videos" class="sm:flex-1 order-1 md:max-w-2xl pt-9">
                 <h2
@@ -158,15 +157,12 @@ export default {
       await this.getTrainingData()
       await this.getScheduleData()
       this.isLoaded = true
-      console.log('Here is empty data')
-      console.log(this.schedules)
     });
   },
   methods: {
     async getTrainingData() {
       this.courses = await useAsyncData('getTrainingData', () => GqlGetTrainingData())
         .then(({ data }) => {
-          console.log(data._value.trainingCourses.data)
           return data._value.trainingCourses.data.map((course) => ({
             name: course.attributes.name,
             description: course.attributes.description,
@@ -177,7 +173,6 @@ export default {
     async getScheduleData() {
       this.schedules = await useAsyncData('getScheduleData', () => GqlGetScheduleData())
         .then(({ data }) => {
-          console.log(data._value.courseSchedules.data)
           return data._value.courseSchedules.data.map((schedule) => ({
             title: schedule.attributes.title,
             date: schedule.attributes.date,
@@ -194,6 +189,4 @@ export default {
     }
   }
 }
-
-
 </script>

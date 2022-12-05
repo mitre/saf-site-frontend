@@ -413,7 +413,7 @@ const enabled = ref(true);
 export default {
   data() {
     return {
-      selected: "Light",
+      selected: "",
       options: ['Light', 'Dark', 'System'],
     };
   },
@@ -466,6 +466,13 @@ export default {
     },
   },
   mounted() {
+
+    if(localStorage.getItem('wasVisited') == undefined)
+    {
+      this.selected = "Light"
+      this.setThemeState(this.selected)
+      localStorage.setItem('wasVisited', true)
+    }
     
     this.getThemeState()
 

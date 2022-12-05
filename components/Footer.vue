@@ -26,7 +26,7 @@
 import { defineComponent, h } from 'vue'
 
 
-const copyrightYear = '1997-2021'
+const copyrightYear = '1997-' + new Date().getFullYear()
 const navigation = [
 {
     name: 'GitHub',

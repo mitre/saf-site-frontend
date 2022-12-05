@@ -124,11 +124,6 @@
               class="text-base font-medium text-gray-500 dark:text-dark-text hover:text-gray-900 dark:hover:text-gray-200">
               Docs
             </NuxtLink>
-
-            <!-- <NuxtLink to="/faq"
-              class="text-base font-medium text-gray-500 dark:text-dark-text hover:text-gray-900 dark:hover:text-gray-200">
-              FAQ
-            </NuxtLink> -->
             
             <Popover class="relative" v-slot="{ open }">
               <PopoverButton :class="[
@@ -401,7 +396,6 @@ const resources = [
     href: '#',
     icon: CalendarIcon
   }
-  // { name: 'Security', description: 'Understand how we take your privacy seriously.', href: '#', icon: ShieldCheckIcon },
 ];
 const recentPosts = [
   { id: 1, name: 'Boost your conversion rate', href: '#' },
@@ -425,7 +419,6 @@ export default {
   },
   methods: {
     switchSelect(event) {
-      console.log("switchSelect: ", event.target.value);
       if (event.target.value === 'Light') {
         this.disableDarkMode()
         localStorage.setItem('user-theme', 'light');

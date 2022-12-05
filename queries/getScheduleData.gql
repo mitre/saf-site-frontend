@@ -1,0 +1,12 @@
+query getScheduleData{
+  courseSchedules{
+    data{
+      attributes{
+        title,
+        date,
+        link,
+        index
+      }
+    }
+  }
+}

@@ -386,7 +386,7 @@ const resources = [
     name: 'Training',
     description:
       'Learn how to maximize our platform to get the most out of it.',
-    href: '#',
+    href: '/training',
     icon: BookmarkAltIcon
   },
   {

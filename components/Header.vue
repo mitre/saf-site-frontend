@@ -413,7 +413,7 @@ const enabled = ref(true);
 export default {
   data() {
     return {
-      selected: "",
+      selected: "Light",
       options: ['Light', 'Dark', 'System'],
     };
   },

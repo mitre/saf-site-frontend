@@ -112,7 +112,7 @@
                           </div>
                         </dl>
                       </div>
-                      <div class="right-2 top-0 pt-3 pl-2 min-w-100%">
+                      <div class="right-2 top-0 pt-3 pl-2 min-w-fit">
                         <a type="button" :href="schedule.link" target="_blank"
                           class="inline-flex items-center text-center rounded-full border border-transparent bg-blue-600 sm:px-3 sm:py-1.5 px-1 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
                           Sign Up</a>

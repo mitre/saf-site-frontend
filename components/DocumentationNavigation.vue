@@ -30,7 +30,7 @@
                         ]"
                         >
                         {{subsection.title}}
-                    </a>
+                        </a>
                     </li>
                     </div>
                 </ul>

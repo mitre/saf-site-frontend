@@ -17,9 +17,9 @@
               <span class="pt-3 block text-base text-center text-blue-600 font-semibold tracking-wide">
                 {{postData.date}}
                 &nbsp; | &nbsp;
-                <a :href="`/blog/authors?name=${postAuthor}`" class="hover:underline">
+                <NuxtLink :to="`/blog/authors?name=${postAuthor}`" class="hover:underline">
                   {{postAuthor}}
-                </a>
+                </NuxtLink>
               </span>
             </h1>
             <div

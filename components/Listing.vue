@@ -1,18 +1,5 @@
 <template>
   <div class="px-4 sm:px-6 lg:px-8">
-    <div class="sm:flex sm:items-center">
-      <div class="sm:flex-auto">
-        <h1 class="text-xl font-semibold text-gray-900 dark:text-gray-50">Validate</h1>
-        <p class="mt-2 text-sm text-gray-700 dark:text-gray-300">These open-source community-based InSpec profiles
-          validate the security of
-          common system components. MITRE is helping to provide stewardship over these profiles, hosted here and at
-          other community vendor sites. If you are interested in new profiles, please contact us at saf@groups.mitre.org
-          . If you are interested in developing and contributing your own profiles, please see our training material.
-
-          All assessment tests under MITRE SAF are associated with NIST SP 800-53 Security Controls. Explore these
-          associations in this Control Assessment Range table!</p>
-      </div>
-    </div>
     <div class="my-8 flex flex-col">
       <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
@@ -23,7 +10,7 @@
                   <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">Name
                   </th>
                   <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Platform</th>
-                  <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Type</th>
+                  <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Partner</th>
                   <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Version</th>
                   <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
                     <span class="sr-only">Edit</span>
@@ -31,28 +18,30 @@
                 </tr>
               </thead>
               <tbody class="bg-white">
-                <template v-for="listing in profilesList" :key="listing.platform">
+                <template v-for="category in categories">
                   <tr class="border-t border-gray-200">
                     <th colspan="5" scope="colgroup"
-                      class="bg-gray-50 px-4 py-2 text-left text-sm font-semibold text-gray-900 sm:px-6">{{
-                          listing.platform
+                      class="bg-gray-100 px-4 py-2 text-left text-sm font-semibold text-gray-900 sm:px-6">{{
+                          category
                       }}</th>
                   </tr>
-                  <tr v-for="(profile, profileIdx) in listing.profiles" :key="profileIdx"
-                    :class="[profileIdx === 0 ? 'border-gray-300' : 'border-gray-200', 'border-t']">
-                    <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">{{
-                        profile.name
-                    }}</td>
-                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ profile.platform }}</td>
-                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ profile.type }}</td>
-                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ profile.version }}</td>
-                    <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                      <btn @click="" class="text-indigo-600 hover:text-indigo-900">View Details<span class="sr-only">,
-                          {{
-    profile.name
-                          }}</span></btn>
-                    </td>
-                  </tr>
+                  <template v-for="(profile, index) in profiles" :key="index">
+                    <tr v-if="profile.category.replaceAll('_', ' ') == category "
+                      :class="[index === 0 ? 'border-gray-300' : 'border-gray-200', 'border-t']">
+                        <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">{{
+                            profile.name
+                        }}</td>
+                        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ profile.platform.name }}</td>
+                        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ profile.partner.name }}</td>
+                        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ profile.url }}</td>
+                        <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                          <button @click="" class="text-indigo-600 hover:text-indigo-900">View Details<span class="sr-only">,
+                              {{
+                                profile.name
+                              }}</span></button>
+                        </td>
+                    </tr>
+                  </template>
                 </template>
               </tbody>
             </table>
@@ -63,36 +52,27 @@
   </div>
 </template>
   
-<script setup>
-const open = ref(false)
-const profilesList = [
-  {
-    platform: 'Cloud Service Providers',
-    profiles: [
-      { name: 'Test', platform: 'Test', type: 'Test', version: 'Test' },
-      { name: 'Test', platform: 'Test', type: 'Test', version: 'Test' },
-      { name: 'Test', platform: 'Test', type: 'Test', version: 'Test' },
-      { name: 'Test', platform: 'Test', type: 'Test', version: 'Test' },
-    ],
+
+<script>
+export default {
+  data(){
+    return{
+      categories: [
+      'Cloud Service Providers',
+      'Virtual Platforms',
+      'Operating Systems',
+      'Databases',
+      'Network',
+      'Application Logic',
+      'Web Servers',
+      ]
+    }
   },
-  {
-    platform: 'Virtual Platforms',
-    profiles: [
-      { name: 'Test', platform: 'Test', type: 'Test', version: 'Test' },
-      { name: 'Test', platform: 'Test', type: 'Test', version: 'Test' },
-      { name: 'Test', platform: 'Test', type: 'Test', version: 'Test' },
-      { name: 'Test', platform: 'Test', type: 'Test', version: 'Test' },
-    ],
+  props: {
+    profiles: {
+      type: Array,
+      required: true,
+    },
   },
-  {
-    platform: 'Operating Systems',
-    profiles: [
-      { name: 'Test', platform: 'Test', type: 'Test', version: 'Test' },
-      { name: 'Test', platform: 'Test', type: 'Test', version: 'Test' },
-      { name: 'Test', platform: 'Test', type: 'Test', version: 'Test' },
-      { name: 'Test', platform: 'Test', type: 'Test', version: 'Test' },
-    ],
-  },
-  // More profiles...
-]
+}
 </script>

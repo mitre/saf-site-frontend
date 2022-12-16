@@ -16,7 +16,7 @@
               associations in this Control Assessment Range table!</p>
           </div>
         </div>
-        <Listing v-bind:profiles="profiles" />
+        <Listing v-bind:profiles="validationData" v-bind:benchmarks="benchmarks" />
       </div>
       <div v-else>
         <p> Loading ... </p>
@@ -30,37 +30,90 @@
   export default {
     data() {
       return {
-        profiles: [],
+        benchmarks: [],
+        validationData: [],
         categories: [],
-        isLoaded: true,
-        // remember to set this back to false when database is connected
+        isLoaded: false,
       };
     },
     mounted() {
       this.$nextTick(async () => {
-        await this.getProfiles()
+        await this.getBenchmarks()
+        this.getValidationData()
         this.isLoaded = true
       });
     },
     methods: {
-      async getProfiles() {
-        this.profiles = await useAsyncData('getAllProfiles', () => GqlGetProfileData({type: "Validate"}))
+      async getBenchmarks() {
+        this.benchmarks = await useAsyncData('getBenchmarkData', () => GqlGetBenchmarkData())
           .then(({ data }) => {
-            console.log("Profiles return: ", data._value.profiles.data)
-            return data._value.profiles.data.map((profile) => ({
-                name: profile.attributes.name,
-                url: profile.attributes.url,
-                category: profile.attributes.category,
-                // category: profile.attributes.profile_category.data.attributes.category,
-                name_long: profile.attributes.name_long,
-                partner :{
-                  name: profile.attributes.partner.data.attributes.name,
+            console.log("Benchmarks return: ", data._value.benchmarks.data)
+            return data._value.benchmarks.data.map((benchmark) => ({
+              name: benchmark.attributes.name,
+              id: benchmark.id,
+              type: benchmark.attributes.type,
+              category: benchmark.attributes.category,
+              source_link: benchmark.attributes.source_link,
+              date: benchmark.attributes.date,
+              version: benchmark.attributes.version,
+              hardening:{
+                id: benchmark.attributes.hardening.data[0].id,
+                name: benchmark.attributes.hardening.data[0].attributes.name,
+                name_long: benchmark.attributes.hardening.data[0].attributes.name_long,
+                source: benchmark.attributes.hardening.data[0].attributes.source,
+                platform: {
+                  name: benchmark.attributes.hardening.data[0].attributes.platform.data.attributes.name,
+                  link: benchmark.attributes.hardening.data[0].attributes.platform.data.attributes.link,
+                  icon: {
+                    name: benchmark.attributes.hardening.data[0].attributes.platform.data.attributes.icon.data ? benchmark.attributes.hardening.data[0].attributes.platform.data.attributes.icon.data.attributes.name : null,
+                    url: benchmark.attributes.hardening.data[0].attributes.platform.data.attributes.icon.data ? benchmark.attributes.hardening.data[0].attributes.platform.data.attributes.icon.data.attributes.url : null,
+                  }
                 },
-                platform :{
-                  name: profile.attributes.platform.data.attributes.name,
+                partner: {
+                  name: benchmark.attributes.hardening.data[0].attributes.partner.data.attributes.name,
+                  name_long: benchmark.attributes.hardening.data[0].attributes.partner.data.attributes.name_long,
+                  link: benchmark.attributes.hardening.data[0].attributes.partner.data.attributes.link,
+                  icon: {
+                    name: benchmark.attributes.hardening.data[0].attributes.partner.data.attributes.icon.data ? benchmark.attributes.hardening.data[0].attributes.partner.data.attributes.icon.data.attributes.name : null,
+                    url: benchmark.attributes.hardening.data[0].attributes.partner.data.attributes.icon.data ? benchmark.attributes.hardening.data[0].attributes.partner.data.attributes.icon.data.attributes.url : null,
+                  }
+                }
+              },
+              validation:{
+                id: benchmark.attributes.validation.data[0].id,
+                name: benchmark.attributes.validation.data[0].attributes.name,
+                name_long: benchmark.attributes.validation.data[0].attributes.name_long,
+                source: benchmark.attributes.validation.data[0].attributes.source,
+                platform: {
+                  name: benchmark.attributes.validation.data[0].attributes.platform.data.attributes.name,
+                  link: benchmark.attributes.validation.data[0].attributes.platform.data.attributes.link,
+                  icon: {
+                    name: benchmark.attributes.validation.data[0].attributes.platform.data.attributes.icon.data ? benchmark.attributes.validation.data[0].attributes.platform.data.attributes.icon.data.attributes.name: null,
+                    url: benchmark.attributes.validation.data[0].attributes.platform.data.attributes.icon.data ? benchmark.attributes.validation.data[0].attributes.platform.data.attributes.icon.data.attributes.url : null,
+                  }
                 },
+                partner: {
+                  name: benchmark.attributes.validation.data[0].attributes.partner.data.attributes.name,
+                  name_long: benchmark.attributes.validation.data[0].attributes.partner.data.attributes.name_long,
+                  link: benchmark.attributes.validation.data[0].attributes.partner.data.attributes.link,
+                  icon: {
+                    name: benchmark.attributes.validation.data[0].attributes.partner.data.attributes.icon.data ? benchmark.attributes.validation.data[0].attributes.partner.data.attributes.icon.data.attributes.name : null,
+                    url: benchmark.attributes.validation.data[0].attributes.partner.data.attributes.icon.data ? benchmark.attributes.validation.data[0].attributes.partner.data.attributes.icon.data.attributes.url : null,
+                  }
+                }
+              },
             }))
           });
+      },
+      getValidationData() {
+        for(let i=0; i<this.benchmarks.length; i++){
+          this.validationData[i] = this.benchmarks[i].validation
+          this.validationData[i].category = this.benchmarks[i].category
+          this.validationData[i].version = this.benchmarks[i].version
+          this.validationData[i].benchmarkID = this.benchmarks[i].id
+        }
+        
+        console.log('Here is validation data', this.validationData)
       },
     } 
   }

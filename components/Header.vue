@@ -389,14 +389,14 @@ const toolkit = [
     name: 'Harden',
     description:
       'Implement security baselines using our Ansible, Chef, and Terraform content.',
-    href: '#',
+    href: '/toolkit/harden',
     icon: ShieldCheckIcon
   },
   {
     name: 'Validate',
     description:
       'Generate detailed security testing results through automated tests and manual attestation.',
-    href: '#',
+    href: '/toolkit/validate',
     icon: ClipboardCheckIcon
   },
   {

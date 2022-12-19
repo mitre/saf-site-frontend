@@ -32,16 +32,39 @@
                             profile.name
                         }}</td>
                         <!-- <ListingModal v-if="benchmarks" v-show="showModal" :benchmark="benchmarks" class="mb-10"/> -->
-                        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-800">{{ profile.platform.name }}</td>
-                        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-800">{{ profile.partner.name }}</td>
+                        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-800">
+                          <div class="flex items-center">
+                            <div class="h-10 w-10 flex-shrink-0">
+                              <img class="h-10 w-10 rounded-full" :src="profile.platform.icon.url" :alt="profile.platform.icon.name" />
+                            </div>
+                            <span class="ml-3"> {{ profile.platform.name }} </span>
+                          </div>
+                        </td>
+                        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-800">
+                          <div class="flex items-center">
+                            <div class="h-10 w-10 flex-shrink-0">
+                              <img class="h-10 w-10 rounded-full" :src="profile.partner.icon.url" :alt="profile.partner.icon.name" />
+                            </div>
+                            <span class="ml-3"> {{ profile.partner.name }} </span>
+                          </div>
+                        </td>
                         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-800">{{ profile.version[0].version }}</td>
                         <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                          <NuxtLink :to="profile.source" target="_blank">
+                            <button @click="" class="mr-5 text-blue-600 hover:text-blue-900">View Code<span class="sr-only">,
+                                {{
+                                  profile.name
+                                }}</span>
+                            </button>
+
+                          </NuxtLink>
                           <NuxtLink :to="`/toolkit/modal/${slugify(profile.name)}?id=${profile.benchmarkID}`">
                             <button @click="" class="text-blue-600 hover:text-blue-900">View Details<span class="sr-only">,
                                 {{
                                   profile.name
                                 }}</span>
                             </button>
+
                           </NuxtLink>
                          <!-- <button @click="showDetails()" class="text-indigo-600 hover:text-indigo-900">View Details<span class="sr-only">,
                               {{

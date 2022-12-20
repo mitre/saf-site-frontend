@@ -16,7 +16,7 @@
               associations in this Control Assessment Range table!</p>
           </div>
         </div>
-        <Listing v-bind:entries="validationData" />
+        <ToolkitTable v-bind:entries="validationData" />
       </div>
       <div v-else>
         <p> Loading ... </p>

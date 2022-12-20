@@ -11,7 +11,7 @@
               If you are interested in new hardening baselines, please contact us at saf@groups.mitre.org .</p>
           </div>
         </div>
-        <Listing v-bind:entries="hardeningData" />
+        <ToolkitTable v-bind:entries="hardeningData" />
       </div>
       <div v-else>
         <p> Loading ... </p>

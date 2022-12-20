@@ -1,12 +1,12 @@
-query getBenchmarkData{
-  benchmarks{
+query getGuidanceData{
+  guidances{
     data{
       id,
       attributes{
         name,
         type,
         category,
-        source_link,
+        source,
         date,
         version{
           __typename,
@@ -51,7 +51,6 @@ query getBenchmarkData{
                   attributes{
                     name,
                     name_long,
-                    type,
                     link,
                     icon{
                       data{
@@ -95,7 +94,6 @@ query getBenchmarkData{
                   attributes{
                     name,
                     name_long,
-                    type,
                     link,
                     icon{
                       data{

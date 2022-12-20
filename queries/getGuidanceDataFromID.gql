@@ -1,12 +1,12 @@
-query getBenchmarkDataFromID($id: ID!){
-  benchmarks(filters:{id:{eq:$id}}){
+query getGuidanceDataFromID($id: ID!){
+  guidances(filters:{id:{eq:$id}}){
     data{
       id,
       attributes{
         name,
         type,
         category,
-        source_link,
+        source,
         date,
         version{
           __typename,
@@ -50,7 +50,6 @@ query getBenchmarkDataFromID($id: ID!){
                   attributes{
                     name,
                     name_long,
-                    type,
                     link,
                     icon{
                       data{
@@ -93,7 +92,6 @@ query getBenchmarkDataFromID($id: ID!){
                   attributes{
                     name,
                     name_long,
-                    type,
                     link,
                     icon{
                       data{

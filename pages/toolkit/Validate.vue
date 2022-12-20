@@ -16,7 +16,7 @@
               associations in this Control Assessment Range table!</p>
           </div>
         </div>
-        <Listing v-bind:profiles="validationData" v-bind:benchmarks="benchmarks" />
+        <Listing v-bind:entries="validationData" />
       </div>
       <div v-else>
         <p> Loading ... </p>
@@ -30,7 +30,7 @@
   export default {
     data() {
       return {
-        benchmarks: [],
+        guidanceData: [],
         validationData: [],
         categories: [],
         isLoaded: false,
@@ -38,67 +38,67 @@
     },
     mounted() {
       this.$nextTick(async () => {
-        await this.getBenchmarks()
+        await this.getGuidance()
         this.getValidationData()
         this.isLoaded = true
       });
     },
     methods: {
-      async getBenchmarks() {
-        this.benchmarks = await useAsyncData('getBenchmarkData', () => GqlGetBenchmarkData())
+      async getGuidance() {
+        this.guidanceData = await useAsyncData('getGuidanceData', () => GqlGetGuidanceData())
           .then(({ data }) => {
-            console.log("Benchmarks return: ", data._value.benchmarks.data)
-            return data._value.benchmarks.data.map((benchmark) => ({
-              name: benchmark.attributes.name,
-              id: benchmark.id,
-              type: benchmark.attributes.type,
-              category: benchmark.attributes.category,
-              source_link: benchmark.attributes.source_link,
-              date: benchmark.attributes.date,
-              version: benchmark.attributes.version,
+            console.log("guidances return: ", data._value.guidances.data)
+            return data._value.guidances.data.map((guidance) => ({
+              name: guidance.attributes.name,
+              id: guidance.id,
+              type: guidance.attributes.type,
+              category: guidance.attributes.category,
+              source_link: guidance.attributes.source_link,
+              date: guidance.attributes.date,
+              version: guidance.attributes.version,
               hardening:{
-                id: benchmark.attributes.hardening.data[0].id,
-                name: benchmark.attributes.hardening.data[0].attributes.name,
-                name_long: benchmark.attributes.hardening.data[0].attributes.name_long,
-                source: benchmark.attributes.hardening.data[0].attributes.source,
+                id: guidance.attributes.hardening.data[0].id,
+                name: guidance.attributes.hardening.data[0].attributes.name,
+                name_long: guidance.attributes.hardening.data[0].attributes.name_long,
+                source: guidance.attributes.hardening.data[0].attributes.source,
                 platform: {
-                  name: benchmark.attributes.hardening.data[0].attributes.platform.data.attributes.name,
-                  link: benchmark.attributes.hardening.data[0].attributes.platform.data.attributes.link,
+                  name: guidance.attributes.hardening.data[0].attributes.platform.data.attributes.name,
+                  link: guidance.attributes.hardening.data[0].attributes.platform.data.attributes.link,
                   icon: {
-                    name: benchmark.attributes.hardening.data[0].attributes.platform.data.attributes.icon.data ? benchmark.attributes.hardening.data[0].attributes.platform.data.attributes.icon.data.attributes.name : null,
-                    url: benchmark.attributes.hardening.data[0].attributes.platform.data.attributes.icon.data ? benchmark.attributes.hardening.data[0].attributes.platform.data.attributes.icon.data.attributes.url : null,
+                    name: guidance.attributes.hardening.data[0].attributes.platform.data.attributes.icon.data ? guidance.attributes.hardening.data[0].attributes.platform.data.attributes.icon.data.attributes.name : null,
+                    url: guidance.attributes.hardening.data[0].attributes.platform.data.attributes.icon.data ? guidance.attributes.hardening.data[0].attributes.platform.data.attributes.icon.data.attributes.url : null,
                   }
                 },
                 partner: {
-                  name: benchmark.attributes.hardening.data[0].attributes.partner.data.attributes.name,
-                  name_long: benchmark.attributes.hardening.data[0].attributes.partner.data.attributes.name_long,
-                  link: benchmark.attributes.hardening.data[0].attributes.partner.data.attributes.link,
+                  name: guidance.attributes.hardening.data[0].attributes.partner.data.attributes.name,
+                  name_long: guidance.attributes.hardening.data[0].attributes.partner.data.attributes.name_long,
+                  link: guidance.attributes.hardening.data[0].attributes.partner.data.attributes.link,
                   icon: {
-                    name: benchmark.attributes.hardening.data[0].attributes.partner.data.attributes.icon.data ? benchmark.attributes.hardening.data[0].attributes.partner.data.attributes.icon.data.attributes.name : null,
-                    url: benchmark.attributes.hardening.data[0].attributes.partner.data.attributes.icon.data ? benchmark.attributes.hardening.data[0].attributes.partner.data.attributes.icon.data.attributes.url : null,
+                    name: guidance.attributes.hardening.data[0].attributes.partner.data.attributes.icon.data ? guidance.attributes.hardening.data[0].attributes.partner.data.attributes.icon.data.attributes.name : null,
+                    url: guidance.attributes.hardening.data[0].attributes.partner.data.attributes.icon.data ? guidance.attributes.hardening.data[0].attributes.partner.data.attributes.icon.data.attributes.url : null,
                   }
                 }
               },
               validation:{
-                id: benchmark.attributes.validation.data[0].id,
-                name: benchmark.attributes.validation.data[0].attributes.name,
-                name_long: benchmark.attributes.validation.data[0].attributes.name_long,
-                source: benchmark.attributes.validation.data[0].attributes.source,
+                id: guidance.attributes.validation.data[0].id,
+                name: guidance.attributes.validation.data[0].attributes.name,
+                name_long: guidance.attributes.validation.data[0].attributes.name_long,
+                source: guidance.attributes.validation.data[0].attributes.source,
                 platform: {
-                  name: benchmark.attributes.validation.data[0].attributes.platform.data.attributes.name,
-                  link: benchmark.attributes.validation.data[0].attributes.platform.data.attributes.link,
+                  name: guidance.attributes.validation.data[0].attributes.platform.data.attributes.name,
+                  link: guidance.attributes.validation.data[0].attributes.platform.data.attributes.link,
                   icon: {
-                    name: benchmark.attributes.validation.data[0].attributes.platform.data.attributes.icon.data ? benchmark.attributes.validation.data[0].attributes.platform.data.attributes.icon.data.attributes.name: null,
-                    url: benchmark.attributes.validation.data[0].attributes.platform.data.attributes.icon.data ? benchmark.attributes.validation.data[0].attributes.platform.data.attributes.icon.data.attributes.url : null,
+                    name: guidance.attributes.validation.data[0].attributes.platform.data.attributes.icon.data ? guidance.attributes.validation.data[0].attributes.platform.data.attributes.icon.data.attributes.name: null,
+                    url: guidance.attributes.validation.data[0].attributes.platform.data.attributes.icon.data ? guidance.attributes.validation.data[0].attributes.platform.data.attributes.icon.data.attributes.url : null,
                   }
                 },
                 partner: {
-                  name: benchmark.attributes.validation.data[0].attributes.partner.data.attributes.name,
-                  name_long: benchmark.attributes.validation.data[0].attributes.partner.data.attributes.name_long,
-                  link: benchmark.attributes.validation.data[0].attributes.partner.data.attributes.link,
+                  name: guidance.attributes.validation.data[0].attributes.partner.data.attributes.name,
+                  name_long: guidance.attributes.validation.data[0].attributes.partner.data.attributes.name_long,
+                  link: guidance.attributes.validation.data[0].attributes.partner.data.attributes.link,
                   icon: {
-                    name: benchmark.attributes.validation.data[0].attributes.partner.data.attributes.icon.data ? benchmark.attributes.validation.data[0].attributes.partner.data.attributes.icon.data.attributes.name : null,
-                    url: benchmark.attributes.validation.data[0].attributes.partner.data.attributes.icon.data ? benchmark.attributes.validation.data[0].attributes.partner.data.attributes.icon.data.attributes.url : null,
+                    name: guidance.attributes.validation.data[0].attributes.partner.data.attributes.icon.data ? guidance.attributes.validation.data[0].attributes.partner.data.attributes.icon.data.attributes.name : null,
+                    url: guidance.attributes.validation.data[0].attributes.partner.data.attributes.icon.data ? guidance.attributes.validation.data[0].attributes.partner.data.attributes.icon.data.attributes.url : null,
                   }
                 }
               },
@@ -106,11 +106,11 @@
           });
       },
       getValidationData() {
-        for(let i=0; i<this.benchmarks.length; i++){
-          this.validationData[i] = this.benchmarks[i].validation
-          this.validationData[i].category = this.benchmarks[i].category
-          this.validationData[i].version = this.benchmarks[i].version
-          this.validationData[i].benchmarkID = this.benchmarks[i].id
+        for(let i=0; i<this.guidanceData.length; i++){
+          this.validationData[i] = this.guidanceData[i].validation
+          this.validationData[i].category = this.guidanceData[i].category
+          this.validationData[i].version = this.guidanceData[i].version
+          this.validationData[i].benchmarkID = this.guidanceData[i].id
         }
         
         console.log('Here is validation data', this.validationData)

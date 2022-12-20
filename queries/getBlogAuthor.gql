@@ -16,7 +16,7 @@ query getBlogAuthor($author: String!){
         partner{
           data{
             attributes{
-              partner_name
+              name
             }
           }
         }

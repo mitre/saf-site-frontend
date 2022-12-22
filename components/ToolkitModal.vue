@@ -36,34 +36,6 @@
               </div>
             </dl>
           </div>
-          <!-- <div class="flex-1 border-t border-gray-200">
-            <dl>
-              <div class="bg-gray-50 dark:bg-gray-200 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt class="text-sm font-medium text-gray-500">Full Name</dt>
-                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">test</dd>
-              </div>
-              <div class="bg-gray-50 dark:bg-gray-300 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt class="text-sm font-medium text-gray-500">Name</dt>
-                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{guidance[0].name}}</dd>
-              </div>
-              <div class="bg-white dark:bg-gray-200 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt class="text-sm font-medium text-gray-500">Platform</dt>
-                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{}}</dd>
-              </div>
-              <div class="bg-gray-50 dark:bg-gray-300 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt class="text-sm font-medium text-gray-500">Type</dt>
-                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{guidance[0].type}}</dd>
-              </div>
-              <div class="bg-white dark:bg-gray-200 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt class="text-sm font-medium text-gray-500">Version</dt>
-                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0" >{{guidance[0].version[0].version}}</dd>
-              </div>
-              <div class="bg-white dark:bg-gray-300 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt class="text-sm font-medium text-gray-500">Url</dt>
-                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{guidance[0].source_link}}</dd>
-              </div>
-            </dl>
-          </div> -->
         </div>
       </div>
       <!-- Harden / Validate Content -->
@@ -85,12 +57,22 @@
           <div class="flex-1 border-t border-gray-200">
             <dl>
               <div class="bg-gray-50 dark:bg-gray-300 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt class="text-sm font-medium text-gray-500">Platform</dt>
-                <a class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 hover:text-blue-500 hover:underline" target="_blank" :href="guidance[0].hardening.platform.link">{{guidance[0].hardening.platform.name}}</a>
+                <dt class="flex items-center text-sm font-medium text-gray-500">Platform</dt>
+                <div class="flex items-center">
+                  <div class="h-10 w-10 flex-shrink-0">
+                    <img class="h-10 w-10 rounded-full" :src="guidance[0].hardening.platform.icon.url" :alt="guidance[0].hardening.platform.icon.name" />
+                  </div>
+                  <a class="mt-1 ml-3 text-sm text-gray-900 sm:col-span-2 sm:mt-0 hover:text-blue-500 hover:underline" target="_blank" :href="guidance[0].hardening.platform.link">{{guidance[0].hardening.platform.name}}</a>
+                </div> 
               </div>
               <div class="bg-white dark:bg-gray-200 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt class="text-sm font-medium text-gray-500">Partner</dt>
-                <a class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 hover:text-blue-500 hover:underline" target="_blank" :href="guidance[0].hardening.partner.link">{{guidance[0].hardening.partner.name}}</a>
+                <dt class="flex items-center text-sm font-medium text-gray-500">Partner</dt>
+                <div class="flex items-center">
+                  <div class="h-10 w-10 flex-shrink-0">
+                    <img class="h-10 w-10 rounded-full" :src="guidance[0].hardening.partner.icon.url" :alt="guidance[0].hardening.partner.icon.name" />
+                  </div>
+                  <a class="mt-1 ml-3 text-sm text-gray-900 sm:col-span-2 sm:mt-0 hover:text-blue-500 hover:underline" target="_blank" :href="guidance[0].hardening.partner.link">{{guidance[0].hardening.partner.name}}</a>
+                </div> 
               </div>
               <div class="bg-gray-50 dark:bg-gray-300 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                 <dt class="text-sm font-medium text-gray-500">Link</dt>
@@ -101,12 +83,22 @@
           <div class="flex-1 border-t border-gray-200">
             <dl>
               <div class="bg-gray-50 dark:bg-gray-300 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt class="text-sm font-medium text-gray-500">Platform</dt>
-                <a class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 hover:text-blue-500 hover:underline" target="_blank" :href="guidance[0].validation.platform.link">{{guidance[0].validation.platform.name}}</a>
+                <dt class="flex items-center text-sm font-medium text-gray-500">Platform</dt> 
+                <div class="flex items-center">
+                  <div class="h-10 w-10 flex-shrink-0">
+                    <img class="h-10 w-10 rounded-full" :src="guidance[0].validation.platform.icon.url" :alt="guidance[0].validation.platform.icon.name" />
+                  </div>
+                  <a class="mt-1 ml-3 text-sm text-gray-900 sm:col-span-2 sm:mt-0 hover:text-blue-500 hover:underline" target="_blank" :href="guidance[0].validation.platform.link">{{guidance[0].validation.platform.name}}</a>
+                </div> 
               </div>
               <div class="bg-white dark:bg-gray-200 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt class="text-sm font-medium text-gray-500">Partner</dt>
-                <a class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 hover:text-blue-500 hover:underline" target="_blank" :href="guidance[0].validation.partner.link">{{guidance[0].validation.partner.name}}</a>
+                <dt class="flex items-center text-sm font-medium text-gray-500">Partner</dt>
+                <div class="flex items-center">
+                  <div class="h-10 w-10 flex-shrink-0">
+                    <img class="h-10 w-10 rounded-full" :src="guidance[0].validation.partner.icon.url" :alt="guidance[0].validation.partner.icon.name" />
+                  </div>
+                  <a class="mt-1 ml-3 text-sm text-gray-900 sm:col-span-2 sm:mt-0 hover:text-blue-500 hover:underline" target="_blank" :href="guidance[0].validation.partner.link">{{guidance[0].validation.partner.name}}</a>
+                </div> 
               </div>
               <div class="bg-gray-50 dark:bg-gray-300 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                 <dt class="text-sm font-medium text-gray-500">Link</dt>

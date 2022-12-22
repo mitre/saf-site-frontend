@@ -7,7 +7,14 @@
             <table class="min-w-full">
               <thead class="bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
                 <tr>
-                  <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold  sm:pl-6">Name
+                  <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold  sm:pl-6">
+                    <a @click="sort('name')" class="group inline-flex">
+                      Name
+                      <span class="ml-2 flex-none rounded text-gray-400 group-hover:visible group-focus:visible">
+                        <ChevronDownIcon :class="currentSortDir =='desc' ?  'h-6 w-6' : 'hidden'" aria-hidden="true" />
+                        <ChevronUpIcon :class="currentSortDir =='asc' ?  'h-6 w-6' : 'hidden'" aria-hidden="true" />
+                      </span>
+                    </a>
                   </th>
                   <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold">Platform</th>
                   <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold">Partner</th>
@@ -25,7 +32,7 @@
                           category
                       }}</th>
                   </tr>
-                  <template v-for="(entry, index) in entries" :key="index">
+                  <template v-for="(entry, index) in sortedEntries" :key="index">
                     <tr v-if="entry.category.replaceAll('_', ' ') == category "
                       :class="[index === 0 ? 'border-gray-300' : 'border-gray-200', 'border-t']">
                         <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">{{
@@ -65,11 +72,6 @@
                             </button>
 
                           </NuxtLink>
-                         <!-- <button @click="showDetails()" class="text-indigo-600 hover:text-indigo-900">View Details<span class="sr-only">,
-                              {{
-                                entry.name
-                              }}</span>
-                          </button> -->
                         </td>
                     </tr>
                   </template>
@@ -85,7 +87,9 @@
   
 
 <script>
+import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/vue/solid';
 export default {
+  components: {ChevronDownIcon, ChevronUpIcon},
   data(){
     return{
       showModal: false,
@@ -97,7 +101,9 @@ export default {
       'Network',
       'Application Logic',
       'Web Servers',
-      ]
+      ],
+      currentSort: 'name',
+      currentSortDir: 'asc'
     }
   },
   props: {
@@ -106,9 +112,27 @@ export default {
       required: true,
     },
   },
+  computed: {
+    sortedEntries:function() {
+      return this.entries.sort((a,b) => {
+        let modifier = 1;
+        if(this.currentSortDir === 'desc') modifier = -1;
+        if(a[this.currentSort] < b[this.currentSort]) return -1 * modifier;
+        if(a[this.currentSort] > b[this.currentSort]) return 1 * modifier;
+        return 0;
+      });
+    } 
+  },
   methods: {
     showDetails(){
       this.showModal = !this.showModal;
+    },
+    sort:function(s) {
+      //if s == current sort, reverse
+      if(s === this.currentSort) {
+        this.currentSortDir = this.currentSortDir==='asc'?'desc':'asc';
+      }
+      this.currentSort = s;
     },
     slugify(str) {
       str = str.toLowerCase()

@@ -28,13 +28,13 @@
                 <template v-for="category in categories">
                   <tr class="border-t border-gray-300 ">
                     <th colspan="5" scope="colgroup"
-                      class="bg-gray-100 dark:bg-gray-600 px-4 py-3 text-left text-sm font-semibold text-gray-900 dark:text-white sm:px-6">{{
+                      class="bg-gray-200 dark:bg-gray-600 px-4 py-3 text-left text-sm font-semibold text-gray-900 dark:text-white sm:px-6">{{
                           category
                       }}</th>
                   </tr>
                   <template v-for="(entry, index) in sortedEntries" :key="index">
                     <tr v-if="entry.category.replaceAll('_', ' ') == category "
-                      :class="[index === 0 ? 'border-gray-300' : 'border-gray-200', 'border-t']">
+                      :class="[index % 2 === 0 ? 'bg-gray-50 dark:bg-gray-200' : 'bg-gray-100 dark:bg-gray-300', 'border-t']">
                         <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">{{
                             entry.name
                         }}</td>

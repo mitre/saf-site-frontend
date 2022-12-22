@@ -42,7 +42,7 @@
       <div class="overflow-hidden bg-white dark:bg-gray-700 shadow sm:rounded-lg mt-8">
         <div class="px-4 py-5 sm:px-6">
           <h3 class="text-lg font-medium leading-6 text-gray-900 dark:text-white">Related Content</h3>
-          <p class="mt-1 max-w-2xl text-sm text-gray-500 dark:text-dark-text">Related hardening and validation content for guidance.</p>
+          <p class="mt-1 max-w-2xl text-sm text-gray-500 dark:text-dark-text">Related hardening and validation content for the guidance.</p>
         </div>
         <hr class="my-1 h-px bg-gray-200 border-0 dark:bg-gray-500">
         <div class="sm:flex bg-gray-50 dark:bg-gray-700 px-4 py-5  sm:gap-4 sm:px-6">
@@ -50,7 +50,9 @@
             <dt class="text-sm text-center font-medium text-gray-700 dark:text-white">Harden</dt>
           </div>
           <div class="flex-1">
-            <dt class="text-sm text-center font-medium text-gray-700 dark:text-white">Validate</dt>
+            <div class="hidden sm:block">
+              <dt class="text-sm text-center font-medium text-gray-700 dark:text-white">Validate</dt>
+            </div>
           </div>
         </div>
         <div class="sm:flex">
@@ -75,12 +77,20 @@
                 </div> 
               </div>
               <div class="bg-gray-50 dark:bg-gray-300 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt class="text-sm font-medium text-gray-500">Link</dt>
-                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{guidance[0].hardening.source}}</dd>
+                <dt class="flex items-center text-sm font-medium text-gray-500">Link</dt>
+                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 hover:text-blue-500 hover:underline" target="_blank" :href="guidance[0].hardening.source">{{guidance[0].hardening.source}}</dd>
               </div>
             </dl>
           </div>
           <div class="flex-1 border-t border-gray-200">
+            <div class="sm:hidden"> <!-- Mobile Formatting --> 
+              <hr class="h-px bg-gray-200 border-0 dark:bg-gray-500">
+              <div class="sm:flex bg-gray-50 dark:bg-gray-700 px-4 py-5  sm:gap-4 sm:px-6">
+                <div class="flex-1">
+                  <dt class="text-sm text-center font-medium text-gray-700 dark:text-white">Validate</dt>
+                </div>
+              </div>
+            </div>
             <dl>
               <div class="bg-gray-50 dark:bg-gray-300 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                 <dt class="flex items-center text-sm font-medium text-gray-500">Platform</dt> 
@@ -101,8 +111,8 @@
                 </div> 
               </div>
               <div class="bg-gray-50 dark:bg-gray-300 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt class="text-sm font-medium text-gray-500">Link</dt>
-                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{guidance[0].validation.source}}</dd>
+                <dt class="flex items-center text-sm font-medium text-gray-500">Link</dt>
+                <a class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 hover:text-blue-500 hover:underline" target="_blank" :href="guidance[0].validation.source">{{guidance[0].validation.source}}</a>
               </div>
             </dl>
           </div>

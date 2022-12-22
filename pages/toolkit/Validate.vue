@@ -11,7 +11,6 @@
               common system components. MITRE is helping to provide stewardship over these profiles, hosted here and at
               other community vendor sites. If you are interested in new profiles, please contact us at saf@groups.mitre.org
               . If you are interested in developing and contributing your own profiles, please see our training material.
-
               All assessment tests under MITRE SAF are associated with NIST SP 800-53 Security Controls. Explore these
               associations in this Control Assessment Range table!</p>
           </div>

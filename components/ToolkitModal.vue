@@ -32,7 +32,7 @@
               </div>
               <div class="bg-gray-50 dark:bg-gray-300 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                 <dt class="text-sm font-medium text-gray-500">Url</dt>
-                <a class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 hover:text-blue-500 hover:underline" target="_blank" :href="guidance[0].source_link">{{guidance[0].source_link}}</a>
+                <a class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 hover:text-blue-500 hover:underline" target="_blank" :href="guidance[0].source">{{guidance[0].source}}</a>
               </div>
             </dl>
           </div>
@@ -159,7 +159,7 @@ export default{
             id: guidance.id,
             type: guidance.attributes.type,
             category: guidance.attributes.category,
-            source_link: guidance.attributes.source_link,
+            source: guidance.attributes.source,
             date: guidance.attributes.date,
             version: guidance.attributes.version,
             hardening:{

@@ -16,9 +16,33 @@
                       </span>
                     </a>
                   </th>
-                  <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold">Platform</th>
-                  <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold">Partner</th>
-                  <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold">Version</th>
+                  <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold">
+                    <a @click="sort('platform')" class="group inline-flex cursor-pointer">
+                      Platform
+                      <span class="ml-2 flex-none rounded text-gray-400 group-hover:visible group-focus:visible">
+                        <ChevronDownIcon :class="currentSortDir =='desc' ?  'h-6 w-6' : 'hidden'" aria-hidden="true" />
+                        <ChevronUpIcon :class="currentSortDir =='asc' ?  'h-6 w-6' : 'hidden'" aria-hidden="true" />
+                      </span>
+                    </a>
+                  </th>
+                  <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold">
+                    <a @click="sort('partner')" class="group inline-flex cursor-pointer">
+                      Partner
+                      <span class="ml-2 flex-none rounded text-gray-400 group-hover:visible group-focus:visible">
+                        <ChevronDownIcon :class="currentSortDir =='desc' ?  'h-6 w-6' : 'hidden'" aria-hidden="true" />
+                        <ChevronUpIcon :class="currentSortDir =='asc' ?  'h-6 w-6' : 'hidden'" aria-hidden="true" />
+                      </span>
+                    </a>  
+                  </th>
+                  <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold">
+                    <a @click="sort('version')" class="group inline-flex cursor-pointer">
+                      Version
+                      <span class="ml-2 flex-none rounded text-gray-400 group-hover:visible group-focus:visible">
+                        <ChevronDownIcon :class="currentSortDir =='desc' ?  'h-6 w-6' : 'hidden'" aria-hidden="true" />
+                        <ChevronUpIcon :class="currentSortDir =='asc' ?  'h-6 w-6' : 'hidden'" aria-hidden="true" />
+                      </span>
+                    </a>  
+                  </th>
                   <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
                     <span class="sr-only">Edit</span>
                   </th>
@@ -102,7 +126,7 @@ export default {
       'Application Logic',
       'Web Servers',
       ],
-      currentSort: 'name',
+      currentSort: '',
       currentSortDir: 'asc'
     }
   },
@@ -117,8 +141,23 @@ export default {
       return this.entries.sort((a,b) => {
         let modifier = 1;
         if(this.currentSortDir === 'desc') modifier = -1;
-        if(a[this.currentSort] < b[this.currentSort]) return -1 * modifier;
-        if(a[this.currentSort] > b[this.currentSort]) return 1 * modifier;
+        // console.log(a[this.currentSort])
+        // console.log(a['version'][0].version)
+        if(this.currentSort === 'name')
+        {
+          if(a[this.currentSort] < b[this.currentSort]) return -1 * modifier;
+          if(a[this.currentSort] > b[this.currentSort]) return 1 * modifier;
+        }
+        else if(this.currentSort === 'platform' || this.currentSort === 'partner')
+        {
+          if(a[this.currentSort].name < b[this.currentSort].name) return -1 * modifier;
+          if(a[this.currentSort].name > b[this.currentSort].name) return 1 * modifier;
+        }
+        else if(this.currentSort === 'version')
+        {
+          if(a[this.currentSort][0].version < b[this.currentSort][0].version) return -1 * modifier;
+          if(a[this.currentSort][0].version > b[this.currentSort][0].version) return 1 * modifier;
+        }
         return 0;
       });
     } 

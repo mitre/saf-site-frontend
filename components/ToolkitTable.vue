@@ -10,36 +10,48 @@
                   <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold  sm:pl-6">
                     <a @click="sort('name')" class="group inline-flex cursor-pointer">
                       Name
-                      <span class="ml-2 flex-none rounded text-gray-400 group-hover:visible group-focus:visible">
-                        <ChevronDownIcon :class="currentSortDir =='desc' ?  'h-6 w-6' : 'hidden'" aria-hidden="true" />
-                        <ChevronUpIcon :class="currentSortDir =='asc' ?  'h-6 w-6' : 'hidden'" aria-hidden="true" />
+                      <span v-if="this.currentSort === 'name'" class="ml-2 flex-none rounded text-gray-400 group-hover:visible group-focus:visible">
+                        <ChevronDownIcon :class="currentSortDir =='desc' ?  'h-5 w-5' : 'hidden'" aria-hidden="true" />
+                        <ChevronUpIcon :class="currentSortDir =='asc' ?  'h-5 w-5' : 'hidden'" aria-hidden="true" />
+                      </span>
+                      <span v-else>
+                        <SwitchVerticalIcon class="h-5 w-5 ml-2 flex-none rounded text-gray-400 group-hover:visible group-focus:visible" />
                       </span>
                     </a>
                   </th>
                   <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold">
                     <a @click="sort('platform')" class="group inline-flex cursor-pointer">
                       Platform
-                      <span class="ml-2 flex-none rounded text-gray-400 group-hover:visible group-focus:visible">
-                        <ChevronDownIcon :class="currentSortDir =='desc' ?  'h-6 w-6' : 'hidden'" aria-hidden="true" />
-                        <ChevronUpIcon :class="currentSortDir =='asc' ?  'h-6 w-6' : 'hidden'" aria-hidden="true" />
+                      <span v-if="this.currentSort === 'platform'" class="ml-2 flex-none rounded text-gray-400 group-hover:visible group-focus:visible">
+                        <ChevronDownIcon :class="currentSortDir =='desc' ?  'h-5 w-5' : 'hidden'" aria-hidden="true" />
+                        <ChevronUpIcon :class="currentSortDir =='asc' ?  'h-5 w-5' : 'hidden'" aria-hidden="true" />
+                      </span>
+                      <span v-else>
+                        <SwitchVerticalIcon class="h-5 w-5 ml-2 flex-none rounded text-gray-400 group-hover:visible group-focus:visible" />
                       </span>
                     </a>
                   </th>
                   <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold">
                     <a @click="sort('partner')" class="group inline-flex cursor-pointer">
                       Partner
-                      <span class="ml-2 flex-none rounded text-gray-400 group-hover:visible group-focus:visible">
-                        <ChevronDownIcon :class="currentSortDir =='desc' ?  'h-6 w-6' : 'hidden'" aria-hidden="true" />
-                        <ChevronUpIcon :class="currentSortDir =='asc' ?  'h-6 w-6' : 'hidden'" aria-hidden="true" />
+                      <span v-if="this.currentSort === 'partner'" class="ml-2 flex-none rounded text-gray-400 group-hover:visible group-focus:visible">
+                        <ChevronDownIcon :class="currentSortDir =='desc' ?  'h-5 w-5' : 'hidden'" aria-hidden="true" />
+                        <ChevronUpIcon :class="currentSortDir =='asc' ?  'h-5 w-5' : 'hidden'" aria-hidden="true" />
+                      </span>
+                      <span v-else>
+                        <SwitchVerticalIcon class="h-5 w-5 ml-2 flex-none rounded text-gray-400 group-hover:visible group-focus:visible" />
                       </span>
                     </a>  
                   </th>
                   <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold">
                     <a @click="sort('version')" class="group inline-flex cursor-pointer">
                       Version
-                      <span class="ml-2 flex-none rounded text-gray-400 group-hover:visible group-focus:visible">
-                        <ChevronDownIcon :class="currentSortDir =='desc' ?  'h-6 w-6' : 'hidden'" aria-hidden="true" />
-                        <ChevronUpIcon :class="currentSortDir =='asc' ?  'h-6 w-6' : 'hidden'" aria-hidden="true" />
+                      <span v-if="this.currentSort === 'version'" class="ml-2 flex-none rounded text-gray-400 group-hover:visible group-focus:visible">
+                        <ChevronDownIcon :class="currentSortDir =='desc' ?  'h-5 w-5' : 'hidden'" aria-hidden="true" />
+                        <ChevronUpIcon :class="currentSortDir =='asc' ?  'h-5 w-5' : 'hidden'" aria-hidden="true" />
+                      </span>
+                      <span v-else>
+                        <SwitchVerticalIcon class="h-5 w-5 ml-2 flex-none rounded text-gray-400 group-hover:visible group-focus:visible" />
                       </span>
                     </a>  
                   </th>
@@ -111,9 +123,9 @@
   
 
 <script>
-import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/vue/solid';
+import { ChevronDownIcon, ChevronUpIcon, SwitchVerticalIcon } from '@heroicons/vue/solid';
 export default {
-  components: {ChevronDownIcon, ChevronUpIcon},
+  components: {ChevronDownIcon, ChevronUpIcon, SwitchVerticalIcon},
   data(){
     return{
       showModal: false,
@@ -126,7 +138,7 @@ export default {
       'Application Logic',
       'Web Servers',
       ],
-      currentSort: '',
+      currentSort: 'name',
       currentSortDir: 'asc'
     }
   },
@@ -141,8 +153,6 @@ export default {
       return this.entries.sort((a,b) => {
         let modifier = 1;
         if(this.currentSortDir === 'desc') modifier = -1;
-        // console.log(a[this.currentSort])
-        // console.log(a['version'][0].version)
         if(this.currentSort === 'name')
         {
           if(a[this.currentSort] < b[this.currentSort]) return -1 * modifier;

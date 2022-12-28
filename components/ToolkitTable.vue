@@ -4,8 +4,8 @@
       <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
           <!-- Filter Search -->
-          <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-400">Search</label>
-          <div class="relative max-w-md mb-1 rounded-md border border-gray-300  px-3 py-2 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600">
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-400">Search</label>
+          <div class="relative max-w-xs sm:max-w-md mb-1 rounded-md border border-gray-300  px-3 py-2 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600">
             <input v-model="filter" type="text" class="block w-full border-0 p-0 dark:bg-dark-bg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-500 focus:ring-0 sm:text-sm" placeholder="Search for ..." />
           </div>
           <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
@@ -188,7 +188,7 @@ export default {
   },
   methods: {
     sort:function(s) {
-      //if s == current sort, reverse
+      //if s == current sort then reverse
       if(s === this.currentSort) {
         this.currentSortDir = this.currentSortDir==='asc'?'desc':'asc';
       }

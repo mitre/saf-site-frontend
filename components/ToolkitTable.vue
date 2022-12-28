@@ -3,6 +3,11 @@
     <div class="my-8 flex flex-col">
       <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
+          <!-- Filter Search -->
+          <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-400">Search</label>
+          <div class="relative max-w-md mb-1 rounded-md border border-gray-300  px-3 py-2 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600">
+            <input v-model="filter" type="text" class="block w-full border-0 p-0 dark:bg-dark-bg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-500 focus:ring-0 sm:text-sm" placeholder="Search for ..." />
+          </div>
           <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
             <table class="min-w-full">
               <thead class="bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
@@ -128,7 +133,6 @@ export default {
   components: {ChevronDownIcon, ChevronUpIcon, SwitchVerticalIcon},
   data(){
     return{
-      showModal: false,
       categories: [
       'Cloud Service Providers',
       'Virtual Platforms',
@@ -139,7 +143,8 @@ export default {
       'Web Servers',
       ],
       currentSort: 'name',
-      currentSortDir: 'asc'
+      currentSortDir: 'asc',
+      filter: '',
     }
   },
   props: {
@@ -150,7 +155,7 @@ export default {
   },
   computed: {
     sortedEntries:function() {
-      return this.entries.sort((a,b) => {
+      return this.filteredEntries.sort((a,b) => {
         let modifier = 1;
         if(this.currentSortDir === 'desc') modifier = -1;
         if(this.currentSort === 'name')
@@ -170,12 +175,18 @@ export default {
         }
         return 0;
       });
-    } 
+    },
+    filteredEntries() {
+      return this.entries.filter(entry => {
+        if(this.filter == '') return true;
+        return entry.name.toLowerCase().indexOf(this.filter.toLowerCase()) >= 0 ||
+        entry.platform.name.toLowerCase().indexOf(this.filter.toLowerCase()) >= 0 ||
+        entry.partner.name.toLowerCase().indexOf(this.filter.toLowerCase()) >= 0|| 
+        entry.version[0].version.toLowerCase().indexOf(this.filter.toLowerCase()) >= 0;
+      })
+    },
   },
   methods: {
-    showDetails(){
-      this.showModal = !this.showModal;
-    },
     sort:function(s) {
       //if s == current sort, reverse
       if(s === this.currentSort) {

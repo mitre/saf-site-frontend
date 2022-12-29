@@ -84,7 +84,7 @@
                             <div class="h-10 w-10 flex-shrink-0">
                               <img class="h-10 w-10 rounded-full" :src="entry.platform.icon.url" :alt="entry.platform.icon.name" />
                             </div>
-                            <NuxtLink target="_blank" :to="entry.platform.link" class="ml-3 hover:text-blue-500 hover:underline"> {{ entry.platform.name }} </NuxtLink>
+                            <NuxtLink target="_blank" :to="entry.platform.link" class="ml-3 hover:text-blue-500"> {{ entry.platform.name }} </NuxtLink>
                           </div>
                         </td>
                         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-800">
@@ -92,7 +92,7 @@
                             <div class="h-10 w-10 flex-shrink-0">
                               <img class="h-10 w-10 rounded-full" :src="entry.partner.icon.url" :alt="entry.partner.icon.name" />
                             </div>
-                            <NuxtLink :to="entry.partner.link" class="ml-3 hover:text-blue-500 hover:underline" target="_blank"> {{ entry.partner.name }} </NuxtLink>
+                            <NuxtLink :to="entry.partner.link" class="ml-3 hover:text-blue-500" target="_blank"> {{ entry.partner.name }} </NuxtLink>
                           </div>
                         </td>
                         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-800">{{ entry.version[0].version }}</td>

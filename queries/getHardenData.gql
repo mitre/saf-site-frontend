@@ -1,5 +1,5 @@
 query getHardenData {
-  guidances(filters:{hardening:{name:{ne: null}}}){
+  guidances(filters:{hardening:{name:{ne: null}}}, pagination: { limit: 100 }){
     data{
       id,
       attributes{

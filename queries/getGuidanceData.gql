@@ -1,5 +1,5 @@
 query getGuidanceData{
-  guidances{
+  guidances(pagination: { limit: 100 }){
     data{
       id,
       attributes{

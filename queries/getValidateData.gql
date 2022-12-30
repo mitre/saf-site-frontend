@@ -1,5 +1,5 @@
 query getValidateData {
-  guidances(filters:{validation:{name:{ne: null}}}){
+  guidances(filters:{validation:{name:{ne: null}}}, pagination: { limit: 100 }){
     data{
       id,
       attributes{

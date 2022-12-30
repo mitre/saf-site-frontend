@@ -35,15 +35,16 @@ export default {
   },
   mounted() {
     this.$nextTick(async () => {
-      await this.getBenchmarks()
+      await this.getGuidance()
       this.getHardeningData()
       this.isLoaded = true
     });
   },
   methods: {
-    async getBenchmarks() {
-      this.guidanceData = await useAsyncData('getGuidanceData', () => GqlGetGuidanceData())
+    async getGuidance() {
+      this.guidanceData = await useAsyncData('getHardenData', () => GqlGetHardenData())
         .then(({ data }) => {
+          console.log(data._value.guidances)
           return data._value.guidances.data.map((guidance) => ({
             name: guidance.attributes.name,
             id: guidance.id,
@@ -72,29 +73,6 @@ export default {
                 icon: {
                   name: guidance.attributes.hardening.data[0].attributes.partner.data.attributes.icon.data ? guidance.attributes.hardening.data[0].attributes.partner.data.attributes.icon.data.attributes.name : null,
                   url: guidance.attributes.hardening.data[0].attributes.partner.data.attributes.icon.data ? guidance.attributes.hardening.data[0].attributes.partner.data.attributes.icon.data.attributes.url : null,
-                }
-              }
-            },
-            validation: {
-              id: guidance.attributes.validation.data[0].id,
-              name: guidance.attributes.validation.data[0].attributes.name,
-              name_long: guidance.attributes.validation.data[0].attributes.name_long,
-              source: guidance.attributes.validation.data[0].attributes.source,
-              platform: {
-                name: guidance.attributes.validation.data[0].attributes.platform.data.attributes.name,
-                link: guidance.attributes.validation.data[0].attributes.platform.data.attributes.link,
-                icon: {
-                  name: guidance.attributes.validation.data[0].attributes.platform.data.attributes.icon.data ? guidance.attributes.validation.data[0].attributes.platform.data.attributes.icon.data.attributes.name : null,
-                  url: guidance.attributes.validation.data[0].attributes.platform.data.attributes.icon.data ? guidance.attributes.validation.data[0].attributes.platform.data.attributes.icon.data.attributes.url : null,
-                }
-              },
-              partner: {
-                name: guidance.attributes.validation.data[0].attributes.partner.data.attributes.name,
-                name_long: guidance.attributes.validation.data[0].attributes.partner.data.attributes.name_long,
-                link: guidance.attributes.validation.data[0].attributes.partner.data.attributes.link,
-                icon: {
-                  name: guidance.attributes.validation.data[0].attributes.partner.data.attributes.icon.data ? guidance.attributes.validation.data[0].attributes.partner.data.attributes.icon.data.attributes.name : null,
-                  url: guidance.attributes.validation.data[0].attributes.partner.data.attributes.icon.data ? guidance.attributes.validation.data[0].attributes.partner.data.attributes.icon.data.attributes.url : null,
                 }
               }
             },

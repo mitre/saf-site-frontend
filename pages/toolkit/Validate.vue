@@ -44,7 +44,7 @@ export default {
   },
   methods: {
     async getGuidance() {
-      this.guidanceData = await useAsyncData('getGuidanceData', () => GqlGetGuidanceData())
+      this.guidanceData = await useAsyncData('getValidateData', () => GqlGetValidateData())
         .then(({ data }) => {
           return data._value.guidances.data.map((guidance) => ({
             name: guidance.attributes.name,
@@ -54,29 +54,6 @@ export default {
             source_link: guidance.attributes.source_link,
             date: guidance.attributes.date,
             version: guidance.attributes.version,
-            hardening: {
-              id: guidance.attributes.hardening.data[0].id,
-              name: guidance.attributes.hardening.data[0].attributes.name,
-              name_long: guidance.attributes.hardening.data[0].attributes.name_long,
-              source: guidance.attributes.hardening.data[0].attributes.source,
-              platform: {
-                name: guidance.attributes.hardening.data[0].attributes.platform.data.attributes.name,
-                link: guidance.attributes.hardening.data[0].attributes.platform.data.attributes.link,
-                icon: {
-                  name: guidance.attributes.hardening.data[0].attributes.platform.data.attributes.icon.data ? guidance.attributes.hardening.data[0].attributes.platform.data.attributes.icon.data.attributes.name : null,
-                  url: guidance.attributes.hardening.data[0].attributes.platform.data.attributes.icon.data ? guidance.attributes.hardening.data[0].attributes.platform.data.attributes.icon.data.attributes.url : null,
-                }
-              },
-              partner: {
-                name: guidance.attributes.hardening.data[0].attributes.partner.data.attributes.name,
-                name_long: guidance.attributes.hardening.data[0].attributes.partner.data.attributes.name_long,
-                link: guidance.attributes.hardening.data[0].attributes.partner.data.attributes.link,
-                icon: {
-                  name: guidance.attributes.hardening.data[0].attributes.partner.data.attributes.icon.data ? guidance.attributes.hardening.data[0].attributes.partner.data.attributes.icon.data.attributes.name : null,
-                  url: guidance.attributes.hardening.data[0].attributes.partner.data.attributes.icon.data ? guidance.attributes.hardening.data[0].attributes.partner.data.attributes.icon.data.attributes.url : null,
-                }
-              }
-            },
             validation: {
               id: guidance.attributes.validation.data[0].id,
               name: guidance.attributes.validation.data[0].attributes.name,

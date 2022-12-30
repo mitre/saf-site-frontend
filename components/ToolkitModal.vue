@@ -61,7 +61,7 @@
           </div>
           <div class="sm:flex">
             <div class="flex-1 border-t border-gray-200">
-              <dl>
+              <dl v-if="guidance[0].hardening != null">
                 <div class="bg-gray-50 dark:bg-gray-300 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                   <dt class="flex items-center text-sm font-medium text-gray-500">Platform</dt>
                   <div class="flex items-center">
@@ -102,7 +102,7 @@
                   </div>
                 </div>
               </div>
-              <dl>
+              <dl v-if="guidance[0].validation != null">
                 <div class="bg-gray-50 dark:bg-gray-300 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                   <dt class="flex items-center text-sm font-medium text-gray-500">Platform</dt>
                   <div class="flex items-center">
@@ -173,7 +173,7 @@ export default {
             source: guidance.attributes.source,
             date: guidance.attributes.date,
             version: guidance.attributes.version,
-            hardening: {
+            hardening: guidance.attributes.hardening.data[0] ? {
               id: guidance.attributes.hardening.data[0].id,
               name: guidance.attributes.hardening.data[0].attributes.name,
               name_long: guidance.attributes.hardening.data[0].attributes.name_long,
@@ -195,8 +195,8 @@ export default {
                   url: guidance.attributes.hardening.data[0].attributes.partner.data.attributes.icon.data ? guidance.attributes.hardening.data[0].attributes.partner.data.attributes.icon.data.attributes.url : null,
                 }
               }
-            },
-            validation: {
+            }: null,
+            validation: guidance.attributes.validation.data[0] ? {
               id: guidance.attributes.validation.data[0].id,
               name: guidance.attributes.validation.data[0].attributes.name,
               name_long: guidance.attributes.validation.data[0].attributes.name_long,
@@ -218,7 +218,7 @@ export default {
                   url: guidance.attributes.validation.data[0].attributes.partner.data.attributes.icon.data ? guidance.attributes.validation.data[0].attributes.partner.data.attributes.icon.data.attributes.url : null,
                 }
               }
-            },
+            }: null,
           }))
         });
     },

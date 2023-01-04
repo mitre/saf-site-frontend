@@ -16,7 +16,7 @@
               associations in this Control Assessment Range table!</p>
           </div>
         </div>
-        <ToolkitTable v-bind:entries="validationData" />
+        <ToolkitTable v-bind:entries="categorizedData" />
       </div>
       <div v-else>
         <p> Loading ... </p>
@@ -30,6 +30,15 @@
 export default {
   data() {
     return {
+      categorizedData: {
+      'Cloud Service Providers': [],
+      'Virtual Platforms': [],
+      'Operating Systems': [],
+      'Databases': [],
+      'Network': [],
+      'Application Logic': [],
+      'Web Servers': [],
+      },
       guidanceData: [],
       validationData: [],
       isLoaded: false,
@@ -86,6 +95,9 @@ export default {
         this.validationData[i].category = this.guidanceData[i].category
         this.validationData[i].version = this.guidanceData[i].version
         this.validationData[i].benchmarkID = this.guidanceData[i].id
+      }
+      for(let i=0; i<this.validationData.length; i++) {
+        this.categorizedData[this.validationData[i].category.replaceAll('_', ' ')].push(this.validationData[i]) 
       }
     },
   }

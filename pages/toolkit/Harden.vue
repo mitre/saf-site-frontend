@@ -13,7 +13,7 @@
               If you are interested in new hardening baselines, please contact us at saf@groups.mitre.org .</p>
           </div>
         </div>
-        <ToolkitTable v-bind:entries="hardeningData" />
+        <ToolkitTable v-bind:entries="categorizedData" />
       </div>
       <div v-else>
         <p> Loading ... </p>
@@ -28,6 +28,15 @@
 export default {
   data() {
     return {
+      categorizedData: {
+      'Cloud Service Providers': [],
+      'Virtual Platforms': [],
+      'Operating Systems': [],
+      'Databases': [],
+      'Network': [],
+      'Application Logic': [],
+      'Web Servers': [],
+      },
       guidanceData: [],
       hardeningData: [],
       isLoaded: false,
@@ -44,7 +53,6 @@ export default {
     async getGuidance() {
       this.guidanceData = await useAsyncData('getHardenData', () => GqlGetHardenData())
         .then(({ data }) => {
-          console.log(data._value.guidances)
           return data._value.guidances.data.map((guidance) => ({
             name: guidance.attributes.name,
             id: guidance.id,
@@ -85,6 +93,9 @@ export default {
         this.hardeningData[i].category = this.guidanceData[i].category
         this.hardeningData[i].version = this.guidanceData[i].version
         this.hardeningData[i].benchmarkID = this.guidanceData[i].id
+      }
+      for(let i=0; i<this.hardeningData.length; i++) {
+        this.categorizedData[this.hardeningData[i].category.replaceAll('_', ' ')].push(this.hardeningData[i]) 
       }
     },
   }

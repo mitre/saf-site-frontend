@@ -65,16 +65,16 @@
                   </th>
                 </tr>
               </thead>
-              <tbody class="bg-white dark:bg-gray-200">
-                <template v-for="category in categories">
+              <tbody class="bg-white dark:bg-gray-200"> 
+                <template v-for="[key, value] of Object.entries(sortedEntries)">
                   <tr class="border-t border-gray-300 ">
                     <th colspan="5" scope="colgroup"
                       class="bg-gray-200 dark:bg-gray-600 px-4 py-3 text-left text-sm font-semibold text-gray-900 dark:text-white sm:px-6">{{
-                          category
+                          key
                       }}</th>
                   </tr>
-                  <template v-for="(entry, index) in sortedEntries" :key="index">
-                    <tr v-if="entry.category.replaceAll('_', ' ') == category "
+                  <template v-for="(entry, index) in value" :key="index">
+                    <tr 
                       :class="[index % 2 === 0 ? 'bg-gray-50 dark:bg-gray-200' : 'bg-gray-100 dark:bg-gray-300', 'border-t']">
                         <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">{{
                             entry.name
@@ -147,45 +147,52 @@ export default {
       currentSort: 'name',
       currentSortDir: 'asc',
       filter: '',
+      filteredData: {}
     }
   },
   props: {
     entries: {
-      type: Array,
+      type: Object,
       required: true,
     },
   },
   computed: {
     sortedEntries:function() {
-      return this.filteredEntries.sort((a,b) => {
-        let modifier = 1;
-        if(this.currentSortDir === 'desc') modifier = -1;
-        if(this.currentSort === 'name')
-        {
-          if(a[this.currentSort] < b[this.currentSort]) return -1 * modifier;
-          if(a[this.currentSort] > b[this.currentSort]) return 1 * modifier;
-        }
-        else if(this.currentSort === 'platform' || this.currentSort === 'partner')
-        {
-          if(a[this.currentSort].name < b[this.currentSort].name) return -1 * modifier;
-          if(a[this.currentSort].name > b[this.currentSort].name) return 1 * modifier;
-        }
-        else if(this.currentSort === 'version')
-        {
-          if(a[this.currentSort][0].version < b[this.currentSort][0].version) return -1 * modifier;
-          if(a[this.currentSort][0].version > b[this.currentSort][0].version) return 1 * modifier;
-        }
-        return 0;
-      });
+      this.categories.forEach((category) => {
+        this.filteredEntries[category].sort((a,b) => {
+          let modifier = 1;
+          if(this.currentSortDir === 'desc') modifier = -1;
+          if(this.currentSort === 'name')
+          {
+            if(a[this.currentSort] < b[this.currentSort]) return -1 * modifier;
+            if(a[this.currentSort] > b[this.currentSort]) return 1 * modifier;
+          }
+          else if(this.currentSort === 'platform' || this.currentSort === 'partner')
+          {
+            if(a[this.currentSort].name < b[this.currentSort].name) return -1 * modifier;
+            if(a[this.currentSort].name > b[this.currentSort].name) return 1 * modifier;
+          }
+          else if(this.currentSort === 'version')
+          {
+            if(a[this.currentSort][0].version < b[this.currentSort][0].version) return -1 * modifier;
+            if(a[this.currentSort][0].version > b[this.currentSort][0].version) return 1 * modifier;
+          }
+          return;
+        });
+      })
+      return this.filteredData
     },
     filteredEntries() {
-      return this.entries.filter(entry => {
-        if(this.filter == '') return true;
-        return entry.name.toLowerCase().indexOf(this.filter.toLowerCase()) >= 0 ||
-        entry.platform.name.toLowerCase().indexOf(this.filter.toLowerCase()) >= 0 ||
-        entry.partner.name.toLowerCase().indexOf(this.filter.toLowerCase()) >= 0|| 
-        entry.version[0].version.toLowerCase().indexOf(this.filter.toLowerCase()) >= 0;
+      this.categories.forEach((category) => {
+        this.filteredData[category] = this.entries[category].filter(entry => {
+          if(this.filter == '') return true;
+          return entry.name.toLowerCase().indexOf(this.filter.toLowerCase()) >= 0 ||
+          entry.platform.name.toLowerCase().indexOf(this.filter.toLowerCase()) >= 0 ||
+          entry.partner.name.toLowerCase().indexOf(this.filter.toLowerCase()) >= 0|| 
+          entry.version[0].version.toLowerCase().indexOf(this.filter.toLowerCase()) >= 0;
+        })
       })
+      return this.filteredData
     },
   },
   methods: {

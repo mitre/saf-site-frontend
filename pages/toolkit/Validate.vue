@@ -60,41 +60,44 @@ export default {
             id: guidance.id,
             type: guidance.attributes.type,
             category: guidance.attributes.category,
-            source_link: guidance.attributes.source_link,
+            source: guidance.attributes.source,
             date: guidance.attributes.date,
             version: guidance.attributes.version,
-            validation: {
-              id: guidance.attributes.validation.data[0].id,
-              name: guidance.attributes.validation.data[0].attributes.name,
-              name_long: guidance.attributes.validation.data[0].attributes.name_long,
-              source: guidance.attributes.validation.data[0].attributes.source,
+            validation: guidance.attributes.validation.data.map((validate) => ({
+              id: validate.id,
+              name: validate.attributes.name,
+              name_long: validate.attributes.name_long,
+              source: validate.attributes.source,
               platform: {
-                name: guidance.attributes.validation.data[0].attributes.platform.data.attributes.name,
-                link: guidance.attributes.validation.data[0].attributes.platform.data.attributes.link,
+                name: validate.attributes.platform.data.attributes.name,
+                link: validate.attributes.platform.data.attributes.link,
                 icon: {
-                  name: guidance.attributes.validation.data[0].attributes.platform.data.attributes.icon.data ? guidance.attributes.validation.data[0].attributes.platform.data.attributes.icon.data.attributes.name : null,
-                  url: guidance.attributes.validation.data[0].attributes.platform.data.attributes.icon.data ? guidance.attributes.validation.data[0].attributes.platform.data.attributes.icon.data.attributes.url : null,
+                  name: validate.attributes.platform.data.attributes.icon.data ? validate.attributes.platform.data.attributes.icon.data.attributes.name : null,
+                  url: validate.attributes.platform.data.attributes.icon.data ? validate.attributes.platform.data.attributes.icon.data.attributes.url : null,
                 }
               },
               partner: {
-                name: guidance.attributes.validation.data[0].attributes.partner.data.attributes.name,
-                name_long: guidance.attributes.validation.data[0].attributes.partner.data.attributes.name_long,
-                link: guidance.attributes.validation.data[0].attributes.partner.data.attributes.link,
+                name: validate.attributes.partner.data.attributes.name,
+                name_long: validate.attributes.partner.data.attributes.name_long,
+                link: validate.attributes.partner.data.attributes.link,
                 icon: {
-                  name: guidance.attributes.validation.data[0].attributes.partner.data.attributes.icon.data ? guidance.attributes.validation.data[0].attributes.partner.data.attributes.icon.data.attributes.name : null,
-                  url: guidance.attributes.validation.data[0].attributes.partner.data.attributes.icon.data ? guidance.attributes.validation.data[0].attributes.partner.data.attributes.icon.data.attributes.url : null,
+                  name: validate.attributes.partner.data.attributes.icon.data ? validate.attributes.partner.data.attributes.icon.data.attributes.name : null,
+                  url: validate.attributes.partner.data.attributes.icon.data ? validate.attributes.partner.data.attributes.icon.data.attributes.url : null,
                 }
               }
-            },
+            })),
           }))
         });
     },
     getValidationData() {
       for (let i = 0; i < this.guidanceData.length; i++) {
-        this.validationData[i] = this.guidanceData[i].validation
-        this.validationData[i].category = this.guidanceData[i].category
-        this.validationData[i].version = this.guidanceData[i].version
-        this.validationData[i].benchmarkID = this.guidanceData[i].id
+        this.guidanceData[i].validation.forEach( (validate) => {
+          let temp = validate
+          temp.category = this.guidanceData[i].category
+          temp.version = this.guidanceData[i].version
+          temp.benchmarkID = this.guidanceData[i].id
+          this.validationData.push(temp)
+        })
       }
       for(let i=0; i<this.validationData.length; i++) {
         this.categorizedData[this.validationData[i].category.replaceAll('_', ' ')].push(this.validationData[i]) 

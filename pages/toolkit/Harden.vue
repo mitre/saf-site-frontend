@@ -58,41 +58,44 @@ export default {
             id: guidance.id,
             type: guidance.attributes.type,
             category: guidance.attributes.category,
-            source_link: guidance.attributes.source_link,
+            source: guidance.attributes.source,
             date: guidance.attributes.date,
             version: guidance.attributes.version,
-            hardening: {
-              id: guidance.attributes.hardening.data[0].id,
-              name: guidance.attributes.hardening.data[0].attributes.name,
-              name_long: guidance.attributes.hardening.data[0].attributes.name_long,
-              source: guidance.attributes.hardening.data[0].attributes.source,
+            hardening: guidance.attributes.hardening.data.map((harden) => ({
+              id: harden.id,
+              name: harden.attributes.name,
+              name_long: harden.attributes.name_long,
+              source: harden.attributes.source,
               platform: {
-                name: guidance.attributes.hardening.data[0].attributes.platform.data.attributes.name,
-                link: guidance.attributes.hardening.data[0].attributes.platform.data.attributes.link,
+                name: harden.attributes.platform.data.attributes.name,
+                link: harden.attributes.platform.data.attributes.link,
                 icon: {
-                  name: guidance.attributes.hardening.data[0].attributes.platform.data.attributes.icon.data ? guidance.attributes.hardening.data[0].attributes.platform.data.attributes.icon.data.attributes.name : null,
-                  url: guidance.attributes.hardening.data[0].attributes.platform.data.attributes.icon.data ? guidance.attributes.hardening.data[0].attributes.platform.data.attributes.icon.data.attributes.url : null,
+                  name: harden.attributes.platform.data.attributes.icon.data ? harden.attributes.platform.data.attributes.icon.data.attributes.name : null,
+                  url: harden.attributes.platform.data.attributes.icon.data ? harden.attributes.platform.data.attributes.icon.data.attributes.url : null,
                 }
               },
               partner: {
-                name: guidance.attributes.hardening.data[0].attributes.partner.data.attributes.name,
-                name_long: guidance.attributes.hardening.data[0].attributes.partner.data.attributes.name_long,
-                link: guidance.attributes.hardening.data[0].attributes.partner.data.attributes.link,
+                name: harden.attributes.partner.data.attributes.name,
+                name_long: harden.attributes.partner.data.attributes.name_long,
+                link: harden.attributes.partner.data.attributes.link,
                 icon: {
-                  name: guidance.attributes.hardening.data[0].attributes.partner.data.attributes.icon.data ? guidance.attributes.hardening.data[0].attributes.partner.data.attributes.icon.data.attributes.name : null,
-                  url: guidance.attributes.hardening.data[0].attributes.partner.data.attributes.icon.data ? guidance.attributes.hardening.data[0].attributes.partner.data.attributes.icon.data.attributes.url : null,
+                  name: harden.attributes.partner.data.attributes.icon.data ? harden.attributes.partner.data.attributes.icon.data.attributes.name : null,
+                  url: harden.attributes.partner.data.attributes.icon.data ? harden.attributes.partner.data.attributes.icon.data.attributes.url : null,
                 }
               }
-            },
+            })),
           }))
         });
     },
     getHardeningData() {
       for (let i = 0; i < this.guidanceData.length; i++) {
-        this.hardeningData[i] = this.guidanceData[i].hardening
-        this.hardeningData[i].category = this.guidanceData[i].category
-        this.hardeningData[i].version = this.guidanceData[i].version
-        this.hardeningData[i].benchmarkID = this.guidanceData[i].id
+        this.guidanceData[i].hardening.forEach( (harden) => {
+          let temp = harden
+          temp.category = this.guidanceData[i].category
+          temp.version = this.guidanceData[i].version
+          temp.benchmarkID = this.guidanceData[i].id
+          this.hardeningData.push(temp)
+        })
       }
       for(let i=0; i<this.hardeningData.length; i++) {
         this.categorizedData[this.hardeningData[i].category.replaceAll('_', ' ')].push(this.hardeningData[i]) 

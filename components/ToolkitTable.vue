@@ -96,9 +96,11 @@
                           </div>
                         </td>
                         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-800">{{ entry.version[0].version }}</td>
-                        <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                        <td class="flex items-center relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                          <img class="h-8 w-8 rounded-full mr-3" src="~/assets/GitHubLogo.png" alt="Github Logo" /> 
                           <NuxtLink :to="entry.source" target="_blank">
-                            <button @click="" class="mr-5 text-blue-600 hover:text-blue-900">View Code<span class="sr-only">,
+                            <button @click="" class="mr-5 text-blue-600 hover:text-blue-900">
+                              View Code<span class="sr-only">,
                                 {{
                                   entry.name
                                 }}</span>

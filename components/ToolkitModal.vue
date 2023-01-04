@@ -2,7 +2,7 @@
   <div>
     <div v-if="isLoaded">
       <!-- Guidance Content -->
-      <div class="overflow-hidden mx-auto max-w-5xl bg-white dark:bg-gray-700 shadow sm:rounded-lg mt-8">
+      <div class="overflow-hidden mx-auto max-w-5xl bg-gray-300 dark:bg-gray-700 shadow sm:rounded-lg mt-8">
         <div class="px-4 py-5 sm:px-6">
           <h3 class="text-lg font-medium leading-6 text-gray-900 dark:text-white">Guidance Overview</h3>
           <p class="mt-1 max-w-2xl text-sm text-gray-500 dark:text-dark-text">Extra details for the guidance overview.
@@ -11,7 +11,7 @@
         <div class="sm:flex">
           <div class="flex-1 border-t border-gray-200">
             <dl>
-              <div class="bg-gray-50 dark:bg-gray-200 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+              <div class="bg-white dark:bg-gray-200 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                 <dt class="text-sm font-medium text-gray-500">Category</dt>
                 <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{ guidance[0].category.replaceAll('_', ' ')}}
                 </dd>
@@ -42,14 +42,14 @@
         </div>
 
         <!-- Harden / Validate Content -->
-        <div class="overflow-hidden bg-white dark:bg-gray-700 shadow sm:rounded-lg ">
+        <div class="overflow-hidden bg-gray-300 dark:bg-gray-700 shadow sm:rounded-lg ">
           <div class="px-4 py-5 sm:px-6">
             <h3 class="text-lg font-medium leading-6 text-gray-900 dark:text-white">Related Content</h3>
             <p class="mt-1 max-w-2xl text-sm text-gray-500 dark:text-dark-text">Related hardening and validation content
               for the guidance.</p>
           </div>
           <hr class="my-1 h-px bg-gray-200 border-0 dark:bg-gray-500">
-          <div class="sm:flex bg-gray-50 dark:bg-gray-700 px-4 py-5  sm:gap-4 sm:px-6">
+          <div class="sm:flex bg-gray-300 dark:bg-gray-700 px-4 py-5  sm:gap-4 sm:px-6">
             <div class="flex-1">
               <dt class="text-sm text-center font-medium text-gray-700 dark:text-white">Harden</dt>
             </div>
@@ -60,77 +60,93 @@
             </div>
           </div>
           <div class="sm:flex">
-            <div class="flex-1 border-t border-gray-200">
-              <dl v-if="guidance[0].hardening != null">
+            <div class="flex-1 border-t border-gray-200 dark:border-gray-500">
+              <dl v-if="guidance[0].hardening != null" v-for="hardening in guidance[0].hardening">
+                <div class="bg-white dark:bg-gray-200 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                  <dt class="flex items-center text-sm font-medium text-gray-500">Name</dt>
+                  <div class="flex items-center">
+                    <span class="mt-1 ml-3 text-sm text-gray-900  sm:col-span-2 sm:mt-0">
+                      {{ hardening.name }}
+                    </span>
+                  </div>
+                </div>
                 <div class="bg-gray-50 dark:bg-gray-300 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                   <dt class="flex items-center text-sm font-medium text-gray-500">Platform</dt>
                   <div class="flex items-center">
                     <div class="h-10 w-10 flex-shrink-0">
-                      <img class="h-10 w-10 rounded-full" :src="guidance[0].hardening.platform.icon.url"
-                        :alt="guidance[0].hardening.platform.icon.name" />
+                      <img class="h-10 w-10 rounded-full" :src="hardening.platform.icon.url"
+                        :alt="hardening.platform.icon.name" />
                     </div>
                     <a class="mt-1 ml-3 text-sm text-gray-900 sm:col-span-2 sm:mt-0 hover:text-blue-500 hover:underline"
                       target="_blank"
-                      :href="guidance[0].hardening.platform.link">{{ guidance[0].hardening.platform.name }}</a>
+                      :href="hardening.platform.link">{{ hardening.platform.name }}</a>
                   </div>
                 </div>
                 <div class="bg-white dark:bg-gray-200 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                   <dt class="flex items-center text-sm font-medium text-gray-500">Partner</dt>
                   <div class="flex items-center">
                     <div class="h-10 w-10 flex-shrink-0">
-                      <img class="h-10 w-10 rounded-full" :src="guidance[0].hardening.partner.icon.url"
-                        :alt="guidance[0].hardening.partner.icon.name" />
+                      <img class="h-10 w-10 rounded-full" :src="hardening.partner.icon.url"
+                        :alt="hardening.partner.icon.name" />
                     </div>
                     <a class="mt-1 ml-3 text-sm text-gray-900 sm:col-span-2 sm:mt-0 hover:text-blue-500 hover:underline"
                       target="_blank"
-                      :href="guidance[0].hardening.partner.link">{{ guidance[0].hardening.partner.name }}</a>
+                      :href="hardening.partner.link">{{ hardening.partner.name }}</a>
                   </div>
                 </div>
-                <div class="bg-gray-50 dark:bg-gray-300 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <div class="bg-gray-50 dark:bg-gray-300 mb-2 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                   <dt class="flex items-center text-sm font-medium text-gray-500">Link</dt>
                   <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 hover:text-blue-500 hover:underline"
-                    target="_blank" :href="guidance[0].hardening.source">{{ guidance[0].hardening.source }}</dd>
+                    target="_blank" :href="hardening.source">{{ hardening.source }}</dd>
                 </div>
               </dl>
             </div>
-            <div class="flex-1 border-t border-gray-200">
+            <div class="flex-1 border-t border-gray-200 dark:border-gray-500">
               <div class="sm:hidden"> <!-- Mobile Formatting -->
-                <hr class="h-px bg-gray-200 border-0 dark:bg-gray-500">
-                <div class="sm:flex bg-gray-50 dark:bg-gray-700 px-4 py-5  sm:gap-4 sm:px-6">
+                <hr class="h-px bg-gray-300 border-0 dark:bg-gray-500">
+                <div class="sm:flex bg-gray-300 dark:bg-gray-700 px-4 py-5  sm:gap-4 sm:px-6">
                   <div class="flex-1">
                     <dt class="text-sm text-center font-medium text-gray-700 dark:text-white">Validate</dt>
                   </div>
                 </div>
               </div>
-              <dl v-if="guidance[0].validation != null">
+              <dl v-if="guidance[0].validation != null" v-for="validation in guidance[0].validation">
+                <div class="bg-white dark:bg-gray-200 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                  <dt class="flex items-center text-sm font-medium text-gray-500">Name</dt>
+                  <div class="flex items-center">
+                    <span class="mt-1 ml-3 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                      {{ validation.name }}
+                    </span>
+                  </div>
+                </div>
                 <div class="bg-gray-50 dark:bg-gray-300 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                   <dt class="flex items-center text-sm font-medium text-gray-500">Platform</dt>
                   <div class="flex items-center">
                     <div class="h-10 w-10 flex-shrink-0">
-                      <img class="h-10 w-10 rounded-full" :src="guidance[0].validation.platform.icon.url"
-                        :alt="guidance[0].validation.platform.icon.name" />
+                      <img class="h-10 w-10 rounded-full" :src="validation.platform.icon.url"
+                        :alt="validation.platform.icon.name" />
                     </div>
                     <a class="mt-1 ml-3 text-sm text-gray-900 sm:col-span-2 sm:mt-0 hover:text-blue-500 hover:underline"
                       target="_blank"
-                      :href="guidance[0].validation.platform.link">{{ guidance[0].validation.platform.name }}</a>
+                      :href="validation.platform.link">{{ validation.platform.name }}</a>
                   </div>
                 </div>
                 <div class="bg-white dark:bg-gray-200 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                   <dt class="flex items-center text-sm font-medium text-gray-500">Partner</dt>
                   <div class="flex items-center">
                     <div class="h-10 w-10 flex-shrink-0">
-                      <img class="h-10 w-10 rounded-full" :src="guidance[0].validation.partner.icon.url"
-                        :alt="guidance[0].validation.partner.icon.name" />
+                      <img class="h-10 w-10 rounded-full" :src="validation.partner.icon.url"
+                        :alt="validation.partner.icon.name" />
                     </div>
                     <a class="mt-1 ml-3 text-sm text-gray-900 sm:col-span-2 sm:mt-0 hover:text-blue-500 hover:underline"
                       target="_blank"
-                      :href="guidance[0].validation.partner.link">{{ guidance[0].validation.partner.name }}</a>
+                      :href="validation.partner.link">{{ validation.partner.name }}</a>
                   </div>
                 </div>
-                <div class="bg-gray-50 dark:bg-gray-300 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <div class="bg-gray-50 dark:bg-gray-300 mb-2 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                   <dt class="flex items-center text-sm font-medium text-gray-500">Link</dt>
                   <a class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 hover:text-blue-500 hover:underline"
-                    target="_blank" :href="guidance[0].validation.source">{{ guidance[0].validation.source }}</a>
+                    target="_blank" :href="validation.source">{{ validation.source }}</a>
                 </div>
               </dl>
             </div>
@@ -158,6 +174,7 @@ export default {
   mounted() {
     this.$nextTick(async () => {
       await this.getBenchmark()
+      this.show()
       this.isLoaded = true
     });
   },
@@ -165,6 +182,7 @@ export default {
     async getBenchmark() {
       this.guidance = await useAsyncData('getGuidanceDataFromID', () => GqlGetGuidanceDataFromID({ id: this.$route.query.id }))
         .then(({ data }) => {
+          console.log(data._value.guidances.data)
           return data._value.guidances.data.map((guidance) => ({
             name: guidance.attributes.name,
             id: guidance.id,
@@ -173,55 +191,58 @@ export default {
             source: guidance.attributes.source,
             date: guidance.attributes.date,
             version: guidance.attributes.version,
-            hardening: guidance.attributes.hardening.data[0] ? {
-              id: guidance.attributes.hardening.data[0].id,
-              name: guidance.attributes.hardening.data[0].attributes.name,
-              name_long: guidance.attributes.hardening.data[0].attributes.name_long,
-              source: guidance.attributes.hardening.data[0].attributes.source,
+            hardening: guidance.attributes.hardening.data ? guidance.attributes.hardening.data.map((harden) => ({
+              id: harden.id,
+              name: harden.attributes.name,
+              name_long: harden.attributes.name_long,
+              source: harden.attributes.source,
               platform: {
-                name: guidance.attributes.hardening.data[0].attributes.platform.data.attributes.name,
-                link: guidance.attributes.hardening.data[0].attributes.platform.data.attributes.link,
+                name: harden.attributes.platform.data.attributes.name,
+                link: harden.attributes.platform.data.attributes.link,
                 icon: {
-                  name: guidance.attributes.hardening.data[0].attributes.platform.data.attributes.icon.data ? guidance.attributes.hardening.data[0].attributes.platform.data.attributes.icon.data.attributes.name : null,
-                  url: guidance.attributes.hardening.data[0].attributes.platform.data.attributes.icon.data ? guidance.attributes.hardening.data[0].attributes.platform.data.attributes.icon.data.attributes.url : null,
+                  name: harden.attributes.platform.data.attributes.icon.data ? harden.attributes.platform.data.attributes.icon.data.attributes.name : null,
+                  url: harden.attributes.platform.data.attributes.icon.data ? harden.attributes.platform.data.attributes.icon.data.attributes.url : null,
                 }
               },
               partner: {
-                name: guidance.attributes.hardening.data[0].attributes.partner.data.attributes.name,
-                name_long: guidance.attributes.hardening.data[0].attributes.partner.data.attributes.name_long,
-                link: guidance.attributes.hardening.data[0].attributes.partner.data.attributes.link,
+                name: harden.attributes.partner.data.attributes.name,
+                name_long: harden.attributes.partner.data.attributes.name_long,
+                link: harden.attributes.partner.data.attributes.link,
                 icon: {
-                  name: guidance.attributes.hardening.data[0].attributes.partner.data.attributes.icon.data ? guidance.attributes.hardening.data[0].attributes.partner.data.attributes.icon.data.attributes.name : null,
-                  url: guidance.attributes.hardening.data[0].attributes.partner.data.attributes.icon.data ? guidance.attributes.hardening.data[0].attributes.partner.data.attributes.icon.data.attributes.url : null,
+                  name: harden.attributes.partner.data.attributes.icon.data ? harden.attributes.partner.data.attributes.icon.data.attributes.name : null,
+                  url: harden.attributes.partner.data.attributes.icon.data ? harden.attributes.partner.data.attributes.icon.data.attributes.url : null,
                 }
               }
-            }: null,
-            validation: guidance.attributes.validation.data[0] ? {
-              id: guidance.attributes.validation.data[0].id,
-              name: guidance.attributes.validation.data[0].attributes.name,
-              name_long: guidance.attributes.validation.data[0].attributes.name_long,
-              source: guidance.attributes.validation.data[0].attributes.source,
+            })): null,
+            validation: guidance.attributes.validation.data ? guidance.attributes.validation.data.map((validate) => ({
+              id: validate.id,
+              name: validate.attributes.name,
+              name_long: validate.attributes.name_long,
+              source: validate.attributes.source,
               platform: {
-                name: guidance.attributes.validation.data[0].attributes.platform.data.attributes.name,
-                link: guidance.attributes.validation.data[0].attributes.platform.data.attributes.link,
+                name: validate.attributes.platform.data.attributes.name,
+                link: validate.attributes.platform.data.attributes.link,
                 icon: {
-                  name: guidance.attributes.validation.data[0].attributes.platform.data.attributes.icon.data ? guidance.attributes.validation.data[0].attributes.platform.data.attributes.icon.data.attributes.name : null,
-                  url: guidance.attributes.validation.data[0].attributes.platform.data.attributes.icon.data ? guidance.attributes.validation.data[0].attributes.platform.data.attributes.icon.data.attributes.url : null,
+                  name: validate.attributes.platform.data.attributes.icon.data ? validate.attributes.platform.data.attributes.icon.data.attributes.name : null,
+                  url: validate.attributes.platform.data.attributes.icon.data ? validate.attributes.platform.data.attributes.icon.data.attributes.url : null,
                 }
               },
               partner: {
-                name: guidance.attributes.validation.data[0].attributes.partner.data.attributes.name,
-                name_long: guidance.attributes.validation.data[0].attributes.partner.data.attributes.name_long,
-                link: guidance.attributes.validation.data[0].attributes.partner.data.attributes.link,
+                name: validate.attributes.partner.data.attributes.name,
+                name_long: validate.attributes.partner.data.attributes.name_long,
+                link: validate.attributes.partner.data.attributes.link,
                 icon: {
-                  name: guidance.attributes.validation.data[0].attributes.partner.data.attributes.icon.data ? guidance.attributes.validation.data[0].attributes.partner.data.attributes.icon.data.attributes.name : null,
-                  url: guidance.attributes.validation.data[0].attributes.partner.data.attributes.icon.data ? guidance.attributes.validation.data[0].attributes.partner.data.attributes.icon.data.attributes.url : null,
+                  name: validate.attributes.partner.data.attributes.icon.data ? validate.attributes.partner.data.attributes.icon.data.attributes.name : null,
+                  url: validate.attributes.partner.data.attributes.icon.data ? validate.attributes.partner.data.attributes.icon.data.attributes.url : null,
                 }
               }
-            }: null,
+            })): null,
           }))
         });
     },
+    show() {
+      console.log(this.guidance)
+    }
   }
 }
 

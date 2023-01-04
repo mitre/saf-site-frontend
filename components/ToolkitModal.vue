@@ -174,7 +174,6 @@ export default {
   mounted() {
     this.$nextTick(async () => {
       await this.getBenchmark()
-      this.show()
       this.isLoaded = true
     });
   },
@@ -182,7 +181,6 @@ export default {
     async getBenchmark() {
       this.guidance = await useAsyncData('getGuidanceDataFromID', () => GqlGetGuidanceDataFromID({ id: this.$route.query.id }))
         .then(({ data }) => {
-          console.log(data._value.guidances.data)
           return data._value.guidances.data.map((guidance) => ({
             name: guidance.attributes.name,
             id: guidance.id,
@@ -240,9 +238,6 @@ export default {
           }))
         });
     },
-    show() {
-      console.log(this.guidance)
-    }
   }
 }
 

@@ -96,16 +96,16 @@
                           </div>
                         </td>
                         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-800">{{ entry.version[0].version }}</td>
-                        <td class="flex items-center relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                          <img class="h-8 w-8 rounded-full mr-3" src="~/assets/GitHubLogo.png" alt="Github Logo" /> 
+                        <td class="flex items-center relative whitespace-nowrap py-6 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                          <img class="h-6 w-6 rounded-full mr-3" src="~/assets/GitHubLogo.png" alt="Github Logo" /> 
                           <NuxtLink :to="entry.source" target="_blank">
-                            <button @click="" class="mr-5 text-blue-600 hover:text-blue-900">
-                              View Code<span class="sr-only">,
-                                {{
-                                  entry.name
-                                }}</span>
+                            <button @click="" class="flex items-center mr-5 text-blue-600 hover:text-blue-900">
+                              View Code
+                              <span class="sr-only">,
+                                {{entry.name}}
+                              </span>
+                              <ExternalLinkIcon class="h-4 w-4" />
                             </button>
-
                           </NuxtLink>
                           <NuxtLink :to="`/toolkit/modal/${slugify(entry.name)}?id=${entry.benchmarkID}`">
                             <button @click="" class="text-blue-600 hover:text-blue-900">View Details<span class="sr-only">,
@@ -130,9 +130,9 @@
   
 
 <script>
-import { ChevronDownIcon, ChevronUpIcon, SwitchVerticalIcon } from '@heroicons/vue/solid';
+import { ChevronDownIcon, ChevronUpIcon, SwitchVerticalIcon, ExternalLinkIcon } from '@heroicons/vue/solid';
 export default {
-  components: {ChevronDownIcon, ChevronUpIcon, SwitchVerticalIcon},
+  components: {ChevronDownIcon, ChevronUpIcon, SwitchVerticalIcon, ExternalLinkIcon},
   data(){
     return{
       categories: [

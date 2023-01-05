@@ -34,8 +34,10 @@
               </div>
               <div class="bg-gray-50 dark:bg-gray-300 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                 <dt class="text-sm font-medium text-gray-500">Url</dt>
-                <a class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 hover:text-blue-500 hover:underline"
-                  target="_blank" :href="guidance[0].source">{{ guidance[0].source }}</a>
+                <a class="flex items-center mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 hover:text-blue-500 hover:underline"
+                  target="_blank" :href="guidance[0].source">{{ guidance[0].source }}
+                  <ExternalLinkIcon class="h-4 w-4"/>
+                </a>
               </div>
             </dl>
           </div>
@@ -62,7 +64,7 @@
           <div class="sm:flex">
             <div class="flex-1 border-t border-gray-200 dark:border-gray-500">
               <dl v-if="guidance[0].hardening != null" v-for="hardening in guidance[0].hardening">
-                <div class="bg-white dark:bg-gray-200 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <div class="bg-white dark:bg-gray-200 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-3 sm:px-6">
                   <dt class="flex items-center text-sm font-medium text-gray-500">Name</dt>
                   <div class="flex items-center">
                     <span class="mt-1 ml-3 text-sm text-gray-900  sm:col-span-2 sm:mt-0">
@@ -96,8 +98,11 @@
                 </div>
                 <div class="bg-gray-50 dark:bg-gray-300 mb-2 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                   <dt class="flex items-center text-sm font-medium text-gray-500">Link</dt>
-                  <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 hover:text-blue-500 hover:underline"
-                    target="_blank" :href="hardening.source">{{ hardening.source }}</dd>
+                  <a class="flex items-center mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 hover:text-blue-500 hover:underline"
+                    target="_blank" :href="hardening.source">
+                    {{ hardening.source }} 
+                    <ExternalLinkIcon class="h-5 w-5" />
+                  </a>
                 </div>
               </dl>
             </div>
@@ -145,8 +150,11 @@
                 </div>
                 <div class="bg-gray-50 dark:bg-gray-300 mb-2 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                   <dt class="flex items-center text-sm font-medium text-gray-500">Link</dt>
-                  <a class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 hover:text-blue-500 hover:underline"
-                    target="_blank" :href="validation.source">{{ validation.source }}</a>
+                  <a class="flex items-center mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 hover:text-blue-500 hover:underline"
+                    target="_blank" :href="validation.source">
+                    {{ validation.source }}
+                    <ExternalLinkIcon class="h-5 w-5" />
+                  </a>
                 </div>
               </dl>
             </div>
@@ -161,10 +169,10 @@
 </template>
   
 <script>
-import { PaperClipIcon } from '@heroicons/vue/solid'
+import { PaperClipIcon, ExternalLinkIcon } from '@heroicons/vue/solid'
 
 export default {
-  components: { PaperClipIcon },
+  components: { PaperClipIcon, ExternalLinkIcon },
   data() {
     return {
       guidance: [],

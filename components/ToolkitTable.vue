@@ -79,17 +79,13 @@
                     <tr 
                       :class="[index % 2 === 0 ? 'bg-gray-50 dark:bg-gray-200' : 'bg-gray-100 dark:bg-gray-300', 'border-t']">
                         <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
-                          <div class="flex items-center truncate">
-                            <dd class="sm:hidden flex">
+                          <div class="flex items-center truncate text-md">
+                            <dd class="sm:hidden flex mr-2">
                               <NuxtLink target="_blank" :to="entry.platform.link"  class="flex items-center mr-1">
-                                <div class="h-10 w-10 flex-shrink-0">
-                                  <img class="h-8 w-8 rounded-full" :src="entry.platform.icon.url" :alt="entry.platform.icon.name" />
-                                </div>
+                                <img class="h-8 w-8 rounded-full mr-1" :src="entry.platform.icon.url" :alt="entry.platform.icon.name" />
                               </NuxtLink>
                               <NuxtLink target="_blank" :to="entry.partner.link"  class="flex items-center">
-                                <div class="h-10 w-10 flex-shrink-0">
-                                  <img class="h-8 w-8 rounded-full" :src="entry.partner.icon.url" :alt="entry.platform.icon.name" />
-                                </div>
+                                <img class="h-8 w-8 rounded-full" :src="entry.partner.icon.url" :alt="entry.platform.icon.name" />
                               </NuxtLink>
                             </dd>
                             {{ entry.name }}
@@ -97,18 +93,6 @@
                           <!-- Mobile Stacked View -->
                           <dl class="font-normal xl:hidden">
                             <dt class="sr-only">Title</dt>
-                            <!-- <dd class="sm:hidden flex">
-                              <NuxtLink target="_blank" :to="entry.platform.link"  class="flex items-center mr-2">
-                                <div class="h-10 w-10 flex-shrink-0">
-                                  <img class="h-8 w-8 rounded-full" :src="entry.platform.icon.url" :alt="entry.platform.icon.name" />
-                                </div>
-                              </NuxtLink>
-                              <NuxtLink target="_blank" :to="entry.partner.link"  class="flex items-center">
-                                <div class="h-10 w-10 flex-shrink-0">
-                                  <img class="h-8 w-8 rounded-full" :src="entry.partner.icon.url" :alt="entry.platform.icon.name" />
-                                </div>
-                              </NuxtLink>
-                            </dd> -->
                             <dd class="flex items-center relative whitespace-nowrap py-2 text-right text-sm font-medium sm:pr-6">
                               <img class="h-6 w-6 rounded-full mr-3" src="~/assets/GitHubLogo.png" alt="Github Logo" /> 
                               <NuxtLink :to="entry.source" target="_blank">
@@ -135,17 +119,13 @@
                         <!-- Full View -->
                         <td class="sm:table-cell hidden truncate whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-800">
                           <div class="flex items-center">
-                            <div class="h-10 w-10 flex-shrink-0">
-                              <img class="h-10 w-10 rounded-full" :src="entry.platform.icon.url" :alt="entry.platform.icon.name" />
-                            </div>
+                            <img class="h-10 w-10 rounded-full" :src="entry.platform.icon.url" :alt="entry.platform.icon.name" />
                             <NuxtLink target="_blank" :to="entry.platform.link" class="ml-3 hover:text-blue-500"> {{ entry.platform.name }} </NuxtLink>
                           </div>
                         </td>
                         <td class="sm:table-cell hidden truncate whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-800">
                           <div class="flex items-center">
-                            <div class="h-10 w-10 flex-shrink-0">
-                              <img class="h-10 w-10 rounded-full" :src="entry.partner.icon.url" :alt="entry.partner.icon.name" />
-                            </div>
+                            <img class="h-10 w-10 rounded-full" :src="entry.partner.icon.url" :alt="entry.partner.icon.name" />
                             <NuxtLink :to="entry.partner.link" class="ml-3 hover:text-blue-500" target="_blank"> {{ entry.partner.name }} </NuxtLink>
                           </div>
                         </td>

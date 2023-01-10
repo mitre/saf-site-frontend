@@ -49,18 +49,6 @@
                       </span>
                     </a>  
                   </th>
-                  <th scope="col" class="md:table-cell hidden px-3 py-3.5 text-left text-sm font-semibold">
-                    <a @click="sort('version')" class="group inline-flex cursor-pointer">
-                      Version
-                      <span v-if="this.currentSort === 'version'" class="ml-2 flex-none rounded text-gray-400 group-hover:visible group-focus:visible">
-                        <ChevronDownIcon :class="currentSortDir =='desc' ?  'h-5 w-5' : 'hidden'" aria-hidden="true" />
-                        <ChevronUpIcon :class="currentSortDir =='asc' ?  'h-5 w-5' : 'hidden'" aria-hidden="true" />
-                      </span>
-                      <span v-else>
-                        <SwitchVerticalIcon class="h-5 w-5 ml-2 flex-none rounded text-gray-400 group-hover:visible group-focus:visible" />
-                      </span>
-                    </a>  
-                  </th>
                   <th scope="col" class="xl:table-cell hidden relative py-3.5 pl-3 pr-4 sm:pr-6">
                     <span class="sr-only">Edit</span>
                   </th>
@@ -78,9 +66,13 @@
                   <template v-for="(entry, index) in value" :key="index">
                     <tr 
                       :class="[index % 2 === 0 ? 'bg-gray-50 dark:bg-gray-200' : 'bg-gray-100 dark:bg-gray-300', 'border-t']">
-                        <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
-                          <div class="flex items-center truncate text-md">
-                            <dd class="sm:hidden flex mr-2">
+                      <td class="py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
+                        {{ entry.name }} | {{ entry.version[0].version }}
+                        <!-- Mobile Stacked View -->
+                        <dl class="font-normal xl:hidden">
+                          <dt class="sr-only">Title</dt>
+                          <div class="flex items-center mt-2">
+                            <dd class="sm:hidden flex mr-6">
                               <NuxtLink target="_blank" :to="entry.platform.link"  class="flex items-center mr-1">
                                 <img class="h-8 w-8 rounded-full mr-1" :src="entry.platform.icon.url" :alt="entry.platform.icon.name" />
                               </NuxtLink>
@@ -88,11 +80,6 @@
                                 <img class="h-8 w-8 rounded-full" :src="entry.partner.icon.url" :alt="entry.platform.icon.name" />
                               </NuxtLink>
                             </dd>
-                            {{ entry.name }}
-                          </div>
-                          <!-- Mobile Stacked View -->
-                          <dl class="font-normal xl:hidden">
-                            <dt class="sr-only">Title</dt>
                             <dd class="flex items-center relative whitespace-nowrap py-2 text-right text-sm font-medium sm:pr-6">
                               <img class="h-6 w-6 rounded-full mr-3" src="~/assets/GitHubLogo.png" alt="Github Logo" /> 
                               <NuxtLink :to="entry.source" target="_blank">
@@ -110,46 +97,43 @@
                                       entry.name
                                     }}</span>
                                 </button>
-
                               </NuxtLink>
                             </dd>
-                            <!-- <dd class="md:hidden truncate whitespace-nowrap text-sm text-gray-500 dark:text-gray-800">Version: {{ entry.version[0].version }}</dd> -->
-                          </dl>
-                        </td>
-                        <!-- Full View -->
-                        <td class="sm:table-cell hidden truncate whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-800">
-                          <div class="flex items-center">
-                            <img class="h-10 w-10 rounded-full" :src="entry.platform.icon.url" :alt="entry.platform.icon.name" />
-                            <NuxtLink target="_blank" :to="entry.platform.link" class="ml-3 hover:text-blue-500"> {{ entry.platform.name }} </NuxtLink>
                           </div>
-                        </td>
-                        <td class="sm:table-cell hidden truncate whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-800">
-                          <div class="flex items-center">
-                            <img class="h-10 w-10 rounded-full" :src="entry.partner.icon.url" :alt="entry.partner.icon.name" />
-                            <NuxtLink :to="entry.partner.link" class="ml-3 hover:text-blue-500" target="_blank"> {{ entry.partner.name }} </NuxtLink>
-                          </div>
-                        </td>
-                        <td class="md:table-cell hidden truncate whitespace-nowrap px-7 py-4 text-sm text-gray-500 dark:text-gray-800">{{ entry.version[0].version }}</td>
-                        <td class="xl:flex items-center hidden relative whitespace-nowrap py-6 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                          <img class="h-6 w-6 rounded-full mr-3" src="~/assets/GitHubLogo.png" alt="Github Logo" /> 
-                          <NuxtLink :to="entry.source" target="_blank">
-                            <button @click="" class="flex items-center mr-5 text-blue-600 hover:text-blue-900">
-                              View Code
-                              <span class="sr-only">,
-                                {{entry.name}}
-                              </span>
-                              <ExternalLinkIcon class="h-4 w-4" />
-                            </button>
-                          </NuxtLink>
-                          <NuxtLink :to="`/toolkit/modal/${slugify(entry.name)}?id=${entry.benchmarkID}`">
-                            <button @click="" class="text-blue-600 hover:text-blue-900">View Details<span class="sr-only">,
-                                {{
-                                  entry.name
-                                }}</span>
-                            </button>
-
-                          </NuxtLink>
-                        </td>
+                        </dl>
+                      </td>
+                      <!-- Full View -->
+                      <td class="sm:table-cell hidden truncate whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-800">
+                        <div class="flex items-center">
+                          <img class="h-10 w-10 rounded-full" :src="entry.platform.icon.url" :alt="entry.platform.icon.name" />
+                          <NuxtLink target="_blank" :to="entry.platform.link" class="ml-3 hover:text-blue-500"> {{ entry.platform.name }} </NuxtLink>
+                        </div>
+                      </td>
+                      <td class="sm:table-cell hidden truncate whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-800">
+                        <div class="flex items-center">
+                          <img class="h-10 w-10 rounded-full" :src="entry.partner.icon.url" :alt="entry.partner.icon.name" />
+                          <NuxtLink :to="entry.partner.link" class="ml-3 hover:text-blue-500" target="_blank"> {{ entry.partner.name }} </NuxtLink>
+                        </div>
+                      </td>
+                      <td class="xl:flex items-center hidden relative whitespace-nowrap py-6 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                        <img class="h-6 w-6 rounded-full mr-3" src="~/assets/GitHubLogo.png" alt="Github Logo" /> 
+                        <NuxtLink :to="entry.source" target="_blank">
+                          <button @click="" class="flex items-center mr-5 text-blue-600 hover:text-blue-900">
+                            View Code
+                            <span class="sr-only">,
+                              {{entry.name}}
+                            </span>
+                            <ExternalLinkIcon class="h-4 w-4" />
+                          </button>
+                        </NuxtLink>
+                        <NuxtLink :to="`/toolkit/modal/${slugify(entry.name)}?id=${entry.benchmarkID}`">
+                          <button @click="" class="text-blue-600 hover:text-blue-900">View Details<span class="sr-only">,
+                              {{
+                                entry.name
+                              }}</span>
+                          </button>
+                        </NuxtLink>
+                      </td>
                     </tr>
                   </template>
                 </template>

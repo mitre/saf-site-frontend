@@ -1,5 +1,5 @@
 query getGuidanceDataFromID($id: ID!){
-  guidances(filters:{id:{eq:$id}}){
+  guidance(id:$id){
     data{
       id,
       attributes{

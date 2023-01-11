@@ -12,29 +12,29 @@
           <dl>
             <div class="bg-white dark:bg-gray-200 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
               <dt class="text-sm font-medium text-gray-500">Category</dt>
-              <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{ guidance[0].category.replaceAll('_', ' ')}}
+              <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{ guidance.category.replaceAll('_', ' ')}}
               </dd>
             </div>
             <div class="bg-gray-50 dark:bg-gray-300 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
               <dt class="text-sm font-medium text-gray-500">Name</dt>
-              <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{ guidance[0].name }}</dd>
+              <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{ guidance.name }}</dd>
             </div>
             <div class="bg-white dark:bg-gray-200 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
               <dt class="text-sm font-medium text-gray-500">Version</dt>
-              <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{ guidance[0].version[0].version }}</dd>
+              <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{ guidance.version[0].version }}</dd>
             </div>
             <div class="bg-gray-50 dark:bg-gray-300 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
               <dt class="text-sm font-medium text-gray-500">Type</dt>
-              <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{ guidance[0].type }}</dd>
+              <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{ guidance.type }}</dd>
             </div>
             <div class="bg-white dark:bg-gray-200 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
               <dt class="text-sm font-medium text-gray-500">Date</dt>
-              <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{ guidance[0].date }}</dd>
+              <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{ guidance.date }}</dd>
             </div>
             <div class="bg-gray-50 dark:bg-gray-300 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
               <dt class="text-sm font-medium text-gray-500">Url</dt>
               <a class="flex items-center mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 hover:text-blue-500 hover:underline"
-                target="_blank" :href="guidance[0].source">{{ guidance[0].source }}
+                target="_blank" :href="guidance.source">{{ guidance.source }}
                 <ExternalLinkIcon class="h-4 w-4"/>
               </a>
             </div>
@@ -62,7 +62,7 @@
         </div>
         <div class="sm:flex">
           <div class="flex-1 border-t border-gray-200 dark:border-gray-500">
-            <dl v-if="guidance[0].hardening != null" v-for="hardening in guidance[0].hardening">
+            <dl v-if="guidance.hardening != null" v-for="hardening in guidance.hardening">
               <div class="bg-white dark:bg-gray-200 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-3 sm:px-6">
                 <dt class="flex items-center text-sm font-medium text-gray-500">Name</dt>
                 <div class="flex items-center">
@@ -114,7 +114,7 @@
                 </div>
               </div>
             </div>
-            <dl v-if="guidance[0].validation != null" v-for="validation in guidance[0].validation">
+            <dl v-if="guidance.validation != null" v-for="validation in guidance.validation">
               <div class="bg-white dark:bg-gray-200 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                 <dt class="flex items-center text-sm font-medium text-gray-500">Name</dt>
                 <div class="flex items-center">

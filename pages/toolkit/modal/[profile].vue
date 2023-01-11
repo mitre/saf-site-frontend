@@ -17,7 +17,7 @@
 export default {
  data() {
     return {
-      guidance: [],
+      guidance: {},
       isLoaded: false,
     }
   },
@@ -29,9 +29,10 @@ export default {
   },
   methods: {
     async getBenchmark() {
-      this.guidance = await useAsyncData('getGuidanceDataFromID', () => GqlGetGuidanceDataFromID({ id: this.$route.query.id }))
+      this.guidance = await useAsyncData('getGuidanceDataFromID', () => GqlGetGuidanceDataFromID({ id: this.$route.query.id }), { initialCache: false })
         .then(({ data }) => {
-          return data._value.guidances.data.map((guidance) => ({
+          const guidance = data._value.guidance.data
+          return {
             name: guidance.attributes.name,
             id: guidance.id,
             type: guidance.attributes.type,
@@ -85,7 +86,7 @@ export default {
                 }
               }
             })): null,
-          }))
+          }
         });
     },
   }

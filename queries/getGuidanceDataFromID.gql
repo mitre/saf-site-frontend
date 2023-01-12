@@ -29,6 +29,7 @@ query getGuidanceDataFromID($id: ID!){
               name,
               name_long,
               source,
+              code_last_updated,
               platform{
                 data{
                   attributes{
@@ -71,6 +72,7 @@ query getGuidanceDataFromID($id: ID!){
               name,
               name_long,
               source,
+              code_last_updated,
               platform{
                 data{
                   attributes{

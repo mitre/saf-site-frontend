@@ -23,12 +23,12 @@ export default {
   },
   mounted() {
     this.$nextTick(async () => {
-      await this.getBenchmark()
+      await this.getGuidance()
       this.isLoaded = true
     });
   },
   methods: {
-    async getBenchmark() {
+    async getGuidance() {
       this.guidance = await useAsyncData('getGuidanceDataFromID', () => GqlGetGuidanceDataFromID({ id: this.$route.query.id }), { initialCache: false })
         .then(({ data }) => {
           const guidance = data._value.guidance.data
@@ -45,6 +45,7 @@ export default {
               name: harden.attributes.name,
               name_long: harden.attributes.name_long,
               source: harden.attributes.source,
+              last_update: harden.attributes.code_last_updated,
               platform: {
                 name: harden.attributes.platform.data.attributes.name,
                 link: harden.attributes.platform.data.attributes.link,
@@ -68,6 +69,7 @@ export default {
               name: validate.attributes.name,
               name_long: validate.attributes.name_long,
               source: validate.attributes.source,
+              last_update: validate.attributes.code_last_updated,
               platform: {
                 name: validate.attributes.platform.data.attributes.name,
                 link: validate.attributes.platform.data.attributes.link,

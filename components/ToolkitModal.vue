@@ -95,7 +95,7 @@
                     :href="hardening.partner.link">{{ hardening.partner.name }}</a>
                 </div>
               </div>
-              <div class="bg-white-50 dark:bg-gray-300 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-3 sm:px-6">
+              <div class="bg-gray-50 dark:bg-gray-300 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-3 sm:px-6">
                 <dt class="flex items-center text-sm font-medium text-gray-500">Last Updated</dt>
                 <div class="flex items-center">
                   <span class="mt-1 ml-3 text-sm text-gray-900  sm:col-span-2 sm:mt-0">
@@ -155,7 +155,7 @@
                     :href="validation.partner.link">{{ validation.partner.name }}</a>
                 </div>
               </div>
-              <div class="bg-white-50 dark:bg-gray-300 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-3 sm:px-6">
+              <div class="bg-gray-50 dark:bg-gray-300 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-3 sm:px-6">
                 <dt class="flex items-center text-sm font-medium text-gray-500">Last Updated</dt>
                 <div class="flex items-center">
                   <span class="mt-1 ml-3 text-sm text-gray-900  sm:col-span-2 sm:mt-0">
@@ -163,7 +163,7 @@
                   </span>
                 </div>
               </div>
-              <div class="bg-gray-white dark:bg-gray-200 mb-2 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+              <div class="bg-white dark:bg-gray-200 mb-2 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                 <dt class="flex items-center text-sm font-medium text-gray-500">Link</dt>
                 <a class="flex items-center mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 hover:text-blue-500 hover:underline"
                   target="_blank" :href="validation.source">

@@ -1,0 +1,72 @@
+query getValidateData {
+  guidances(filters:{validation:{name:{ne: null}}}, pagination: { limit: 100 }){
+    data{
+      id,
+      attributes{
+        name,
+        type,
+        category,
+        source,
+        date,
+        version{
+          __typename,
+          ... on ComponentVersionHistoryCis{
+            version
+          }
+          ... on ComponentVersionHistoryStig{
+            version
+          }
+          ... on ComponentVersionHistoryVendor{
+            version
+          }
+          ... on ComponentVersionHistoryStigReady{
+            version
+          }
+        },
+        validation{
+          data{
+            id,
+            attributes{
+              name,
+              name_long,
+              source,
+              platform{
+                data{
+                  attributes{
+                    name,
+                    link,
+                    icon{
+                      data{
+                        attributes{
+                          name,
+                          url
+                        }
+                      }
+                    } ,
+                  }
+                }
+              }
+              partner{
+                data{
+                  attributes{
+                    name,
+                    name_long,
+                    link,
+                    icon{
+                      data{
+                        attributes{
+                          name,
+                          url
+                        }
+                      }
+                    },
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -4,9 +4,9 @@ MITRE Security Automation Framework Website
 
 ## Overview
 
-The MITRE Security Automation Framework (SAF) brings together open-source, accessible applications, techniques, libraries, and tools developed by MITRE and the community to streamline security automation for Systems and in DevOps pipelines. 
+The MITRE Security Automation Framework (SAF) brings together open-source, accessible applications, techniques, libraries, and tools developed by MITRE and the security community to streamline security automation for systems and DevOps pipelines. 
 
-This repository contains the source code for the upcomming new https://saf.mitre.org website
+This repository contains the frontend source code for the upcoming new https://saf.mitre.org website.
 
 # Getting Started
 
@@ -16,8 +16,6 @@ This repository contains the source code for the upcomming new https://saf.mitre
 2. Install project dependencies: `yarn install`
 3. For developing use: `yarn dev`
 4. For production use: `yarn build` and `yarn preview` 
-
-
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://mitre-saf-v2.netlify.app/)
 
@@ -53,7 +51,7 @@ Please feel free to look through our issues, make a fork and submit PRs and impr
 
 ### Issues and Support
 
-Please feel free to contact us by **opening an issue** on the issue board, or, at [saf@mitre.org](mailto:saf@mitre.org) should you have any suggestions, questions or issues.
+Please feel free to contact us by **opening an issue** on the issue board, or, at [saf@groups.mitre.org](mailto:saf@groups.mitre.org) should you have any suggestions, questions or issues.
 
 
 ### NOTICE

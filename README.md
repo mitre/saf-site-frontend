@@ -4,7 +4,7 @@ MITRE Security Automation Framework Website
 
 ## Overview
 
-The MITRE Security Automation Framework (SAF) brings together open-source, accessible applications, techniques, libraries, and tools developed by MITRE and the community to streamline security automation for Systems and in DevOps pipelines. 
+The MITRE Security Automation Framework (SAF) brings together open-source, accessible applications, techniques, libraries, and tools developed by MITRE and the community to streamline security automation for Systems and in DevOps pipelines.
 
 This repository contains the source code for the upcomming new https://saf.mitre.org website
 
@@ -15,13 +15,12 @@ This repository contains the source code for the upcomming new https://saf.mitre
 1. [Fork repository](https://github.com/mitre/saf-site) and clone it locally
 2. Install project dependencies: `yarn install`
 3. For developing use: `yarn dev`
-4. For production use: `yarn build` and `yarn preview` 
-
-
+4. For production use: `yarn build` and `yarn preview`
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://mitre-saf-v2.netlify.app/)
 
 ## Backend Development
+
 - Backend is handled in the [saf-site backend repository](https://github.com/mitre/saf-site-backend)
 
 ## Technology Stack
@@ -44,7 +43,6 @@ This repository contains the source code for the upcomming new https://saf.mitre
 - [tailwindcss/line-clamp](https://github.com/tailwindlabs/tailwindcss-line-clamp)
 - [tailwindcss/aspect-ratio](https://github.com/tailwindlabs/tailwindcss-aspect-ratio)
 
-
 ## Contributing, Issues and Support
 
 ### Contributing
@@ -54,7 +52,6 @@ Please feel free to look through our issues, make a fork and submit PRs and impr
 ### Issues and Support
 
 Please feel free to contact us by **opening an issue** on the issue board, or, at [saf@mitre.org](mailto:saf@mitre.org) should you have any suggestions, questions or issues.
-
 
 ### NOTICE
 
@@ -72,6 +69,4 @@ This software was produced for the U. S. Government under Contract Number HHSM-5
 
 No other use other than that granted to the U. S. Government, or to those acting on behalf of the U. S. Government under that Clause is authorized without the express written permission of The MITRE Corporation.
 
-
 For further information, please contact The MITRE Corporation, Contracts Management Office, 7515 Colshire Drive, McLean, VA 22102-7539, (703) 983-6000.
-

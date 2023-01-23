@@ -227,7 +227,7 @@ export default {
       this.author = await useAsyncData('getBlogAuthor', () =>
         GqlGetBlogAuthor({author: this.$route.query.name})
       ).then(({data}) => {
-        let socialMedia =
+        const socialMedia =
           data._value.usersPermissionsUsers.data[0].attributes.SocialMedia;
         for (let i = 0; i < socialMedia.length; i++) {
           if (socialMedia[i].__typename === 'ComponentSocialMediaFacebook')
@@ -253,11 +253,10 @@ export default {
           name: author.attributes.name,
           fields: {
             title: author.attributes.jobTitle,
-            company:
-              author.attributes.partner.data.attributes.name.replace(
-                '_',
-                ' '
-              )
+            company: author.attributes.partner.data.attributes.name.replace(
+              '_',
+              ' '
+            )
           },
           description: marked(author.attributes.description),
           photo: {

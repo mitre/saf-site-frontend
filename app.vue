@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-50 dark:bg-dark-bg overscroll-none" >
+  <div class="overscroll-none bg-gray-50 dark:bg-dark-bg">
     <NuxtLayout>
       <!-- <header1 /> -->
       <NuxtLoadingIndicator />
@@ -8,10 +8,8 @@
       <!-- <footer1 /> -->
     </NuxtLayout>
   </div>
-</template> 
-
+</template>
 
 <script setup>
-import './assets/tailwind.css'
-</script> 
-
+import './assets/tailwind.css';
+</script>

@@ -6,14 +6,12 @@
     >
       <div
         class="absolute inset-0 bg-[url(/assets/grid.svg)] bg-top [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"
-      ></div>
+      />
       <div
         class="relative w-full bg-white px-6 py-12 shadow-2xl shadow-slate-700/10 ring-1 ring-gray-900/5 dark:bg-gray-800 md:mx-auto md:max-w-3xl lg:max-w-4xl lg:pt-16 lg:pb-28"
       >
         <div class="relative px-4 sm:px-6 lg:px-8">
-          <template
-            v-if="isLoaded"
-          >
+          <template v-if="isLoaded">
             <div class="prose prose-lg mx-auto max-w-prose text-lg">
               <h1>
                 <span
@@ -37,7 +35,7 @@
               <div
                 class="prose prose-sm mx-auto mt-8 text-left leading-8 prose-code:text-start prose-li:text-start dark:prose-invert dark:text-dark-text lg:prose-lg"
                 v-html="faq.answer"
-              ></div>
+              />
             </div>
           </template>
           <template v-else>
@@ -70,12 +68,15 @@ export default {
   },
   methods: {
     async getFAQ() {
-      this.faq = await useAsyncData('getFaqByQuestionNumber', () =>
-        GqlGetFaqByQuestionNumber({
-          number: parseInt(this.$route.params.question)
-        }), { initialCache: false }
+      this.faq = await useAsyncData(
+        'getFaqByQuestionNumber',
+        () =>
+          GqlGetFaqByQuestionNumber({
+            number: parseInt(this.$route.params.question)
+          }),
+        {initialCache: false}
       ).then(({data}) => {
-        var date = new Date(data._value.faqs.data[0].attributes.updatedAt);
+        const date = new Date(data._value.faqs.data[0].attributes.updatedAt);
         this.isLoaded = true;
         return {
           question: data._value.faqs.data[0].attributes.question,

@@ -62,11 +62,7 @@
 </template>
 
 <script>
-// import {Dialog, DialogPanel} from '@headlessui/vue';
-// import {MenuIcon, XIcon} from '@heroicons/vue/outline';
-
 export default {
-  // components: {Dialog, DialogPanel, MenuIcon, XIcon},
   beforeRouteUpdate(to) {
     this.currentHeading = to.hash.replace(/^#+/, '');
   },
@@ -81,7 +77,6 @@ export default {
       currentIndex: 0,
       currentSubsection: '',
       currentSubsectionHref: '',
-      isOpen: ref(false)
     };
   },
   mounted() {

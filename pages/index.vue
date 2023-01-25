@@ -51,15 +51,5 @@
 </template>
 
 <script setup>
-// import {Popover, PopoverButton, PopoverPanel} from '@headlessui/vue';
-// import {MenuIcon, XIcon} from '@heroicons/vue/outline';
-import Header from '@/components/Header.vue';
-import Footer from '@/components/Footer.vue';
 
-// const navigation = [
-//   {name: 'Product', href: '#'},
-//   {name: 'Features', href: '#'},
-//   {name: 'Marketplace', href: '#'},
-//   {name: 'Company', href: '#'}
-// ];
 </script>

@@ -110,7 +110,6 @@
           </div>
 
           <PopoverGroup as="nav" class="hidden space-x-7 md:flex xl:space-x-10">
-            <!-- TODO: Remove pointer-events-none and change 'text-red-500' to 'text-gray-500' and next to it make dark:text-red to dark:text-dark-text in this button to reenable it -->
             <Popover v-slot="{open}" class="relative">
               <PopoverButton
                 :class="[
@@ -438,15 +437,7 @@
                   <div class="ml-2">
                     {{ selected }}
                   </div>
-                  <svg class="h-6 w-5 text-slate-400" fill="none">
-                    <path
-                      d="m15 11-3 3-3-3"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
+                  <ChevronDownIcon class="h-6 w-5 text-slate-400" />
                   <select
                     id="theme"
                     class="absolute inset-0 h-full w-full appearance-none opacity-0 dark:bg-slate-600 dark:text-white"
@@ -499,7 +490,6 @@ import {
   PopoverPanel,
   PopoverOverlay
 } from '@headlessui/vue';
-// import {ref} from 'vue';
 import {
   BookmarkAltIcon,
   CalendarIcon,
@@ -593,7 +583,6 @@ const recentPosts = [
   },
   {id: 3, name: 'Improve your customer experience', href: '#'}
 ];
-// const enabled = ref(true);
 </script>
 <script>
 export default {

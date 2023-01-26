@@ -1,34 +1,47 @@
 <template>
   <div>
     <Header />
-    <div class="relative py-16 bg-white dark:bg-dark-bg overflow-hidden min-h-screen h-full">
+    <div
+      class="relative h-full min-h-screen overflow-hidden bg-white py-16 dark:bg-dark-bg"
+    >
       <div
-        class="absolute inset-0 bg-[url(/assets/grid.svg)] bg-top [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]">
-      </div>
+        class="absolute inset-0 bg-[url(/assets/grid.svg)] bg-top [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"
+      />
       <div
-        class="relative w-full bg-white dark:bg-gray-800 px-6 py-12 shadow-2xl shadow-slate-700/10 ring-1 ring-gray-900/5 md:mx-auto md:max-w-3xl lg:max-w-4xl lg:pt-16 lg:pb-28">
+        class="relative w-full bg-white px-6 py-12 shadow-2xl shadow-slate-700/10 ring-1 ring-gray-900/5 dark:bg-gray-800 md:mx-auto md:max-w-3xl lg:max-w-4xl lg:pt-16 lg:pb-28"
+      >
         <div class="relative px-4 sm:px-6 lg:px-8">
-          <template v-if="isLoaded" class="text-lg prose prose-lg max-w-prose mx-auto ">
-            <h1>
-              <span
-                class="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
-                {{postData.title}}
-              </span>
-              <span class="pt-3 block text-base text-center text-blue-600 font-semibold tracking-wide">
-                {{postData.date}}
-                &nbsp; | &nbsp;
-                <NuxtLink :to="`/blog/authors?name=${postAuthor}`" class="hover:underline">
-                  {{postAuthor}}
-                </NuxtLink>
-              </span>
-            </h1>
-            <div
-              class="mt-8 mx-auto leading-8 text-left prose prose-sm lg:prose-lg dark:prose-invert dark:text-dark-text prose-li:text-start prose-code:text-start"
-              v-html="renderedContent"></div>
+          <template v-if="isLoaded">
+            <div class="prose prose-lg mx-auto max-w-prose text-lg">
+              <h1>
+                <span
+                  class="mt-2 block text-center text-3xl font-extrabold leading-8 tracking-tight text-gray-900 dark:text-white sm:text-4xl"
+                >
+                  {{ postData.title }}
+                </span>
+                <span
+                  class="block pt-3 text-center text-base font-semibold tracking-wide text-blue-600"
+                >
+                  {{ postData.date }}
+                  &nbsp; | &nbsp;
+                  <NuxtLink
+                    :to="`/blog/authors?name=${postAuthor}`"
+                    class="hover:underline"
+                  >
+                    {{ postAuthor }}
+                  </NuxtLink>
+                </span>
+              </h1>
+              <div
+                class="prose prose-sm mx-auto mt-8 text-left leading-8 prose-code:text-start prose-li:text-start dark:prose-invert dark:text-dark-text lg:prose-lg"
+                v-html="renderedContent"
+              />
+            </div>
           </template>
           <template v-else>
             <div
-              class="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight min-h-screen h-full text-gray-900 dark:text-MITRE-silver sm:text-4xl">
+              class="mt-2 block h-full min-h-screen text-center text-3xl font-extrabold leading-8 tracking-tight text-gray-900 dark:text-MITRE-silver sm:text-4xl"
+            >
               Loading ...
             </div>
           </template>
@@ -40,8 +53,7 @@
 </template>
 
 <script>
-import { marked } from 'marked'
-
+import {marked} from 'marked';
 
 export default {
   data() {
@@ -50,33 +62,34 @@ export default {
       postData: {},
       postAuthor: {},
       renderedContent: {},
-      isLoaded: false,
+      isLoaded: false
     };
   },
   mounted() {
     this.$nextTick(async () => {
-      await this.getData()
+      await this.getData();
     });
   },
   methods: {
     async getData() {
-      this.post = await useAsyncData('getBlogDataFromID', () => GqlGetBlogDataFromID({ id: this.$route.query.id }))
-        .then(({ data }) => {
-          this.postData = data._value.blogPost.data.attributes
-          this.renderedContent = marked(this.postData.content)
-          this.postAuthor = this.postData.users_permissions_user.data.attributes.name
-          this.isLoaded = true
-        });
-
+      this.post = await useAsyncData('getBlogDataFromID', () =>
+        GqlGetBlogDataFromID({id: this.$route.query.id})
+      ).then(({data}) => {
+        this.postData = data._value.blogPost.data.attributes;
+        this.renderedContent = marked(this.postData.content);
+        this.postAuthor =
+          this.postData.users_permissions_user.data.attributes.name;
+        this.isLoaded = true;
+      });
     },
     slugify(str) {
-      str = str.toLowerCase()
-      str = str.trim()
-      str = str.replace(/[^\w\s-]/g, '')
-      str = str.replace(/[\s_-]+/g, '-')
-      str = str.replace(/^-+|-+$/g, '')
-      return str
-    },
+      str = str.toLowerCase();
+      str = str.trim();
+      str = str.replace(/[^\w\s-]/g, '');
+      str = str.replace(/[\s_-]+/g, '-');
+      str = str.replace(/^-+|-+$/g, '');
+      return str;
+    }
   }
-}
+};
 </script>

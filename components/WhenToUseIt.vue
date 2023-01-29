@@ -6,11 +6,9 @@
           <p class="mt-4 text-gray-500">Security is best done early and often. Develop and automate security for planning, development, assessment, and operational activities.</p>
   
           <dl class="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
-            <div v-for="feature in features" :key="feature.name" class="border-t border-gray-200 pt-4">
-              <dt class="font-medium text-gray-900">{{ feature.name }}</dt>
-              <ul class="list-disc">
-                  <li class="mt-2 text-sm text-gray-500" v-for="bullet in feature.bullets" :key="bullet">{{ bullet }}</li>
-              </ul>
+            <div v-for="stage in stages" :key="stage.name" class="border-t border-gray-200 pt-4">
+              <dt class="font-medium text-gray-900">{{ stage.name }}</dt>
+              <dd>{{ stage.text }}</dd>
             </div>
           </dl>
         </div>
@@ -22,45 +20,8 @@
         </div>
       </div>
     </div>
-  </template>
-  
-  <script setup>
-  const features = [
-    { 
-        name: 'Planning', 
-        bullets: [
-            'Identify applicable security and privacy requirements',
-            'Assess development best practices guidance',
-            'Identify MITRE SAF tools to support development, assessment, & operations security processes' 
-        ]
-    },
-    { 
-        name: 'Development', 
-        bullets: [
-            'Implement relevant security hardening scripts',
-            'Validate security status and aggregate security testing data at each build',
-            'Drill-down in visualization tools to identify security defect root cause and mitigations',
-            'Set security testing results thresholds',
-            'Assess development best practices guidance',
-            'Store or export “evidence” for assessors'
-        ]
-    },
-    { 
-        name: 'Assessment', 
-        bullets: [
-            'Aggregate all security control assessment data',
-            'Visualize security status to prioritize assessment activities',
-            'Run validation checks on prioritized areas',
-            'Drill-down in visualization tools to identify root cause and inform risk assessment'
-        ]
-    },
-    { 
-        name: 'Operations', 
-        bullets: [
-            'Monitor security posture through validation checks',
-            'Aggregate normalized security testing content to enable data visualization, drill-down, and root cause analysis',
-            'Assign remediation actions for identified security risks'
-        ]
-    }
-]
-  </script>
+</template>
+
+<script setup>
+    const props = defineProps(["stages"]);
+</script>

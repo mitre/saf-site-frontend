@@ -18,14 +18,36 @@
       </div>
     </div>
     <!-- <Hero /> -->
-    <WhenToUseIt />
+    <Capabilities />
+    <WhenToUseIt :stages="stages" />
+    {{ stages }}
   </main>
   <Footer />
 </template>
 
-<script setup>
+<script >
 import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue'
 import { MenuIcon, XIcon } from '@heroicons/vue/outline'
-
+export default {
+  data() {
+    return {
+      stages: []
+    };
+  },
+  mounted() {
+    this.$nextTick(async () => {
+      await this.getWhenToUseIt()
+    });
+  },
+  methods: {
+    async getWhenToUseIt() {
+      this.stages = await useAsyncData('getWhenToUseIt', () => GqlGetWhenToUseIt())
+        .then(({ data }) => {
+          return data
+          })
+        }
+      }
+    }
+  
 </script> 
 

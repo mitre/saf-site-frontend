@@ -1,0 +1,16 @@
+query whenToUseIt{
+  textContents(
+    filters: {
+      name: {
+        in: ["planning", "development", "assessment", "operations"]
+      }
+    }) {
+    data {
+      id
+      attributes {
+        name
+        text
+      }
+    }
+  }
+} 

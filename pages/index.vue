@@ -1,7 +1,7 @@
 <template>
   <Header />
-  <main class="mt-16 mx-auto max-w-7xl px-4 sm:mt-24">
-    <div class="text-center">
+  <main class="my-16 mx-auto max-w-7xl px-4 sm:mt-24">
+    <div class="text-center my-16">
       <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
         <!-- <span class="block xl:inline">MITRE</span>
         {{ ' ' }} -->
@@ -17,10 +17,13 @@
         </div>
       </div>
     </div>
-    <!-- <Hero /> -->
     <Capabilities />
     <WhenToUseIt :stages="stages" />
-    {{ stages }}
+    <Partners 
+      :partners="vendors"
+      partners_h2="H2!"
+      partners_desc="foobar"
+    />
   </main>
   <Footer />
 </template>
@@ -31,12 +34,14 @@ import { MenuIcon, XIcon } from '@heroicons/vue/outline'
 export default {
   data() {
     return {
-      stages: []
+      stages: [],
+      vendors: []
     };
   },
   mounted() {
     this.$nextTick(async () => {
       await this.getWhenToUseIt()
+      await this.getVendors()
     });
   },
   methods: {
@@ -46,6 +51,18 @@ export default {
           return data._value.textContents.data.map((stage) => ({
             name: stage.attributes.name,
             text: stage.attributes.text
+          }))
+        });
+    },
+    async getVendors() {
+      this.vendors = await useAsyncData('getVendors', () => GqlVendors())
+        .then(({ data }) => {
+          return data._value.partners.data.map((vendor) => ({
+            name: vendor.attributes.name,
+            name_long: vendor.attributes.name_long,
+            link: vendor.attributes.link,
+            icon: vendor.attributes.icon.data.attributes.url,
+            community: vendor.attributes.community,
           }))
         });
       }

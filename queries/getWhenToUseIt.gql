@@ -2,7 +2,7 @@ query whenToUseIt{
   textContents(
     filters: {
       name: {
-        in: ["planning", "development", "assessment", "operations"]
+        in: ["Planning", "Development", "Assessment", "Operations"]
       }
     }) {
     data {

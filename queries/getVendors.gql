@@ -1,0 +1,25 @@
+query vendors{
+  partners (
+    filters: {
+      community: {
+        eq: "vendor"
+      }
+    }){
+    data {
+      id
+      attributes {
+        name
+        name_long
+        link
+        community
+        icon {
+          data {
+            attributes {
+              url
+            }
+          }
+        }
+      }
+    }
+  }
+} 

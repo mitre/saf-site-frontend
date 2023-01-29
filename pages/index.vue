@@ -41,13 +41,15 @@ export default {
   },
   methods: {
     async getWhenToUseIt() {
-      this.stages = await useAsyncData('getWhenToUseIt', () => GqlGetWhenToUseIt())
+      this.stages = await useAsyncData('getWhenToUseIt', () => GqlWhenToUseIt())
         .then(({ data }) => {
-          return data
-          })
-        }
+          return data._value.textContents.data.map((stage) => ({
+            name: stage.attributes.name,
+            text: stage.attributes.text
+          }))
+        });
       }
     }
-  
+  }
 </script> 
 

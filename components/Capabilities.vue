@@ -24,20 +24,20 @@
   </template>
   
   <script setup>
-  import { ArrowPathIcon, CloudArrowUpIcon, FingerPrintIcon, LockClosedIcon } from '@heroicons/vue/outline'
+  import { ArrowUpIcon, FingerPrintIcon, LockClosedIcon } from '@heroicons/vue/outline'
   
   const features = [
     {
       name: 'Plan',
       description:
         'Choose, tailor, and create security guidance< appropriate for your mission.',
-      icon: CloudArrowUpIcon,
+      icon: ArrowUpIcon,
     },
     {
       name: 'Push to deploy',
       description:
         'Morbi viverra dui mi arcu sed. Tellus semper adipiscing suspendisse semper morbi. Odio urna massa nunc massa.',
-      icon: CloudArrowUpIcon,
+      icon: ArrowUpIcon,
     },
     {
       name: 'SSL certificates',
@@ -49,7 +49,7 @@
       name: 'Simple queues',
       description:
         'Quisque est vel vulputate cursus. Risus proin diam nunc commodo. Lobortis auctor congue commodo diam neque.',
-      icon: ArrowPathIcon,
+      icon: ArrowUpIcon,
     },
     {
       name: 'Advanced security',

@@ -12,7 +12,7 @@
           <dl>
             <div class="bg-white dark:bg-gray-200 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
               <dt class="text-sm font-medium text-gray-500">Category</dt>
-              <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{ guidance.category.replaceAll('_', ' ')}}
+              <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{ guidance.category.replaceAll('_', ' ') }}
               </dd>
             </div>
             <div class="bg-gray-50 dark:bg-gray-300 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -35,7 +35,7 @@
               <dt class="text-sm font-medium text-gray-500">Url</dt>
               <a class="flex items-center mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 hover:text-blue-500 hover:underline"
                 target="_blank" :href="guidance.source">{{ guidance.source }}
-                <ExternalLinkIcon class="h-4 w-4"/>
+                <ExternalLinkIcon class="h-4 w-4" />
               </a>
             </div>
           </dl>
@@ -60,8 +60,8 @@
             </div>
           </div>
         </div>
-        <div class="sm:flex">
-          <div class="flex-1 border-t border-gray-200 dark:border-gray-500">
+        <div class="sm:flex md:h-[364px] h-[400px]">
+          <div class="flex-1 border-gray-200 border-r-2 dark:border-gray-500 overflow-y-auto ">
             <dl v-if="guidance.hardening != null" v-for="hardening in guidance.hardening">
               <div class="bg-white dark:bg-gray-200 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-3 sm:px-6">
                 <dt class="flex items-center text-sm font-medium text-gray-500">Name</dt>
@@ -79,8 +79,7 @@
                       :alt="hardening.platform.icon.name" />
                   </div>
                   <a class="mt-1 ml-3 text-sm text-gray-900 sm:col-span-2 sm:mt-0 hover:text-blue-500 hover:underline"
-                    target="_blank"
-                    :href="hardening.platform.link">{{ hardening.platform.name }}</a>
+                    target="_blank" :href="hardening.platform.link">{{ hardening.platform.name }}</a>
                 </div>
               </div>
               <div class="bg-white dark:bg-gray-200 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -91,8 +90,7 @@
                       :alt="hardening.partner.icon.name" />
                   </div>
                   <a class="mt-1 ml-3 text-sm text-gray-900 sm:col-span-2 sm:mt-0 hover:text-blue-500 hover:underline"
-                    target="_blank"
-                    :href="hardening.partner.link">{{ hardening.partner.name }}</a>
+                    target="_blank" :href="hardening.partner.link">{{ hardening.partner.name }}</a>
                 </div>
               </div>
               <div class="bg-gray-50 dark:bg-gray-300 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-3 sm:px-6">
@@ -103,20 +101,21 @@
                   </span>
                 </div>
               </div>
-              <div class="bg-white dark:bg-gray-200 mb-2 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+              <div
+                class="bg-white dark:bg-gray-200 border-b-4 dark:border-gray-500 border-gray-200 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                 <dt class="flex items-center text-sm font-medium text-gray-500">Link</dt>
                 <a class="flex items-center mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 hover:text-blue-500 hover:underline"
                   target="_blank" :href="hardening.source">
-                  {{ hardening.source }} 
+                  {{ hardening.source }}
                   <ExternalLinkIcon class="h-5 w-5" />
                 </a>
               </div>
             </dl>
           </div>
-          <div class="flex-1 border-t border-gray-200 dark:border-gray-500">
+          <div class="flex-1">
             <div class="sm:hidden"> <!-- Mobile Formatting -->
               <hr class="h-px bg-gray-300 border-0 dark:bg-gray-500">
-              <div class="sm:flex bg-gray-300 dark:bg-gray-700 px-4 py-5  sm:gap-4 sm:px-6">
+              <div class="sm:flex bg-gray-300 dark:bg-gray-700 px-4 py-5 sm:gap-4 sm:px-6">
                 <div class="flex-1">
                   <dt class="text-sm text-center font-medium text-gray-700 dark:text-white">Validate</dt>
                 </div>
@@ -139,8 +138,7 @@
                       :alt="validation.platform.icon.name" />
                   </div>
                   <a class="mt-1 ml-3 text-sm text-gray-900 sm:col-span-2 sm:mt-0 hover:text-blue-500 hover:underline"
-                    target="_blank"
-                    :href="validation.platform.link">{{ validation.platform.name }}</a>
+                    target="_blank" :href="validation.platform.link">{{ validation.platform.name }}</a>
                 </div>
               </div>
               <div class="bg-white dark:bg-gray-200 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -151,8 +149,7 @@
                       :alt="validation.partner.icon.name" />
                   </div>
                   <a class="mt-1 ml-3 text-sm text-gray-900 sm:col-span-2 sm:mt-0 hover:text-blue-500 hover:underline"
-                    target="_blank"
-                    :href="validation.partner.link">{{ validation.partner.name }}</a>
+                    target="_blank" :href="validation.partner.link">{{ validation.partner.name }}</a>
                 </div>
               </div>
               <div class="bg-gray-50 dark:bg-gray-300 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-3 sm:px-6">
@@ -163,7 +160,8 @@
                   </span>
                 </div>
               </div>
-              <div class="bg-white dark:bg-gray-200 mb-2 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+              <div
+                class="bg-white dark:bg-gray-200 border-b-4 dark:border-gray-500 border-gray-200 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                 <dt class="flex items-center text-sm font-medium text-gray-500">Link</dt>
                 <a class="flex items-center mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 hover:text-blue-500 hover:underline"
                   target="_blank" :href="validation.source">

@@ -2,8 +2,7 @@
   <div class="sticky top-0 z-50 w-full ">
     <Popover class="bg-white dark:bg-dark-bg border-b-2 border-gray-100 dark:border-gray-500 ">
       <div class="max-w-8xl mx-auto px-4 sm:px-1">
-        <div
-          class="flex justify-between items-center py-3 pl-0 sm:pl-3 md:pl-3 md:justify-start md:space-x-10">
+        <div class="flex justify-between items-center py-3 pl-0 sm:pl-3 md:pl-3 md:justify-start md:space-x-10">
           <div class="flex justify-left md:flex-1 lg:w-0 lg:flex-1">
             <NuxtLink to="/">
               <span class="sr-only">Workflow</span>
@@ -36,7 +35,7 @@
             <NuxtLink to="/" class="flex">
               <h1
                 class="text-2xl tracking-tighter p-2 font-extrabold whitespace-nowrap text-gray-900 dark:text-MITRE-silver  md:text-3xl xl:text-4xl">
-                <span class="block xl:inline">MITRE SAF</span> 
+                <span class="block xl:inline">MITRE SAF</span>
               </h1>
               <p class="mt-1 text-xs dark:text-dark-text">©</p>
             </NuxtLink>
@@ -79,9 +78,10 @@
                 ]" aria-hidden="true" />
               </PopoverButton>
 
-              <transition enter-active-class="transition ease-out duration-200" enter-from-class="opacity-0 translate-y-1"
-                enter-to-class="opacity-100 translate-y-0" leave-active-class="transition ease-in duration-150"
-                leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 translate-y-1">
+              <transition enter-active-class="transition ease-out duration-200"
+                enter-from-class="opacity-0 translate-y-1" enter-to-class="opacity-100 translate-y-0"
+                leave-active-class="transition ease-in duration-150" leave-from-class="opacity-100 translate-y-0"
+                leave-to-class="opacity-0 translate-y-1">
                 <PopoverPanel
                   class="absolute z-10 -ml-4 mt-3 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2">
                   <div class="rounded-lg shadow-lg ring-1 ring-black dark:ring-gray-500 ring-opacity-5 overflow-hidden">
@@ -99,16 +99,6 @@
                         </div>
                       </NuxtLink>
                     </div>
-                    <div
-                      class="px-5 py-5 bg-gray-50 dark:bg-dark-bg space-y-6 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8">
-                      <div v-for="item in callsToAction" :key="item.name" class="flow-root">
-                        <a :href="item.href"
-                          class="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 dark:text-MITRE-silver hover:bg-gray-100">
-                          <component :is="item.icon" class="flex-shrink-0 h-6 w-6 text-gray-400" aria-hidden="true" />
-                          <span class="ml-3">{{ item.name }}</span>
-                        </a>
-                      </div>
-                    </div>
                   </div>
                 </PopoverPanel>
               </transition>
@@ -123,13 +113,13 @@
               class="text-base font-medium text-gray-500 dark:text-dark-text hover:text-gray-900 dark:hover:text-gray-200">
               Docs
             </NuxtLink>
-            
+
             <Popover class="relative" v-slot="{ open }">
               <PopoverButton :class="[
                 open
                   ? 'text-gray-900 dark:text-gray-300'
                   : 'text-gray-500 dark:text-dark-text',
-                'group bg-white dark:bg-dark-bg rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 dark:hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500' 
+                'group bg-white dark:bg-dark-bg rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 dark:hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
               ]">
                 <span>More</span>
                 <ChevronDownIcon :class="[
@@ -138,9 +128,10 @@
                 ]" aria-hidden="true" />
               </PopoverButton>
 
-              <transition enter-active-class="transition ease-out duration-200" enter-from-class="opacity-0 translate-y-1"
-                enter-to-class="opacity-100 translate-y-0" leave-active-class="transition ease-in duration-150"
-                leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 translate-y-1">
+              <transition enter-active-class="transition ease-out duration-200"
+                enter-from-class="opacity-0 translate-y-1" enter-to-class="opacity-100 translate-y-0"
+                leave-active-class="transition ease-in duration-150" leave-from-class="opacity-100 translate-y-0"
+                leave-to-class="opacity-0 translate-y-1">
                 <PopoverPanel
                   class="absolute z-10 left-1/2 transform -translate-x-1/2 mt-3 px-2 w-screen max-w-md sm:px-0">
                   <div class="rounded-lg shadow-lg ring-1 ring-black dark:ring-gray-500 ring-opacity-5 overflow-hidden">
@@ -157,25 +148,6 @@
                           </p>
                         </div>
                       </NuxtLink>
-                    </div>
-                    <div class="px-5 py-5 bg-gray-50 dark:bg-dark-bg sm:px-8 sm:py-8">
-                      <div>
-                        <h3 class="text-sm tracking-wide font-medium text-gray-500 uppercase">
-                          Recent Posts
-                        </h3>
-                        <ul role="list" class="mt-4 space-y-4">
-                          <li v-for="post in recentPosts" :key="post.id" class="text-base truncate">
-                            <a :href="post.href"
-                              class="font-medium text-gray-900 dark:text-MITRE-silver hover:text-gray-700">
-                              {{ post.name }}
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                      <div class="mt-5 text-sm">
-                        <a href="#" class="font-medium text-blue-600 hover:text-indigo-500">
-                          View all posts <span aria-hidden="true">&rarr;</span></a>
-                      </div>
                     </div>
                   </div>
                 </PopoverPanel>
@@ -201,18 +173,19 @@
                 </div>
               </div>
             </div>
-            <div id="theme-toggle" type="button" 
-              class="text-gray-500 dark:text-dark-text hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5"
-              >
+            <div id="theme-toggle" type="button"
+              class="text-gray-500 dark:text-dark-text hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
               <div class="relative flex items-center ">
-                <SunIcon :class="selected =='Light' ?  'h-6 w-6' : 'hidden'" /> 
-                <MoonIcon :class="selected == 'Dark' ?  'h-6 w-6' : 'hidden'" /> 
-                <DesktopComputerIcon :class="selected == 'System' ?  'h-6 w-6' : 'hidden'" />
-                <select name="theme" id="theme" class="absolute appearance-none pr-3 w-full h-fit opacity-0 dark:bg-slate-600 dark:text-white" @change="switchSelect($event)">
+                <SunIcon :class="selected == 'Light' ? 'h-6 w-6' : 'hidden'" />
+                <MoonIcon :class="selected == 'Dark' ? 'h-6 w-6' : 'hidden'" />
+                <DesktopComputerIcon :class="selected == 'System' ? 'h-6 w-6' : 'hidden'" />
+                <select name="theme" id="theme"
+                  class="absolute appearance-none pr-3 w-full h-fit opacity-0 dark:bg-slate-600 dark:text-white"
+                  @change="switchSelect($event)">
                   <option :selected="selected == 'Light'">Light</option>
                   <option :selected="selected == 'Dark'">Dark</option>
                   <option :selected="selected == 'System'">System</option>
-                </select >
+                </select>
               </div>
             </div>
           </div>
@@ -222,7 +195,7 @@
       <transition enter-active-class="duration-200 ease-out" enter-from-class="opacity-0 scale-95"
         enter-to-class="opacity-100 scale-100" leave-active-class="duration-100 ease-in"
         leave-from-class="opacity-100 scale-100" leave-to-class="opacity-0 scale-95">
-        <div class="fixed z-50 top-4 right-4 w-full max-w-xs px-6">  
+        <div class="fixed z-50 top-4 right-4 w-full max-w-xs px-6">
           <PopoverOverlay class="fixed z-auto inset-0 bg-black/20 backdrop-blur-sm dark:bg-slate-900/80" />
           <PopoverPanel focus class="fixed w-full max-w-xs px-6">
             <div
@@ -251,16 +224,19 @@
               </div>
               <div class="flex items-center justify-between py-6 px-3">
                 <label class="text-gray-900 text-base font-medium dark:text-MITRE-silver">Switch Theme</label>
-                <div class="relative flex items-center ring-1 ring-slate-900/10 rounded-lg shadow-sm p-2 text-slate-700 font-semibold dark:bg-slate-600 dark:ring-0 dark:highlight-white/5 dark:text-slate-200">
-                  <SunIcon :class="selected =='Light' ?  'h-6 w-6' : 'hidden'" /> 
-                  <MoonIcon :class="selected == 'Dark' ?  'h-6 w-6' : 'hidden'" /> 
-                  <DesktopComputerIcon :class="selected == 'System' ?  'h-6 w-6' : 'hidden'" />
-                  <div class="ml-2">{{selected}}</div>
+                <div
+                  class="relative flex items-center ring-1 ring-slate-900/10 rounded-lg shadow-sm p-2 text-slate-700 font-semibold dark:bg-slate-600 dark:ring-0 dark:highlight-white/5 dark:text-slate-200">
+                  <SunIcon :class="selected == 'Light' ? 'h-6 w-6' : 'hidden'" />
+                  <MoonIcon :class="selected == 'Dark' ? 'h-6 w-6' : 'hidden'" />
+                  <DesktopComputerIcon :class="selected == 'System' ? 'h-6 w-6' : 'hidden'" />
+                  <div class="ml-2">{{ selected }}</div>
                   <ChevronDownIcon class="w-5 h-6  text-slate-400" />
-                  <select id="theme" class="absolute appearance-none inset-0 w-full h-full opacity-0 dark:bg-slate-600 dark:text-white" @change="switchSelect($event)">
-                  <option :selected="selected == 'Light'">Light</option>
-                  <option :selected="selected == 'Dark'">Dark</option>
-                  <option :selected="selected == 'System'">System</option>
+                  <select id="theme"
+                    class="absolute appearance-none inset-0 w-full h-full opacity-0 dark:bg-slate-600 dark:text-white"
+                    @change="switchSelect($event)">
+                    <option :selected="selected == 'Light'">Light</option>
+                    <option :selected="selected == 'Dark'">Dark</option>
+                    <option :selected="selected == 'System'">System</option>
                   </select>
                 </div>
               </div>
@@ -359,24 +335,13 @@ const toolkit = [
       'Identify overall security status and deep-dive to solve specific security defects',
     href: '#',
     icon: ViewGridIcon
-  },
-  {
-    name: 'Our Tools',
-    description:
-      'Develop a toolchain to support the above areas of What and How for secure development.',
-    href: '#',
-    icon: CodeIcon
   }
-];
-const callsToAction = [
-  { name: 'Watch Demo', href: '#', icon: PlayIcon },
-  { name: 'Contact Us', href: '#', icon: PhoneIcon }
 ];
 const resources = [
   {
-    name: 'Help Center',
+    name: 'FAQ',
     description:
-      'Get all of your questions answered in our forums or contact support.',
+      'Get answers to commonly asked questions and view our contact information.',
     href: '/faq',
     icon: SupportIcon
   },
@@ -386,23 +351,7 @@ const resources = [
       'Learn how to maximize our platform to get the most out of it.',
     href: '/training',
     icon: BookmarkAltIcon
-  },
-  {
-    name: 'Events',
-    description:
-      'See what meet-ups and other events we might be planning near you.',
-    href: '#',
-    icon: CalendarIcon
   }
-];
-const recentPosts = [
-  { id: 1, name: 'Boost your conversion rate', href: '#' },
-  {
-    id: 2,
-    name: 'How to use search engine optimization to drive traffic to your site',
-    href: '#'
-  },
-  { id: 3, name: 'Improve your customer experience', href: '#' }
 ];
 </script>
 <script>
@@ -421,20 +370,19 @@ export default {
         this.selected = "Light"
         this.setThemeState(this.selected)
       }
-      else if (event.target.value == 'Dark'){
+      else if (event.target.value == 'Dark') {
         this.enableDarkMode()
         localStorage.setItem('user-theme', 'dark');
         this.selected = "Dark"
         this.setThemeState(this.selected)
       }
-      else if (event.target.value == 'System')
-      {
+      else if (event.target.value == 'System') {
         const userIsInDarkModeOS = window.matchMedia('(prefers-color-scheme: dark)').matches
         if (userIsInDarkModeOS) {
           this.enableDarkMode()
           localStorage.setItem('user-theme', 'dark');
           this.selected = "System";
-          this.setThemeState(this.selected) 
+          this.setThemeState(this.selected)
         }
         else {
           this.disableDarkMode()
@@ -442,10 +390,10 @@ export default {
         }
       }
     },
-    setThemeState(mode){
+    setThemeState(mode) {
       localStorage.setItem('theme', mode)
     },
-    getThemeState(){
+    getThemeState() {
       let theme = localStorage.getItem('theme')
       this.selected = theme
     },
@@ -462,13 +410,12 @@ export default {
   },
   mounted() {
 
-    if(localStorage.getItem('wasVisited') == undefined)
-    {
+    if (localStorage.getItem('wasVisited') == undefined) {
       this.selected = "Light"
       this.setThemeState(this.selected)
       localStorage.setItem('wasVisited', true)
     }
-    
+
     this.getThemeState()
 
     if (this.selected === 'Light') {
@@ -477,20 +424,19 @@ export default {
       this.selected = "Light"
       this.setThemeState(this.selected)
     }
-    else if (this.selected == 'Dark'){
+    else if (this.selected == 'Dark') {
       this.enableDarkMode()
       localStorage.setItem('user-theme', 'dark');
       this.selected = "Dark"
       this.setThemeState(this.selected)
     }
-    else if (this.selected == 'System')
-    {
+    else if (this.selected == 'System') {
       const userIsInDarkModeOS = window.matchMedia('(prefers-color-scheme: dark)').matches
       if (userIsInDarkModeOS) {
         this.enableDarkMode()
         localStorage.setItem('user-theme', 'dark')
         this.selected = "System"
-        this.setThemeState(this.selected) 
+        this.setThemeState(this.selected)
       }
       else {
         this.disableDarkMode()
@@ -498,6 +444,6 @@ export default {
       }
     }
   }
-  
+
 };
 </script>

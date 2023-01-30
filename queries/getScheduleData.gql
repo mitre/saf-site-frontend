@@ -1,10 +1,10 @@
-query getScheduleData {
-  courseSchedules {
-    data {
-      attributes {
-        title
-        date
-        link
+query getScheduleData{
+  courseSchedules{
+    data{
+      attributes{
+        title,
+        date,
+        link,
         index
       }
     }

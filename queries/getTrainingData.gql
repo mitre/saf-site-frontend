@@ -1,11 +1,11 @@
-query getTrainingData {
-  trainingCourses {
-    data {
-      id
-      attributes {
-        name
-        description
-        index
+query getTrainingData{
+  trainingCourses{
+    data{
+      id,
+      attributes{
+        name,
+        description,
+        index,
       }
     }
   }

@@ -2,22 +2,22 @@
 const props = defineProps({
   throttle: {
     type: Number,
-    default: 200
+    default: 200,
   },
   duration: {
     type: Number,
-    default: 2000
+    default: 2000,
   },
   height: {
     type: Number,
-    default: 3
-  }
+    default: 3,
+  },
 });
 // Options & Data
 const data = reactive({
   percent: 0,
   show: false,
-  canSucceed: true
+  canSucceed: true,
 });
 // Local variables
 let _timer = null;
@@ -41,9 +41,19 @@ const start = () => {
     startTimer();
   }
 };
+const set = (num) => {
+  data.show = true;
+  data.canSucceed = true;
+  data.percent = Math.min(100, Math.max(0, Math.floor(num)));
+};
 const increase = (num) => {
   data.percent = Math.min(100, Math.floor(data.percent + num));
 };
+const decrease = (num) => {
+  data.percent = Math.max(0, Math.floor(data.percent - num));
+};
+const pause = () => clearInterval(_timer);
+const resume = () => startTimer();
 const finish = () => {
   data.percent = 100;
   hide();
@@ -78,14 +88,14 @@ onBeforeUnmount(() => clear);
   <div
     class="nuxt-progress"
     :class="{
-      'nuxt-progress-failed': !data.canSucceed
+      'nuxt-progress-failed': !data.canSucceed,
     }"
     :style="{
       width: data.percent + '%',
       left: data.left,
       height: props.height + 'px',
       opacity: data.show ? 1 : 0,
-      backgroundSize: (100 / data.percent) * 100 + '% auto'
+      backgroundSize: (100 / data.percent) * 100 + '% auto',
     }"
   />
 </template>

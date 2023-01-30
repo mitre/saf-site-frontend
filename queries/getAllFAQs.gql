@@ -1,12 +1,12 @@
-query FAQs {
-  faqs(sort: "question_number:asc") {
-    data {
+query FAQs{
+  faqs(sort: "question_number:asc"){
+    data{
       id
-      attributes {
+      attributes{
         question_number
         question
         answer
       }
     }
   }
-}
+} 

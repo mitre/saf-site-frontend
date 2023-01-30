@@ -1,47 +1,47 @@
-query getBlogAuthor($author: String!) {
-  usersPermissionsUsers(filters: {name: {eq: $author}}) {
-    data {
-      attributes {
-        name
-        jobTitle
-        description
-        photo {
-          data {
-            attributes {
-              name
-              url
+query getBlogAuthor($author: String!){
+  usersPermissionsUsers(filters:{name:{eq: $author}}){
+    data{
+      attributes{
+        name,
+        jobTitle,
+        description,
+        photo{
+          data{
+            attributes{
+              name,
+              url,
             }
           }
         }
-        partner {
-          data {
-            attributes {
+        partner{
+          data{
+            attributes{
               name
             }
           }
         }
-        SocialMedia {
-          __typename
+        SocialMedia{
+					__typename
           ... on ComponentSocialMediaFacebook {
-            ProfileLink
+          ProfileLink
           }
           ... on ComponentSocialMediaTwitter {
-            ProfileLink
+          ProfileLink
           }
           ... on ComponentSocialMediaInstagram {
-            ProfileLink
+          ProfileLink
           }
           ... on ComponentSocialMediaGitHub {
-            ProfileLink
+          ProfileLink
           }
           ... on ComponentSocialMediaLinkedIn {
-            ProfileLink
+          ProfileLink
           }
           ... on ComponentSocialMediaDisplayEmail {
-            DisplayEmail
+          DisplayEmail
           }
           ... on ComponentSocialMediaOther {
-            ProfileLink
+          ProfileLink
           }
         }
       }

@@ -1,15 +1,15 @@
-query getFaqByQuestionNumber($number: Int!) {
-  faqs(filters: {question_number: {eq: $number}}) {
-    data {
+query getFaqByQuestionNumber($number: Int!){
+  faqs(filters:{question_number:{eq: $number}}){
+    data{
       id
-      attributes {
+      attributes{
         question
         answer
         updatedAt
         question_number
-        author {
-          data {
-            attributes {
+        author{
+          data{
+            attributes{
               name
             }
           }
@@ -17,4 +17,4 @@ query getFaqByQuestionNumber($number: Int!) {
       }
     }
   }
-}
+} 

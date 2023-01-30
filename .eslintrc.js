@@ -7,9 +7,5 @@ module.exports = {
     // Override or add rules settings here
     // Example: 'vue/no-unused-vars': 'error'
     // "no-console": ["error", { allow: ["warn", "error"] }]
-
-    // To use Nuxt's automatic routing we must use the file names. Therefore OVERRIDE
-    'vue/multi-word-component-names': 'off',
-    'no-undef': 'warn'
   }
 };

@@ -49,7 +49,7 @@ export default {
   },
   methods: {
     async getFAQ() {
-      this.faq = await useAsyncData('getFaqByQuestionNumber', () => GqlGetFaqByQuestionNumber({number: parseInt(this.$route.params.question)}))
+      this.faq = await useAsyncData('getFaqByQuestionNumber', () => GqlGetFaqByQuestionNumber({number: parseInt(this.$route.params.question)}), {initialCache: false})
         .then(({data}) => {
           var date = new Date(data._value.faqs.data[0].attributes.updatedAt)
           this.isLoaded = true

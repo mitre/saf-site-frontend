@@ -6,7 +6,7 @@
           <div class="flex justify-left md:flex-1 lg:w-0 lg:flex-1">
             <NuxtLink to="/">
               <span class="sr-only">Workflow</span>
-              <img src="@/assets/safLogo.svg" class="w-12 md:w-14" aria-hidden="true" alt="SAF Logo" />
+              <img src="@/assets/safLogo.svg" class="w-12 md:w-14" aria-hidden="true" alt="SAF© Logo" />
             </NuxtLink>
             <NuxtLink to="/" class="flex">
               <h1
@@ -269,7 +269,7 @@ import {
   PlayIcon,
   RefreshIcon,
   ShieldCheckIcon,
-  SupportIcon,
+  QuestionMarkCircleIcon,
   ViewGridIcon,
   XIcon,
   CubeIcon,
@@ -280,10 +280,18 @@ import {
   DesktopComputerIcon,
   MoonIcon,
   SunIcon,
+  PencilAltIcon
 } from '@heroicons/vue/outline';
 import { ChevronDownIcon } from '@heroicons/vue/solid';
 
 const toolkit = [
+  {
+    name: 'Plan',
+    description:
+      'Choose, tailor, and create security guidance appropriate for your mission.',
+    href: '/toolkit/plan',
+    icon: PencilAltIcon
+  },
   {
     name: 'Harden',
     description:
@@ -302,14 +310,14 @@ const toolkit = [
     name: 'Normalize',
     description:
       'Convert security results from all your security tools into a common data format.',
-    href: '#',
+    href: '/toolkit/normalize',
     icon: CubeIcon
   },
   {
     name: 'Visualize',
     description:
       'Identify overall security status and deep-dive to solve specific security defects',
-    href: '#',
+    href: '/toolkit/visualize',
     icon: ViewGridIcon
   }
 ];
@@ -319,7 +327,7 @@ const resources = [
     description:
       'Get answers to commonly asked questions and view our contact information.',
     href: '/faq',
-    icon: SupportIcon
+    icon: QuestionMarkCircleIcon
   },
   {
     name: 'Training',

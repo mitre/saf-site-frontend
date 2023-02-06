@@ -1,9 +1,9 @@
 import { test, expect } from '@playwright/test';
 
 test('test', async ({ page }) => {
-  await page.goto('http://localhost:3000');
+  await page.goto('/');
   await page.getByRole('link', { name: 'Docs' }).click();
-  await expect(page).toHaveURL('http://localhost:3000/docs')
+  await expect(page).toHaveURL('/docs')
   await page.locator('[id="__nuxt"] div').filter({ hasText: 'On this page InSpec 101The Road to Security Automation' }).nth(3).click();
   await page.getByRole('navigation', { name: 'On this page' }).getByRole('heading', { name: 'InSpec 101' }).click();
   await page.getByRole('link', { name: 'The Road to Security Automation' }).click();

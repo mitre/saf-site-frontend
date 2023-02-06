@@ -1,9 +1,9 @@
 import { test, expect } from '@playwright/test';
 
 test('test', async ({ page }) => {
-  await page.goto('http://localhost:3000/');
+  await page.goto('/');
   await page.getByRole('link', { name: 'Blog' }).click();
-  await expect(page).toHaveURL('http://localhost:3000/blog')
+  await expect(page).toHaveURL('/blog')
   await page.getByRole('heading', { name: 'Blog' }).click();
   await page.getByText('News').click();
   await page.getByText('2022-10-31').click();

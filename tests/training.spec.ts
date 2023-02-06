@@ -1,10 +1,10 @@
 // import { test, expect } from '@playwright/test';
 
 // test('test', async ({ page }) => {
-//   await page.goto('http://localhost:3000/');
+//   await page.goto('/');
 //   await page.getByRole('button', { name: 'More' }).click();
 //   await page.getByRole('link', { name: 'Training Learn how to maximize our platform to get the most out of it.' }).click();
-//   await expect (page).toHaveURL('http://localhost:3000/training')
+//   await expect (page).toHaveURL('/training')
 //   await page.getByRole('heading', { name: 'Our Training' }).click();
 //   await page.getByRole('link', { name: 'SAF Training Site - GitHub' }).click();
 //   await page.getByText('From guidance documents to automated tests in no time!').click();
@@ -30,10 +30,10 @@
 import { test, expect } from '@playwright/test';
 
 test('test', async ({ page }) => {
-  await page.goto('http://localhost:3000/');
+  await page.goto('/');
   await page.getByRole('button', { name: 'More' }).click();
   await page.getByRole('link', { name: 'Training Learn how to maximize our platform to get the most out of it.' }).click();
-  await expect (page).toHaveURL('http://localhost:3000/training')
+  await expect (page).toHaveURL('/training')
   await page.getByRole('heading', { name: 'Our Training' }).click();
   await page.getByText('Our Training The MITRE SAF team offers training classes. Dates and sign-up links').click();
   await page.getByRole('heading', { name: 'Courses' }).click();

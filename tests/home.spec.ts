@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test';
 
 test('test', async ({ page }) => {
-  await page.goto('http://localhost:3000/');
-  await expect(page).toHaveURL('http://localhost:3000')
+  await page.goto('/');
+  await expect(page).toHaveURL('/')
   await page.getByText('WorkflowSAF SVG - blueCreated with Sketch.MITRE SAF©').click();
   await page.locator('.relative > .hidden > .relative').click();
   await page.locator('#theme').selectOption('Dark');

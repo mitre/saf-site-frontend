@@ -27,7 +27,7 @@
             <div class="ml-3">
               <span class="text-sm font-medium text-gray-900 dark:text-dark-text ">
                 <NuxtLink :to="`/blog/authors?name=${post.author}`" class="hover:underline">
-                  <p>{{post.author}}</p>
+                  <p>{{ post.author }}</p>
                 </NuxtLink>
               </span>
               <div class="flex space-x-1 text-sm text-gray-500">
@@ -35,7 +35,7 @@
                   {{ post.date }}
                 </time>
                 <span aria-hidden="true"> &middot; </span>
-                <span> {{ this.readingTime(post.content) }} min read </span>
+                <span> {{ readingTime(post.content) }} min read </span>
               </div>
             </div>
           </div>
@@ -48,38 +48,36 @@
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      isLoaded: false,
-    };
+<script setup>
+import slugify from '@/utils/useSlugify';
+import { ref, onMounted, nextTick } from 'vue';
+
+////  Data  ////
+const isLoaded = ref(false)
+
+////  Props  ////
+const props = defineProps({
+  posts: {
+    type: Array,
+    required: true,
   },
-  props: {
-    posts: {
-      type: Array,
-      required: true,
-    },
-  },
-  mounted() {
-    this.$nextTick(async () => {
-      this.isLoaded = true
-    });
-  },
-  methods: {
-    readingTime(text) {
-      const wpm = 225;
-      const words = text.trim().split(/\s+/).length;
-      return Math.ceil(words / wpm);
-    },
-    slugify(str) {
-      str = str.toLowerCase()
-      str = str.trim()
-      str = str.replace(/[^\w\s-]/g, '')
-      str = str.replace(/[\s_-]+/g, '-')
-      str = str.replace(/^-+|-+$/g, '')
-      return str
-    },
-  }
+});
+
+const { posts } = toRefs(props);
+
+////  Methods  ////
+const readingTime = (text) => {
+  const wpm = 225;
+  const words = text.trim().split(/\s+/).length;
+  return Math.ceil(words / wpm);
 }
+
+
+////  Lifecycle  ////
+onMounted(async () => {
+  await nextTick(async () => {
+    isLoaded.value = true
+  });
+});
+
 </script>

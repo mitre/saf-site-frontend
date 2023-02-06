@@ -9,7 +9,6 @@
     "format": "prettier . --ignore-path .gitignore  --write "
   },
   "dependencies": {
-    "axios": "^0.27.2",
     "marked": "^4.1.0",
     "nuxt-graphql-client": "^0.1.6",
     "vue": "^3.2.36"

@@ -4,9 +4,9 @@ MITRE Security Automation Framework Website
 
 ## Overview
 
-The MITRE Security Automation Framework (SAF) brings together open-source, accessible applications, techniques, libraries, and tools developed by MITRE and the community to streamline security automation for Systems and in DevOps pipelines. 
+The MITRE Security Automation Framework (SAF) brings together open-source, accessible applications, techniques, libraries, and tools developed by MITRE and the security community to streamline security automation for systems and DevOps pipelines. 
 
-This repository contains the source code for the upcomming new https://saf.mitre.org website
+This repository contains the frontend source code for the upcoming new https://saf.mitre.org website.
 
 # Getting Started
 
@@ -17,8 +17,6 @@ This repository contains the source code for the upcomming new https://saf.mitre
 3. For developing use: `yarn dev`
 4. For production use: `yarn build` and `yarn preview` 
 
-
-
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://mitre-saf-v2.netlify.app/)
 
 ## Backend Development
@@ -26,15 +24,13 @@ This repository contains the source code for the upcomming new https://saf.mitre
 
 ## Technology Stack
 
-- [Vite](https://vitejs.dev/guide/)
-- [Vue 3](https://vuejs.org/guide/introduction.html)
 - [Nuxt 3](https://v3.nuxtjs.org)
+- [Vue 3](https://vuejs.org/guide/introduction.html)
 - [Tailwind CSS v3](https://tailwindcss.com/docs/configuration)
-- [Vue Router v4](https://github.com/vuejs/router)
+- [Heroicons](https://github.com/tailwindlabs/heroicons#vue) - beautiful hand-crafted SVG icons, by the makers of Tailwind CSS
+- [Vite](https://vitejs.dev/guide/)
 - [Inter var font](https://github.com/rsms/inter) (self-hosted, woff2, v3.19, with 'preload' attr, check out index.html)
 - [Headless UI](https://headlessui.dev/vue/menu) - unstyled, fully accessible UI components, designed to integrate beautifully with Tailwind CSS
-- [Heroicons](https://github.com/tailwindlabs/heroicons#vue) - beautiful hand-crafted SVG icons,
-  by the makers of Tailwind CSS
 - [prettier-plugin-tailwindcss](https://tailwindcss.com/blog/automatic-class-sorting-with-prettier) - Automatic Class Sorting with Prettier
 
 ### First-party plugins needed for Tailwind UI:
@@ -53,12 +49,12 @@ Please feel free to look through our issues, make a fork and submit PRs and impr
 
 ### Issues and Support
 
-Please feel free to contact us by **opening an issue** on the issue board, or, at [saf@mitre.org](mailto:saf@mitre.org) should you have any suggestions, questions or issues.
+Please feel free to contact us by **opening an issue** on the issue board, or, at [saf@groups.mitre.org](mailto:saf@groups.mitre.org) should you have any suggestions, questions or issues.
 
 
 ### NOTICE
 
-© 2022 The MITRE Corporation.
+© 2023 The MITRE Corporation.
 
 Approved for Public Release; Distribution Unlimited. Case Number 18-3678.
 

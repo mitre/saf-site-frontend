@@ -1731,14 +1731,6 @@ autoprefixer@^10.4.7:
     picocolors "^1.0.0"
     postcss-value-parser "^4.2.0"
 
-axios@^0.27.2:
-  version "0.27.2"
-  resolved "https://registry.npmjs.org/axios/-/axios-0.27.2.tgz"
-  integrity sha512-t+yRIyySRTp/wua5xEr+z1q60QmLq8ABsS5O9Me1AsE5dfKqgnCFzwiCZZ/cGNd1lq4/7akDWMxdhVlucjmnOQ==
-  dependencies:
-    follow-redirects "^1.14.9"
-    form-data "^4.0.0"
-
 babel-plugin-dynamic-import-node@^2.3.3:
   version "2.3.3"
   resolved "https://registry.yarnpkg.com/babel-plugin-dynamic-import-node/-/babel-plugin-dynamic-import-node-2.3.3.tgz#84fda19c976ec5c6defef57f9427b3def66e17a3"
@@ -3180,7 +3172,7 @@ flatted@^3.1.0:
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.2.7.tgz#609f39207cb614b89d0765b477cb2d437fbf9787"
   integrity sha512-5nqDSxl8nn5BSNxyR3n4I6eDmbolI6WT+QqR547RwxQapgjQBmtktdP+HTBb/a/zLsbzERTONyUB5pefh5TtjQ==
 
-follow-redirects@^1.0.0, follow-redirects@^1.14.9:
+follow-redirects@^1.0.0:
   version "1.15.1"
   resolved "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.15.1.tgz"
   integrity sha512-yLAMQs+k0b2m7cVxpS1VKJVvoz7SS9Td1zss3XRwXj+ZDH00RJgnuLx7E44wx02kQLrdM3aOOy+FpzS7+8OizA==
@@ -3194,15 +3186,6 @@ form-data@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/form-data/-/form-data-3.0.1.tgz#ebd53791b78356a99af9a300d4282c4d5eb9755f"
   integrity sha512-RHkBKtLWUVwd7SqRIvCZMEvAMoGUp0XU+seQiZejj0COz3RI3hWP4sCv3gZWWLjJTd7rGwcsF5eKZGii0r/hbg==
-  dependencies:
-    asynckit "^0.4.0"
-    combined-stream "^1.0.8"
-    mime-types "^2.1.12"
-
-form-data@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.npmjs.org/form-data/-/form-data-4.0.0.tgz"
-  integrity sha512-ETEklSGi5t0QMZuiXoA/Q6vcnxcLQP5vdugSpuAyi6SVGi2clPPp+xgEhuMaHC+zGgn31Kd235W35f7Hykkaww==
   dependencies:
     asynckit "^0.4.0"
     combined-stream "^1.0.8"

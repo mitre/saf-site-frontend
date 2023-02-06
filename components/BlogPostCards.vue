@@ -60,22 +60,6 @@ export default {
       type: Array,
       required: true,
     },
-    // In order to use this component the posts prop must be passed in. The contents of posts is the required fields from a graphql call. 
-    // The structure to make this call should be similar to this... 
-    // async getData() {
-    //   this.posts = await useAsyncData('queryName', () => GqlQueryName{input}))
-    //     .then(({ data }) => {
-    //       return data._value.blogPosts.data.map((post) => ({
-    //           title: post.attributes.title,
-    //           description: post.attributes.description,
-    //           category: {name: post.attributes.category},
-    //           author: post.attributes.users_permissions_user.data.attributes.name,
-    //           date: post.attributes.date,
-    //           id: post.id,
-    //           content: post.attributes.content
-    //       }))       
-    //     });
-    // }, 
   },
   mounted() {
     this.$nextTick(async () => {

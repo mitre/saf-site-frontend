@@ -163,7 +163,7 @@ export default {
             name: author.attributes.name,
             fields: {
               title: author.attributes.jobTitle,
-              company: author.attributes.partner.data.attributes.partner_name.replace('_', ' '),
+              company: author.attributes.partner.data.attributes.name.replace('_', ' '),
             },
             description: marked(author.attributes.description),
             photo: {

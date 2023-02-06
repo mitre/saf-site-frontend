@@ -35,8 +35,6 @@
 </template>
 
 <script setup>
-import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue'
-import { MenuIcon, XIcon } from '@heroicons/vue/outline'
 import Header from '@/components/Header.vue';
 import Footer from '@/components/Footer.vue';
 

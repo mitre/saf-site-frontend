@@ -13,11 +13,11 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
       - name: install dependencies
-        run: npm ci
+        run: yarn install --frozen-lockfile
       - name: install playwright browsers
         run: npx playwright install --with-deps
-      - name: npm run test:e2e
-        run: npm run test:e2e
+      - name: yarn run test:e2e
+        run: yarn run test:e2e
 
   tests_e2e_netlify_prepare:
     name: Wait for deployment on Netlify
@@ -39,11 +39,11 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
       - name: install dependencies
-        run: npm ci
+        run: yarn install --frozen-lockfile
       - name: install playwright browsers
         run: npx playwright install --with-deps
-      - name: npm run test:e2e
-        run: npm run test:e2e
+      - name: yarn run test:e2e
+        run: yarn run test:e2e
         env:
           PLAYWRIGHT_TEST_BASE_URL: "https://deploy-preview-${{env.GITHUB_PR_NUMBER}}--pull-request.netlify.app/"
           DEBUG: pw:api

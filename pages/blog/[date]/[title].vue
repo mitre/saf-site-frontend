@@ -12,13 +12,13 @@
             <h1>
               <span
                 class="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
-                {{postData.title}}
+                {{ postData.title }}
               </span>
               <span class="pt-3 block text-base text-center text-blue-600 font-semibold tracking-wide">
-                {{postData.date}}
+                {{ postData.date }}
                 &nbsp; | &nbsp;
                 <NuxtLink :to="`/blog/authors?name=${postAuthor}`" class="hover:underline">
-                  {{postAuthor}}
+                  {{ postAuthor }}
                 </NuxtLink>
               </span>
             </h1>
@@ -41,7 +41,6 @@
 
 <script>
 import { marked } from 'marked'
-
 
 export default {
   data() {
@@ -67,15 +66,6 @@ export default {
           this.postAuthor = this.postData.users_permissions_user.data.attributes.name
           this.isLoaded = true
         });
-
-    },
-    slugify(str) {
-      str = str.toLowerCase()
-      str = str.trim()
-      str = str.replace(/[^\w\s-]/g, '')
-      str = str.replace(/[\s_-]+/g, '-')
-      str = str.replace(/^-+|-+$/g, '')
-      return str
     },
   }
 }

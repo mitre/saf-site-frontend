@@ -65,14 +65,6 @@ const props = defineProps({
 
 const { posts } = toRefs(props);
 
-////  Methods  ////
-const readingTime = (text) => {
-  const wpm = 225;
-  const words = text.trim().split(/\s+/).length;
-  return Math.ceil(words / wpm);
-}
-
-
 ////  Lifecycle  ////
 onMounted(async () => {
   await nextTick(async () => {
@@ -80,4 +72,10 @@ onMounted(async () => {
   });
 });
 
+////  Methods  ////
+const readingTime = (text) => {
+  const wpm = 225;
+  const words = text.trim().split(/\s+/).length;
+  return Math.ceil(words / wpm);
+}
 </script>

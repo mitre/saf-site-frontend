@@ -48,6 +48,9 @@ const config: PlaywrightTestConfig = {
       name: 'chromium',
       use: {
         ...devices['Desktop Chrome'],
+        contextOptions: {
+          ignoreHTTPSErrors: true
+        },
       },
     },
 
@@ -55,6 +58,9 @@ const config: PlaywrightTestConfig = {
       name: 'firefox',
       use: {
         ...devices['Desktop Firefox'],
+        contextOptions: {
+          ignoreHTTPSErrors: true
+        },
       },
     },
 
@@ -62,6 +68,7 @@ const config: PlaywrightTestConfig = {
       name: 'webkit',
       use: {
         ...devices['Desktop Safari'],
+
       },
     },
 

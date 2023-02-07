@@ -94,7 +94,7 @@
                             </dd>
                             <dd
                               class="flex items-center relative whitespace-nowrap py-2 text-right text-sm font-medium sm:pr-6">
-                              <img class="h-6 w-6 rounded-full mr-3" src="/_nuxt/assets/GitHubLogoBlack.svg"
+                              <img class="h-6 w-6 rounded-full mr-3" src="@/assets/GitHubLogoBlack.svg"
                                 alt="Github Logo" />
                               <NuxtLink :to="entry.source" target="_blank">
                                 <button @click="" class="flex items-center mr-5 text-blue-600 hover:text-blue-900">
@@ -140,8 +140,7 @@
                       </td>
                       <td
                         class="xl:flex items-center hidden relative whitespace-nowrap py-6 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                        <img class="h-6 w-6 rounded-full mr-3" src="/_nuxt/assets/GitHubLogoBlack.svg"
-                          alt="Github Logo" />
+                        <img class="h-6 w-6 rounded-full mr-3" src="@/assets/GitHubLogoBlack.svg" alt="Github Logo" />
                         <NuxtLink :to="entry.source" target="_blank">
                           <button @click="" class="flex items-center mr-5 text-blue-600 hover:text-blue-900">
                             View Code

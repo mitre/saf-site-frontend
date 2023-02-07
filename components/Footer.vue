@@ -33,8 +33,8 @@ const footerLogos = [
   {
     name: 'GitHub',
     href: 'https://github.com/',
-    lightImage: '/_nuxt/assets/GitHubLogoWhite.svg',
-    darkImage: '/_nuxt/assets/GitHubLogoBlack.svg',
+    lightImage: '@/assets/GitHubLogoWhite.svg',
+    darkImage: '@/assets/GitHubLogoBlack.svg',
     alt: 'GitHubLogo'
   },
 ]

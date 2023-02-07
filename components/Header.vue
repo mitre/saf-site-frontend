@@ -195,6 +195,20 @@
                         {{ item.name }}
                       </span>
                     </NuxtLink>
+                    <NuxtLink v-for="item in resources" :key="item.name" :to="item.href"
+                      class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-700">
+                      <component :is="item.icon" class="flex-shrink-0 h-6 w-6 text-blue-600" aria-hidden="true" />
+                      <span class="ml-3 text-base font-medium text-gray-900 dark:text-MITRE-silver">
+                        {{ item.name }}
+                      </span>
+                    </NuxtLink>
+                    <NuxtLink v-for="item in navigation" :key="item.name" :to="item.href"
+                      class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-700">
+                      <component :is="item.icon" class="flex-shrink-0 h-6 w-6 text-blue-600" aria-hidden="true" />
+                      <span class="ml-3 text-base font-medium text-gray-900 dark:text-MITRE-silver">
+                        {{ item.name }}
+                      </span>
+                    </NuxtLink>
                   </nav>
                 </div>
               </div>
@@ -282,7 +296,7 @@ import {
   SunIcon,
   PencilAltIcon
 } from '@heroicons/vue/outline';
-import { ChevronDownIcon } from '@heroicons/vue/solid';
+import { AcademicCapIcon, BookOpenIcon, ChevronDownIcon } from '@heroicons/vue/solid';
 
 const toolkit = [
   {
@@ -321,6 +335,22 @@ const toolkit = [
     icon: ViewGridIcon
   }
 ];
+const navigation = [
+  {
+    name: 'Docs',
+    description:
+      'Documentation of SAF tools.',
+    href: '/docs',
+    icon: BookOpenIcon
+  },
+  {
+    name: 'Blog',
+    description:
+      'Learn more.',
+    href: '/blog',
+    icon: RssIcon
+  }
+];
 const resources = [
   {
     name: 'FAQ',
@@ -334,7 +364,7 @@ const resources = [
     description:
       'Learn how to maximize our platform to get the most out of it.',
     href: '/training',
-    icon: BookmarkAltIcon
+    icon: AcademicCapIcon
   }
 ];
 </script>

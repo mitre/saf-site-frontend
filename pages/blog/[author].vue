@@ -61,10 +61,10 @@
                   <img src="~/assets/InstagramLogo.png" class="max-w-full h-auto max-h-8" alt="Instagram Logo" />
                 </a>
                 <a v-if="socialMediaLinks.github" v-bind:href="socialMediaLinks.github" class="dark:hidden">
-                  <img src="~/assets/GitHubLogo.png" class="max-w-full h-auto max-h-8" alt="GitHub Logo" />
+                  <img src="/_nuxt/assets/GitHubLogoBlack.svg" class="max-w-full h-auto max-h-8" alt="GitHub Logo" />
                 </a>
                 <a v-if="socialMediaLinks.github" v-bind:href="socialMediaLinks.github" class="hidden dark:flex">
-                  <img src="~/assets/GitHubLogoWhite.png" class="max-w-full h-auto max-h-8" alt="GitHub Logo" />
+                  <img src="/_nuxt/assets/GitHubLogoWhite.svg" class="max-w-full h-auto max-h-8" alt="GitHub Logo" />
                 </a>
                 <a v-if="socialMediaLinks.linkedin" v-bind:href="socialMediaLinks.linkedin">
                   <img src="~/assets/LinkedInLogo.png" class="max-w-full h-auto max-h-8" alt="LinkedIn Logo" />

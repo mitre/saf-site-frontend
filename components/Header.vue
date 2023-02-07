@@ -270,25 +270,15 @@ import {
   PopoverGroup,
   PopoverPanel,
   PopoverOverlay,
-  Switch,
 } from '@headlessui/vue';
 import { ref } from 'vue';
 import {
-  BookmarkAltIcon,
-  CalendarIcon,
-  ChartBarIcon,
-  CursorClickIcon,
-  MenuIcon,
-  PhoneIcon,
-  PlayIcon,
-  RefreshIcon,
   ShieldCheckIcon,
   QuestionMarkCircleIcon,
   ViewGridIcon,
   XIcon,
   CubeIcon,
   ClipboardCheckIcon,
-  CodeIcon,
   SearchIcon,
   DotsVerticalIcon,
   DesktopComputerIcon,
@@ -296,9 +286,14 @@ import {
   SunIcon,
   PencilAltIcon
 } from '@heroicons/vue/outline';
-import { AcademicCapIcon, BookOpenIcon, ChevronDownIcon } from '@heroicons/vue/solid';
+import { AcademicCapIcon, BookOpenIcon, ChevronDownIcon, RssIcon } from '@heroicons/vue/solid';
 
-const toolkit = [
+////  Data  ////
+const selected = ref("")
+
+// const options = ref(['Light', 'Dark', 'System'])
+
+const toolkit = ref([
   {
     name: 'Plan',
     description:
@@ -334,8 +329,8 @@ const toolkit = [
     href: '/toolkit/visualize',
     icon: ViewGridIcon
   }
-];
-const navigation = [
+]);
+const navigation = ref([
   {
     name: 'Docs',
     description:
@@ -350,8 +345,8 @@ const navigation = [
     href: '/blog',
     icon: RssIcon
   }
-];
-const resources = [
+]);
+const resources = ref([
   {
     name: 'FAQ',
     description:
@@ -366,98 +361,90 @@ const resources = [
     href: '/training',
     icon: AcademicCapIcon
   }
-];
-</script>
-<script>
-export default {
-  data() {
-    return {
-      selected: "",
-      options: ['Light', 'Dark', 'System'],
-    };
-  },
-  methods: {
-    switchSelect(event) {
-      if (event.target.value === 'Light') {
-        this.disableDarkMode()
-        localStorage.setItem('user-theme', 'light');
-        this.selected = "Light"
-        this.setThemeState(this.selected)
-      }
-      else if (event.target.value == 'Dark') {
-        this.enableDarkMode()
-        localStorage.setItem('user-theme', 'dark');
-        this.selected = "Dark"
-        this.setThemeState(this.selected)
-      }
-      else if (event.target.value == 'System') {
-        const userIsInDarkModeOS = window.matchMedia('(prefers-color-scheme: dark)').matches
-        if (userIsInDarkModeOS) {
-          this.enableDarkMode()
-          localStorage.setItem('user-theme', 'dark');
-          this.selected = "System";
-          this.setThemeState(this.selected)
-        }
-        else {
-          this.disableDarkMode()
-          this.selected = "System";
-        }
-      }
-    },
-    setThemeState(mode) {
-      localStorage.setItem('theme', mode)
-    },
-    getThemeState() {
-      let theme = localStorage.getItem('theme')
-      this.selected = theme
-    },
-    enableDarkMode() {
-      document.documentElement.classList.add('dark');
-    },
-    disableDarkMode() {
-      document.documentElement.classList.remove('dark');
-    },
-    hideBanner() {
-      var bannerDIV = document.getElementById("newsBannerDIV")
-      bannerDIV.style.display = "none"
-    },
-  },
-  mounted() {
+]);
 
-    if (localStorage.getItem('wasVisited') == undefined) {
-      this.selected = "Light"
-      this.setThemeState(this.selected)
-      localStorage.setItem('wasVisited', true)
-    }
 
-    this.getThemeState()
-
-    if (this.selected === 'Light') {
-      this.disableDarkMode()
-      localStorage.setItem('user-theme', 'light');
-      this.selected = "Light"
-      this.setThemeState(this.selected)
-    }
-    else if (this.selected == 'Dark') {
-      this.enableDarkMode()
+////  Methods  ////
+const switchSelect = (event) => {
+  if (event.target.value === 'Light') {
+    disableDarkMode()
+    localStorage.setItem('user-theme', 'light');
+    selected.value = "Light"
+    setThemeState(selected.value)
+  }
+  else if (event.target.value == 'Dark') {
+    enableDarkMode()
+    localStorage.setItem('user-theme', 'dark');
+    selected.value = "Dark"
+    setThemeState(selected.value)
+  }
+  else if (event.target.value == 'System') {
+    const userIsInDarkModeOS = window.matchMedia('(prefers-color-scheme: dark)').matches
+    if (userIsInDarkModeOS) {
+      enableDarkMode()
       localStorage.setItem('user-theme', 'dark');
-      this.selected = "Dark"
-      this.setThemeState(this.selected)
+      selected.value = "System";
+      setThemeState(selected.value)
     }
-    else if (this.selected == 'System') {
-      const userIsInDarkModeOS = window.matchMedia('(prefers-color-scheme: dark)').matches
-      if (userIsInDarkModeOS) {
-        this.enableDarkMode()
-        localStorage.setItem('user-theme', 'dark')
-        this.selected = "System"
-        this.setThemeState(this.selected)
-      }
-      else {
-        this.disableDarkMode()
-        this.selected = "System";
-      }
+    else {
+      disableDarkMode()
+      selected.value = "System";
     }
   }
+}
+const setThemeState = (mode) => {
+  localStorage.setItem('theme', mode)
+}
+const getThemeState = () => {
+  let theme = localStorage.getItem('theme')
+  selected.value = theme
+}
+const enableDarkMode = () => {
+  document.documentElement.classList.add('dark');
+}
+const disableDarkMode = () => {
+  document.documentElement.classList.remove('dark');
+}
+const hideBanner = () => {
+  let bannerDIV = document.getElementById("newsBannerDIV")
+  bannerDIV.style.display = "none"
+}
 
-};
+
+////  Lifecycle  ////
+onMounted(() => {
+  if (localStorage.getItem('wasVisited') == undefined) {
+    selected.value = "Light"
+    setThemeState(selected.value)
+    localStorage.setItem('wasVisited', true)
+  }
+
+  getThemeState()
+
+  if (selected.value === 'Light') {
+    disableDarkMode()
+    localStorage.setItem('user-theme', 'light');
+    selected.value = "Light"
+    setThemeState(selected.value)
+  }
+  else if (selected.value == 'Dark') {
+    enableDarkMode()
+    localStorage.setItem('user-theme', 'dark');
+    selected.value = "Dark"
+    setThemeState(selected.value)
+  }
+  else if (selected.value == 'System') {
+    const userIsInDarkModeOS = window.matchMedia('(prefers-color-scheme: dark)').matches
+    if (userIsInDarkModeOS) {
+      enableDarkMode()
+      localStorage.setItem('user-theme', 'dark')
+      selected.value = "System"
+      setThemeState(selected.value)
+    }
+    else {
+      disableDarkMode()
+      selected.value = "System";
+    }
+  }
+});
 </script>

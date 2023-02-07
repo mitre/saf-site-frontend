@@ -42,7 +42,6 @@ onMounted(async () => {
   await nextTick(async () => {
     await getFAQs()
     isLoaded.value = true
-    console.log("What is this value: ", faq._rawValue)
   });
 });
 

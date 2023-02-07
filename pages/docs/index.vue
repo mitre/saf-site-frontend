@@ -69,7 +69,6 @@ export default {
     async getData() {
       this.docData = await useAsyncData('getIndexDocumentation', () => GqlGetIndexDocumentation())
         .then(({ data }) => {
-          console.log("Data: ", data)
           let content = data._value.currentDoc.data[0].attributes.subsections[0].content
           this.currentSubsection = data._value.currentDoc.data[0].attributes.subsections[0].title
           this.currentSectionTitle = data._value.currentDoc.data[0].attributes.section_title

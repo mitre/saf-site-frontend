@@ -26,12 +26,9 @@
               class="mt-8 mx-auto leading-8 text-left prose prose-sm lg:prose-lg dark:prose-invert dark:text-dark-text prose-li:text-start prose-code:text-start"
               v-html="renderedContent"></div>
           </template>
-          <template v-else>
-            <div
-              class="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight min-h-screen h-full text-gray-900 dark:text-MITRE-silver sm:text-4xl">
-              Loading ...
-            </div>
-          </template>
+          <div v-else class="grid h-screen place-items-center">
+            <LoadingSpinner />
+          </div>
         </div>
       </div>
     </div>

@@ -43,8 +43,8 @@
       </div>
     </div>
   </div>
-  <div v-else class="h-screen">
-    <p> Loading .... </p>
+  <div v-else class="grid h-screen place-items-center">
+    <LoadingSpinner />
   </div>
 </template>
 

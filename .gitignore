@@ -7,4 +7,8 @@ node_modules
 .env
 dist
 .DS_Store
+/test-results/
+/playwright-report/
+/playwright/.cache/
 .vscode
+

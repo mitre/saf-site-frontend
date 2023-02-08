@@ -25,7 +25,7 @@
                 </div>
               </div>
               <div id="Schedule" class="relative pointer-events-auto order-2 pt-8 pr-6">
-                <div class="">
+                <div>
                   <h2 class="text-xl font-semibold text-gray-900 sm:pl-3 pt-6 dark:text-white">Upcoming Classes</h2>
                   <div v-if="schedules.length" class="lg:grid lg:grid-cols-2">
                     <ol class="mt-4 text-sm leading-6 lg:col-span-7 xl:col-span-8">
@@ -54,8 +54,9 @@
                     </ol>
                   </div>
                   <div v-else class="relative max-w-sm mt-6 pl-2 dark:text-dark-text">
-                    <p> Sorry there are no upcoming schedules at this time. If you would like to host a schedule please
-                      contact saf@groups.mitre.org </p>
+                    <p> Sorry there are no upcoming classes at this time. If you would like to host a class please contact, 
+                      <a href="mailto:saf@groups.mitre.org" class="hover:underline text-blue-500">saf@groups.mitre.org</a>
+                     </p>
                   </div>
                 </div>
               </div>
@@ -112,7 +113,7 @@ export default {
     this.$nextTick(async () => {
       await this.getTrainingData()
       await this.getScheduleData()
-      this.orderCourses()
+      this.sortData()
       this.isLoaded = true
     });
   },
@@ -138,8 +139,9 @@ export default {
           }))
         });
     },
-    orderCourses() {
+    sortData() {
       this.courses.sort((a,b) => a.index - b.index);
+      this.schedules.sort((a,b) => a.index - b.index);
     },
     formatDate(value, locale = 'en-US') {
       return new Date(value).toLocaleDateString(locale)

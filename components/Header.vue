@@ -44,7 +44,7 @@
               <PopoverButton :class="[
                 open
                   ? 'text-gray-900 dark:text-gray-200'
-                  : 'text-gray-500',
+                  : 'text-gray-400',
                 toolkit.some(e => e.href === route.fullPath) ? 'text-sky-500' : '',
                 'group bg-white dark:bg-dark-bg rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 dark:hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
               ]">
@@ -88,7 +88,7 @@
             <NuxtLink to="/blog" :class="['text-base font-medium  hover:text-gray-900 dark:hover:text-gray-200',
               route.fullPath == '/blog'
                 ? 'text-sky-500'
-                : 'text-gray-500'
+                : 'text-gray-400'
             ]">
               Blog
             </NuxtLink>
@@ -96,7 +96,7 @@
             <NuxtLink to="/docs" :class="['text-base font-medium hover:text-gray-900 dark:hover:text-gray-200',
               route.fullPath == '/docs'
                 ? 'text-sky-500'
-                : 'text-gray-500'
+                : 'text-gray-400'
             ]">
               Docs
             </NuxtLink>
@@ -105,7 +105,7 @@
               <PopoverButton :class="[
                 open
                   ? 'text-gray-900 dark:text-gray-300'
-                  : 'text-gray-500 dark:text-dark-text',
+                  : 'text-gray-400 dark:text-dark-text',
                 resources.some(e => e.href === route.fullPath) ? 'text-sky-500 dark:text-sky-500' : '',
                 'group bg-white dark:bg-dark-bg rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 dark:hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
               ]">

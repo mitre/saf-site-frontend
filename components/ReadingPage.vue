@@ -15,7 +15,8 @@
                         <span class="pt-3 block text-base text-center text-blue-600 font-semibold tracking-wide">
                             Updated: {{ lastUpdated }}
                             &nbsp; | &nbsp;
-                            <NuxtLink :to="`/blog/authors?name=${author}`" class="hover:underline">
+                            <NuxtLink :to="`/blog/authors?name=${author}`"
+                                class="text-blue-600 hover:underline no-underline font-semibold">
                                 {{ author }}
                             </NuxtLink>
                         </span>

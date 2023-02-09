@@ -44,14 +44,16 @@
               <PopoverButton :class="[
                 open
                   ? 'text-gray-900 dark:text-gray-200'
-                  : 'text-gray-400',
-                toolkit.some(e => e.href === route.fullPath) ? 'text-sky-500' : '',
-                'group bg-white dark:bg-dark-bg rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 dark:hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+                  : '',
+                toolkit.some(e => e.href === route.fullPath) ? 'text-sky-500' : 'text-gray-600',
+                'group bg-white dark:bg-dark-bg rounded-md inline-flex items-center text-base font-medium  hover:text-gray-900 dark:hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
               ]">
                 <span>Toolkit</span>
                 <ChevronDownIcon :class="[
-                  open ? 'text-gray-600' : 'text-gray-400 dark:text-dark-text',
-                  'ml-2 h-5 w-5 group-hover:text-gray-500'
+                  open ? 'text-gray-900 dark:text-gray-300'
+                    : 'text-gray-400 dark:text-dark-text',
+                  toolkit.some(e => e.href === route.fullPath) ? 'text-sky-500' : 'text-gray-600',
+                  'ml-2 h-5 w-5 group-hover:text-gray-900 dark:group-hover:text-gray-200'
                 ]" aria-hidden="true" />
               </PopoverButton>
 
@@ -67,7 +69,7 @@
                         '-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700',
                         item.href == route.fullPath
                           ? 'bg-gray-300 dark:bg-gray-700'
-                          : ''
+                          : 'text-gray-600 dark:text-gray-400'
                       ]">
                         <component :is="item.icon" class="flex-shrink-0 h-6 w-6 text-blue-600" aria-hidden="true" />
                         <div class="ml-4">
@@ -88,7 +90,7 @@
             <NuxtLink to="/blog" :class="['text-base font-medium  hover:text-gray-900 dark:hover:text-gray-200',
               route.fullPath == '/blog'
                 ? 'text-sky-500'
-                : 'text-gray-400'
+                : 'text-gray-600 dark:text-gray-400'
             ]">
               Blog
             </NuxtLink>
@@ -96,7 +98,7 @@
             <NuxtLink to="/docs" :class="['text-base font-medium hover:text-gray-900 dark:hover:text-gray-200',
               route.fullPath == '/docs'
                 ? 'text-sky-500'
-                : 'text-gray-400'
+                : 'text-gray-600 dark:text-gray-400'
             ]">
               Docs
             </NuxtLink>
@@ -104,15 +106,17 @@
             <Popover class="relative" v-slot="{ open }">
               <PopoverButton :class="[
                 open
-                  ? 'text-gray-900 dark:text-gray-300'
-                  : 'text-gray-400 dark:text-dark-text',
-                resources.some(e => e.href === route.fullPath) ? 'text-sky-500 dark:text-sky-500' : '',
-                'group bg-white dark:bg-dark-bg rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 dark:hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+                  ? 'text-gray-900 dark:text-gray-200'
+                  : '',
+                resources.some(e => e.href === route.fullPath) ? 'text-sky-500' : 'text-gray-600',
+                'group bg-white dark:bg-dark-bg rounded-md inline-flex items-center text-base font-medium  hover:text-gray-900 dark:hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
               ]">
                 <span>More</span>
                 <ChevronDownIcon :class="[
-                  open ? 'text-gray-600 ' : 'text-gray-400',
-                  'ml-2 h-5 w-5 group-hover:text-gray-500'
+                  open ? 'text-gray-900 dark:text-gray-300'
+                    : 'text-gray-400 dark:text-dark-text',
+                  resources.some(e => e.href === route.fullPath) ? 'text-sky-500' : '',
+                  'ml-2 h-5 w-5 group-hover:text-gray-900 dark:group-hover:text-gray-200'
                 ]" aria-hidden="true" />
               </PopoverButton>
 

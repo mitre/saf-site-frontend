@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('test', async ({ page }) => {
+test('Blog', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('link', { name: 'Blog' }).click();
   await expect(page).toHaveURL('/blog')

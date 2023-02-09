@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('test', async ({ page }) => {
+test('FAQ', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('button', { name: 'More' }).click();
   await page.getByRole('link', { name: 'Help Center Get all of your questions answered in our forums or contact support.' }).click();

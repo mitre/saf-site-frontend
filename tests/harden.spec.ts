@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('test', async ({ page }) => {
+test('Hardening', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('button', { name: 'Toolkit' }).click();
   await page.getByRole('link', { name: 'Harden Implement security baselines using our Ansible, Chef, and Terraform content.' }).click();

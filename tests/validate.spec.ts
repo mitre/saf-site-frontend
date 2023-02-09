@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('test', async ({ page }) => {
+test('Validation', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('button', { name: 'Toolkit' }).click();
   await page.getByRole('link', { name: 'Validate Generate detailed security testing results through automated tests and manual attestation.' }).click();

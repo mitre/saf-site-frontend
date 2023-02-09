@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('test', async ({ page }) => {
+test('Home', async ({ page }) => {
   await page.goto('/');
   await expect(page).toHaveURL('/')
   await page.getByText('WorkflowSAF SVG - blueCreated with Sketch.MITRE SAF©').click();

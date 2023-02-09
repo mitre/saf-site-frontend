@@ -60,8 +60,8 @@
             </div>
           </div>
         </div>
-        <div class="sm:flex md:h-[364px] h-[400px]">
-          <div class="flex-1 border-gray-200 border-r-2 dark:border-gray-500 overflow-y-auto ">
+        <div class="sm:flex md:h-[364px] h-full">
+          <div class="flex-1 border-gray-200 border-r-2 dark:border-gray-500 overflow-y-auto">
             <dl v-if="guidance.hardening != null" v-for="hardening in guidance.hardening">
               <div class="bg-white dark:bg-gray-200 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-3 sm:px-6">
                 <dt class="flex items-center text-sm font-medium text-gray-500">Name</dt>
@@ -121,7 +121,7 @@
                 </div>
               </div>
             </div>
-            <dl v-if="guidance.validation != null" v-for="validation in guidance.validation">
+            <dl v-if="guidance.validation != null" v-for="validation in guidance.validation" class="overflow-y-auto">
               <div class="bg-white dark:bg-gray-200 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                 <dt class="flex items-center text-sm font-medium text-gray-500">Name</dt>
                 <div class="flex items-center">

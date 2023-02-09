@@ -2,9 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-:root{
+:root {
   --color-MITRE-blue: #005B94;
-  --color-MITRE-highlighter: #FFF601; 
+  --color-MITRE-highlighter: #FFF601;
   --color-MITRE-dark-navy: #0B2338;
   --color-MITRE-navy: #0D2F4F;
   --color-MITRE-light-blue: #87DEFF;
@@ -15,4 +15,8 @@
   --color-MITRE-white: #FFFFFF;
   --color-DARKMODE-dark-bg: #1F1A24;
   --color-DARKMODE-dark-text: #9ca3af;
+}
+
+html {
+  scroll-padding-top: 90px;
 }

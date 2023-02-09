@@ -18,7 +18,7 @@
           </div>
 
           <div id="mobile-components" class="-mr-2 -my-2 flex sm:pr-3 md:hidden">
-            <div class="flex-1 flex justify-end px-2 lg:ml-6">
+            <!-- <div class="flex-1 flex justify-end px-2 lg:ml-6">
               <div class="max-w-lg w-1/8 lg:max-w-xs">
                 <label for="search" class="sr-only">Search</label>
                 <div class="relative">
@@ -30,7 +30,7 @@
                     placeholder="Search" type="search" />
                 </div>
               </div>
-            </div>
+            </div> -->
             <PopoverButton
               class="bg-white dark:bg-dark-bg rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
               <span class="sr-only">Open menu</span>
@@ -155,7 +155,9 @@
               <!-- Possible Sign in functionalilty -->
               <!-- <a href="#" class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900 dark:hover:text-gray-200"> Sign in </a>
               <a href="#" class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-600 hover:bg-indigo-700"> Sign up </a> -->
-              <div class="flex-1 flex justify-end px-2 lg:ml-6">
+
+              <!-- Uncomment once search is added -->
+              <!-- <div class="flex-1 flex justify-end px-2 lg:ml-6">
                 <div class="max-w-lg w-1/8 lg:max-w-xs">
                   <label for="search" class="sr-only">Search</label>
                   <div class="relative pl-0">
@@ -167,7 +169,7 @@
                       placeholder="Search" type="search" />
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
             <div id="theme-toggle" type="button"
               class="text-gray-500 dark:text-dark-text hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">

@@ -1,10 +1,10 @@
-# MITRE SAF Site
+# MITRE SAF© Site
 
 MITRE Security Automation Framework Website
 
 ## Overview
 
-The MITRE Security Automation Framework (SAF) brings together open-source, accessible applications, techniques, libraries, and tools developed by MITRE and the security community to streamline security automation for systems and DevOps pipelines. 
+The MITRE Security Automation Framework© (SAF) brings together open-source, accessible applications, techniques, libraries, and tools developed by MITRE and the security community to streamline security automation for systems and DevOps pipelines. 
 
 This repository contains the frontend source code for the upcoming new https://saf.mitre.org website.
 

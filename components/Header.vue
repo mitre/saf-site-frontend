@@ -43,16 +43,16 @@
             <Popover class="relative" v-slot="{ open }">
               <PopoverButton :class="[
                 open
-                  ? 'text-gray-900 dark:text-gray-200'
+                  ? 'text-gray-900 dark:text-gray-400'
                   : '',
-                toolkit.some(e => e.href === route.fullPath) ? 'text-sky-500' : 'text-gray-600',
+                toolkit.some(e => e.href === route.fullPath) ? 'text-sky-500' : 'text-gray-600 dark:text-gray-400',
                 'group bg-white dark:bg-dark-bg rounded-md inline-flex items-center text-base font-medium  hover:text-gray-900 dark:hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
               ]">
                 <span>Toolkit</span>
                 <ChevronDownIcon :class="[
-                  open ? 'text-gray-900 dark:text-gray-300'
-                    : 'text-gray-400 dark:text-dark-text',
-                  toolkit.some(e => e.href === route.fullPath) ? 'text-sky-500' : 'text-gray-600',
+                  open ? 'text-gray-900 dark:text-gray-400'
+                    : 'text-gray-400 dark:text-gray-400',
+                  toolkit.some(e => e.href === route.fullPath) ? 'text-sky-500' : 'text-gray-600 dark:text-gray-400',
                   'ml-2 h-5 w-5 group-hover:text-gray-900 dark:group-hover:text-gray-200'
                 ]" aria-hidden="true" />
               </PopoverButton>
@@ -116,14 +116,14 @@
                 open
                   ? 'text-gray-900 dark:text-gray-200'
                   : '',
-                resources.some(e => e.href === route.fullPath) ? 'text-sky-500' : 'text-gray-600',
+                resources.some(e => e.href === route.fullPath) ? 'text-sky-500' : 'text-gray-600 dark:text-gray-400',
                 'group bg-white dark:bg-dark-bg rounded-md inline-flex items-center text-base font-medium  hover:text-gray-900 dark:hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
               ]">
                 <span>More</span>
                 <ChevronDownIcon :class="[
-                  open ? 'text-gray-900 dark:text-gray-300'
-                    : 'text-gray-400 dark:text-dark-text',
-                  resources.some(e => e.href === route.fullPath) ? 'text-sky-500' : '',
+                  open ? 'text-gray-900 dark:text-gray-400'
+                    : '',
+                  resources.some(e => e.href === route.fullPath) ? 'text-sky-500' : 'text-gray-600 dark:text-gray-400',
                   'ml-2 h-5 w-5 group-hover:text-gray-900 dark:group-hover:text-gray-200'
                 ]" aria-hidden="true" />
               </PopoverButton>

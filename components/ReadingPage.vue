@@ -23,8 +23,8 @@
                     </h1>
                     <slot> <!-- The body of the reading page goes here --></slot>
                 </div>
-                <div v-else class="text-lg prose prose-lg max-w-prose mx-auto ">
-                    <Loading />
+                <div  class="grid h-screen place-items-center">
+                    <LoadingSpinner />
                 </div>
             </div>
         </div>

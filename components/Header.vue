@@ -318,7 +318,8 @@ import {
   DesktopComputerIcon,
   MoonIcon,
   SunIcon,
-  PencilAltIcon
+  PencilAltIcon,
+  UserGroupIcon
 } from '@heroicons/vue/outline';
 import { AcademicCapIcon, BookOpenIcon, ChevronDownIcon, RssIcon } from '@heroicons/vue/solid';
 
@@ -393,6 +394,13 @@ const resources = ref([
       'Learn how to maximize our platform to get the most out of it.',
     href: '/training',
     icon: AcademicCapIcon
+  },
+  {
+    name: 'Admin Login',
+    description:
+      'Update and mantain content as an admin.',
+    href: 'https://saf-site-backend.herokuapp.com/admin/',
+    icon: UserGroupIcon
   }
 ]);
 

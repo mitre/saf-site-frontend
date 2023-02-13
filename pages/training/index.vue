@@ -11,9 +11,12 @@
                 <h1
                   class="block text-3xl leading-8 font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
                   Our Training</h1>
-                <p class="mt-6 dark:text-dark-text"> The MITRE SAF team offers training classes. Dates and sign-up links
-                  to participate in synchronous (typically virtual) class offerings are posted on this page when training
-                  dates are finalized. To preview classes, watch asynchronously, or reference class content, see the class
+                <p class="mt-6 dark:text-dark-text"> The MITRE SAF© team offers training classes. Dates and sign-up
+                  links
+                  to participate in synchronous (typically virtual) class offerings are posted on this page when
+                  training
+                  dates are finalized. To preview classes, watch asynchronously, or reference class content, see the
+                  class
                   details, materials, and recordings below.</p>
                 <div class="flex gap-8">
                   <a href="https://mitre.github.io/saf-training/" class="hover:underline">
@@ -78,7 +81,8 @@
                   <hr class="mt-4 w-full" />
                 </div>
                 <div v-else>
-                  <p class="relative max-w-sm mt-6 pl-2 dark:text-dark-text"> Courses are being updated. Check back later!
+                  <p class="relative max-w-sm mt-6 pl-2 dark:text-dark-text"> Courses are being updated. Check back
+                    later!
                   </p>
                 </div>
               </div>

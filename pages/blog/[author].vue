@@ -61,10 +61,10 @@
                   <img src="~/assets/InstagramLogo.png" class="max-w-full h-auto max-h-8" alt="Instagram Logo" />
                 </a>
                 <a v-if="socialMediaLinks.github" v-bind:href="socialMediaLinks.github" class="dark:hidden">
-                  <img src="~/assets/GitHubLogo.png" class="max-w-full h-auto max-h-8" alt="GitHub Logo" />
+                  <img src="@/assets/GitHubLogoBlack.svg" class="max-w-full h-auto max-h-8" alt="GitHub Logo" />
                 </a>
                 <a v-if="socialMediaLinks.github" v-bind:href="socialMediaLinks.github" class="hidden dark:flex">
-                  <img src="~/assets/GitHubLogoWhite.png" class="max-w-full h-auto max-h-8" alt="GitHub Logo" />
+                  <img src="@/assets/GitHubLogoWhite.svg" class="max-w-full h-auto max-h-8" alt="GitHub Logo" />
                 </a>
                 <a v-if="socialMediaLinks.linkedin" v-bind:href="socialMediaLinks.linkedin">
                   <img src="~/assets/LinkedInLogo.png" class="max-w-full h-auto max-h-8" alt="LinkedIn Logo" />
@@ -91,87 +91,98 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { marked } from 'marked'
 import { LinkIcon, MailIcon } from '@heroicons/vue/outline'
 
-export default {
-  components: { LinkIcon, MailIcon },
-  data() {
-    return {
-      posts: [],
-      authorName: {},
-      author: {},
-      isLoaded: false,
-      socialMediaLinks: {
-        facebook: null,
-        twitter: null,
-        instagram: null,
-        github: null,
-        linkedin: null,
-        displayEmail: null,
-        other: null,
-      },
-    };
-  },
-  mounted() {
-    this.authorName = this.$route.query.id
-    this.$nextTick(async () => {
-      await this.getBlogData()
-      await this.getBlogAuthor()
-      this.author = this.author[0]
-      this.isLoaded = true
+////  Data  ////
+const posts = ref([])
+const authorName = ref({})
+const author = ref({})
+const authorObjs = ref([])
+const isLoaded = ref(false)
+const socialMediaLinks = ref({
+  facebook: null,
+  twitter: null,
+  instagram: null,
+  github: null,
+  linkedin: null,
+  displayEmail: null,
+  other: null,
+})
+const route = useRoute()
+
+////  Methods  ////
+const getBlogData = async () => {
+  posts.value = await useAsyncData('getBlogDataFromAuthor', () => GqlGetBlogDataFromAuthor({ author: route.query.name }))
+    .then(({ data }) => {
+      return data._value.blogPosts.data.map((post) => ({
+        title: post.attributes.title,
+        description: post.attributes.description,
+        category: { name: post.attributes.category },
+        author: post.attributes.users_permissions_user.data.attributes.name,
+        date: post.attributes.date,
+        id: post.id,
+        content: post.attributes.content
+      }))
     });
-  },
-  methods: {
-    async getBlogData() {
-      this.posts = await useAsyncData('getBlogDataFromAuthor', () => GqlGetBlogDataFromAuthor({ author: this.$route.query.name }))
-        .then(({ data }) => {
-          return data._value.blogPosts.data.map((post) => ({
-            title: post.attributes.title,
-            description: post.attributes.description,
-            category: { name: post.attributes.category },
-            author: post.attributes.users_permissions_user.data.attributes.name,
-            date: post.attributes.date,
-            id: post.id,
-            content: post.attributes.content
-          }))
-        });
-    },
-    async getBlogAuthor() {
-      this.author = await useAsyncData('getBlogAuthor', () => GqlGetBlogAuthor({ author: this.$route.query.name }))
-        .then(({ data }) => {
-          let socialMedia = data._value.usersPermissionsUsers.data[0].attributes.SocialMedia
-          for (let i = 0; i < socialMedia.length; i++) {
-            if (socialMedia[i].__typename === 'ComponentSocialMediaFacebook')
-              this.socialMediaLinks.facebook = socialMedia[i].ProfileLink
-            else if (socialMedia[i].__typename === 'ComponentSocialMediaTwitter')
-              this.socialMediaLinks.twitter = socialMedia[i].ProfileLink
-            else if (socialMedia[i].__typename === 'ComponentSocialMediaInstagram')
-              this.socialMediaLinks.instagram = socialMedia[i].ProfileLink
-            else if (socialMedia[i].__typename === 'ComponentSocialMediaLinkedIn')
-              this.socialMediaLinks.linkedin = socialMedia[i].ProfileLink
-            else if (socialMedia[i].__typename === 'ComponentSocialMediaGitHub')
-              this.socialMediaLinks.github = socialMedia[i].ProfileLink
-            else if (socialMedia[i].__typename === 'ComponentSocialMediaDisplayEmail')
-              this.socialMediaLinks.displayEmail = socialMedia[i].DisplayEmail
-            else if (socialMedia[i].__typename === 'ComponentSocialMediaOther')
-              this.socialMediaLinks.other = socialMedia[i].ProfileLink
-          }
-          return data._value.usersPermissionsUsers.data.map((author) => ({
-            name: author.attributes.name,
-            fields: {
-              title: author.attributes.jobTitle,
-              company: author.attributes.partner.data.attributes.name.replace('_', ' '),
-            },
-            description: marked(author.attributes.description),
-            photo: {
-              name: author.attributes.photo.data ? author.attributes.photo.data.attributes.name : null,
-              url: author.attributes.photo.data ? author.attributes.photo.data.attributes.url : null,
-            },
-          }))
-        })
-    },
-  }
 }
+
+const getBlogAuthor = async () => {
+  authorObjs.value = await useAsyncData('getBlogAuthor', () => GqlGetBlogAuthor({ author: route.query.name }))
+    .then(({ data }) => {
+      let socialMedia = data._value.usersPermissionsUsers.data[0].attributes.SocialMedia
+      for (let i = 0; i < socialMedia.length; i++) {
+        switch (socialMedia[i].__typename) {
+          case 'ComponentSocialMediaFacebook':
+            socialMediaLinks.value.facebook = socialMedia[i].ProfileLink
+            break;
+          case 'ComponentSocialMediaTwitter':
+            socialMediaLinks.value.twitter = socialMedia[i].ProfileLink
+            break;
+          case 'ComponentSocialMediaInstagram':
+            socialMediaLinks.value.instagram = socialMedia[i].ProfileLink
+            break;
+          case 'ComponentSocialMediaLinkedIn':
+            socialMediaLinks.value.linkedin = socialMedia[i].ProfileLin
+            break;
+          case 'ComponentSocialMediaGitHub':
+            socialMediaLinks.value.github = socialMedia[i].ProfileLink
+            break;
+          case 'ComponentSocialMediaDisplayEmail':
+            socialMediaLinks.value.displayEmail = socialMedia[i].DisplayEmail
+            break;
+          case 'ComponentSocialMediaOther':
+            socialMediaLinks.value.other = socialMedia[i].ProfileLink
+            break;
+          default:
+          // Error on default
+        }
+      }
+      return data._value.usersPermissionsUsers.data.map((author) => ({
+        name: author.attributes.name,
+        fields: {
+          title: author.attributes.jobTitle,
+          company: author.attributes.partner.data.attributes.name.replace('_', ' '),
+        },
+        description: marked(author.attributes.description),
+        photo: {
+          name: author.attributes.photo.data ? author.attributes.photo.data.attributes.name : null,
+          url: author.attributes.photo.data ? author.attributes.photo.data.attributes.url : null,
+        },
+      }))
+    })
+}
+
+////  Lifecycle  ////
+onMounted(async () => {
+  authorName.value = route.query.id
+  await nextTick(async () => {
+    await getBlogData()
+    await getBlogAuthor()
+    author.value = authorObjs.value[0]
+    isLoaded.value = true
+  });
+});
+
 </script>

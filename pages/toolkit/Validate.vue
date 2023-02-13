@@ -12,7 +12,7 @@
               hosted here and at other community vendor sites. If you are interested in new profiles, please contact us
               at saf@groups.mitre.org.
               If you are interested in developing and contributing your own profiles, please see our training material.
-              All assessment tests under MITRE SAF are associated with NIST SP 800-53 Security Controls. Explore these
+              All assessment tests under MITRE SAF© are associated with NIST SP 800-53 Security Controls. Explore these
               associations in this Control Assessment Range table!</p>
           </div>
         </div>
@@ -25,19 +25,19 @@
     <Footer />
   </div>
 </template>
-  
+
 <script>
 export default {
   data() {
     return {
       categorizedData: {
-      'Cloud Service Providers': [],
-      'Virtual Platforms': [],
-      'Operating Systems': [],
-      'Databases': [],
-      'Network': [],
-      'Application Logic': [],
-      'Web Servers': [],
+        'Cloud Service Providers': [],
+        'Virtual Platforms': [],
+        'Operating Systems': [],
+        'Databases': [],
+        'Network': [],
+        'Application Logic': [],
+        'Web Servers': [],
       },
       guidanceData: [],
       validationData: [],
@@ -91,7 +91,7 @@ export default {
     },
     getValidationData() {
       for (let i = 0; i < this.guidanceData.length; i++) {
-        this.guidanceData[i].validation.forEach( (validate) => {
+        this.guidanceData[i].validation.forEach((validate) => {
           let temp = validate
           temp.category = this.guidanceData[i].category
           temp.version = this.guidanceData[i].version
@@ -99,12 +99,11 @@ export default {
           this.validationData.push(temp)
         })
       }
-      for(let i=0; i<this.validationData.length; i++) {
-        this.categorizedData[this.validationData[i].category.replaceAll('_', ' ')].push(this.validationData[i]) 
+      for (let i = 0; i < this.validationData.length; i++) {
+        this.categorizedData[this.validationData[i].category.replaceAll('_', ' ')].push(this.validationData[i])
       }
     },
   }
 }
 </script>
-    
   

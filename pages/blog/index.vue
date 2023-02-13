@@ -19,37 +19,33 @@
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      posts: [],
-    };
-  },
-  mounted() {
-    this.$nextTick(async () => {
-      await this.getBlogPosts()
+<script setup>
+import { ref, onMounted, nextTick } from 'vue';
+
+////  Data  ////
+const posts = ref([])
+
+////  Methods  ////
+const getBlogPosts = async () => {
+  posts.value = await useAsyncData('getAllBlogData', () => GqlBlogPosts())
+    .then(({ data }) => {
+      return data._value.blogPosts.data.map((post) => ({
+        title: post.attributes.title,
+        description: post.attributes.description,
+        category: { name: post.attributes.category },
+        author: post.attributes.users_permissions_user.data.attributes.name,
+        date: post.attributes.date,
+        id: post.id,
+        content: post.attributes.content
+      }))
     });
-  },
-  methods: {
-    async getBlogPosts() {
-      this.posts = await useAsyncData('getAllBlogData', () => GqlBlogPosts())
-        .then(({ data }) => {
-          return data._value.blogPosts.data.map((post) => ({
-            title: post.attributes.title,
-            description: post.attributes.description,
-            category: { name: post.attributes.category },
-            author: post.attributes.users_permissions_user.data.attributes.name,
-            date: post.attributes.date,
-            id: post.id,
-            content: post.attributes.content
-          }))
-        });
-    },
-  }
 }
+
+////  Lifecycle  ////
+onMounted(async () => {
+  await nextTick(async () => {
+    await getBlogPosts()
+  });
+});
+
 </script>
-
-
-
-

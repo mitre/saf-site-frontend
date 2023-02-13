@@ -51,7 +51,7 @@
                 <span>Toolkit</span>
                 <ChevronDownIcon :class="[
                   open ? 'text-gray-900 dark:text-gray-400'
-                    : 'text-gray-400 dark:text-gray-400',
+                    : '',
                   toolkit.some(e => e.href === route.fullPath) ? 'text-sky-500' : 'text-gray-600 dark:text-gray-400',
                   'ml-2 h-5 w-5 group-hover:text-gray-900 dark:group-hover:text-gray-200'
                 ]" aria-hidden="true" />
@@ -94,22 +94,6 @@
             ]">
               {{ item.name }}
             </NuxtLink>
-            <!-- 
-            <NuxtLink to="/blog" :class="['text-base font-medium  hover:text-gray-900 dark:hover:text-gray-200',
-              route.fullPath == '/blog'
-                ? 'text-sky-500'
-                : 'text-gray-600 dark:text-gray-400'
-            ]">
-              Blog
-            </NuxtLink>
-
-            <NuxtLink to="/docs" :class="['text-base font-medium hover:text-gray-900 dark:hover:text-gray-200',
-              route.fullPath == '/docs'
-                ? 'text-sky-500'
-                : 'text-gray-600 dark:text-gray-400'
-            ]">
-              Docs
-            </NuxtLink> -->
 
             <Popover class="relative" v-slot="{ open }">
               <PopoverButton :class="[

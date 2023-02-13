@@ -5,7 +5,7 @@
       <div v-if="isLoaded">
         <div class="sm:flex sm:items-center">
           <div class="sm:flex-auto">
-            <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-50 text-center"><strong>{{ pageTitle }}</strong>
+            <h1 class="text-4xl font-bold text-gray-900 dark:text-gray-50 text-center"><strong>{{ pageTitle }}</strong>
             </h1>
             <div
               class="mt-8 mb-6 max-w-5xl mx-auto leading-8 text-left prose prose-sm lg:prose-lg dark:prose-invert dark:text-dark-text prose-li:text-start prose-code:text-start"

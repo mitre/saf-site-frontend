@@ -87,6 +87,14 @@
               </transition>
             </Popover>
 
+            <NuxtLink v-for="item in navigation" :key="item.name" :to="item.href" :class="['text-base font-medium hover:text-gray-900 dark:hover:text-gray-200',
+              route.fullPath == '/docs'
+                ? 'text-sky-500'
+                : 'text-gray-600 dark:text-gray-400'
+            ]">
+              {{ item.name }}
+            </NuxtLink>
+            <!-- 
             <NuxtLink to="/blog" :class="['text-base font-medium  hover:text-gray-900 dark:hover:text-gray-200',
               route.fullPath == '/blog'
                 ? 'text-sky-500'
@@ -101,7 +109,7 @@
                 : 'text-gray-600 dark:text-gray-400'
             ]">
               Docs
-            </NuxtLink>
+            </NuxtLink> -->
 
             <Popover class="relative" v-slot="{ open }">
               <PopoverButton :class="[
@@ -318,7 +326,8 @@ import {
   DesktopComputerIcon,
   MoonIcon,
   SunIcon,
-  PencilAltIcon
+  PencilAltIcon,
+  PresentationChartBarIcon
 } from '@heroicons/vue/outline';
 import { AcademicCapIcon, BookOpenIcon, ChevronDownIcon, RssIcon } from '@heroicons/vue/solid';
 
@@ -377,6 +386,13 @@ const navigation = ref([
       'Learn more.',
     href: '/blog',
     icon: RssIcon
+  },
+  {
+    name: 'Getting Started',
+    description:
+      'Learn more.',
+    href: '/getting-started',
+    icon: PresentationChartBarIcon
   }
 ]);
 const resources = ref([

@@ -16,7 +16,6 @@ test('Hardening', async ({ page }) => {
 
   await expect(page.getByRole('cell', { name: 'AWS CIS Benchmark | v1.1.0' })).toBeVisible()
 
-  await page.getByText('AWS CIS Benchmark | v1.1.0' );
   await page.getByRole("button", {name: "view Details"}).click();
 
   await expect(page).toHaveURL('/toolkit/modal/aws-cis-benchmark?id=83')

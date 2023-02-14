@@ -41,17 +41,25 @@
                                 <span class="sr-only">Date</span>
                                 <CalendarIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
                               </dt>
-                              <dd>
+                              <dd v-if="schedule.date != null">
                                 <time :datetime="schedule.date"> {{ formatDate(schedule.date) }} at
                                   {{ formatTime(schedule.date) }} EST </time>
+                              </dd>
+                              <dd v-else>
+                                <p> TBD </p>
                               </dd>
                             </div>
                           </dl>
                         </div>
-                        <div class="right-2 top-0 pt-3">
+                        <div v-if="schedule.link != null" class="right-2 top-0 pt-3 flex-end">
                           <a type="button" :href="schedule.link" target="_blank"
                             class="inline-flex items-center rounded-full border border-transparent bg-blue-600 sm:px-3 sm:py-1.5 px-3 py-1.5 text-xs text-center font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Sign
                             Up</a>
+                        </div>
+                        <div v-else class="right-2 top-0 pt-3 flex-end">
+                          <a type="button"
+                            class="inline-flex items-center rounded-full border border-transparent bg-gray-400 sm:px-3 sm:py-1.5 px-3 py-1.5 text-xs text-center font-medium text-white shadow-sm"> Coming Soon!
+                          </a>
                         </div>
                       </li>
                     </ol>

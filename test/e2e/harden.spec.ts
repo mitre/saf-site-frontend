@@ -16,8 +16,8 @@ test('Hardening', async ({ page }) => {
 
   await expect(page.getByRole('cell', { name: 'AWS CIS Benchmark | v1.1.0' })).toBeVisible()
 
+  // Check modal
   await page.getByRole("button", {name: "view Details"}).click();
-
   await expect(page).toHaveURL('/toolkit/modal/aws-cis-benchmark?id=83')
   await expect(page.getByRole('heading', { level: 3, name: 'Guidance Overview' })).toBeVisible();
   await expect(page.getByText("AWS Foundations Benchmark")).toBeVisible();

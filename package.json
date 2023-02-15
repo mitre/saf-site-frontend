@@ -5,8 +5,10 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
+    "start": "yarn build && nuxt start",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix ./",
-    "format": "prettier . --ignore-path .gitignore  --write "
+    "format": "prettier . --ignore-path .gitignore  --write ",
+    "test:e2e": "yarn playwright test"
   },
   "dependencies": {
     "marked": "^4.1.0",

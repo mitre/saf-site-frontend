@@ -14,8 +14,9 @@ This repository contains the frontend source code for the upcoming new https://s
 
 1. [Fork repository](https://github.com/mitre/saf-site) and clone it locally
 2. Install project dependencies: `yarn install`
-3. For developing use: `yarn dev`
-4. For production use: `yarn build` and `yarn preview` 
+3. Install playwright dependencies with `npx playwright install`
+4. For developing use: `yarn dev`
+5. For production use: `yarn build` and `yarn preview` 
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://mitre-saf-v2.netlify.app/)
 

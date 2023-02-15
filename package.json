@@ -16,7 +16,7 @@
     "vue": "^3.2.36"
   },
   "devDependencies": {
-    "@headlessui/vue": "^1.6.4",
+    "@headlessui/vue": "^1.7.10",
     "@heroicons/vue": "^1.0.6",
     "@nuxtjs/strapi": "^1.5.0",
     "@playwright/test": "^1.29.2",

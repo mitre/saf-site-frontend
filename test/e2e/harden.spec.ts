@@ -39,5 +39,4 @@ test('Hardening', async ({ page }) => {
   await expect(page.getByText("https://github.com/mitre/chef-stig-windows-2012-v2r12-memberserver-hardening")).toBeVisible();
   await expect(page.getByText("https://github.com/mitre/microsoft-windows-2012r2-memberserver-stig-baseline")).toBeVisible();
   await page.goto('/toolkit/harden');
-  // TODO: Check more elements
 });

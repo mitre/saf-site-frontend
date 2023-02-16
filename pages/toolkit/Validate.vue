@@ -62,7 +62,7 @@ export default {
             category: guidance.attributes.category,
             source: guidance.attributes.source,
             date: guidance.attributes.date,
-            version: guidance.attributes.version,
+            version:  guidance.attributes.version.length != 0 ? guidance.attributes.version : 0,
             validation: guidance.attributes.validation.data.map((validate) => ({
               id: validate.id,
               name: validate.attributes.name,

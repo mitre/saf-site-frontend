@@ -60,7 +60,7 @@ export default {
             category: guidance.attributes.category,
             source: guidance.attributes.source,
             date: guidance.attributes.date,
-            version: guidance.attributes.version,
+            version:  guidance.attributes.version.length != 0 ? guidance.attributes.version : 0,
             hardening: guidance.attributes.hardening.data.map((harden) => ({
               id: harden.id,
               name: harden.attributes.name,

@@ -77,7 +77,8 @@
                     <tr
                       :class="[index % 2 === 0 ? 'bg-gray-50 dark:bg-gray-200' : 'bg-gray-100 dark:bg-gray-300', 'border-t']">
                       <td class="py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
-                        {{ entry.name }} | {{ entry.version[0].version }}
+                        <span v-if="entry.version != 0">{{ entry.name }}  |  {{ entry.version[0].version }} </span>
+                        <span v-else>{{ entry.name }}</span>
                         <!-- Mobile Stacked View -->
                         <dl class="font-normal xl:hidden">
                           <dt class="sr-only">Title</dt>
@@ -154,7 +155,7 @@
                           <button @click="" class="text-blue-600 hover:text-blue-900">View Details<span
                               class="sr-only">,
                               {{
-  entry.name
+                                entry.name
                               }}</span>
                           </button>
                         </NuxtLink>

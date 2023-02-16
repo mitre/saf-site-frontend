@@ -77,7 +77,7 @@
                     <tr
                       :class="[index % 2 === 0 ? 'bg-gray-50 dark:bg-gray-200' : 'bg-gray-100 dark:bg-gray-300', 'border-t']">
                       <td class="py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
-                        <span v-if="entry.version != 0">{{ entry.name }}  |  {{ entry.version[0].version }} </span>
+                        <span v-if="entry.version != 0">{{ entry.name }}  |  {{ entry.version }} </span>
                         <span v-else>{{ entry.name }}</span>
                         <!-- Mobile Stacked View -->
                         <dl class="font-normal xl:hidden">
@@ -230,7 +230,7 @@ export default {
           return entry.name.toLowerCase().indexOf(this.filter.toLowerCase()) >= 0 ||
             entry.platform.name.toLowerCase().indexOf(this.filter.toLowerCase()) >= 0 ||
             entry.partner.name.toLowerCase().indexOf(this.filter.toLowerCase()) >= 0 ||
-            entry.version[0].version.toLowerCase().indexOf(this.filter.toLowerCase()) >= 0;
+            entry.version != 0 && entry.version.toLowerCase().indexOf(this.filter.toLowerCase()) >= 0;
         })
       })
       return this.filteredData

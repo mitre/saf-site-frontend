@@ -21,7 +21,7 @@
             </div>
             <div class="bg-white dark:bg-gray-200 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
               <dt class="text-sm font-medium text-gray-500">Version</dt>
-              <dd v-if="guidance.version != 0" class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{ guidance.version[0].version }}</dd>
+              <dd v-if="guidance.version != 0" class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{ guidance.version }}</dd>
               <dd v-else class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0"> N/A </dd>
             </div>
             <div class="bg-gray-50 dark:bg-gray-300 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">

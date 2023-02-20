@@ -13,7 +13,7 @@
               If you are interested in new hardening baselines, please contact us at saf@groups.mitre.org .</p>
           </div>
         </div>
-        <ToolkitTable v-bind:entries="categorizedData" />
+        <FrameworkTable v-bind:entries="categorizedData" />
       </div>
       <div v-else class="grid h-screen place-items-center">
         <LoadingSpinner />

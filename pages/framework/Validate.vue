@@ -16,7 +16,7 @@
               associations in this Control Assessment Range table!</p>
           </div>
         </div>
-        <ToolkitTable v-bind:entries="categorizedData" />
+        <FrameworkTable v-bind:entries="categorizedData" />
       </div>
       <div v-else class="grid h-screen place-items-center">
         <LoadingSpinner />

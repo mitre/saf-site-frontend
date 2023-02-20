@@ -3,7 +3,7 @@
     <Header />
     <div class="relative bg-white dark:bg-dark-bg min-h-screen h-full pt-4 px-4 sm:px-6 lg:px-8 mb-8">
       <div v-if="isLoaded">
-       <ToolkitModal v-bind:guidance="guidance" />
+       <FrameworkModal v-bind:guidance="guidance" />
       </div>
       <div v-else>
        <p> Loading ...</p>

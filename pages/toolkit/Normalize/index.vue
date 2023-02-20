@@ -12,7 +12,7 @@
                             pageTitle
                         }}</strong>
                         </h1>
-                        <div class="mt-8 mb-6 max-w-5xl mx-auto leading-8 text-left prose prose-sm lg:prose-lg dark:prose-invert dark:text-dark-text prose-li:text-start prose-code:text-start prose-pre:w-full prose-pre:h-[500px]"
+                        <div class="mt-8 mb-6 max-w-7xl mx-auto leading-8 text-left prose prose-sm lg:prose-lg dark:prose-invert dark:text-dark-text prose-li:text-start prose-code:text-start prose-pre:w-full prose-pre:h-[500px]"
                             v-html="normalizeContent"></div>
 
                         <div class="bg-white py-10 sm:py-12">
@@ -28,8 +28,8 @@
                                             ullamcorper eu enim et fermentum, augue.</p>
                                         <div class="mt-8 flex items-center gap-x-6">
                                             <!-- <a href="#"
-                                                        class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Create
-                                                        account</a> -->
+                                                                        class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Create
+                                                                        account</a> -->
                                             <a href="https://saf-cli.mitre.org/#usage"
                                                 class="text-sm font-semibold text-gray-900">View More<span
                                                     aria-hidden="true">&rarr;</span></a>
@@ -45,8 +45,8 @@
                                             </div>
                                         </div>
                                         <!-- <img class="max-h-12 w-full object-contain object-left"
-                                                    src="https://tailwindui.com/img/logos/tuple-logo-gray-900.svg" alt="Tuple" width="105"
-                                                    height="48" /> -->
+                                                                    src="https://tailwindui.com/img/logos/tuple-logo-gray-900.svg" alt="Tuple" width="105"
+                                                                    height="48" /> -->
 
                                     </div>
 
@@ -68,8 +68,8 @@
                                             </div>
                                         </div>
                                         <!-- <img class="max-h-12 w-full object-contain object-left"
-                                                    src="https://tailwindui.com/img/logos/tuple-logo-gray-900.svg" alt="Tuple" width="105"
-                                                    height="48" /> -->
+                                                                    src="https://tailwindui.com/img/logos/tuple-logo-gray-900.svg" alt="Tuple" width="105"
+                                                                    height="48" /> -->
 
                                     </div>
 
@@ -84,8 +84,8 @@
                                             ullamcorper eu enim et fermentum, augue.</p>
                                         <div class="mt-8 flex items-center gap-x-6">
                                             <!-- <a href="#"
-                                                        class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Create
-                                                        account</a> -->
+                                                                        class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Create
+                                                                        account</a> -->
                                             <a href="https://saf-cli.mitre.org/#usage"
                                                 class="text-sm font-semibold text-gray-900">View More<span
                                                     aria-hidden="true">&rarr;</span></a>
@@ -97,7 +97,7 @@
                         </div>
 
 
-                        <div class="mt-8 mb-6 max-w-5xl mx-auto leading-8 text-left prose prose-sm lg:prose-lg dark:prose-invert dark:text-dark-text prose-li:text-start prose-code:text-start prose-pre:w-full prose-pre:h-[500px]"
+                        <div class="mt-8 mb-6 max-w-7xl mx-auto leading-8 text-left prose prose-sm lg:prose-lg dark:prose-invert dark:text-dark-text prose-li:text-start prose-code:text-start prose-pre:w-full prose-pre:h-[500px]"
                             v-html="normalizeContent2"></div>
 
                     </div>

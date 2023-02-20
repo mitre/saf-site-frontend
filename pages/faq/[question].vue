@@ -1,12 +1,17 @@
 <template>
   <div>
     <Header />
-    <ReadingPage :title="faq.questionNumber + '. ' + faq.question" :last-updated="faq.updated" :author="faq.author"
-      :is-loaded="isLoaded">
-      <div
-        class="mt-8 mx-auto leading-8 text-left prose prose-sm lg:prose-lg dark:prose-invert dark:text-dark-text prose-li:text-start prose-code:text-start"
-        v-html="answer"></div>
-    </ReadingPage>
+    <div v-if="isLoaded">
+      <ReadingPage :title="faq.questionNumber + '. ' + faq.question" :last-updated="faq.updated" :author="faq.author"
+        :is-loaded="isLoaded">
+        <div
+          class="mt-8 mx-auto leading-8 text-left prose prose-sm lg:prose-lg dark:prose-invert dark:text-dark-text prose-li:text-start prose-code:text-start"
+          v-html="answer"></div>
+      </ReadingPage>
+    </div>
+    <div v-else class="grid h-screen place-items-center">
+      <LoadingSpinner />
+    </div>
     <Footer />
   </div>
 </template>
@@ -37,6 +42,7 @@ const getFAQs = async () => {
     });
 }
 
+
 ////  Lifecycle  ////
 onMounted(async () => {
   await nextTick(async () => {
@@ -44,6 +50,8 @@ onMounted(async () => {
     isLoaded.value = true
   });
 });
+
+
 
 </script>
 

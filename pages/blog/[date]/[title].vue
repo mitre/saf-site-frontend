@@ -1,11 +1,16 @@
 <template>
   <div>
     <Header />
-    <ReadingPage :title="postData.title" :last-updated="postData.date" :author="postAuthor" :is-loaded="isLoaded">
-      <div
-        class="mt-8 mx-auto leading-8 text-left prose prose-sm lg:prose-lg dark:prose-invert dark:text-dark-text prose-li:text-start prose-code:text-start"
-        v-html="renderedContent"></div>
-    </ReadingPage>
+    <div v-if="isLoaded">
+      <ReadingPage :title="postData.title" :last-updated="postData.date" :author="postAuthor" :is-loaded="isLoaded">
+        <div
+          class="mt-8 mx-auto leading-8 text-left prose prose-sm lg:prose-lg dark:prose-invert dark:text-dark-text prose-li:text-start prose-code:text-start"
+          v-html="renderedContent"></div>
+      </ReadingPage>
+    </div>
+    <div v-else class="grid h-screen place-items-center">
+      <LoadingSpinner />
+    </div>
     <Footer />
   </div>
 </template>

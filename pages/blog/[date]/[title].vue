@@ -2,7 +2,7 @@
   <div>
     <Header />
     <div v-if="isLoaded">
-      <ReadingPage :title="postData.title" :last-updated="postData.date" :author="postAuthor" :is-loaded="isLoaded">
+      <ReadingPage :title="postData.title" :last-updated="postData.date" :author="postAuthor">
         <div
           class="mt-8 mx-auto leading-8 text-left prose prose-sm lg:prose-lg dark:prose-invert dark:text-dark-text prose-li:text-start prose-code:text-start"
           v-html="renderedContent"></div>

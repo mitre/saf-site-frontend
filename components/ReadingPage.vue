@@ -42,10 +42,6 @@ const props = defineProps({
     author: {
         type: String,
         required: true,
-    },
-    isLoaded: {
-        type: Boolean,
-        required: true,
     }
 });
 

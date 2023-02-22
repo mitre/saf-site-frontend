@@ -67,7 +67,7 @@
                     <div class="relative grid gap-6 bg-white dark:bg-dark-bg px-5 py-6 sm:gap-8 sm:p-8">
                       <NuxtLink v-for="item in framework" :key="item.name" :to="item.href" :class="[
                         '-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700',
-                        item.href == route.fullPath
+                        item.href.includes(route.fullPath + '/')
                           ? 'bg-gray-300 dark:bg-gray-700'
                           : 'text-gray-600 dark:text-gray-400'
                       ]">

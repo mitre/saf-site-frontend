@@ -31,6 +31,7 @@ export default {
     async getGuidance() {
       this.guidance = await useAsyncData('getGuidanceDataFromID', () => GqlGetGuidanceDataFromID({ id: this.$route.query.id }), { initialCache: false })
         .then(({ data }) => {
+          console.log(data)
           const guidance = data._value.guidance.data
           return {
             name: guidance.attributes.name,
@@ -39,7 +40,7 @@ export default {
             category: guidance.attributes.category,
             source: guidance.attributes.source,
             date: guidance.attributes.date,
-            version:  guidance.attributes.version.length != 0 ? guidance.attributes.version : 0,
+            version:  guidance.attributes.version.length != 0 ? guidance.attributes.version[0].version : 0,
             hardening: guidance.attributes.hardening.data ? guidance.attributes.hardening.data.map((harden) => ({
               id: harden.id,
               name: harden.attributes.name,

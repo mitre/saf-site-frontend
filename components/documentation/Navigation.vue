@@ -1,6 +1,7 @@
 <template>
     <!--TODO: Give functionality to quick search bar-->
     <div class="max-w-8xl z-50 mb-10 sticky top-0 mr-5 bg-white dark:bg-slate-900 relative pointer-events-auto">
+        <!-- TODO: Reinsert this code when adding search fucntionality in v2 -->
         <!-- <div class="h-10 w-100 bg-slate-50 dark:bg-dark-bg -ml-0.5"></div> -->
         <!-- <button type="button" class="w-full lg:flex items-center text-sm leading-6 text-slate-400 rounded-md ring-1 ring-slate-900/10 shadow-sm py-1.5 pl-2 pr-3 hover:ring-slate-300 dark:bg-slate-800 dark:highlight-white/5 dark:hover:bg-slate-700">
             <svg width="24" height="24" fill="none" aria-hidden="true" class="mr-3 flex-none inline"><path d="m19 19-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>

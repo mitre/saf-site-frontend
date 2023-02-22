@@ -125,8 +125,9 @@ const getNormalizeContent = async () => {
     await useAsyncData('getTextContentByPage', () => GqlGetTextContentByPage({ pageName: "Normalize" }), { initialCache: false })
         .then(({ data }) => {
             pageTitle.value = data._value.textContents.data[0].attributes.page
-            normalizeContent.value = data._value.textContents.data.find(item => item.name === "HDF Summary Info").attributes.text
-            normalizeContent2.value = data._value.textContents.data.find(item => item.name === "Inspec HDF Examples").attributes.text
+            normalizeContent.value = data._value.textContents.data.find(item => item.attributes.name === "HDF Summary Info").attributes.text
+            normalizeContent2.value = data._value.textContents.data.find(item => item.attributes.name === "Inspec HDF Examples").attributes.text
+
         });
 }
 

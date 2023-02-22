@@ -106,7 +106,7 @@
                                   <ExternalLinkIcon class="h-4 w-4" />
                                 </button>
                               </NuxtLink>
-                              <NuxtLink :to="`/framework/modal/${slugify(entry.name)}?id=${entry.benchmarkID}`">
+                              <NuxtLink :to="`/framework/guidance/${slugify(entry.name)}?id=${entry.benchmarkID}`">
                                 <button @click="" class="text-blue-600 hover:text-blue-900">View Details<span
                                     class="sr-only">,
                                     {{
@@ -151,7 +151,7 @@
                             <ExternalLinkIcon class="h-4 w-4" />
                           </button>
                         </NuxtLink>
-                        <NuxtLink :to="`/framework/modal/${slugify(entry.name)}?id=${entry.benchmarkID}`">
+                        <NuxtLink :to="`/framework/guidance/${slugify(entry.name)}?id=${entry.benchmarkID}`">
                           <button @click="" class="text-blue-600 hover:text-blue-900">View Details<span
                               class="sr-only">,
                               {{

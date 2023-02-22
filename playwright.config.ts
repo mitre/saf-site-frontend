@@ -109,10 +109,10 @@ const config: PlaywrightTestConfig = {
   // outputDir: 'test-results/',
 
   /* Run your local dev server before starting the tests */
-   webServer: {
-     command: 'yarn dev',   // TODO: Make this yarn start (figure out build/preview error)
-     url: 'http://localhost:3000'
-   },
+  //  webServer: {
+  //    command: 'yarn dev',   // TODO: Make this yarn start (figure out build/preview error)
+  //    url: 'http://localhost:3000'
+  //  },
 };
 
 export default config;

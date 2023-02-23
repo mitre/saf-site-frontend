@@ -4,7 +4,7 @@
         <div class="relative bg-white dark:bg-dark-bg max-w-8xl min-h-screen h-full pt-4 px-4 sm:px-6 lg:px-8">
             <div v-if="isLoaded">
                 <div class="mx-auto max-w-7xl text-center">
-                    <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{{ pageTitle }}</h2>
+                    <h2 class="text-3xl font-bold tracking-tight dark:text-gray-200 sm:text-4xl">{{ pageTitle }}</h2>
                     <div class="mt-8 mx-auto leading-8 text-left dark:text-dark-text" v-html="visualizeContent"></div>
 
                 </div>
@@ -22,12 +22,12 @@
                                 class="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:items-center lg:gap-x-8">
                                 <div
                                     :class="[featureIdx % 2 === 0 ? 'lg:col-start-1' : 'lg:col-start-8 xl:col-start-9', 'mt-6 lg:mt-0 lg:row-start-1 lg:col-span-5 xl:col-span-4']">
-                                    <h3 class="text-2xl font-bold">{{ feature.name }}</h3>
-                                    <p class="mt-2 text-lg">{{ feature.description }}</p>
+                                    <h3 class="text-2xl font-bold dark:text-gray-200">{{ feature.name }}</h3>
+                                    <p class="mt-2 text-lg dark:text-dark-text">{{ feature.description }}</p>
                                 </div>
                                 <div
                                     :class="[featureIdx % 2 === 0 ? 'lg:col-start-6 xl:col-start-5' : 'lg:col-start-1', 'flex-auto lg:row-start-1 lg:col-span-7 xl:col-span-8']">
-                                    <div class="aspect-w-5 aspect-h-2 overflow-hidden rounded-lg bg-gray-100">
+                                    <div class="aspect-w-5 aspect-h-2 overflow-hidden rounded-lg">
                                         <img :src="feature.imageSrc" :alt="feature.imageAlt"
                                             class="object-cover object-center" />
                                     </div>

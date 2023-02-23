@@ -21,11 +21,11 @@
                     <div class="py-10">
                         <div class="mx-auto max-w-7xl">
                             <div class="mb-5">
-                                <h2 class="text-3xl font-bold tracking-tight text-gray-900">Get Security Data From
+                                <h2 class="text-3xl font-bold tracking-tight dark:text-gray-100">Get Security Data From
                                     Multiple
                                     Sources
                                 </h2>
-                                <p class="mt-6 text-lg leading-8 text-gray-600">Lorem ipsum dolor sit amet,
+                                <p class="mt-6 text-lg leading-8 dark:text-dark-text">Lorem ipsum dolor sit amet,
                                     consectetur
                                     adipiscing elit. Et, egestas tempus tellus etiam sed. Quam a scelerisque amet
                                     ullamcorper eu enim et fermentum, augue.</p>
@@ -34,9 +34,10 @@
                                                                         class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Create
                                                                         account</a> -->
                                     <a href="https://saf-cli.mitre.org/#usage"
-                                        class="text-sm font-semibold text-gray-900">View More<span
+                                        class="text-sm font-semibold dark:text-gray-200">View More<span
                                             aria-hidden="true">&rarr;</span></a>
-                                    <a href="/toolkit/normalize/schemas" class="text-sm font-semibold text-gray-900">View
+                                    <a href="/toolkit/normalize/schemas"
+                                        class="text-sm font-semibold dark:text-gray-200">View
                                         Schemas<span aria-hidden="true">&rarr;</span></a>
                                 </div>
                             </div>
@@ -45,7 +46,7 @@
                                     class="w-[60px] h-[60px] md:w-[100px] md:h-[100px] object-contain object-center backdrop-opacity-10 backdrop-invert bg-white/30 p-2 rounded text-center">
                                     <span class="text-black opacity-100">HDF</span>
                                 </div>
-                                <ArrowDownIcon class="h-10 w-10 text-black my-4" />
+                                <ArrowDownIcon class="h-10 w-10 text-black dark:text-gray-200 my-4" />
                                 <div class="grid grid-cols-1 items-center">
                                     <div class="mx-auto grid w-full max-w-xl grid-cols-5 gap-4">
                                         <div v-for="element in toHDF">

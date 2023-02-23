@@ -8,7 +8,7 @@
                     <div class="mt-8 mx-auto leading-8 text-left dark:text-dark-text" v-html="visualizeContent"></div>
 
                 </div>
-                <div class="sm:flex sm:items-center mb-10">
+                <div class="sm:flex sm:items-center mb-10 max-w-7xl mx-auto">
                     <div class="sm:flex-auto">
                         <!-- <h1 class="text-4xl font-bold text-gray-900 dark:text-gray-50 text-center"><strong>{{
                             pageTitle

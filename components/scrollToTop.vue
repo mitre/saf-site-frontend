@@ -34,8 +34,10 @@ export default {
     //   }
     // },
     scrollToTop() {
+      console.log('Scroll to Top button clicked')
       window.focus();
       window.scrollTo({ top: 0,left: 0, behavior: "smooth" });
+      scrollTo({ top: 0,left: 0, behavior: "smooth" });
     },
   },
 }

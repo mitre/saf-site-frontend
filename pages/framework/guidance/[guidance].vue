@@ -5,8 +5,8 @@
       <div v-if="isLoaded">
        <FrameworkModal v-bind:guidance="guidance" />
       </div>
-      <div v-else>
-       <p> Loading ...</p>
+      <div v-else class="grid h-screen place-items-center">
+        <LoadingSpinner />
       </div>
     </div>
     <Footer />

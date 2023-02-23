@@ -62,7 +62,7 @@
             </div>
           </div>
         </div>
-        <div class="sm:flex md:h-[364px] h-full">
+        <div class="sm:flex md:max-h-96 h-full">
           <div class="flex-1 border-gray-200 border-r-2 dark:border-gray-500 overflow-y-scroll">
             <dl v-if="guidance.hardening != null" v-for="hardening in guidance.hardening">
               <div class="bg-white dark:bg-gray-200 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-3 sm:px-6">
@@ -106,7 +106,7 @@
               <div
                 class="bg-white dark:bg-gray-200 border-b-4 dark:border-gray-500 border-gray-200 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                 <dt class="flex items-center text-sm font-medium text-gray-500">Link</dt>
-                <a class="flex-0 break-all items-center mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 hover:text-blue-500 hover:underline"
+                <a class="flex break-all items-center mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 hover:text-blue-500 hover:underline"
                   target="_blank" :href="hardening.source">
                   {{ hardening.source }}
                   <ExternalLinkIcon class="h-5 w-5" />
@@ -165,10 +165,10 @@
               <div
                 class="bg-white dark:bg-gray-200 border-b-4 dark:border-gray-500 border-gray-200 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                 <dt class="flex items-center text-sm font-medium text-gray-500">Link</dt>
-                <a class="flex-0 break-all items-center mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 hover:text-blue-500 hover:underline"
+                <a class="flex break-all items-center mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 hover:text-blue-500 hover:underline"
                   target="_blank" :href="validation.source">
-                  {{ validation.source }}
-                  <ExternalLinkIcon class="h-5 w-5" />
+                  {{ validation.source }}  
+                  <ExternalLinkIcon class="h-5 w-5" /> 
                 </a>
               </div>
             </dl>

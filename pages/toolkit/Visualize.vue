@@ -3,14 +3,39 @@
         <Header />
         <div class="relative bg-white dark:bg-dark-bg max-w-8xl min-h-screen h-full pt-4 px-4 sm:px-6 lg:px-8">
             <div v-if="isLoaded">
-                <div class="sm:flex sm:items-center">
+                <div class="mx-auto max-w-7xl text-center">
+                    <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{{ pageTitle }}</h2>
+                    <div class="mt-8 mx-auto leading-8 text-left dark:text-dark-text" v-html="visualizeContent"></div>
+
+                </div>
+                <div class="sm:flex sm:items-center mb-10">
                     <div class="sm:flex-auto">
-                        <h1 class="text-4xl font-bold text-gray-900 dark:text-gray-50 text-center"><strong>{{
+                        <!-- <h1 class="text-4xl font-bold text-gray-900 dark:text-gray-50 text-center"><strong>{{
                             pageTitle
                         }}</strong>
                         </h1>
                         <div class="mt-8 mb-6 max-w-5xl mx-auto leading-8 text-left prose prose-sm lg:prose-lg dark:prose-invert dark:text-dark-text prose-li:text-start prose-code:text-start"
-                            v-html="visualizeContent"></div>
+                            v-html="visualizeContent"></div> -->
+
+                        <div class="mt-16 space-y-16">
+                            <div v-for="(feature, featureIdx) in features" :key="feature.name"
+                                class="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:items-center lg:gap-x-8">
+                                <div
+                                    :class="[featureIdx % 2 === 0 ? 'lg:col-start-1' : 'lg:col-start-8 xl:col-start-9', 'mt-6 lg:mt-0 lg:row-start-1 lg:col-span-5 xl:col-span-4']">
+                                    <h3 class="text-2xl font-bold">{{ feature.name }}</h3>
+                                    <p class="mt-2 text-lg">{{ feature.description }}</p>
+                                </div>
+                                <div
+                                    :class="[featureIdx % 2 === 0 ? 'lg:col-start-6 xl:col-start-5' : 'lg:col-start-1', 'flex-auto lg:row-start-1 lg:col-span-7 xl:col-span-8']">
+                                    <div class="aspect-w-5 aspect-h-2 overflow-hidden rounded-lg bg-gray-100">
+                                        <img :src="feature.imageSrc" :alt="feature.imageAlt"
+                                            class="object-cover object-center" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
                     </div>
                 </div>
             </div>
@@ -27,6 +52,29 @@
 const isLoaded = ref(false)
 const visualizeContent = ref("")
 const pageTitle = ref("")
+const features = [
+    {
+        name: 'Summary With Results',
+        description:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nisl tortor, convallis id quam sed, suscipit tempor lectus. Vestibulum congue ligula accumsan urna fringilla hendrerit. Cras id nisi elit. Nullam euismod risus id neque tristique, non tempus ex sodales. Mauris eu ullamcorper leo, ut pretium magna. Donec sit amet ultrices ex. Pellentesque euismod scelerisque neque. Aliquam erat volutpat. Donec fringilla rutrum mi, sed cursus leo accumsan ac. Duis id cursus ex. Sed maximus sapien erat, in cursus purus iaculis a. Integer lectus tortor, maximus eget arcu eget, vehicula mollis odio.',
+        imageSrc: 'https://res.cloudinary.com/the-mitre-corporation/image/upload/v1677105612/Heimdall_Summary_View_569781d578.jpg?updated_at=2023-02-22T22:40:13.064Z',
+        imageAlt: 'White canvas laptop sleeve with gray felt interior, silver zipper, and tan leather zipper pull.',
+    },
+    {
+        name: 'Comparison View',
+        description:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nisl tortor, convallis id quam sed, suscipit tempor lectus. Vestibulum congue ligula accumsan urna fringilla hendrerit. Cras id nisi elit. Nullam euismod risus id neque tristique, non tempus ex sodales. Mauris eu ullamcorper leo, ut pretium magna. Donec sit amet ultrices ex. Pellentesque euismod scelerisque neque. Aliquam erat volutpat. Donec fringilla rutrum mi, sed cursus leo accumsan ac. Duis id cursus ex. Sed maximus sapien erat, in cursus purus iaculis a. Integer lectus tortor, maximus eget arcu eget, vehicula mollis odio.',
+        imageSrc: 'https://res.cloudinary.com/the-mitre-corporation/image/upload/v1677105611/Heimdall_Compare_View_3a022b6c3c.jpg?updated_at=2023-02-22T22:40:12.421Z',
+        imageAlt: 'Detail of zipper pull with tan leather and silver rivet.',
+    },
+    {
+        name: 'Deep Dive of Failure',
+        description:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nisl tortor, convallis id quam sed, suscipit tempor lectus. Vestibulum congue ligula accumsan urna fringilla hendrerit. Cras id nisi elit. Nullam euismod risus id neque tristique, non tempus ex sodales. Mauris eu ullamcorper leo, ut pretium magna. Donec sit amet ultrices ex. Pellentesque euismod scelerisque neque. Aliquam erat volutpat. Donec fringilla rutrum mi, sed cursus leo accumsan ac. Duis id cursus ex. Sed maximus sapien erat, in cursus purus iaculis a. Integer lectus tortor, maximus eget arcu eget, vehicula mollis odio.',
+        imageSrc: 'https://res.cloudinary.com/the-mitre-corporation/image/upload/v1677105612/Heimdall_Fail_Details_ff384cbe3f.jpg?updated_at=2023-02-22T22:40:12.902Z',
+        imageAlt: 'Detail of zipper pull with tan leather and silver rivet.',
+    }
+]
 
 ////  Methods  ////
 const getVisualizeContent = async () => {

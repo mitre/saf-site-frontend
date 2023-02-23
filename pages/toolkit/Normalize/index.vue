@@ -36,11 +36,13 @@
                                     <a href="https://saf-cli.mitre.org/#usage"
                                         class="text-sm font-semibold text-gray-900">View More<span
                                             aria-hidden="true">&rarr;</span></a>
+                                    <a href="/toolkit/normalize/schemas" class="text-sm font-semibold text-gray-900">View
+                                        Schemas<span aria-hidden="true">&rarr;</span></a>
                                 </div>
                             </div>
                             <div class="flex flex-col items-center w-full">
                                 <div
-                                    class="w-[100px] h-[100px] object-contain object-center backdrop-opacity-10 backdrop-invert bg-white/30 p-2 rounded">
+                                    class="w-[60px] h-[60px] md:w-[100px] md:h-[100px] object-contain object-center backdrop-opacity-10 backdrop-invert bg-white/30 p-2 rounded text-center">
                                     <span class="text-black opacity-100">HDF</span>
                                 </div>
                                 <ArrowDownIcon class="h-10 w-10 text-black my-4" />
@@ -48,13 +50,14 @@
                                     <div class="mx-auto grid w-full max-w-xl grid-cols-5 gap-4">
                                         <div v-for="element in toHDF">
                                             <div
-                                                class="w-[100px] h-[100px] backdrop-opacity-10 backdrop-invert bg-white/30 p-2 rounded">
-                                                <span class="text-black opacity-100">{{ element.attributes.name }}</span>
+                                                class="w-[60px] h-[60px] md:w-[100px] md:h-[100px] backdrop-opacity-10 backdrop-invert bg-white/30 p-2 rounded text-center">
+                                                <span class="text-black opacity-100 object-fill">{{ element.attributes.name
+                                                }}</span>
                                             </div>
                                         </div>
                                         <!-- <img class="max-h-12 w-full object-contain object-left"
-                                                                    src="https://tailwindui.com/img/logos/tuple-logo-gray-900.svg" alt="Tuple" width="105"
-                                                                    height="48" /> -->
+                                                src="https://tailwindui.com/img/logos/tuple-logo-gray-900.svg" alt="Tuple" width="105"
+                                                height="48" /> -->
                                     </div>
                                 </div>
 

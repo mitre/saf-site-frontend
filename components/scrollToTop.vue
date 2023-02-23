@@ -1,5 +1,5 @@
 <template>
-  <div ref="scrollTopButton" @click="scrollToTop" class="hidden w-fit justify-end fixed right-0 bottom-0 pb-3 pr-2 transition">
+  <div ref="scrollTopButton" @click="scrollToTop" class="hidden w-fit justify-end fixed right-0 bottom-0 pb-3 pr-2">
     <button class="flex items-center" >
       <ArrowCircleUpIcon class="w-8 h-10 md:w-10 md:h-10 text-blue-500" />
     </button>

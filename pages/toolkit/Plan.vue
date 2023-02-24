@@ -47,25 +47,32 @@ const pageTitle = ref("")
 
 const features = [
     {
-        name: 'Test Title 1',
+        name: 'Develop Baselines in a User-Friendly Editing Window',
         description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nisl tortor, convallis id quam sed, suscipit tempor lectus. Vestibulum congue ligula accumsan urna fringilla hendrerit. Cras id nisi elit. Nullam euismod risus id neque tristique, non tempus ex sodales. Mauris eu ullamcorper leo, ut pretium magna. Donec sit amet ultrices ex. Pellentesque euismod scelerisque neque. Aliquam erat volutpat. Donec fringilla rutrum mi, sed cursus leo accumsan ac. Duis id cursus ex. Sed maximus sapien erat, in cursus purus iaculis a. Integer lectus tortor, maximus eget arcu eget, vehicula mollis odio.',
-        imageSrc: 'https://res.cloudinary.com/the-mitre-corporation/image/upload/v1677105612/Heimdall_Summary_View_569781d578.jpg?updated_at=2023-02-22T22:40:13.064Z',
-        imageAlt: 'White canvas laptop sleeve with gray felt interior, silver zipper, and tan leather zipper pull.',
+            'Construct your baselines in a simple but feature-rich editing view. Use Vulcan’s sorting and filtering features to quickly search through your controls.',
+        imageSrc: 'https://res.cloudinary.com/the-mitre-corporation/image/upload/v1677259283/Vulcan1_288f0e4073.png?updated_at=2023-02-24T17:21:24.991Z',
+        imageAlt: 'Change alt text',
     },
     {
-        name: 'Test Title 2',
+        name: 'Align Your Content Back To Source Guidance',
         description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nisl tortor, convallis id quam sed, suscipit tempor lectus. Vestibulum congue ligula accumsan urna fringilla hendrerit. Cras id nisi elit. Nullam euismod risus id neque tristique, non tempus ex sodales. Mauris eu ullamcorper leo, ut pretium magna. Donec sit amet ultrices ex. Pellentesque euismod scelerisque neque. Aliquam erat volutpat. Donec fringilla rutrum mi, sed cursus leo accumsan ac. Duis id cursus ex. Sed maximus sapien erat, in cursus purus iaculis a. Integer lectus tortor, maximus eget arcu eget, vehicula mollis odio.',
-        imageSrc: 'https://res.cloudinary.com/the-mitre-corporation/image/upload/v1677105611/Heimdall_Compare_View_3a022b6c3c.jpg?updated_at=2023-02-22T22:40:12.421Z',
-        imageAlt: 'Detail of zipper pull with tan leather and silver rivet.',
+            'Import your high-level requirements into Vulcan and use them as the direct template for your baseline content. Start with general guidance and tailor it to your component.',
+        imageSrc: 'https://res.cloudinary.com/the-mitre-corporation/image/upload/v1677259283/Vulcan2_023dc2c953.png?updated_at=2023-02-24T17:21:25.071Z',
+        imageAlt: 'Change alt text',
     },
     {
-        name: 'Test Title 3',
+        name: 'Streamline Baseline Creation In A Collaborative Environment',
         description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nisl tortor, convallis id quam sed, suscipit tempor lectus. Vestibulum congue ligula accumsan urna fringilla hendrerit. Cras id nisi elit. Nullam euismod risus id neque tristique, non tempus ex sodales. Mauris eu ullamcorper leo, ut pretium magna. Donec sit amet ultrices ex. Pellentesque euismod scelerisque neque. Aliquam erat volutpat. Donec fringilla rutrum mi, sed cursus leo accumsan ac. Duis id cursus ex. Sed maximus sapien erat, in cursus purus iaculis a. Integer lectus tortor, maximus eget arcu eget, vehicula mollis odio.',
-        imageSrc: 'https://res.cloudinary.com/the-mitre-corporation/image/upload/v1677105612/Heimdall_Fail_Details_ff384cbe3f.jpg?updated_at=2023-02-22T22:40:12.902Z',
-        imageAlt: 'Detail of zipper pull with tan leather and silver rivet.',
+            'Vulcan supports a distributed model of baseline development in which multiple authors collaborate to produce high-quality content. Use Vulcan’s change control, peer review and role-based permissions to keep all of your authors working from the same sheet of music. Avoid the mental overhead of managing your document versions manually.',
+        imageSrc: 'https://res.cloudinary.com/the-mitre-corporation/image/upload/v1677259284/Vulcan3_2df8781086.png?updated_at=2023-02-24T17:21:25.074Z',
+        imageAlt: 'Change alt text',
+    },
+    {
+        name: 'Develop Automated Tests For Your Content',
+        description:
+            'Vulcan includes an InSpec testing framework integration to allow authors to write automated tests alongside their human-readable baselines. Vulcan pre-populates the tests with metadata from the original baselines to keep your test profiles tightly bound to the guidance from which they were written.',
+        imageSrc: 'https://res.cloudinary.com/the-mitre-corporation/image/upload/v1677259283/Vulcan4_9c4a928692.png?updated_at=2023-02-24T17:21:24.771Z',
+        imageAlt: 'Change alt text',
     }
 ]
 

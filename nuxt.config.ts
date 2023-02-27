@@ -1,19 +1,19 @@
-import { defineNuxtConfig } from 'nuxt'
+import { defineNuxtConfig } from 'nuxt/config'
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
   build: {
-    postcss: {
-      postcssOptions: {
-        plugins: {
-          tailwindcss: {},
-          autoprefixer: {}
-        },
-      },
-    },
+    // postcss: {
+    //   postcssOptions: {
+    //     plugins: {
+    //       tailwindcss: {},
+    //       autoprefixer: {}
+    //     },
+    //   },
+    // },
   },
   css: ["~/assets/tailwind.css"],
-  modules: ['@nuxtjs/strapi', 'nuxt-graphql-client'],
+  modules: ['@nuxtjs/strapi', 'nuxt-graphql-client', '@nuxtjs/tailwindcss'],
   strapi: {
     // Options for strapi
     url: process.env.STRAPI_URL || 'https://saf-site-backend.herokuapp.com',

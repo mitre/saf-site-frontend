@@ -35,9 +35,8 @@
             </div>
             <div class="bg-gray-50 dark:bg-gray-300 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
               <dt class="text-sm font-medium text-gray-500">Url</dt>
-              <a class="flex items-center mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 hover:text-blue-500 hover:underline"
+              <a class="flex items-center after:content-['_↗'] mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 hover:text-blue-500 hover:underline"
                 target="_blank" :href="guidance.source">{{ guidance.source }}
-                <ExternalLinkIcon class="h-4 w-4" />
               </a>
             </div>
           </dl>
@@ -65,15 +64,15 @@
         <div class="sm:flex md:max-h-96 h-full">
           <div class="flex-1 border-gray-200 border-r-2 dark:border-gray-500 overflow-y-scroll">
             <dl v-if="guidance.hardening != null" v-for="hardening in guidance.hardening">
-              <div class="bg-white dark:bg-gray-200 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-3 sm:px-6">
+              <div class="bg-white dark:bg-gray-200 px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-3 sm:px-6">
                 <dt class="flex items-center text-sm font-medium text-gray-500">Name</dt>
                 <div class="flex items-center">
-                  <span class="mt-1 ml-3 text-sm text-gray-900  sm:col-span-2 sm:mt-0">
+                  <span class="mt-1 sm:ml-3 text-sm text-gray-900  sm:col-span-2 sm:mt-0">
                     {{ hardening.name }}
                   </span>
                 </div>
               </div>
-              <div class="bg-gray-50 dark:bg-gray-300 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+              <div class="bg-gray-50 dark:bg-gray-300 px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
                 <dt class="flex items-center text-sm font-medium text-gray-500">Platform</dt>
                 <div class="flex items-center">
                   <div class="h-10 w-10 flex-shrink-0">
@@ -84,7 +83,7 @@
                     target="_blank" :href="hardening.platform.link">{{ hardening.platform.name }}</a>
                 </div>
               </div>
-              <div class="bg-white dark:bg-gray-200 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+              <div class="bg-white dark:bg-gray-200 px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
                 <dt class="flex items-center text-sm font-medium text-gray-500">Partner</dt>
                 <div class="flex items-center">
                   <div class="h-10 w-10 flex-shrink-0">
@@ -95,21 +94,20 @@
                     target="_blank" :href="hardening.partner.link">{{ hardening.partner.name }}</a>
                 </div>
               </div>
-              <div class="bg-gray-50 dark:bg-gray-300 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-3 sm:px-6">
+              <div class="bg-gray-50 dark:bg-gray-300 px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-3 sm:px-6">
                 <dt class="flex items-center text-sm font-medium text-gray-500">Last Updated</dt>
                 <div class="flex items-center">
-                  <span class="mt-1 ml-3 text-sm text-gray-900  sm:col-span-2 sm:mt-0">
+                  <span class="mt-1 sm:ml-3 text-sm text-gray-900  sm:col-span-2 sm:mt-0">
                     {{ hardening.last_update }}
                   </span>
                 </div>
               </div>
               <div
-                class="bg-white dark:bg-gray-200 border-b-4 dark:border-gray-500 border-gray-200 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                class="bg-white dark:bg-gray-200 border-b-4 dark:border-gray-500 border-gray-200 px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
                 <dt class="flex items-center text-sm font-medium text-gray-500">Link</dt>
-                <a class="flex break-all items-center mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 hover:text-blue-500 hover:underline"
+                <a class="inline-block break-all after:content-['_↗'] items-center mt-1 text-sm text-gray-900 sm:col-span-1 sm:mt-0 hover:text-blue-500 hover:underline"
                   target="_blank" :href="hardening.source">
                   {{ hardening.source }}
-                  <ExternalLinkIcon class="h-5 w-5" />
                 </a>
               </div>
             </dl>
@@ -124,15 +122,15 @@
               </div>
             </div>
             <dl v-if="guidance.validation != null" v-for="validation in guidance.validation" class="border-gray-200 border-r-2 dark:border-gray-500 overflow-y-scroll">
-              <div class="bg-white dark:bg-gray-200 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+              <div class="bg-white dark:bg-gray-200 px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
                 <dt class="flex items-center text-sm font-medium text-gray-500">Name</dt>
                 <div class="flex items-center">
-                  <span class="mt-1 ml-3 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                  <span class="mt-1 sm:ml-3 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
                     {{ validation.name }}
                   </span>
                 </div>
               </div>
-              <div class="bg-gray-50 dark:bg-gray-300 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+              <div class="bg-gray-50 dark:bg-gray-300 px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
                 <dt class="flex items-center text-sm font-medium text-gray-500">Platform</dt>
                 <div class="flex items-center">
                   <div class="h-10 w-10 flex-shrink-0">
@@ -143,7 +141,7 @@
                     target="_blank" :href="validation.platform.link">{{ validation.platform.name }}</a>
                 </div>
               </div>
-              <div class="bg-white dark:bg-gray-200 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+              <div class="bg-white dark:bg-gray-200 px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
                 <dt class="flex items-center text-sm font-medium text-gray-500">Partner</dt>
                 <div class="flex items-center">
                   <div class="h-10 w-10 flex-shrink-0">
@@ -154,21 +152,20 @@
                     target="_blank" :href="validation.partner.link">{{ validation.partner.name }}</a>
                 </div>
               </div>
-              <div class="bg-gray-50 dark:bg-gray-300 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-3 sm:px-6">
+              <div class="bg-gray-50 dark:bg-gray-300 px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-3 sm:px-6">
                 <dt class="flex items-center text-sm font-medium text-gray-500">Last Updated</dt>
                 <div class="flex items-center">
-                  <span class="mt-1 ml-3 text-sm text-gray-900  sm:col-span-2 sm:mt-0">
+                  <span class="mt-1 sm:ml-3 text-sm text-gray-900  sm:col-span-2 sm:mt-0">
                     {{ validation.last_update }}
                   </span>
                 </div>
               </div>
               <div
-                class="bg-white dark:bg-gray-200 border-b-4 dark:border-gray-500 border-gray-200 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                class="bg-white dark:bg-gray-200 border-b-4 dark:border-gray-500 border-gray-200 px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
                 <dt class="flex items-center text-sm font-medium text-gray-500">Link</dt>
-                <a class="flex break-all items-center mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 hover:text-blue-500 hover:underline"
+                <a class="inline-block break-all after:content-['_↗'] items-center mt-1 text-sm text-gray-900 sm:col-span-1 sm:mt-0 hover:text-blue-500 hover:underline"
                   target="_blank" :href="validation.source">
-                  {{ validation.source }}  
-                  <ExternalLinkIcon class="h-5 w-5" /> 
+                  {{ validation.source }}
                 </a>
               </div>
             </dl>
@@ -180,9 +177,7 @@
 </template>
   
 <script>
-import { PaperClipIcon, ExternalLinkIcon } from '@heroicons/vue/solid'
 export default {
-  components: { PaperClipIcon, ExternalLinkIcon },
   props: {
     guidance: {
       type: Object,

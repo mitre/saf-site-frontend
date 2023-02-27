@@ -1,4 +1,5 @@
 <template>
+  <ScrollToTop />
   <div class="px-4 sm:px-6 lg:px-8">
     <div class="my-8 flex flex-col">
       <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">

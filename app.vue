@@ -4,7 +4,6 @@
       <NuxtLoadingIndicator />
       <!-- <NuxtLoadingBar :duration="1000" /> -->
       <NuxtPage />
-      <scrollToTop />
     </NuxtLayout>
   </div>
 </template> 

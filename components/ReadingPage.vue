@@ -1,12 +1,10 @@
 <template>
     <div class="relative py-16 bg-white dark:bg-dark-bg overflow-hidden min-h-screen h-full">
+        <ScrollToTop />
         <div
-            class="absolute inset-0 bg-[url(/assets/grid.svg)] bg-top [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]">
-        </div>
-        <div
-            class="relative w-full bg-white dark:bg-gray-800 px-6 py-12 shadow-2xl shadow-slate-700/10 ring-1 ring-gray-900/5 md:mx-auto md:max-w-3xl lg:max-w-4xl lg:pt-16 lg:pb-28">
+            class="relative w-full bg-white dark:bg-gray-800 px-6 py-12 shadow-2xl shadow-slate-700/10 dark:shadow-gray-600 ring-1 ring-gray-900/5 dark:ring-gray-700 md:mx-auto md:max-w-3xl lg:max-w-4xl lg:pt-16 lg:pb-28">
             <div class="relative px-4 sm:px-6 lg:px-8">
-                <div v-if="isLoaded" class="text-lg prose prose-lg max-w-prose mx-auto ">
+                <div class="text-lg prose prose-lg max-w-prose mx-auto ">
                     <h1>
                         <span
                             class="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 dark:text-MITRE-silver sm:text-4xl">
@@ -22,9 +20,6 @@
                         </span>
                     </h1>
                     <slot> <!-- The body of the reading page goes here --></slot>
-                </div>
-                <div v-else class="text-lg prose prose-lg max-w-prose mx-auto ">
-                    <Loading />
                 </div>
             </div>
         </div>
@@ -44,10 +39,6 @@ const props = defineProps({
     },
     author: {
         type: String,
-        required: true,
-    },
-    isLoaded: {
-        type: Boolean,
         required: true,
     }
 });

@@ -1,4 +1,5 @@
 <template>
+    <ScrollToTop />
 
     <article class="pt-6 lg:pt-0">
         <h1 class="text-5xl font-bold text-gray-900 border-b border-slate-400 pb-4 mb-6 dark:text-slate-200 text-center">{{props.currentSubsection}}</h1>

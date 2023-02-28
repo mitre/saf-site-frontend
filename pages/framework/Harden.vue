@@ -13,10 +13,10 @@
               If you are interested in new hardening baselines, please contact us at saf@groups.mitre.org .</p>
           </div>
         </div>
-        <ToolkitTable v-bind:entries="categorizedData" />
+        <FrameworkTable v-bind:entries="categorizedData" />
       </div>
-      <div v-else>
-        <p> Loading ... </p>
+      <div v-else class="grid h-screen place-items-center">
+        <LoadingSpinner />
       </div>
     </div>
     <Footer />
@@ -60,7 +60,7 @@ export default {
             category: guidance.attributes.category,
             source: guidance.attributes.source,
             date: guidance.attributes.date,
-            version: guidance.attributes.version,
+            version:  guidance.attributes.version.length != 0 ? guidance.attributes.version[0].version : 0,
             hardening: guidance.attributes.hardening.data.map((harden) => ({
               id: harden.id,
               name: harden.attributes.name,

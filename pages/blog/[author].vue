@@ -83,10 +83,9 @@
         <!-- Blog Cards -->
         <BlogPostCards v-bind:posts="posts" />
       </template>
-      <template v-else class="min-h-screen h-full ">
-        <h1 class="mt-2 block text-2xl sm:text-3xl leading-8 font-extrabold tracking-tight text-black dark:text-white">
-          Loading...</h1>
-      </template>
+      <div v-else class="grid h-screen place-items-center">
+        <LoadingSpinner />
+      </div>
     </div>
     <Footer />
   </div>

@@ -20,10 +20,10 @@
                   details, materials, and recordings below.</p>
                 <div class="flex gap-8">
                   <a href="https://mitre.github.io/saf-training/" class="hover:underline">
-                    <p class="mt-4 text-blue-500"> SAF Training Site - GitHub</p>
+                    <p class="mt-4 text-blue-500 after:content-['_↗']"> SAF Training Site - GitHub</p>
                   </a>
                   <a href="https://mitre-saf-training.netlify.app/" class="hover:underline">
-                    <p class="mt-4 text-blue-500"> SAF Training Site - Netlify</p>
+                    <p class="mt-4 text-blue-500 after:content-['_↗']"> SAF Training Site - Netlify</p>
                   </a>
                 </div>
               </div>
@@ -74,22 +74,24 @@
               <div id="Embeded Videos" class="flex-1 order-1 pt-9">
                 <h2
                   class="block text-3xl leading-8 font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl pt-4 sm:pl-4">
-                  Courses </h2>
+                  Classes </h2>
                 <hr class="mt-4 w-full" />
-                <div v-if="courses.length" v-for="course in courses" :key="course.index">
-                  <div class="sm:pl-4 mt-7 max-w-xl">
-                    <p class="text-2xl font-semibold text-gray-900 dark:text-MITRE-silver">
-                      {{ course.name }}
-                    </p>
-                    <div
-                      class="max-w-3xl mt-8 mb-8 leading-8 text-left prose prose-md lg:prose-lg dark:prose-invert dark:text-dark-text prose-li:text-start prose-code:text-start"
-                      v-html="course.description">
+                <div v-if="courses.length">
+                  <div v-for="course in courses" :key="course.index">
+                    <div class="sm:pl-4 mt-7 max-w-xl">
+                      <p class="text-2xl font-semibold text-gray-900 dark:text-MITRE-silver">
+                        {{ course.name }}
+                      </p>
+                      <div
+                        class="max-w-3xl mt-8 mb-8 leading-8 text-left prose prose-md lg:prose-lg dark:prose-invert dark:text-dark-text prose-li:text-start prose-code:text-start"
+                        v-html="course.description">
+                      </div>
                     </div>
                   </div>
                   <hr class="mt-4 w-full" />
                 </div>
                 <div v-else>
-                  <p class="relative max-w-sm mt-6 pl-2 dark:text-dark-text"> Courses are being updated. Check back
+                  <p class="relative max-w-sm mt-6 pl-2 dark:text-dark-text"> Classes are being updated. Check back
                     later!
                   </p>
                 </div>

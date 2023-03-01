@@ -87,8 +87,8 @@
                         v-html="course.description">
                       </div>
                     </div>
-                    <hr class="mt-4 w-full" />
                   </div>
+                  <hr class="mt-4 w-full" />
                 </div>
                 <div v-else>
                   <p class="relative max-w-sm mt-6 pl-2 dark:text-dark-text"> Classes are being updated. Check back

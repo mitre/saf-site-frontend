@@ -2,7 +2,7 @@
   <div class="bg-white">
     <div class="mx-auto max-w-7xl py-12 px-6 lg:py-16 lg:px-8">
       <div class="lg:grid lg:grid-cols-2 lg:items-center lg:gap-8">
-        <div>
+        <div v-if=left>
           <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{{ partners_h2 }}</h2>
           <p class="mt-3 max-w-3xl text-lg text-gray-500">{{ partners_desc }}</p>
         </div>
@@ -12,6 +12,10 @@
               <img class="max-h-12" :src="partner.icon" :alt="partner.name" />
             </a>
           </div>
+        </div>
+        <div v-if=!left>
+          <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{{ partners_h2 }}</h2>
+          <p class="mt-3 max-w-3xl text-lg text-gray-500">{{ partners_desc }}</p>
         </div>
       </div>
     </div>

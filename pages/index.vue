@@ -1,6 +1,6 @@
 <template>
   <Header />
-  <main class="my-16 mx-auto max-w-7xl px-4 sm:mt-24">
+  <main class="my-16 mx-auto sm:mt-24">
     <div class="text-center my-16">
       <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
         <!-- <span class="block xl:inline">MITRE</span>
@@ -17,11 +17,18 @@
         </div>
       </div>
     </div>
+    <Hero />
     <Capabilities />
-    <WhenToUseIt :stages="stages" />
+    <!-- <WhenToUseIt :stages="stages" /> -->
     <Partners 
       :partners="vendors"
-      partners_h2="H2!"
+      partners_h2="Partners"
+      partners_desc="foobar"
+      left=true
+    />
+    <Partners 
+      :partners="sponsors"
+      partners_h2="Sponsors"
       partners_desc="foobar"
     />
   </main>

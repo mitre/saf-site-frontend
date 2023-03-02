@@ -24,7 +24,7 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      GQL_HOST: 'https://saf-site-backend.herokuapp.com/graphql' //'http://localhost:1337/graphql'  //'https://saf-site-backend.herokuapp.com/graphql' // overwritten by process.env.GQL_HOST
+      GQL_HOST: 'https://saf-site-backend.herokuapp.com/graphql' // overwritten by process.env.GQL_HOST
     }
   }
 })

@@ -4,12 +4,12 @@
         <div class="relative bg-white dark:bg-dark-bg max-w-8xl min-h-screen h-full pt-4 px-4 sm:px-6 lg:px-8">
             <div v-if="isLoaded">
                 <div class="grid grid-cols-2 gap-4">
-                    <div v-if="schemaContent" v-for="schema in schemaContent" class="flex flex-col">
+                    <div v-if="schemaContent" v-for="schema in schemaContent" class="flex flex-col h-screen">
                         <h1 class="text-2xl font-bold text-gray-900 dark:text-gray-50 text-center mb-2"><strong>{{
                             schema.attributes.name
                         }}</strong>
                         </h1>
-                        <json-viewer :value="schema.attributes.json" :expand-depth=5 copyable boxed sort></json-viewer>
+                        <json-viewer :value="schema.attributes.json" :expand-depth=10 copyable boxed sort></json-viewer>
                     </div>
                 </div>
             </div>

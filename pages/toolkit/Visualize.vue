@@ -54,24 +54,31 @@ const visualizeContent = ref("")
 const pageTitle = ref("")
 const features = [
     {
-        name: 'Summary With Results',
+        name: 'Visualize Your Secrity Posture',
         description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nisl tortor, convallis id quam sed, suscipit tempor lectus. Vestibulum congue ligula accumsan urna fringilla hendrerit. Cras id nisi elit. Nullam euismod risus id neque tristique, non tempus ex sodales. Mauris eu ullamcorper leo, ut pretium magna. Donec sit amet ultrices ex. Pellentesque euismod scelerisque neque. Aliquam erat volutpat. Donec fringilla rutrum mi, sed cursus leo accumsan ac. Duis id cursus ex. Sed maximus sapien erat, in cursus purus iaculis a. Integer lectus tortor, maximus eget arcu eget, vehicula mollis odio.',
-        imageSrc: 'https://res.cloudinary.com/the-mitre-corporation/image/upload/v1677105612/Heimdall_Summary_View_569781d578.jpg?updated_at=2023-02-22T22:40:13.064Z',
+            'Load data into Heimdall for easy sorting, filtering, and summarizing of your security results. Focus on information relevant to security assessments.',
+        imageSrc: 'https://res.cloudinary.com/the-mitre-corporation/image/upload/v1677782131/Heimdall1_55997cad8d.png?updated_at=2023-03-02T18:35:33.118Z',
         imageAlt: 'White canvas laptop sleeve with gray felt interior, silver zipper, and tan leather zipper pull.',
     },
     {
-        name: 'Comparison View',
+        name: 'Aggregate Your Security Data',
         description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nisl tortor, convallis id quam sed, suscipit tempor lectus. Vestibulum congue ligula accumsan urna fringilla hendrerit. Cras id nisi elit. Nullam euismod risus id neque tristique, non tempus ex sodales. Mauris eu ullamcorper leo, ut pretium magna. Donec sit amet ultrices ex. Pellentesque euismod scelerisque neque. Aliquam erat volutpat. Donec fringilla rutrum mi, sed cursus leo accumsan ac. Duis id cursus ex. Sed maximus sapien erat, in cursus purus iaculis a. Integer lectus tortor, maximus eget arcu eget, vehicula mollis odio.',
-        imageSrc: 'https://res.cloudinary.com/the-mitre-corporation/image/upload/v1677105611/Heimdall_Compare_View_3a022b6c3c.jpg?updated_at=2023-02-22T22:40:12.421Z',
+            'Heimdall automatically converts input security data into a common format (OASIS Heimdall Data Format). Unite all of your security scan output under a single pane of glass. Export your aggregated data into a multitude of common formats supporting assessments.',
+        imageSrc: 'https://res.cloudinary.com/the-mitre-corporation/image/upload/v1677782131/Heimdall2_b64b243c12.png?updated_at=2023-03-02T18:35:32.869Z',
         imageAlt: 'Detail of zipper pull with tan leather and silver rivet.',
     },
     {
-        name: 'Deep Dive of Failure',
+        name: 'Deep Dive Into Your Data',
         description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nisl tortor, convallis id quam sed, suscipit tempor lectus. Vestibulum congue ligula accumsan urna fringilla hendrerit. Cras id nisi elit. Nullam euismod risus id neque tristique, non tempus ex sodales. Mauris eu ullamcorper leo, ut pretium magna. Donec sit amet ultrices ex. Pellentesque euismod scelerisque neque. Aliquam erat volutpat. Donec fringilla rutrum mi, sed cursus leo accumsan ac. Duis id cursus ex. Sed maximus sapien erat, in cursus purus iaculis a. Integer lectus tortor, maximus eget arcu eget, vehicula mollis odio.',
-        imageSrc: 'https://res.cloudinary.com/the-mitre-corporation/image/upload/v1677105612/Heimdall_Fail_Details_ff384cbe3f.jpg?updated_at=2023-02-22T22:40:12.902Z',
+            'Use Heimdall to examine each control in your test suite in detail. Determine root causes of failures and see the exact test code that led to each result.',
+        imageSrc: 'https://res.cloudinary.com/the-mitre-corporation/image/upload/v1677782130/Heimdall3_a5621163a6.png?updated_at=2023-03-02T18:35:32.348Z',
+        imageAlt: 'Detail of zipper pull with tan leather and silver rivet.',
+    },
+    {
+        name: 'Prove Security Over Time',
+        description:
+            'Heimdall’s comparison view shows the delta between two test runs. Tell at a glance if your security posture is improving or needs attention.',
+        imageSrc: 'https://res.cloudinary.com/the-mitre-corporation/image/upload/v1677782130/Heimdall4_e780629f96.png?updated_at=2023-03-02T18:35:32.653Z',
         imageAlt: 'Detail of zipper pull with tan leather and silver rivet.',
     }
 ]

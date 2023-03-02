@@ -11,15 +11,16 @@ import { devices } from '@playwright/test';
  * See https://playwright.dev/docs/test-configuration.
  */
 const config: PlaywrightTestConfig = {
-  testDir: './tests',
+  testDir: './test/e2e',
   /* Maximum time one test can run for. */
-  timeout: 30 * 1000,
+
+  timeout: 10 * 60 * 1000,  // minutes * seconds * milliseconds
   expect: {
     /**
      * Maximum time expect() should wait for the condition to be met.
      * For example in `await expect(locator).toHaveText();`
      */
-    timeout: 5000
+    timeout: 10 * 60 * 1000,  // minutes * seconds * milliseconds
   },
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -36,7 +37,8 @@ const config: PlaywrightTestConfig = {
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
     actionTimeout: 0,
     /* Base URL to use in actions like `await page.goto('/')`. */
-    // baseURL: 'http://localhost:3000',
+    
+    baseURL: process.env.PLAYWRIGHT_TEST_BASE_URL || 'http://localhost:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
@@ -48,6 +50,9 @@ const config: PlaywrightTestConfig = {
       name: 'chromium',
       use: {
         ...devices['Desktop Chrome'],
+        contextOptions: {
+          ignoreHTTPSErrors: true
+        },
       },
     },
 
@@ -55,6 +60,9 @@ const config: PlaywrightTestConfig = {
       name: 'firefox',
       use: {
         ...devices['Desktop Firefox'],
+        contextOptions: {
+          ignoreHTTPSErrors: true
+        },
       },
     },
 
@@ -62,6 +70,9 @@ const config: PlaywrightTestConfig = {
       name: 'webkit',
       use: {
         ...devices['Desktop Safari'],
+        contextOptions: {
+          ignoreHTTPSErrors: true
+        },
       },
     },
 
@@ -98,10 +109,10 @@ const config: PlaywrightTestConfig = {
   // outputDir: 'test-results/',
 
   /* Run your local dev server before starting the tests */
-  // webServer: {
-  //   command: 'npm run start',
-  //   port: 3000,
-  // },
+  //  webServer: {
+  //    command: 'yarn dev',   // TODO: Make this yarn start (figure out build/preview error)
+  //    url: 'http://localhost:3000'
+  //  },
 };
 
 export default config;

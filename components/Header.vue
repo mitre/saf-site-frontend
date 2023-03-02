@@ -45,29 +45,28 @@
                 open
                   ? 'text-gray-900 dark:text-gray-400'
                   : '',
-                toolkit.some(e => e.href === route.fullPath) ? 'text-sky-500' : 'text-gray-600 dark:text-gray-400',
+                framework.some(e => e.href === route.fullPath) ? 'text-sky-500' : 'text-gray-600 dark:text-gray-400',
                 'group bg-white dark:bg-dark-bg rounded-md inline-flex items-center text-base font-medium  hover:text-gray-900 dark:hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
               ]">
-                <span>Toolkit</span>
+                <span>Framework</span>
                 <ChevronDownIcon :class="[
                   open ? 'text-gray-900 dark:text-gray-400'
                     : '',
-                  toolkit.some(e => e.href === route.fullPath) ? 'text-sky-500' : 'text-gray-600 dark:text-gray-400',
+                  framework.some(e => e.href === route.fullPath) ? 'text-sky-500' : 'text-gray-600 dark:text-gray-400',
                   'ml-2 h-5 w-5 group-hover:text-gray-900 dark:group-hover:text-gray-200'
                 ]" aria-hidden="true" />
               </PopoverButton>
 
-              <transition enter-active-class="transition ease-out duration-200"
-                enter-from-class="opacity-0 translate-y-1" enter-to-class="opacity-100 translate-y-0"
-                leave-active-class="transition ease-in duration-150" leave-from-class="opacity-100 translate-y-0"
-                leave-to-class="opacity-0 translate-y-1">
+              <transition enter-active-class="transition ease-out duration-200" enter-from-class="opacity-0 translate-y-1"
+                enter-to-class="opacity-100 translate-y-0" leave-active-class="transition ease-in duration-150"
+                leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 translate-y-1">
                 <PopoverPanel
                   class="absolute z-10 -ml-4 mt-3 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2">
                   <div class="rounded-lg shadow-lg ring-1 ring-black dark:ring-gray-500 ring-opacity-5 overflow-hidden">
                     <div class="relative grid gap-6 bg-white dark:bg-dark-bg px-5 py-6 sm:gap-8 sm:p-8">
-                      <NuxtLink v-for="item in toolkit" :key="item.name" :to="item.href" :class="[
+                      <NuxtLink v-for="item in framework" :key="item.name" :to="item.href" :class="[
                         '-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700',
-                        item.href == route.fullPath
+                        item.href.includes(route.fullPath + '/')
                           ? 'bg-gray-300 dark:bg-gray-700'
                           : 'text-gray-600 dark:text-gray-400'
                       ]">
@@ -112,10 +111,9 @@
                 ]" aria-hidden="true" />
               </PopoverButton>
 
-              <transition enter-active-class="transition ease-out duration-200"
-                enter-from-class="opacity-0 translate-y-1" enter-to-class="opacity-100 translate-y-0"
-                leave-active-class="transition ease-in duration-150" leave-from-class="opacity-100 translate-y-0"
-                leave-to-class="opacity-0 translate-y-1">
+              <transition enter-active-class="transition ease-out duration-200" enter-from-class="opacity-0 translate-y-1"
+                enter-to-class="opacity-100 translate-y-0" leave-active-class="transition ease-in duration-150"
+                leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 translate-y-1">
                 <PopoverPanel
                   class="absolute z-10 left-1/2 transform -translate-x-1/2 mt-3 px-2 w-screen max-w-md sm:px-0">
                   <div class="rounded-lg shadow-lg ring-1 ring-black dark:ring-gray-500 ring-opacity-5 overflow-hidden">
@@ -202,7 +200,7 @@
                 </div>
                 <div class="my-3">
                   <nav class="grid gap-y-8 py-2">
-                    <NuxtLink v-for="item in toolkit" :key="item.name" :to="item.href" :class="[
+                    <NuxtLink v-for="item in framework" :key="item.name" :to="item.href" :class="[
                       '-m-3 p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-700',
                       item.href == route.fullPath
                         ? 'bg-gray-300 dark:bg-gray-700'
@@ -311,7 +309,8 @@ import {
   MoonIcon,
   SunIcon,
   PencilAltIcon,
-  PresentationChartBarIcon
+  PresentationChartBarIcon,
+  UserGroupIcon
 } from '@heroicons/vue/outline';
 import { AcademicCapIcon, BookOpenIcon, ChevronDownIcon, RssIcon } from '@heroicons/vue/solid';
 
@@ -319,40 +318,40 @@ import { AcademicCapIcon, BookOpenIcon, ChevronDownIcon, RssIcon } from '@heroic
 const selected = ref("")
 const route = useRoute()
 // const options = ref(['Light', 'Dark', 'System'])
-const toolkit = ref([
+const framework = ref([
   {
     name: 'Plan',
     description:
       'Choose, tailor, and create security guidance appropriate for your mission.',
-    href: '/toolkit/plan',
+    href: '/framework/plan',
     icon: PencilAltIcon
   },
   {
     name: 'Harden',
     description:
       'Implement security baselines using our Ansible, Chef, and Terraform content.',
-    href: '/toolkit/harden',
+    href: '/framework/harden',
     icon: ShieldCheckIcon
   },
   {
     name: 'Validate',
     description:
       'Generate detailed security testing results through automated tests and manual attestation.',
-    href: '/toolkit/validate',
+    href: '/framework/validate',
     icon: ClipboardCheckIcon
   },
   {
     name: 'Normalize',
     description:
       'Convert security results from all your security tools into a common data format.',
-    href: '/toolkit/normalize',
+    href: '/framework/normalize',
     icon: CubeIcon
   },
   {
     name: 'Visualize',
     description:
       'Identify overall security status and deep-dive to solve specific security defects',
-    href: '/toolkit/visualize',
+    href: '/framework/visualize',
     icon: ViewGridIcon
   }
 ]);
@@ -393,6 +392,13 @@ const resources = ref([
       'Learn how to maximize our platform to get the most out of it.',
     href: '/training',
     icon: AcademicCapIcon
+  },
+  {
+    name: 'Admin Login',
+    description:
+      'Update and mantain content as an admin.',
+    href: 'https://saf-site-backend.herokuapp.com/admin/',
+    icon: UserGroupIcon
   }
 ]);
 

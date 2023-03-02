@@ -20,8 +20,13 @@
       </div>
 
       <div class="min-w-0 max-w-2xl flex-auto px-6 lg:py-10 lg:max-w-6xl lg:pr-0 lg:pl-8 xl:px-16">
-        <DocumentationCurrentPage :rendered-content="renderedContent" :current-subsection="currentSubsection"
-          :all-links="allLinks" :current-index="currentIndex" />
+        <div v-if="isLoaded">
+          <DocumentationCurrentPage :rendered-content="renderedContent" :current-subsection="currentSubsection"
+            :all-links="allLinks" :current-index="currentIndex" />
+        </div>
+        <div v-else class="grid h-screen place-items-center">
+          <LoadingSpinner />
+        </div> 
       </div>
 
       <div
@@ -54,11 +59,13 @@ export default {
       currentSubsection: "",
       currentSubsectionHref: "",
       isOpen: ref(false),
+      isLoaded: false
     };
   },
   mounted() {
     this.$nextTick(async () => {
       await this.getData()
+      this.isLoaded = true
     });
   },
   beforeRouteUpdate(to, from) {

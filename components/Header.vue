@@ -38,53 +38,20 @@
             </PopoverButton>
           </div>
 
-
           <PopoverGroup as="nav" class="hidden md:flex space-x-7 xl:space-x-10">
-            <Popover class="relative" v-slot="{ open }">
-              <PopoverButton :class="[
-                open
-                  ? 'text-gray-900 dark:text-gray-400'
-                  : '',
-                framework.some(e => e.href === route.fullPath) ? 'text-sky-500' : 'text-gray-600 dark:text-gray-400',
-                'group bg-white dark:bg-dark-bg rounded-md inline-flex items-center text-base font-medium  hover:text-gray-900 dark:hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
-              ]">
-                <span>Framework</span>
-                <ChevronDownIcon :class="[
-                  open ? 'text-gray-900 dark:text-gray-400'
-                    : '',
-                  framework.some(e => e.href === route.fullPath) ? 'text-sky-500' : 'text-gray-600 dark:text-gray-400',
-                  'ml-2 h-5 w-5 group-hover:text-gray-900 dark:group-hover:text-gray-200'
-                ]" aria-hidden="true" />
-              </PopoverButton>
+            <NuxtLink to="/getting-started" :class="['text-base font-medium hover:text-gray-900 dark:hover:text-gray-200',
+              '/getting-started' == route.fullPath
+                ? 'text-sky-500'
+                : 'text-gray-600 dark:text-gray-400'
+            ]">
+              Getting Started
+            </NuxtLink>
 
-              <transition enter-active-class="transition ease-out duration-200" enter-from-class="opacity-0 translate-y-1"
-                enter-to-class="opacity-100 translate-y-0" leave-active-class="transition ease-in duration-150"
-                leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 translate-y-1">
-                <PopoverPanel
-                  class="absolute z-10 -ml-4 mt-3 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2">
-                  <div class="rounded-lg shadow-lg ring-1 ring-black dark:ring-gray-500 ring-opacity-5 overflow-hidden">
-                    <div class="relative grid gap-6 bg-white dark:bg-dark-bg px-5 py-6 sm:gap-8 sm:p-8">
-                      <NuxtLink v-for="item in framework" :key="item.name" :to="item.href" :class="[
-                        '-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700',
-                        item.href.includes(route.fullPath + '/')
-                          ? 'bg-gray-300 dark:bg-gray-700'
-                          : 'text-gray-600 dark:text-gray-400'
-                      ]">
-                        <component :is="item.icon" class="flex-shrink-0 h-6 w-6 text-blue-600" aria-hidden="true" />
-                        <div class="ml-4">
-                          <p class="text-base font-medium text-gray-900 dark:text-MITRE-silver">
-                            {{ item.name }}
-                          </p>
-                          <p class="mt-1 text-sm text-gray-500">
-                            {{ item.description }}
-                          </p>
-                        </div>
-                      </NuxtLink>
-                    </div>
-                  </div>
-                </PopoverPanel>
-              </transition>
-            </Popover>
+            <NavDropdown label="Framework" :items="framework" />
+
+            <NavDropdown label="Apps" :items="applications" />
+
+            <NavDropdown label="Libraries" :items="libraries" />
 
             <NuxtLink v-for="item in navigation" :key="item.name" :to="item.href" :class="['text-base font-medium hover:text-gray-900 dark:hover:text-gray-200',
               item.href == route.fullPath
@@ -94,51 +61,8 @@
               {{ item.name }}
             </NuxtLink>
 
-            <Popover class="relative" v-slot="{ open }">
-              <PopoverButton :class="[
-                open
-                  ? 'text-gray-900 dark:text-gray-200'
-                  : '',
-                resources.some(e => e.href === route.fullPath) ? 'text-sky-500' : 'text-gray-600 dark:text-gray-400',
-                'group bg-white dark:bg-dark-bg rounded-md inline-flex items-center text-base font-medium  hover:text-gray-900 dark:hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
-              ]">
-                <span>More</span>
-                <ChevronDownIcon :class="[
-                  open ? 'text-gray-900 dark:text-gray-400'
-                    : '',
-                  resources.some(e => e.href === route.fullPath) ? 'text-sky-500' : 'text-gray-600 dark:text-gray-400',
-                  'ml-2 h-5 w-5 group-hover:text-gray-900 dark:group-hover:text-gray-200'
-                ]" aria-hidden="true" />
-              </PopoverButton>
+            <NavDropdown label="More" :items="resources" />
 
-              <transition enter-active-class="transition ease-out duration-200" enter-from-class="opacity-0 translate-y-1"
-                enter-to-class="opacity-100 translate-y-0" leave-active-class="transition ease-in duration-150"
-                leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 translate-y-1">
-                <PopoverPanel
-                  class="absolute z-10 left-1/2 transform -translate-x-1/2 mt-3 px-2 w-screen max-w-md sm:px-0">
-                  <div class="rounded-lg shadow-lg ring-1 ring-black dark:ring-gray-500 ring-opacity-5 overflow-hidden">
-                    <div class="relative grid gap-6 bg-white dark:bg-dark-bg px-5 py-6 sm:gap-8 sm:p-8">
-                      <NuxtLink v-for="item in resources" :key="item.name" :to="item.href" :class="[
-                        '-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700',
-                        item.href == route.fullPath
-                          ? 'bg-gray-300 dark:bg-gray-700'
-                          : ''
-                      ]">
-                        <component :is="item.icon" class="flex-shrink-0 h-6 w-6 text-blue-600" aria-hidden="true" />
-                        <div class="ml-4">
-                          <p class="text-base font-medium text-gray-900 dark:text-MITRE-silver">
-                            {{ item.name }}
-                          </p>
-                          <p class="mt-1 text-sm text-gray-500 dark:text-dark-text">
-                            {{ item.description }}
-                          </p>
-                        </div>
-                      </NuxtLink>
-                    </div>
-                  </div>
-                </PopoverPanel>
-              </transition>
-            </Popover>
           </PopoverGroup>
           <div class="hidden md:flex items-center justify-end flex-1 pr-2 md:w-0">
             <div class="hidden md:flex items-center justify-end flex-1 md:w-0">
@@ -313,6 +237,7 @@ import {
   UserGroupIcon
 } from '@heroicons/vue/outline';
 import { AcademicCapIcon, BookOpenIcon, ChevronDownIcon, RssIcon } from '@heroicons/vue/solid';
+import NavDropdown from './NavDropdown.vue';
 
 ////  Data  ////
 const selected = ref("")
@@ -355,6 +280,48 @@ const framework = ref([
     icon: ViewGridIcon
   }
 ]);
+
+const libraries = ref([
+  {
+    name: 'Harden',
+    description:
+      'Implement security baselines using our Ansible, Chef, and Terraform content.',
+    href: '/libs/harden',
+    icon: ShieldCheckIcon
+  },
+  {
+    name: 'Validate',
+    description:
+      'Generate detailed security testing results through automated tests and manual attestation.',
+    href: '/libs/validate',
+    icon: ClipboardCheckIcon
+  }
+]);
+
+const applications = ref([
+  {
+    name: 'Heimdall',
+    description:
+      '?????',
+    href: '/apps/heimdall',
+    icon: ShieldCheckIcon
+  },
+  {
+    name: 'Vulcan',
+    description:
+      '?????',
+    href: '/apps/vulcan',
+    icon: ShieldCheckIcon
+  },
+  {
+    name: 'SAF CLI',
+    description:
+      '?????',
+    href: '/apps/saf-cli',
+    icon: ShieldCheckIcon
+  },
+]);
+
 const navigation = ref([
   {
     name: 'Docs',
@@ -369,13 +336,6 @@ const navigation = ref([
       'Learn more.',
     href: '/blog',
     icon: RssIcon
-  },
-  {
-    name: 'Getting Started',
-    description:
-      'Learn more.',
-    href: '/getting-started',
-    icon: PresentationChartBarIcon
   }
 ]);
 const resources = ref([

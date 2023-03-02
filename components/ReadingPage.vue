@@ -29,7 +29,7 @@
 <script setup>
 ////  Props  ////
 const props = defineProps({
-    title: {
+    z: {
         type: String,
         required: true,
     },

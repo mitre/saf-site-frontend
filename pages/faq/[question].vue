@@ -30,7 +30,7 @@ const getFAQs = async () => {
   faq.value = await useAsyncData('getFaqByQuestionNumber', () => GqlGetFaqByQuestionNumber({ number: parseInt(route.params.question) }), { initialCache: false })
     .then(({ data }) => {
       if(!data._value || !data._value.faqs.data[0])
-        navigateTo('/faq')
+        return navigateTo('/faq')
       
       var date = new Date(data._value.faqs.data[0].attributes.updatedAt)
       answer.value = data._value.faqs.data[0].attributes.answer

@@ -78,7 +78,7 @@ export default {
       this.docData = await useAsyncData('getDocumentation', () => GqlGetDocumentation({ href: this.$route.params.section }))
         .then(({ data }) => {
           if(!data._value || !data._value.currentDoc.data[0])
-            navigateTo('/docs')
+            return navigateTo('/docs')
           
           let content = data._value.currentDoc.data[0].attributes.subsections[0].content
           this.currentSubsection = data._value.currentDoc.data[0].attributes.subsections[0].title

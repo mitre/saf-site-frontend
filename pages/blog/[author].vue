@@ -117,7 +117,7 @@ const getBlogData = async () => {
   posts.value = await useAsyncData('getBlogDataFromAuthor', () => GqlGetBlogDataFromAuthor({ author: route.query.name }))
     .then(({ data }) => {
       if(!data._value || !data._value.blogPosts.data)
-        navigateTo('/blog')
+        return navigateTo('/blog')
       return data._value.blogPosts.data.map((post) => ({
         title: post.attributes.title,
         description: post.attributes.description,
@@ -134,7 +134,7 @@ const getBlogAuthor = async () => {
   authorObjs.value = await useAsyncData('getBlogAuthor', () => GqlGetBlogAuthor({ author: route.query.name }))
     .then(({ data }) => {
       if(!data._value || !data._value.usersPermissionsUsers.data[0])
-        navigateTo('/blog')
+        return navigateTo('/blog')
       let socialMedia = data._value.usersPermissionsUsers.data[0].attributes.SocialMedia
       for (let i = 0; i < socialMedia.length; i++) {
         switch (socialMedia[i].__typename) {

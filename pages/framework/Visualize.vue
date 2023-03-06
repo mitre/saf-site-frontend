@@ -4,6 +4,8 @@
         <div class="relative bg-white dark:bg-dark-bg max-w-8xl min-h-screen h-full pt-4 px-4 sm:px-6 lg:px-8">
             <div v-if="isLoaded">
                 <div class="mx-auto max-w-7xl text-center">
+                    <img src="https://res.cloudinary.com/the-mitre-corporation/image/upload/v1656709924/Visualize_Icon_Light_a2b69e0c60.svg?updated_at=2022-07-01T21:12:06.195Z"
+                        class="w-14 md:w-20 aspect-square mx-auto mb-4" aria-hidden="true" alt="Alt text here" />
                     <h2 class="text-3xl font-bold tracking-tight dark:text-gray-200 sm:text-4xl">{{ pageTitle }}</h2>
                     <div class="mt-8 mx-auto leading-8 text-left dark:text-dark-text" v-html="visualizeContent"></div>
 

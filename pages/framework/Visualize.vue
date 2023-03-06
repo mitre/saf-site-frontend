@@ -21,14 +21,15 @@
                             <div v-for="(feature, featureIdx) in features" :key="feature.name"
                                 class="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:items-center lg:gap-x-8">
                                 <div
-                                    :class="[featureIdx % 2 === 0 ? 'lg:col-start-1' : 'lg:col-start-8 xl:col-start-9', 'mt-6 lg:mt-0 lg:row-start-1 lg:col-span-5 xl:col-span-4']">
+                                    :class="[featureIdx % 2 === 0 ? 'lg:col-start-1' : 'lg:col-start-4', 'mt-6 lg:mt-0 lg:row-start-1 lg:col-span-9']">
                                     <h3 class="text-2xl font-bold dark:text-gray-200">{{ feature.name }}</h3>
                                     <p class="mt-2 text-lg dark:text-dark-text">{{ feature.description }}</p>
                                 </div>
                                 <div
-                                    :class="[featureIdx % 2 === 0 ? 'lg:col-start-6 xl:col-start-5' : 'lg:col-start-1', 'flex-auto lg:row-start-1 lg:col-span-7 xl:col-span-8']">
+                                    :class="[featureIdx % 2 === 0 ? 'lg:col-start-6' : 'lg:col-start-1', 'flex-auto lg:row-start-1 lg:col-span-7']">
                                     <div class="overflow-hidden rounded-lg">
-                                        <component :is="feature.icon" class="flex-shrink-0 w-40 text-blue-600 ml-24"
+                                        <component :is="feature.icon"
+                                            :class="[featureIdx % 2 === 0 ? 'md:float-right' : '', 'flex-shrink-0 w-40 text-blue-600']"
                                             aria-hidden="true" />
                                         <!-- <img :src="feature.imageSrc" :alt="feature.imageAlt"
                                             class="object-cover object-center" /> -->

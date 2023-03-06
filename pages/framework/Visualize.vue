@@ -8,7 +8,7 @@
                     <div class="mt-8 mx-auto leading-8 text-left dark:text-dark-text" v-html="visualizeContent"></div>
 
                 </div>
-                <div class="sm:flex sm:items-center mb-10 max-w-7xl mx-auto">
+                <div class="sm:flex sm:items-center mb-10 max-w-6xl mx-auto">
                     <div class="sm:flex-auto">
                         <!-- <h1 class="text-4xl font-bold text-gray-900 dark:text-gray-50 text-center"><strong>{{
                             pageTitle
@@ -27,15 +27,15 @@
                                 </div>
                                 <div
                                     :class="[featureIdx % 2 === 0 ? 'lg:col-start-6 xl:col-start-5' : 'lg:col-start-1', 'flex-auto lg:row-start-1 lg:col-span-7 xl:col-span-8']">
-                                    <div class="aspect-w-5 aspect-h-2 overflow-hidden rounded-lg">
-                                        <img :src="feature.imageSrc" :alt="feature.imageAlt"
-                                            class="object-cover object-center" />
+                                    <div class="overflow-hidden rounded-lg">
+                                        <component :is="feature.icon" class="flex-shrink-0 w-40 text-blue-600 ml-24"
+                                            aria-hidden="true" />
+                                        <!-- <img :src="feature.imageSrc" :alt="feature.imageAlt"
+                                            class="object-cover object-center" /> -->
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
             </div>
@@ -48,6 +48,8 @@
 </template>
 
 <script setup>
+import { AcademicCapIcon } from '@heroicons/vue/solid';
+
 ////  Data  ////
 const isLoaded = ref(false)
 const visualizeContent = ref("")
@@ -57,6 +59,7 @@ const features = [
         name: 'Visualize Your Secrity Posture',
         description:
             'Load data into Heimdall for easy sorting, filtering, and summarizing of your security results. Focus on information relevant to security assessments.',
+        icon: AcademicCapIcon,
         imageSrc: 'https://res.cloudinary.com/the-mitre-corporation/image/upload/v1677782131/Heimdall1_55997cad8d.png?updated_at=2023-03-02T18:35:33.118Z',
         imageAlt: 'White canvas laptop sleeve with gray felt interior, silver zipper, and tan leather zipper pull.',
     },
@@ -64,6 +67,7 @@ const features = [
         name: 'Aggregate Your Security Data',
         description:
             'Heimdall automatically converts input security data into a common format (OASIS Heimdall Data Format). Unite all of your security scan output under a single pane of glass. Export your aggregated data into a multitude of common formats supporting assessments.',
+        icon: AcademicCapIcon,
         imageSrc: 'https://res.cloudinary.com/the-mitre-corporation/image/upload/v1677782131/Heimdall2_b64b243c12.png?updated_at=2023-03-02T18:35:32.869Z',
         imageAlt: 'Detail of zipper pull with tan leather and silver rivet.',
     },
@@ -71,6 +75,7 @@ const features = [
         name: 'Deep Dive Into Your Data',
         description:
             'Use Heimdall to examine each control in your test suite in detail. Determine root causes of failures and see the exact test code that led to each result.',
+        icon: AcademicCapIcon,
         imageSrc: 'https://res.cloudinary.com/the-mitre-corporation/image/upload/v1677782130/Heimdall3_a5621163a6.png?updated_at=2023-03-02T18:35:32.348Z',
         imageAlt: 'Detail of zipper pull with tan leather and silver rivet.',
     },
@@ -78,6 +83,7 @@ const features = [
         name: 'Prove Security Over Time',
         description:
             'Heimdall’s comparison view shows the delta between two test runs. Tell at a glance if your security posture is improving or needs attention.',
+        icon: AcademicCapIcon,
         imageSrc: 'https://res.cloudinary.com/the-mitre-corporation/image/upload/v1677782130/Heimdall4_e780629f96.png?updated_at=2023-03-02T18:35:32.653Z',
         imageAlt: 'Detail of zipper pull with tan leather and silver rivet.',
     }

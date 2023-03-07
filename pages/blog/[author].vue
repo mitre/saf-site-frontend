@@ -184,7 +184,8 @@ onMounted(async () => {
   await nextTick(async () => {
     await getBlogData()
     await getBlogAuthor()
-    author.value = authorObjs.value[0]
+    if(authorObjs.value != undefined) 
+      author.value = authorObjs.value[0]
     isLoaded.value = true
   });
 });

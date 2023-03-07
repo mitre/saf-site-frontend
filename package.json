@@ -20,7 +20,7 @@
     "@heroicons/vue": "^1.0.6",
     "@nuxtjs/strapi": "^1.7.1",
     "@nuxtjs/tailwindcss": "^6.4.1",
-    "@playwright/test": "^1.31.1",
+    "@playwright/test": "^1.31.2",
     "@tailwindcss/aspect-ratio": "^0.4.0",
     "@tailwindcss/forms": "^0.5.3",
     "@tailwindcss/line-clamp": "^0.4.2",

@@ -1,11 +1,31 @@
 module.exports = {
+  root: true,
   env: {
-    node: true
+    browser: true,
+    node: true,
   },
-  extends: ['eslint:recommended', 'plugin:vue/vue3-recommended', 'prettier'],
-  rules: {
-    // Override or add rules settings here
-    // Example: 'vue/no-unused-vars': 'error'
-    // "no-console": ["error", { allow: ["warn", "error"] }]
-  }
+  parserOptions: {
+    parser: '@babel/eslint-parser',
+    requireConfigFile: false,
+  },
+  extends: [
+    'plugin:vue/essential',
+    './node_modules/eslint-config-airbnb-base/rules/best-practices.js',
+    './node_modules/eslint-config-airbnb-base/rules/errors.js',
+    './node_modules/eslint-config-airbnb-base/rules/es6.js',
+    './node_modules/eslint-config-airbnb-base/rules/imports.js',
+    './node_modules/eslint-config-airbnb-base/rules/node.js',
+    './node_modules/eslint-config-airbnb-base/rules/strict.js',
+    './node_modules/eslint-config-airbnb-base/rules/style.js',
+    './node_modules/eslint-config-airbnb-base/rules/variables.js',
+    'plugin:import/errors',
+    'plugin:import/warnings',
+    'prettier',
+    'plugin:vue/vue3-recommended',
+  ],
+  plugins: [
+    'vue',
+  ],
+  // add your custom rules here
+  rules: {},
 };

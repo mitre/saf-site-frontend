@@ -22,9 +22,18 @@ module.exports = {
     'plugin:import/warnings',
     'prettier',
     'plugin:vue/vue3-recommended',
+    "plugin:nuxt/recommended",
   ],
   plugins: [
     'vue',
+  ],
+  overrides: [
+    {
+      "files": ["*.{ts,tsx}"],
+      "parser": "@typescript-eslint/parser",
+      "plugins": ["@typescript-eslint"],
+      "extends": ["plugin:@typescript-eslint/recommended"]
+    }
   ],
   // add your custom rules here
   rules: {},

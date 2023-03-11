@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-white">
-    <div class="mx-auto max-w-7xl py-12 px-6 lg:py-16 lg:px-8">
+  <div>
+    <div class="bg-white mx-auto max-w-7xl py-12 px-6 lg:py-16 lg:px-8">
       <div class="lg:grid lg:grid-cols-2 lg:items-center lg:gap-8">
         <div v-if=left>
           <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{{ partners_h2 }}</h2>
@@ -21,6 +21,7 @@
     </div>
   </div>
 </template>
+
 <script setup>
     const props = defineProps({
       partners: { type: Array },

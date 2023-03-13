@@ -1,0 +1,29 @@
+query getFrameworkPage($page: String!){
+  frameworkPages(filters:{Page:{eqi:$page}}){
+    data{
+      attributes{
+        Page
+        Icon{
+          data{
+            attributes{
+              url
+            }
+          }
+        }
+        Grabber
+        Description
+        Features{
+          Title
+          Description
+          Image{
+          data{
+            attributes{
+              url
+            }
+          }
+        }
+        }
+      }
+    }
+  }
+}

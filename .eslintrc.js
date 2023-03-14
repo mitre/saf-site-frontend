@@ -20,9 +20,9 @@ module.exports = {
     './node_modules/eslint-config-airbnb-base/rules/variables.js',
     'plugin:import/errors',
     'plugin:import/warnings',
-    'prettier',
     'plugin:vue/vue3-recommended',
     "plugin:nuxt/recommended",
+    'prettier', // Make sure this is the last
   ],
   plugins: [
     'vue',

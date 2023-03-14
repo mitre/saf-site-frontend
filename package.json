@@ -6,7 +6,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "start": "yarn build && nuxt start",
-    "lint:fix": "eslint --ext .js,.vue --ignore-path .gitignore --fix",
+    "lint:fix": "eslint --ext .js,.vue --ignore-path .gitignore --fix ./",
     "prettier:fix": "prettier . --ignore-path .gitignore --write",
     "format": "yarn prettier:fix && yarn lint:fix",
     "test:e2e": "yarn playwright test"

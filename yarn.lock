@@ -1716,7 +1716,7 @@
   resolved "https://registry.yarnpkg.com/@nuxt/devalue/-/devalue-2.0.0.tgz#c7bd7e9a516514e612d5d2e511ffc399e0eac322"
   integrity sha512-YBI/6o2EBz02tdEJRBK8xkt3zvOFOWlLBf7WKYGBsSYSRtjjgrqPe2skp6VLLmKx5WbHHDNcW+6oACaurxGzeA==
 
-"@nuxt/kit@3.3.1", "@nuxt/kit@^3.2.0":
+"@nuxt/kit@3.3.1", "@nuxt/kit@^3.2.0", "@nuxt/kit@^3.2.3":
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/@nuxt/kit/-/kit-3.3.1.tgz#93e02a41d9adc7369d704deb88ae143c29554a4e"
   integrity sha512-zb7/2FUIB1g7nl6K6qozUzfG5uu4yrs9TQjZvpASnPBZ/x1EuJX5k3AA71hMMIVBEX9Adxvh9AuhDEHE5W26Zg==
@@ -1889,15 +1889,16 @@
     vite-plugin-checker "^0.5.6"
     vue-bundle-renderer "^1.0.2"
 
-"@nuxtjs/strapi@^1.7.1":
-  version "1.8.1"
-  resolved "https://registry.yarnpkg.com/@nuxtjs/strapi/-/strapi-1.8.1.tgz#6c914b5e91daa104b0a9bc2b594ee155dd286f7c"
-  integrity sha512-91tkXC/nP351HkwkwCvcsGz3QcHYpvdJYZD1edEhfQW/xQzW5SHoHTF/KL8XUigLkkDP3oKtTesjV6qUw01ssw==
+"@nuxtjs/strapi@^1.9.0":
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/strapi/-/strapi-1.9.0.tgz#cf5b579470984ef09726416e53e0a1d5d2f8118b"
+  integrity sha512-+4Olr6gw7D2yohJ4ob4YAtB4dn0HG7EjtVHQr7CqG980he9IwAREzV/36zu+Kl42CVj41a2wJTQNFY+vE7UqKQ==
   dependencies:
-    "@nuxt/kit" "^3.2.0"
+    "@nuxt/kit" "^3.2.3"
     defu "^6.1.2"
     graphql "^16.6.0"
-    qs "^6.11.0"
+    qs "^6.11.1"
+    ufo "^1.1.1"
 
 "@nuxtjs/tailwindcss@^6.4.1":
   version "6.4.1"
@@ -6915,10 +6916,10 @@ pvutils@^1.1.3:
   resolved "https://registry.yarnpkg.com/pvutils/-/pvutils-1.1.3.tgz#f35fc1d27e7cd3dfbd39c0826d173e806a03f5a3"
   integrity sha512-pMpnA0qRdFp32b1sJl1wOJNxZLQ2cbQx+k6tjNtZ8CpvVhNqEPRgivZ2WOUev2YMajecdH7ctUPDvEe87nariQ==
 
-qs@^6.11.0:
-  version "6.11.0"
-  resolved "https://registry.yarnpkg.com/qs/-/qs-6.11.0.tgz#fd0d963446f7a65e1367e01abd85429453f0c37a"
-  integrity sha512-MvjoMCJwEarSbUYk5O+nmoSzSutSsTwF85zcHPQ9OrlFoZOYIjaqBAJIqIXjptyD5vThxGq52Xu/MaJzRkIk4Q==
+qs@^6.11.1:
+  version "6.11.1"
+  resolved "https://registry.yarnpkg.com/qs/-/qs-6.11.1.tgz#6c29dff97f0c0060765911ba65cbc9764186109f"
+  integrity sha512-0wsrzgTz/kAVIeuxSjnpGC56rzYtr6JT/2BwEvMaPhFIoYa1aGO8LbzuU1R0uUYQkLpWBTOj0l/CLAJB64J6nQ==
   dependencies:
     side-channel "^1.0.4"
 

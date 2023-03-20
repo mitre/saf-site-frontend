@@ -3,10 +3,10 @@
     <Header />
     <div class="relative bg-white dark:bg-dark-bg min-h-screen h-full pt-4 px-4 sm:px-6 lg:px-8 mb-8">
       <div v-if="isLoaded">
-       <ToolkitModal v-bind:guidance="guidance" />
+       <FrameworkModal v-bind:guidance="guidance" />
       </div>
-      <div v-else>
-       <p> Loading ...</p>
+      <div v-else class="grid h-screen place-items-center">
+        <LoadingSpinner />
       </div>
     </div>
     <Footer />
@@ -31,6 +31,9 @@ export default {
     async getGuidance() {
       this.guidance = await useAsyncData('getGuidanceDataFromID', () => GqlGetGuidanceDataFromID({ id: this.$route.query.id }), { initialCache: false })
         .then(({ data }) => {
+          if(!data._value || !data._value.guidance.data)
+            return navigateTo('/guidance')
+          console.log(data)
           const guidance = data._value.guidance.data
           return {
             name: guidance.attributes.name,
@@ -39,7 +42,7 @@ export default {
             category: guidance.attributes.category,
             source: guidance.attributes.source,
             date: guidance.attributes.date,
-            version: guidance.attributes.version,
+            version:  guidance.attributes.version.length != 0 ? guidance.attributes.version[0].version : 0,
             hardening: guidance.attributes.hardening.data ? guidance.attributes.hardening.data.map((harden) => ({
               id: harden.id,
               name: harden.attributes.name,

@@ -16,10 +16,10 @@
               associations in this Control Assessment Range table!</p>
           </div>
         </div>
-        <ToolkitTable v-bind:entries="categorizedData" />
+        <FrameworkTable v-bind:entries="categorizedData" />
       </div>
-      <div v-else>
-        <p> Loading ... </p>
+      <div v-else class="grid h-screen place-items-center">
+        <LoadingSpinner />
       </div>
     </div>
     <Footer />
@@ -62,7 +62,7 @@ export default {
             category: guidance.attributes.category,
             source: guidance.attributes.source,
             date: guidance.attributes.date,
-            version: guidance.attributes.version,
+            version:  guidance.attributes.version.length != 0 ? guidance.attributes.version[0].version : 0,
             validation: guidance.attributes.validation.data.map((validate) => ({
               id: validate.id,
               name: validate.attributes.name,

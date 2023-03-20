@@ -1,4 +1,5 @@
 <template>
+  <ScrollToTop />
   <div class="px-4 sm:px-6 lg:px-8">
     <div class="my-8 flex flex-col">
       <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -77,7 +78,8 @@
                     <tr
                       :class="[index % 2 === 0 ? 'bg-gray-50 dark:bg-gray-200' : 'bg-gray-100 dark:bg-gray-300', 'border-t']">
                       <td class="py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
-                        {{ entry.name }} | {{ entry.version[0].version }}
+                        <span v-if="entry.version != 0">{{ entry.name }}  |  {{ entry.version }} </span>
+                        <span v-else>{{ entry.name }}</span>
                         <!-- Mobile Stacked View -->
                         <dl class="font-normal xl:hidden">
                           <dt class="sr-only">Title</dt>
@@ -105,7 +107,7 @@
                                   <ExternalLinkIcon class="h-4 w-4" />
                                 </button>
                               </NuxtLink>
-                              <NuxtLink :to="`/toolkit/modal/${slugify(entry.name)}?id=${entry.benchmarkID}`">
+                              <NuxtLink :to="`/framework/guidance/${slugify(entry.name)}?id=${entry.benchmarkID}`">
                                 <button @click="" class="text-blue-600 hover:text-blue-900">View Details<span
                                     class="sr-only">,
                                     {{
@@ -150,11 +152,11 @@
                             <ExternalLinkIcon class="h-4 w-4" />
                           </button>
                         </NuxtLink>
-                        <NuxtLink :to="`/toolkit/modal/${slugify(entry.name)}?id=${entry.benchmarkID}`">
+                        <NuxtLink :to="`/framework/guidance/${slugify(entry.name)}?id=${entry.benchmarkID}`">
                           <button @click="" class="text-blue-600 hover:text-blue-900">View Details<span
                               class="sr-only">,
                               {{
-  entry.name
+                                entry.name
                               }}</span>
                           </button>
                         </NuxtLink>
@@ -229,7 +231,7 @@ export default {
           return entry.name.toLowerCase().indexOf(this.filter.toLowerCase()) >= 0 ||
             entry.platform.name.toLowerCase().indexOf(this.filter.toLowerCase()) >= 0 ||
             entry.partner.name.toLowerCase().indexOf(this.filter.toLowerCase()) >= 0 ||
-            entry.version[0].version.toLowerCase().indexOf(this.filter.toLowerCase()) >= 0;
+            entry.version != 0 && entry.version.toLowerCase().indexOf(this.filter.toLowerCase()) >= 0;
         })
       })
       return this.filteredData

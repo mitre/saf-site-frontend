@@ -15,7 +15,7 @@ test('Home', async ({ page }) => {
   
 
   // Test header visability
-  await page.getByRole('button', { name: 'Toolkit' }).click();
+  await page.getByRole('button', { name: 'Framework' }).click();
   await expect(page.getByRole('link', { name: 'Plan' })).toBeVisible();
   await expect(page.getByRole('link', { name: 'Harden' })).toBeVisible();
   await expect(page.getByRole('link', { name: 'Validate' })).toBeVisible();

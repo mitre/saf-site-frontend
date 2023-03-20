@@ -83,10 +83,9 @@
         <!-- Blog Cards -->
         <BlogPostCards v-bind:posts="posts" />
       </template>
-      <template v-else class="min-h-screen h-full ">
-        <h1 class="mt-2 block text-2xl sm:text-3xl leading-8 font-extrabold tracking-tight text-black dark:text-white">
-          Loading...</h1>
-      </template>
+      <div v-else class="grid h-screen place-items-center">
+        <LoadingSpinner />
+      </div>
     </div>
     <Footer />
   </div>
@@ -117,6 +116,8 @@ const route = useRoute()
 const getBlogData = async () => {
   posts.value = await useAsyncData('getBlogDataFromAuthor', () => GqlGetBlogDataFromAuthor({ author: route.query.name }))
     .then(({ data }) => {
+      if(!data._value || !data._value.blogPosts.data)
+        return navigateTo('/blog')
       return data._value.blogPosts.data.map((post) => ({
         title: post.attributes.title,
         description: post.attributes.description,
@@ -132,6 +133,8 @@ const getBlogData = async () => {
 const getBlogAuthor = async () => {
   authorObjs.value = await useAsyncData('getBlogAuthor', () => GqlGetBlogAuthor({ author: route.query.name }))
     .then(({ data }) => {
+      if(!data._value || !data._value.usersPermissionsUsers.data[0])
+        return navigateTo('/blog')
       let socialMedia = data._value.usersPermissionsUsers.data[0].attributes.SocialMedia
       for (let i = 0; i < socialMedia.length; i++) {
         switch (socialMedia[i].__typename) {
@@ -181,7 +184,8 @@ onMounted(async () => {
   await nextTick(async () => {
     await getBlogData()
     await getBlogAuthor()
-    author.value = authorObjs.value[0]
+    if(authorObjs.value != undefined) 
+      author.value = authorObjs.value[0]
     isLoaded.value = true
   });
 });

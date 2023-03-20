@@ -1,12 +1,16 @@
 <template>
   <div>
     <Header />
-    <ReadingPage :title="faq.questionNumber + '. ' + faq.question" :last-updated="faq.updated" :author="faq.author"
-      :is-loaded="isLoaded">
-      <div
-        class="mt-8 mx-auto leading-8 text-left prose prose-sm lg:prose-lg dark:prose-invert dark:text-dark-text prose-li:text-start prose-code:text-start"
-        v-html="answer"></div>
-    </ReadingPage>
+    <div v-if="isLoaded">
+      <ReadingPage :title="faq.questionNumber + '. ' + faq.question" :last-updated="faq.updated" :author="faq.author">
+        <div
+          class="mt-8 mx-auto leading-8 text-left prose prose-sm lg:prose-lg dark:prose-invert dark:text-dark-text prose-li:text-start prose-code:text-start"
+          v-html="answer"></div>
+      </ReadingPage>
+    </div>
+    <div v-else class="grid h-screen place-items-center">
+      <LoadingSpinner />
+    </div>
     <Footer />
   </div>
 </template>
@@ -25,6 +29,9 @@ const answer = ref("")
 const getFAQs = async () => {
   faq.value = await useAsyncData('getFaqByQuestionNumber', () => GqlGetFaqByQuestionNumber({ number: parseInt(route.params.question) }), { initialCache: false })
     .then(({ data }) => {
+      if(!data._value || !data._value.faqs.data[0])
+        return navigateTo('/faq')
+      
       var date = new Date(data._value.faqs.data[0].attributes.updatedAt)
       answer.value = data._value.faqs.data[0].attributes.answer
       return {
@@ -37,6 +44,7 @@ const getFAQs = async () => {
     });
 }
 
+
 ////  Lifecycle  ////
 onMounted(async () => {
   await nextTick(async () => {
@@ -44,6 +52,8 @@ onMounted(async () => {
     isLoaded.value = true
   });
 });
+
+
 
 </script>
 

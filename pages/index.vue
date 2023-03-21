@@ -16,8 +16,9 @@
         </div>
       </div>
     </div> -->
-    <HomeHero />
-    <HomeCapabilities />
+    <!-- <HomeHero /> -->
+    <!-- <HomeCapabilities /> -->
+    <HomeToolset :toolset="toolset"/>
 
 
 
@@ -25,18 +26,18 @@
     <!-- <HomeWhenToUseIt :stages="stages" /> -->
 
     <!-- Commercial Sponsers -->
-    <HomeSponsers 
+    <!-- <HomeSponsers 
       :partners="vendors"
       partners_h2="Partners"
       partners_desc="foobar"
       left=true
-    />
+    /> -->
     <!-- Government Sponsers -->
-    <HomeSponsers
+    <!-- <HomeSponsers
       :partners="sponsors"
       partners_h2="Sponsors"
       partners_desc="foobar"
-    />
+    /> -->
   </main>
   <Footer />
 </template>
@@ -46,37 +47,55 @@ export default {
   data() {
     return {
       stages: [],
-      vendors: []
+      vendors: [],
+      toolset: [],
     };
   },
   mounted() {
     this.$nextTick(async () => {
-      await this.getWhenToUseIt()
-      await this.getVendors()
+      // await this.getWhenToUseIt()
+      // await this.getVendors()
+      await this.getToolset()
     });
   },
   methods: {
-    async getWhenToUseIt() {
-      this.stages = await useAsyncData('getWhenToUseIt', () => GqlWhenToUseIt())
+    async getToolset() {
+      this.toolset = await useAsyncData('getToolset', () => GqlGetToolset())
         .then(({ data }) => {
-          return data._value.textContents.data.map((stage) => ({
-            name: stage.attributes.name,
-            text: stage.attributes.text
+          console.log('look here', data._value.tools.data)
+          return data._value.tools.data.map((tool) => ({
+            name: tool.attributes.name,
+            description: tool.attributes.description,
+            orderID: tool.attributes.order_id,
+            link: tool.attributes.link,
+            icon: {
+              name: tool.attributes.icon.data ? tool.attributes.icon.data.attributes.name : null,
+              url: tool.attributes.icon.data ? tool.attributes.icon.data.attributes.url : null,
+            },
           }))
         });
     },
-    async getVendors() {
-      this.vendors = await useAsyncData('getVendors', () => GqlVendors())
-        .then(({ data }) => {
-          return data._value.partners.data.map((vendor) => ({
-            name: vendor.attributes.name,
-            name_long: vendor.attributes.name_long,
-            link: vendor.attributes.link,
-            icon: vendor.attributes.icon.data.attributes.url,
-            community: vendor.attributes.community,
-          }))
-        });
-      }
+    // async getWhenToUseIt() {
+    //   this.stages = await useAsyncData('getWhenToUseIt', () => GqlWhenToUseIt())
+    //     .then(({ data }) => {
+    //       return data._value.textContents.data.map((stage) => ({
+    //         name: stage.attributes.name,
+    //         text: stage.attributes.text
+    //       }))
+    //     });
+    // },
+    // async getVendors() {
+    //   this.vendors = await useAsyncData('getVendors', () => GqlVendors())
+    //     .then(({ data }) => {
+    //       return data._value.partners.data.map((vendor) => ({
+    //         name: vendor.attributes.name,
+    //         name_long: vendor.attributes.name_long,
+    //         link: vendor.attributes.link,
+    //         icon: vendor.attributes.icon.data.attributes.url,
+    //         community: vendor.attributes.community,
+    //       }))
+    //     });
+    //   }
     }
   }
 </script> 

@@ -23,14 +23,14 @@ import { ref, onMounted, nextTick } from 'vue';
 const isLoaded = ref(false)
 const postData = ref({})
 const postAuthor = ref({})
-const renderedContent = ref({})
+const renderedContent = ref("")
 const route = useRoute()
 
 ////  Methods  ////
 const getBlogPost = async () => {
   await useAsyncData('getBlogDataFromID', () => GqlGetBlogDataFromID({ id: route.query.id }))
     .then(({ data }) => {
-      if(!data._value || !data._value.blogPost.data)
+      if (!data._value || !data._value.blogPost.data)
         return navigateTo('/blog')
       postData.value = data._value.blogPost.data.attributes
       renderedContent.value = marked(postData.value.content)

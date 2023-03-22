@@ -1,8 +1,6 @@
 <template>
     <CommandPalette v-model:is-command-palette-open="isCommandPaletteOpen" />
-    <!--TODO: Give functionality to quick search bar-->
     <div class="max-w-8xl z-50 mb-10 sticky top-0 mr-5 bg-white dark:bg-slate-900 relative pointer-events-auto">
-        <!-- TODO: Reinsert this code when adding search fucntionality in v2 -->
         <div class="h-10 w-100 bg-slate-50 dark:bg-dark-bg -ml-0.5"></div>
         <button type="button"
             class="w-full lg:flex items-center text-sm leading-6 text-slate-400 rounded-md ring-1 ring-slate-900/10 shadow-sm py-1.5 pl-2 pr-3 hover:ring-slate-300 dark:bg-slate-800 dark:highlight-white/5 dark:hover:bg-slate-700"
@@ -30,7 +28,7 @@
                                 <li key={{subsection.title}} class="relative">
                                     <a :href="`/docs/${subsection.href}`" :class="[
                                         'block w-full pl-3.5 before:pointer-events-none before:absolute before:-left-1 before:top-1/2 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full',
-                                        subsection.href == props.currentSubsectionHref
+                                        subsection.href === currentSubsectionHref
                                             ? 'font-semibold text-sky-500 before:bg-sky-500'
                                             : 'text-slate-500 before:hidden before:bg-slate-300 hover:text-slate-600 hover:before:block dark:text-slate-400 dark:before:bg-slate-700 dark:hover:text-slate-300'
                                     ]">
@@ -48,5 +46,13 @@
   
 <script setup>
 const isCommandPaletteOpen = ref(false)
-const props = defineProps(["docData", "currentSubsectionHref"]);
+const props = defineProps({
+    docData: {
+        type: Object,
+        required: true,
+    },
+});
+
+const route = useRoute()
+const currentSubsectionHref = ref(route.params.section !== undefined ? route.params.section : "beginner-class-overview")
 </script>

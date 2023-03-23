@@ -37,7 +37,7 @@
 
 const props = defineProps({
     toolset: {
-        type: Object,
+        type: Array,
         required: true,
     },
 })

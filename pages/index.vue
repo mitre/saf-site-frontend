@@ -17,7 +17,19 @@
       </div>
     </div> -->
     <!-- <HomeHero /> -->
-    <!-- <HomeCapabilities /> -->
+    <HomeCapabilities :capabilities="capabilities" />
+
+    <!-- SAF core tenets -->
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <dl class="grid grid-cols-1 gap-y-16 gap-x-8 text-center lg:grid-cols-3">
+        <div v-for="stat in stats" :key="stat.id" class="mx-auto flex max-w-xs flex-col gap-y-4">
+          <dt class="text-base leading-7 text-gray-600">{{ stat.name }}</dt>
+          <dd class="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl">{{ stat.value }}</dd>
+        </div>
+      </dl>
+    </div>
+
+
     <HomeToolset :toolset="toolset"/>
 
 
@@ -49,6 +61,12 @@ export default {
       stages: [],
       vendors: [],
       toolset: [],
+      capabilities: [],
+      stats: [
+        { id: 1, name: 'Transactions every 24 hours', value: 'Free' },
+        { id: 2, name: 'Assets under holding', value: 'Open Source' },
+        { id: 3, name: 'New users annually', value: 'Community Project' },
+      ]
     };
   },
   mounted() {
@@ -56,13 +74,13 @@ export default {
       // await this.getWhenToUseIt()
       // await this.getVendors()
       await this.getToolset()
+      await this.getCapabilities()
     });
   },
   methods: {
     async getToolset() {
       this.toolset = await useAsyncData('getToolset', () => GqlGetToolset())
         .then(({ data }) => {
-          console.log('look here', data._value.tools.data)
           return data._value.tools.data.map((tool) => ({
             name: tool.attributes.name,
             description: tool.attributes.description,
@@ -71,6 +89,22 @@ export default {
             icon: {
               name: tool.attributes.icon.data ? tool.attributes.icon.data.attributes.name : null,
               url: tool.attributes.icon.data ? tool.attributes.icon.data.attributes.url : null,
+            },
+          }))
+        });
+    },
+    async getCapabilities() {
+      this.capabilities = await useAsyncData('getCapabilities', () => GqlGetCapabilities())
+        .then(({ data }) => {
+          console.log('look here', data._value.capabilities.data)
+          return data._value.capabilities.data.map((capability) => ({
+            name: capability.attributes.name,
+            description: capability.attributes.description,
+            orderID: capability.attributes.order_id,
+            link: capability.attributes.link,
+            icon: {
+              name: capability.attributes.icon.data ? capability.attributes.icon.data.attributes.name : null,
+              url: capability.attributes.icon.data ? capability.attributes.icon.data.attributes.url : null,
             },
           }))
         });

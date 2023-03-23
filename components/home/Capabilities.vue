@@ -39,4 +39,15 @@
   
 <script setup>  
 
+const props = defineProps({
+    capabilities: {
+        type: Array,
+        required: true,
+    },
+})
+
+const { capabilities } = toRefs(props)
+
+console.log(capabilities)
+
 </script>

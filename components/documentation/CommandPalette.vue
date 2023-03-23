@@ -21,25 +21,29 @@
                                     placeholder="Search..." @change="query = $event.target.value" />
                             </div>
 
-                            <ComboboxOptions v-if="filteredItems.length > 0" static
+                            <ComboboxOptions v-if="Object.keys(filteredItems).length > 0" static
                                 class="max-h-96 scroll-py-3 overflow-y-auto p-3">
-                                <ComboboxOption v-for="item in filteredItems" :key="item.id" :value="item" as="template"
-                                    v-slot="{ active }">
-                                    <li
-                                        :class="['flex cursor-default select-none rounded-xl p-3', active && 'bg-gray-100']">
-                                        <a :href="`/docs/${item.subsection_href}`" class="ml-4 flex-auto">
-                                            <p :class="['text-sm font-medium', active ? 'text-gray-900' : 'text-gray-700']">
-                                                {{ item.section_title }}
-                                            </p>
-                                            <p :class="['text-sm', active ? 'text-gray-700' : 'text-gray-500']">
-                                                {{ item.subsection_title }}
-                                            </p>
-                                        </a>
-                                    </li>
-                                </ComboboxOption>
+                                <div v-for="section in Object.keys(filteredItems)" class="mb-2">
+                                    <h1 class="font-bold mb-1">{{ section }}</h1>
+                                    <ComboboxOption v-for="item in filteredItems[section]" :key="item.id" :value="item"
+                                        as="template" v-slot="{ active }">
+                                        <li
+                                            :class="['flex cursor-default select-none rounded-xl p-3', active && 'bg-gray-100']">
+                                            <a :href="`/docs/${item.subsection_href}`" class="ml-4 flex-auto">
+                                                <p
+                                                    :class="['text-sm font-medium', active ? 'text-gray-900' : 'text-gray-700']">
+                                                    {{ item.subsection_title }}
+                                                </p>
+                                                <p :class="['text-sm', active ? 'text-gray-700' : 'text-gray-500']">
+                                                    {{ item.text_found !== "" ? item.text_found + "..." : "" }}
+                                                </p>
+                                            </a>
+                                        </li>
+                                    </ComboboxOption>
+                                </div>
                             </ComboboxOptions>
 
-                            <div v-if="query !== '' && filteredItems.length === 0"
+                            <div v-if="query !== '' && Object.keys(filteredItems).length === 0"
                                 class="py-14 px-6 text-center text-sm sm:px-14">
                                 <ExclamationIcon type="outline" name="exclamation-circle"
                                     class="mx-auto h-6 w-6 text-gray-400" />
@@ -82,9 +86,9 @@ const props = defineProps({
     },
 });
 
+// Updates parent isCommandPaletteOpen variable
 defineEmits(['update:isCommandPaletteOpen'])
 
-console.log("What is this: ", props.isCommandPaletteOpen)
 
 ////  Methods  ////
 const getDocumentation = async () => {
@@ -98,7 +102,7 @@ const getDocumentation = async () => {
                         id: section.id,
                         section_title: section.attributes.section_title,
                         subsection_title: sub.title,
-                        subsection_content: sub.content.replace(/<\/?[^>]+(>|$)/g, ""),
+                        subsection_content: sub.content.replace(/<\/?[^>]+(>|$)/g, " "),
                         subsection_href: sub.href
                     })
                 })
@@ -109,12 +113,55 @@ const getDocumentation = async () => {
         })
 }
 
-const filteredItems = computed(() =>
-    query.value === ''
-        ? []
-        : results.value.filter((result) => {
+const filteredItems = computed(() => {
+    if (query.value === '') {
+        return {}
+    }
+    else {
+        let resultsMappedObj = {}
+
+        const filteredResults = results.value.filter((result) => {
             return result.section_title.toLowerCase().includes(query.value.toLowerCase()) || result.subsection_title.toLowerCase().includes(query.value.toLowerCase()) || result.subsection_content.toLowerCase().includes(query.value.toLowerCase())
         })
+
+
+        for (const result of filteredResults) {
+            const findIndex = result.subsection_content.toLowerCase().indexOf(query.value.toLowerCase())
+            let startIndex = -1
+            let endIndex = -1
+            let resultText = ""
+
+            // If the substring will be out of range at the start
+            if (findIndex - 20 <= 0) {
+                startIndex = 0
+
+            } else {
+                startIndex = findIndex - 20
+                resultText += "..."
+            }
+
+            // If the substring will be out of range at the end
+            if (findIndex + 20 >= result.subsection_content.length) {
+                endIndex = result.subsection_content.length
+
+            } else {
+                endIndex = findIndex + 20
+            }
+
+            result.text_found = findIndex !== -1 ? resultText + result.subsection_content.substring(startIndex, endIndex) : ""
+
+            // Add result to the mapping of sections
+            if (result.section_title in resultsMappedObj) {
+                resultsMappedObj[result.section_title].push(result)
+            }
+            else {
+                resultsMappedObj[result.section_title] = [result]
+            }
+        }
+        return resultsMappedObj
+    }
+}
+
 )
 
 

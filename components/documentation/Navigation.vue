@@ -1,5 +1,5 @@
 <template>
-    <CommandPalette v-model:is-command-palette-open="isCommandPaletteOpen" />
+    <DocumentationCommandPalette v-model:is-command-palette-open="isCommandPaletteOpen" />
     <div class="max-w-8xl z-50 mb-10 sticky top-0 mr-5 bg-white dark:bg-slate-900 relative pointer-events-auto">
         <div class="h-10 w-100 bg-slate-50 dark:bg-dark-bg -ml-0.5"></div>
         <button type="button"

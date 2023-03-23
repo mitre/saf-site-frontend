@@ -19,7 +19,7 @@
             <ul role="list" class="space-y-9">
                 <div v-for="(section, key) in props.docData" :key="key">
                     <li key={{section.section_title}}>
-                        <h2 class="font-display font-medium text-slate-900 dark:text-slate-200">
+                        <h2 class="font-bold text-slate-900 dark:text-slate-200">
                             {{ section.section_title }}
                         </h2>
                         <ul role="list"

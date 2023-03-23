@@ -31,7 +31,7 @@
                                             :class="['flex cursor-default select-none rounded-xl p-3', active && 'bg-gray-100']">
                                             <a :href="`/docs/${item.subsection_href}`" class="ml-4 flex-auto">
                                                 <p
-                                                    :class="['text-sm font-medium', active ? 'text-gray-900' : 'text-gray-700']">
+                                                    :class="['text-sm font-semibold', active ? 'text-gray-900' : 'text-gray-700']">
                                                     {{ item.subsection_title }}
                                                 </p>
                                                 <p :class="['text-sm', active ? 'text-gray-700' : 'text-gray-500']">
@@ -102,7 +102,8 @@ const getDocumentation = async () => {
                         id: section.id,
                         section_title: section.attributes.section_title,
                         subsection_title: sub.title,
-                        subsection_content: sub.content.replace(/<\/?[^>]+(>|$)/g, " "),
+                        // Replaces are used to take out html characters that shouldn't be searchable
+                        subsection_content: sub.content.replace(/<\/?[^>]+(>|$)/g, " ").replace(/&nbsp/g, " ").replace(/&lt/g, "<").replace(/&gt/g, ">"),
                         subsection_href: sub.href
                     })
                 })
@@ -132,20 +133,20 @@ const filteredItems = computed(() => {
             let resultText = ""
 
             // If the substring will be out of range at the start
-            if (findIndex - 20 <= 0) {
+            if (findIndex - 30 <= 0) {
                 startIndex = 0
 
             } else {
-                startIndex = findIndex - 20
+                startIndex = findIndex - 30
                 resultText += "..."
             }
 
             // If the substring will be out of range at the end
-            if (findIndex + 20 >= result.subsection_content.length) {
+            if (findIndex + 30 >= result.subsection_content.length) {
                 endIndex = result.subsection_content.length
 
             } else {
-                endIndex = findIndex + 20
+                endIndex = findIndex + 30
             }
 
             result.text_found = findIndex !== -1 ? resultText + result.subsection_content.substring(startIndex, endIndex) : ""

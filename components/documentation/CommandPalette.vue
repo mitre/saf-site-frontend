@@ -11,27 +11,28 @@
                     enter-to="opacity-100 scale-100" leave="ease-in duration-200" leave-from="opacity-100 scale-100"
                     leave-to="opacity-0 scale-95">
                     <DialogPanel
-                        class="mt-5 mx-auto max-w-xl transform divide-y divide-gray-100 overflow-hidden rounded-xl bg-white shadow-2xl ring-1 ring-black ring-opacity-5 transition-all">
+                        class="mt-5 mx-auto max-w-xl transform divide-y divide-gray-100 dark:divide-gray-500 dark:divide-opacity-20 dark:bg-gray-900 overflow-hidden rounded-xl bg-white shadow-2xl ring-1 ring-black ring-opacity-5 transition-all">
                         <Combobox>
                             <div class="relative">
-                                <SearchIcon class="pointer-events-none absolute top-3.5 left-4 h-5 w-5 text-gray-400"
+                                <SearchIcon
+                                    class="pointer-events-none absolute top-3.5 left-4 h-5 w-5 text-gray-400 dark:text-gray-500"
                                     aria-hidden="true" />
                                 <ComboboxInput
-                                    class="h-12 w-full border-0 bg-transparent pl-11 pr-4 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm"
+                                    class="h-12 w-full border-0 bg-transparent pl-11 pr-4 dark:text-gray-200 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm "
                                     placeholder="Search..." @change="query = $event.target.value" />
                             </div>
 
                             <ComboboxOptions v-if="Object.keys(filteredItems).length > 0" static
                                 class="max-h-96 scroll-py-3 overflow-y-auto p-3">
                                 <div v-for="section in Object.keys(filteredItems)" class="mb-2">
-                                    <h1 class="font-bold mb-1">{{ section }}</h1>
+                                    <h1 class="font-bold mb-1 dark:text-gray-200">{{ section }}</h1>
                                     <ComboboxOption v-for="item in filteredItems[section]" :key="item.id" :value="item"
                                         as="template" v-slot="{ active }">
                                         <li
-                                            :class="['flex cursor-default select-none rounded-xl p-3', active && 'bg-gray-100']">
+                                            :class="['flex cursor-default select-none rounded-xl p-3', active && 'bg-gray-100 dark:bg-gray-400']">
                                             <a :href="`/docs/${item.subsection_href}`" class="ml-4 flex-auto">
                                                 <p
-                                                    :class="['text-sm font-semibold', active ? 'text-gray-900' : 'text-gray-700']">
+                                                    :class="['text-sm font-semibold', active ? 'text-gray-900 dark:text-gray-900' : 'text-gray-300']">
                                                     {{ item.subsection_title }}
                                                 </p>
                                                 <p :class="['text-sm', active ? 'text-gray-700' : 'text-gray-500']">

@@ -1,6 +1,6 @@
 <template>
   <Header />
-  <main class="my-16 mx-auto sm:mt-24">
+  <main class="bg-white dark:bg-dark-bg min-h-screen h-full px-6 my-16 mx-auto sm:mt-24 ">
     <!-- <div class="text-center my-16">
       <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
 
@@ -14,19 +14,28 @@
         <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
           <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-blue-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10"> Live demo </a>
         </div>
-      </div>
-    </div> -->
+      </div> -->
+    <!-- </div> -->
     <!-- <HomeHero /> -->
     <HomeCapabilities :capabilities="capabilities" />
 
     <!-- SAF core tenets -->
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
-      <dl class="grid grid-cols-1 gap-y-16 gap-x-8 text-center lg:grid-cols-3">
-        <div v-for="stat in stats" :key="stat.id" class="mx-auto flex max-w-xs flex-col gap-y-4">
-          <dt class="text-base leading-7 text-gray-600">{{ stat.name }}</dt>
-          <dd class="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl">{{ stat.value }}</dd>
+    <div class="relative bg-gray-50 dark:bg-dark-bg py-24 sm:py-32 lg:py-40">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="mx-auto max-w-2xl lg:text-center">
+          <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">The SAF Is ...</p>
         </div>
-      </dl>
+        <dl class="mt-24 grid grid-cols-1  gap-y-16 gap-x-8 lg:grid-cols-3">
+          <div v-for="tenet in tenets" :key="tenet.id" class="lg:mx-auto flex max-w-sm gap-y-4">
+            <component :is="tenet.icon" class="h-12 w-12 mr-3" />
+            <div> 
+              <dd class="text-start text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl">{{ tenet.name }}</dd>
+              <dd class="text-start mt-3 leading-7 text-gray-600">{{ tenet.value }}</dd>
+            </div>
+
+          </div>
+        </dl>
+      </div>
     </div>
 
 
@@ -55,17 +64,19 @@
 </template>
 
 <script >
+import { CurrencyDollarIcon, GlobeIcon, BeakerIcon } from '@heroicons/vue/outline';
 export default {
+  components: {CurrencyDollarIcon, GlobeIcon, BeakerIcon},
   data() {
     return {
       stages: [],
       vendors: [],
       toolset: [],
       capabilities: [],
-      stats: [
-        { id: 1, name: 'Transactions every 24 hours', value: 'Free' },
-        { id: 2, name: 'Assets under holding', value: 'Open Source' },
-        { id: 3, name: 'New users annually', value: 'Community Project' },
+      tenets: [
+        { id: 1,  name: 'Free', value: 'Add a description ...', icon:CurrencyDollarIcon},
+        { id: 2,  name: 'Open Source', value: 'Add a description ...', icon:BeakerIcon},
+        { id: 3,  name: 'Community Project', value: 'Add a description ...', icon:GlobeIcon},
       ]
     };
   },

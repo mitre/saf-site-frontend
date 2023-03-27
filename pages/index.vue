@@ -38,8 +38,10 @@
       </div>
     </div>
 
-
     <HomeToolset :toolset="toolset"/>
+
+    <HomeUserStories :userStories="userStories" />
+
 
 
 
@@ -69,9 +71,10 @@ export default {
   components: {CurrencyDollarIcon, GlobeIcon, BeakerIcon},
   data() {
     return {
-      stages: [],
-      vendors: [],
+      // stages: [],
+      // vendors: [],
       toolset: [],
+      userStories: [],
       capabilities: [],
       tenets: [
         { id: 1,  name: 'Free', value: 'Add a description ...', icon:CurrencyDollarIcon},
@@ -86,6 +89,7 @@ export default {
       // await this.getVendors()
       await this.getToolset()
       await this.getCapabilities()
+      await this.getUserStories()
     });
   },
   methods: {
@@ -117,6 +121,17 @@ export default {
               name: capability.attributes.icon.data ? capability.attributes.icon.data.attributes.name : null,
               url: capability.attributes.icon.data ? capability.attributes.icon.data.attributes.url : null,
             },
+          }))
+        });
+    },
+    async getUserStories() {
+      this.userStories = await useAsyncData('getUserStories', () => GqlGetUserStories())
+        .then(({ data }) => {
+          console.log('look here', data._value.userStories.data)
+          return data._value.userStories.data.map((userStory) => ({
+            question: userStory.attributes.question,
+            answer: userStory.attributes.answer,
+            orderID: userStory.attributes.order_id,
           }))
         });
     },

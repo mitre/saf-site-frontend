@@ -11,7 +11,7 @@
             <div v-for="capability in capabilities.slice(0,-1)" :key="capability.name" class="relative pl-16">
               <dt class="text-large font-semibold leading-7 text-gray-900">
                 <div class="absolute top-0 left-0 flex h-12 w-12 items-center justify-center rounded-lg">
-                    <img :src="capability.icon" class="h-12 w-12 text-white" aria-hidden="true" />
+                    <img :src="capability.icon.url" class="h-12 w-12 text-white" aria-hidden="true" />
                 </div>
                 {{ capability.name }}
               </dt>
@@ -24,7 +24,7 @@
             <div v-for="capability in capabilities.slice(-1)" :key="capability.name" class="relative pl-16">
               <dt class="text-large font-semibold leading-7 text-gray-900 ">
                 <div class="absolute top-0 left-0 flex h-12 w-12 items-center justify-center rounded-lg">
-                  <img :src="capability.icon" class="h-12 w-12 text-white" aria-hidden="true" />
+                  <img :src="capability.icon.url" class="h-12 w-12 text-white" aria-hidden="true" />
                 </div>
                 {{ capability.name }}
               </dt>
@@ -47,7 +47,5 @@ const props = defineProps({
 })
 
 const { capabilities } = toRefs(props)
-
-console.log(capabilities)
 
 </script>

@@ -8,8 +8,9 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "start": "yarn build && nuxt start",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix ./",
-    "format": "prettier . --ignore-path .gitignore  --write ",
+    "lint:fix": "eslint --ext .js,.vue --ignore-path .gitignore --fix ./",
+    "prettier:fix": "prettier . --ignore-path .gitignore --write",
+    "format": "yarn prettier:fix && yarn lint:fix",
     "test:e2e": "yarn playwright test"
   },
   "dependencies": {
@@ -18,6 +19,8 @@
     "vue": "^3.2.47"
   },
   "devDependencies": {
+    "@babel/core": "^7.21.0",
+    "@babel/eslint-parser": "^7.19.1",
     "@headlessui/vue": "^1.7.12",
     "@heroicons/vue": "^1.0.6",
     "@nuxtjs/strapi": "^1.9.0",
@@ -25,12 +28,16 @@
     "@playwright/test": "^1.31.2",
     "@tailwindcss/aspect-ratio": "^0.4.0",
     "@tailwindcss/forms": "^0.5.3",
-    "@tailwindcss/line-clamp": "^0.4.2",
     "@tailwindcss/typography": "^0.5.9",
     "@types/node": "^18.15.3",
+    "@typescript-eslint/eslint-plugin": "^5.54.1",
+    "@typescript-eslint/parser": "^5.54.1",
     "@vitejs/plugin-vue": "^4.1.0",
     "eslint": "^8.36.0",
+    "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.7.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-nuxt": "^4.0.0",
     "eslint-plugin-vue": "^9.9.0",
     "nuxt": "^3.3.1",
     "prettier": "^2.8.0",

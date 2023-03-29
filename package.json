@@ -22,7 +22,7 @@
     "@babel/core": "^7.21.0",
     "@babel/eslint-parser": "^7.19.1",
     "@headlessui/vue": "^1.7.12",
-    "@heroicons/vue": "^1.0.6",
+    "@heroicons/vue": "^2.0.16",
     "@nuxtjs/strapi": "^1.9.0",
     "@nuxtjs/tailwindcss": "^6.6.0",
     "@playwright/test": "^1.31.2",

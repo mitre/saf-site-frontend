@@ -1,4 +1,4 @@
-query sponsors{
+query getSponsors{
   partners (
     filters: {
       community: {

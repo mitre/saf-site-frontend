@@ -40,6 +40,18 @@
 
     <HomeToolset :toolset="toolset"/>
 
+    <p class="mt-2 mb-6 md:mb-2  text-3xl text-center font-bold tracking-tight text-gray-900 sm:text-4xl">Adopted By</p>
+    <div class="md:flex items-center">
+      <p class="font-bold tracking-tight text-gray-900 sm:text-3xl mx-auto items-center">Sponsors</p>
+      <HomeSponsors :data="sponsors" class="ml-auto"/>
+    </div>
+    <div class="md:flex items-center">
+      <p class="md:hidden font-bold tracking-tight text-gray-900 sm:text-3xl mx-auto items-center">Vendors</p>
+      <HomeSponsors :data="vendors" class="mr-auto"/>
+      <p class="hidden md:flex font-bold tracking-tight text-gray-900 sm:text-3xl mx-auto items-center">Vendors</p>
+
+    </div>
+
     <HomeUserStories :userStories="userStories" />
 
 
@@ -48,15 +60,15 @@
 
     <!-- <HomeWhenToUseIt :stages="stages" /> -->
 
-    <!-- Commercial Sponsers -->
-    <!-- <HomeSponsers 
+    <!-- Commercial sponsors -->
+    <!-- <Homesponsors 
       :partners="vendors"
       partners_h2="Partners"
       partners_desc="foobar"
       left=true
     /> -->
-    <!-- Government Sponsers -->
-    <!-- <HomeSponsers
+    <!-- Government sponsors -->
+    <!-- <Homesponsors
       :partners="sponsors"
       partners_h2="Sponsors"
       partners_desc="foobar"
@@ -71,11 +83,11 @@ export default {
   components: {CurrencyDollarIcon, GlobeIcon, BeakerIcon},
   data() {
     return {
-      // stages: [],
-      // vendors: [],
       toolset: [],
       userStories: [],
       capabilities: [],
+      sponsors: [],
+      vendors: [],
       tenets: [
         { id: 1,  name: 'Free', value: 'Add a description ...', icon:CurrencyDollarIcon},
         { id: 2,  name: 'Open Source', value: 'Add a description ...', icon:BeakerIcon},
@@ -85,11 +97,12 @@ export default {
   },
   mounted() {
     this.$nextTick(async () => {
-      // await this.getWhenToUseIt()
-      // await this.getVendors()
       await this.getToolset()
       await this.getCapabilities()
       await this.getUserStories()
+      await this.getSponsors()
+      await this.getVendors()
+
     });
   },
   methods: {
@@ -111,7 +124,6 @@ export default {
     async getCapabilities() {
       this.capabilities = await useAsyncData('getCapabilities', () => GqlGetCapabilities())
         .then(({ data }) => {
-          console.log('look here', data._value.capabilities.data)
           return data._value.capabilities.data.map((capability) => ({
             name: capability.attributes.name,
             description: capability.attributes.description,
@@ -124,10 +136,39 @@ export default {
           }))
         });
     },
+    async getSponsors() {
+      this.sponsors = await useAsyncData('getSponsors', () => GqlGetSponsors())
+        .then(({ data }) => {
+          return data._value.partners.data.map((sponsor) => ({
+            name: sponsor.attributes.name,
+            nameLong: sponsor.attributes.name_long,
+            link: sponsor.attributes.link,
+            coummunity: sponsor.attributes.community,
+            icon: {
+              name: sponsor.attributes.icon.data ? sponsor.attributes.icon.data.attributes.name : null,
+              url: sponsor.attributes.icon.data ? sponsor.attributes.icon.data.attributes.url : null,
+            },
+          }))
+        });
+    },
+    async getVendors() {
+      this.vendors = await useAsyncData('getVendors', () => GqlGetVendors())
+        .then(({ data }) => {
+          return data._value.partners.data.map((vendor) => ({
+            name: vendor.attributes.name,
+            nameLong: vendor.attributes.name_long,
+            link: vendor.attributes.link,
+            community: vendor.attributes.community,
+            icon: {
+              name: vendor.attributes.icon.data ? vendor.attributes.icon.data.attributes.name : null,
+              url: vendor.attributes.icon.data ? vendor.attributes.icon.data.attributes.url : null,
+            },
+          }))
+        });
+    },
     async getUserStories() {
       this.userStories = await useAsyncData('getUserStories', () => GqlGetUserStories())
         .then(({ data }) => {
-          console.log('look here', data._value.userStories.data)
           return data._value.userStories.data.map((userStory) => ({
             question: userStory.attributes.question,
             answer: userStory.attributes.answer,
@@ -135,57 +176,8 @@ export default {
           }))
         });
     },
-    // async getWhenToUseIt() {
-    //   this.stages = await useAsyncData('getWhenToUseIt', () => GqlWhenToUseIt())
-    //     .then(({ data }) => {
-    //       return data._value.textContents.data.map((stage) => ({
-    //         name: stage.attributes.name,
-    //         text: stage.attributes.text
-    //       }))
-    //     });
-    // },
-    // async getVendors() {
-    //   this.vendors = await useAsyncData('getVendors', () => GqlVendors())
-    //     .then(({ data }) => {
-    //       return data._value.partners.data.map((vendor) => ({
-    //         name: vendor.attributes.name,
-    //         name_long: vendor.attributes.name_long,
-    //         link: vendor.attributes.link,
-    //         icon: vendor.attributes.icon.data.attributes.url,
-    //         community: vendor.attributes.community,
-    //       }))
-    //     });
-    //   }
-    }
   }
+}
 </script> 
 
-<script setup>
-const features = [
-  {
-    name: 'Push to Deploy',
-    description: 'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.',
-  },
-  {
-    name: 'SSL Certificates',
-    description: 'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.',
-  },
-  {
-    name: 'Simple Queues',
-    description: 'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.',
-  },
-  {
-    name: 'Advanced Security',
-    description: 'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.',
-  },
-  {
-    name: 'Powerful API',
-    description: 'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.',
-  },
-  {
-    name: 'Database Backups',
-    description: 'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.',
-  },
-]
-</script>
 

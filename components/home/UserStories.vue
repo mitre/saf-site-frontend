@@ -1,6 +1,6 @@
 <template>
-  <div class="relative bg-white dark:bg-dark-bg py-24 sm:py-32 lg:py-40">
-    <div class="mx-auto max-w-7xl divide-y divide-gray-900/10 px-6 py-24 sm:py-32 lg:py-40 lg:px-8">
+  <div class="relative bg-gray-50 dark:bg-dark-bg py-24 sm:py-32 lg:py-40">
+    <div class="mx-auto max-w-7xl divide-y divide-gray-900/10 px-6   lg:px-8">
         <h2 class="text-3xl sm:text-4xl font-bold leading-10 tracking-tight text-gray-900">User Stories</h2>
         <dl class="mt-10 space-y-8 divide-y divide-gray-900/10">
           <div v-for="userStory in userStories" :key="userStory.id" class="pt-8 lg:grid lg:grid-cols-12 lg:gap-8">

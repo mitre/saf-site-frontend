@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="relative bg-white dark:bg-dark-bg py-24 sm:py-32 lg:py-40">
+    <div class="relative bg-gray-50 dark:bg-dark-bg py-24 sm:py-32 lg:py-40">
       <div class="mx-auto max-w-md px-6 text-center sm:max-w-3xl lg:max-w-7xl lg:px-8">
         <div class="flex-row mx-auto  max-w-3xl text-left" >
           <p class="mt-2 max-w-prose sm:text-4xl text-3xl tracking-tight font-bold text-gray-900 dark:text-gray-50">Our Open Source Toolset</p>

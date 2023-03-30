@@ -16,7 +16,7 @@
         :pagination="{ clickable: true }"
         >
           <SwiperSlide v-for="slide in data" :key="slide" class="text-center mb-8">
-            <NuxtLink :to="slide.link" class="flex-1 items-center">
+            <NuxtLink :to="slide.link" target="_blank" class="flex-1 items-center" >
               <img :src="slide.icon.url" :alt="slide.icon.name" class="h-24 object-center mx-auto aspect-auto" />
               <p class="dark:bg-dark-text mt-6 mx-8">{{ slide.nameLong  }}</p>
             </NuxtLink>

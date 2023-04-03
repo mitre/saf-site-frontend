@@ -2,34 +2,35 @@
   <div>
     <div class="bg-white dark:bg-dark-bg mx-auto py-12 px-6 lg:py-16 lg:px-8 lg:max-w-4xl md:max-w-xl max-w-sm">
 
-
+      <!-- Large View -->
       <div class="hidden lg:flex">
         <Swiper 
         :modules="[SwiperAutoplay, SwiperEffectCreative, SwiperNavigation, SwiperPagination]"
         :slides-per-view="3"
+        :space-between="-25"
         :autoplay="{
-          // delay: 8000,
+          delay: 8000,
           disableOnInteraction: true,
         }"
         :loop="true"
         :navigation="true"
         :pagination="{ clickable: true }"
         >
-          <SwiperSlide v-for="slide in data" :key="slide" class="text-center mb-8">
-            <NuxtLink :to="slide.link" target="_blank" class="flex-1 items-center" >
+          <SwiperSlide v-for="slide in data" :key="slide" class="text-center mb-8 px-4">
+            <NuxtLink :to="slide.link" target="_blank" class="flex-1 items-center mx-8" >
               <img :src="slide.icon.url" :alt="slide.icon.name" class="h-24 object-center mx-auto aspect-auto" />
               <p class="dark:bg-dark-text mt-6 mx-8">{{ slide.nameLong  }}</p>
             </NuxtLink>
           </SwiperSlide>
         </Swiper>
       </div>
-
+      <!-- Meduim View -->
       <div class="hidden md:flex lg:hidden">
         <Swiper 
         :modules="[SwiperAutoplay, SwiperEffectCreative, SwiperNavigation, SwiperPagination]"
         :slides-per-view="2"
         :autoplay="{
-          // delay: 8000,
+          delay: 8000,
           disableOnInteraction: true,
         }"
         :loop="true"
@@ -51,7 +52,7 @@
         :modules="[SwiperAutoplay, SwiperEffectCreative, SwiperNavigation, SwiperPagination]"
         :slides-per-view="1"
         :autoplay="{
-          // delay: 8000,
+          delay: 8000,
           disableOnInteraction: true,
         }"
         :loop="true"
@@ -79,7 +80,5 @@ const props = defineProps({
 })
 
 const { data } = toRefs(props)
-
-console.log('data', data)
 
 </script>

@@ -5,23 +5,7 @@
     <HomeCapabilities :capabilities="capabilities" />
 
     <!-- SAF core tenets -->
-    <div class="relative bg-white dark:bg-dark-bg py-24 sm:py-32 lg:py-40">
-      <div class="mx-auto max-w-7xl px-6 lg:px-8">
-        <div class="mx-auto max-w-2xl lg:text-center">
-          <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">The SAF Is ...</p>
-        </div>
-        <dl class="mt-24 grid grid-cols-1  gap-y-16 gap-x-8 lg:grid-cols-3">
-          <div v-for="tenet in tenets" :key="tenet.id" class="lg:mx-auto flex max-w-sm gap-y-4">
-            <component :is="tenet.icon" class="h-12 w-12 mr-3" />
-            <div> 
-              <dd class="text-start text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl">{{ tenet.name }}</dd>
-              <dd class="text-start mt-3 leading-7 text-gray-600">{{ tenet.value }}</dd>
-            </div>
-
-          </div>
-        </dl>
-      </div>
-    </div>
+    <HomeTenets :tenets="tenets"/>
 
     <HomeToolset :toolset="toolset"/>
 
@@ -39,15 +23,13 @@
     </div>
 
     <HomeUserStories :userStories="userStories" />
-    
+
   </main>
   <Footer />
 </template>
 
 <script >
-import { CurrencyDollarIcon, GlobeIcon, BeakerIcon } from '@heroicons/vue/outline';
 export default {
-  components: {CurrencyDollarIcon, GlobeIcon, BeakerIcon},
   data() {
     return {
       toolset: [],
@@ -55,11 +37,7 @@ export default {
       capabilities: [],
       sponsors: [],
       vendors: [],
-      tenets: [
-        { id: 1,  name: 'Free', value: 'Add a description ...', icon:CurrencyDollarIcon},
-        { id: 2,  name: 'Open Source', value: 'Add a description ...', icon:BeakerIcon},
-        { id: 3,  name: 'Community Project', value: 'Add a description ...', icon:GlobeIcon},
-      ]
+      tenets: [],
     };
   },
   mounted() {
@@ -69,6 +47,7 @@ export default {
       await this.getUserStories()
       await this.getSponsors()
       await this.getVendors()
+      await this.getTenets()
 
     });
   },
@@ -140,6 +119,20 @@ export default {
             question: userStory.attributes.question,
             answer: userStory.attributes.answer,
             orderID: userStory.attributes.order_id,
+          }))
+        });
+    },
+    async getTenets() {
+      this.tenets = await useAsyncData('getTenets', () => GqlGetTenets())
+        .then(({ data }) => {
+          return data._value.tenets.data.map((tenet) => ({
+            name: tenet.attributes.name,
+            description: tenet.attributes.description,
+            orderID: tenet.attributes.order_id,
+            icon: {
+              name: tenet.attributes.icon.data ? tenet.attributes.icon.data.attributes.name : null,
+              url: tenet.attributes.icon.data ? tenet.attributes.icon.data.attributes.url : null,
+            },
           }))
         });
     },

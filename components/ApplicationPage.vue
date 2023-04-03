@@ -1,5 +1,5 @@
 <template>
-    <div class="relative bg-white dark:bg-dark-bg h-full pt-4 px-4 sm:px-6 lg:px-8">
+    <div class="relative dark:bg-dark-bg h-full pt-4 px-4 sm:px-6 lg:px-8">
         <div class="mx-auto max-w-7xl text-center">
             <img :src="`${productIcon}`" class="w-14 md:w-20 aspect-square mx-auto my-2" aria-hidden="true"
                 alt="Alt text here" />
@@ -11,7 +11,7 @@
         </div>
     </div>
     <div class="sm:flex sm:items-center mb-10 mx-auto">
-        <div class="sm:flex-auto bg-white">
+        <div class="sm:flex-auto">
             <div class="mt-16 space-y-16">
                 <div v-for="(feature, featureIdx) in features" :key="feature.name"
                     :class="[featureIdx % 2 === 0 ? '' : 'bg-gray-300 dark:bg-gray-700', 'flex flex-col-reverse lg:grid lg:grid-cols-12 lg:items-center lg:gap-x-8 p-4']">

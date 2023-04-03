@@ -1,7 +1,7 @@
 <template>
     <Header />
     <div v-if="isLoaded">
-        <ProductPage :product-icon="pageIconHref" :title="pageTitle" :grabber="pageGrabber" :description="pageContent"
+        <FrameworkPage :product-icon="pageIconHref" :title="pageTitle" :grabber="pageGrabber" :description="pageContent"
             :features="pageFeatures" />
     </div>
     <div v-else class="grid h-screen place-items-center">
@@ -24,18 +24,10 @@ const pageFeatures = ref([])
 const getPageContent = async () => {
     await useAsyncData('getFrameworkPage', () => GqlGetFrameworkPage({ page: route.params.page }))
         .then(({ data }) => {
-            pageIconHref.value = data._value.frameworkPages.data[0].attributes.Icon.data.attributes.url
-            pageTitle.value = data._value.frameworkPages.data[0].attributes.Page
-            pageGrabber.value = data._value.frameworkPages.data[0].attributes.Grabber
-            pageContent.value = data._value.frameworkPages.data[0].attributes.Description
-            pageFeatures.value = data._value.frameworkPages.data[0].attributes.Features.map((item) => {
-                return {
-                    name: item.Title,
-                    description: item.Description,
-                    imageSrc: item.Image.data.attributes.url
-                }
-            })
-
+            pageIconHref.value = data._value.frameworkPages.data[0].attributes.capability.data.attributes.icon.data.attributes.url
+            pageTitle.value = data._value.frameworkPages.data[0].attributes.capability.data.attributes.name
+            pageGrabber.value = data._value.frameworkPages.data[0].attributes.grabber
+            pageContent.value = data._value.frameworkPages.data[0].attributes.description
             return data
         });
 }

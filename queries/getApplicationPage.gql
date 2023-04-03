@@ -1,8 +1,8 @@
-query getFrameworkPage($page: String!){
-  frameworkPages(filters:{capability:{name:{eqi: $page}}}){
+query getApplicationPage($page: String!){
+  appPages(filters:{tool:{name:{eqi: $page}}}){
     data{
       attributes{
-        capability{
+        tool{
           data{
             attributes{
               name
@@ -18,6 +18,17 @@ query getFrameworkPage($page: String!){
         }
         grabber
         description
+        features{
+          title
+          description
+          image{
+            data{
+              attributes{
+                url
+              }
+            }
+          }
+        }
       }
     }
   }

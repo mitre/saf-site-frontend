@@ -1,12 +1,12 @@
 <template>
     <div class="relative bg-white dark:bg-dark-bg h-full pt-4 px-4 sm:px-6 lg:px-8">
-        <div class="mx-auto max-w-7xl text-center">
+        <div class="mx-auto max-w-7xl text-center mb-11">
             <img :src="`${productIcon}`" class="w-14 md:w-20 aspect-square mx-auto my-2" aria-hidden="true"
                 alt="Alt text here" />
             <h2 class="text-3xl font-bold tracking-tight dark:text-gray-200 sm:text-4xl">{{
                 title }}</h2>
             <h3 class="mt-6 mx-auto leading-8 text-center dark:text-dark-text">{{ grabber }}</h3>
-            <div class="mt-8 mx-auto leading-8 text-left dark:text-dark-text min-h-[30vh] mb-2" v-html="description">
+            <div class="mt-8 mx-auto leading-8 text-left dark:text-dark-text min-h-[30vh]" v-html="description">
             </div>
 
         </div>

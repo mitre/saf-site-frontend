@@ -2,9 +2,9 @@
   <Header />
   <main class="bg-white dark:bg-dark-bg min-h-screen h-full px-6 my-16 mx-auto sm:mt-24 ">
     <HomeHero />
+
     <HomeCapabilities :capabilities="capabilities" />
 
-    <!-- SAF core tenets -->
     <HomeTenets :tenets="tenets"/>
 
     <HomeToolset :toolset="toolset"/>
@@ -48,6 +48,10 @@ export default {
       await this.getSponsors()
       await this.getVendors()
       await this.getTenets()
+      this.sortItems(this.capabilities)
+      this.sortItems(this.toolset)
+      this.sortItems(this.tenets)
+      this.sortItems(this.userStories)
 
     });
   },
@@ -136,6 +140,9 @@ export default {
           }))
         });
     },
+    sortItems(items) {
+      return items.sort(function (a,b) {return a.orderID - b.orderID})
+    }
   }
 }
 </script> 

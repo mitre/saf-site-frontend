@@ -6,7 +6,6 @@ query getTenets{
         name,
         description,
         order_id,
-        hero_icon,
         icon{
           data{
             attributes{

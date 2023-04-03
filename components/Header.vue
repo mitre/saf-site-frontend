@@ -295,6 +295,20 @@ const libraries = ref([
       'Generate detailed security testing results through automated tests and manual attestation.',
     href: '/libs/validate',
     icon: ClipboardCheckIcon
+  },
+  {
+    name: 'TS InSpec Objects',
+    description:
+      '??????????',
+    href: '/libs/inspec-objects',
+    icon: ClipboardCheckIcon
+  },
+  {
+    name: 'eMASS Client',
+    description:
+      '?????????',
+    href: '/libs/emass',
+    icon: ClipboardCheckIcon
   }
 ]);
 
@@ -318,6 +332,13 @@ const applications = ref([
     description:
       '?????',
     href: '/apps/saf-cli',
+    icon: ShieldCheckIcon
+  },
+  {
+    name: 'eMASSer',
+    description:
+      '?????',
+    href: '/apps/emasser',
     icon: ShieldCheckIcon
   },
 ]);

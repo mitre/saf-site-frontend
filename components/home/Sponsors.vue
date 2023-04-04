@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="bg-white dark:bg-dark-bg mx-auto py-12 px-6 lg:py-16 lg:px-8 lg:max-w-4xl md:max-w-xl max-w-sm">
+    <div class="bg-gray-50 dark:bg-gray-700 mx-auto py-12 px-6 lg:py-16 lg:px-8 lg:max-w-4xl md:max-w-xl max-w-sm">
 
       <!-- Large View -->
       <div class="hidden lg:flex">
@@ -19,7 +19,7 @@
           <SwiperSlide v-for="slide in data" :key="slide" class="text-center mb-8 px-4">
             <NuxtLink :to="slide.link" target="_blank" class="flex-1 items-center mx-8" >
               <img :src="slide.icon.url" :alt="slide.icon.name" class="h-24 object-center mx-auto aspect-auto" />
-              <p class="dark:bg-dark-text mt-6 mx-8">{{ slide.nameLong  }}</p>
+              <p class="dark:text-white mt-6 mx-8">{{ slide.nameLong  }}</p>
             </NuxtLink>
           </SwiperSlide>
         </Swiper>
@@ -40,7 +40,7 @@
           <SwiperSlide v-for="slide in data" :key="slide" class="text-center mb-8">
             <NuxtLink :to="slide.link" class="flex-1 items-center">
               <img :src="slide.icon.url" :alt="slide.icon.name" class="h-24 object-center mx-auto aspect-auto" />
-              <p class="dark:bg-dark-text mt-4 mx-8">{{ slide.nameLong  }}</p>
+              <p class="dark:text-white mt-4 mx-8">{{ slide.nameLong  }}</p>
             </NuxtLink>
           </SwiperSlide>
         </Swiper>
@@ -62,7 +62,7 @@
         <SwiperSlide v-for="slide in data" :key="slide" class="text-center mb-8">
           <NuxtLink :to="slide.link" class="flex-1 items-center">
             <img :src="slide.icon.url" :alt="slide.icon.name" class="h-24 object-center mx-auto" />
-            <p class="dark:bg-dark-text">{{ slide.nameLong  }}</p>
+            <p class="dark:text-white">{{ slide.nameLong  }}</p>
           </NuxtLink>
         </SwiperSlide>
       </Swiper>

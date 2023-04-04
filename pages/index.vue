@@ -1,30 +1,32 @@
 <template>
   <Header />
-  <main class="bg-white dark:bg-dark-bg min-h-screen h-full px-6 my-16 mx-auto sm:mt-24 ">
-    <HomeHero />
+  <div class="bg-white dark:bg-dark-bg min-h-screen h-full">
+    <main v-if="isLoaded" class="px-6 my-16 mx-auto sm:mt-24 ">
+      <HomeHero />
 
-    <HomeCapabilities :capabilities="capabilities" />
+      <HomeCapabilities :capabilities="capabilities" />
 
-    <HomeTenets :tenets="tenets"/>
+      <HomeTenets :tenets="tenets"/>
 
-    <HomeToolset :toolset="toolset"/>
+      <HomeToolset :toolset="toolset"/>
 
-    <div class="bg-gray-50 dark:bg-gray-700 py-24 sm:py-32 lg:py-40" >
-      <p class="mt-2 mb-6 md:mb-2  text-3xl text-center font-bold tracking-tight text-gray-900 dark:text-gray-50 sm:text-4xl">Adopted by The Community</p>
-      <div class="md:flex items-center">
-        <p class="font-bold tracking-tight text-gray-900 dark:text-gray-50  sm:text-3xl mx-auto items-center">Sponsors</p>
-        <HomeSponsors :data="sponsors" class="ml-auto"/>
+      <div class="bg-gray-50 dark:bg-gray-700 py-24 sm:py-32 lg:py-40" >
+        <p class="mt-2 mb-6 md:mb-2  text-3xl text-center font-bold tracking-tight text-gray-900 dark:text-gray-50 sm:text-4xl">Adopted by The Community</p>
+        <div class="md:flex items-center">
+          <p class="font-bold tracking-tight text-gray-900 dark:text-gray-50  sm:text-3xl mx-auto items-center">Sponsors</p>
+          <HomeSponsors :data="sponsors" class="ml-auto"/>
+        </div>
+        <div class="md:flex items-center">
+          <p class="md:hidden font-bold tracking-tight text-gray-900 dark:text-gray-50 sm:text-3xl mx-auto items-center">Vendors</p>
+          <HomeSponsors :data="vendors" class="mr-auto"/>
+          <p class="hidden md:flex font-bold tracking-tight text-gray-900 dark:text-gray-50 sm:text-3xl mx-auto items-center">Vendors</p>
+        </div>
       </div>
-      <div class="md:flex items-center">
-        <p class="md:hidden font-bold tracking-tight text-gray-900 dark:text-gray-50 sm:text-3xl mx-auto items-center">Vendors</p>
-        <HomeSponsors :data="vendors" class="mr-auto"/>
-        <p class="hidden md:flex font-bold tracking-tight text-gray-900 dark:text-gray-50 sm:text-3xl mx-auto items-center">Vendors</p>
-      </div>
-    </div>
 
-    <HomeUserStories :userStories="userStories" />
+      <HomeUserStories :userStories="userStories" />
 
-  </main>
+    </main>
+  </div>
   <Footer />
 </template>
 
@@ -38,6 +40,7 @@ export default {
       sponsors: [],
       vendors: [],
       tenets: [],
+      isLoaded: false
     };
   },
   mounted() {
@@ -52,6 +55,7 @@ export default {
       this.sortItems(this.toolset)
       this.sortItems(this.tenets)
       this.sortItems(this.userStories)
+      this.isLoaded = true
 
     });
   },

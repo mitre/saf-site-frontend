@@ -2,70 +2,13 @@
   <div>
     <div class="bg-gray-50 dark:bg-gray-700 mx-auto py-12 px-6 lg:py-16 lg:px-8 lg:max-w-4xl md:max-w-xl max-w-sm">
 
-      <!-- Large View -->
-      <div class="hidden lg:flex">
-        <Swiper 
-        :modules="[SwiperAutoplay, SwiperEffectCreative, SwiperNavigation, SwiperPagination]"
-        :slides-per-view="3"
-        :space-between="-25"
-        :autoplay="{
-          delay: 8000,
-          disableOnInteraction: true,
-        }"
-        :loop="true"
-        :navigation="true"
-        :pagination="{ clickable: true }"
-        >
-          <SwiperSlide v-for="slide in data" :key="slide" class="text-center mb-8 px-4">
-            <NuxtLink :to="slide.link" target="_blank" class="flex-1 items-center mx-8" >
-              <img :src="slide.icon.url" :alt="slide.icon.name" class="h-24 object-center mx-auto aspect-auto" />
-              <p class="dark:text-white mt-6 mx-8">{{ slide.nameLong  }}</p>
-            </NuxtLink>
-          </SwiperSlide>
-        </Swiper>
-      </div>
-      <!-- Meduim View -->
-      <div class="hidden md:flex lg:hidden">
-        <Swiper 
-        :modules="[SwiperAutoplay, SwiperEffectCreative, SwiperNavigation, SwiperPagination]"
-        :slides-per-view="2"
-        :autoplay="{
-          delay: 8000,
-          disableOnInteraction: true,
-        }"
-        :loop="true"
-        :navigation="true"
-        :pagination="{ clickable: true }"
-        >
-          <SwiperSlide v-for="slide in data" :key="slide" class="text-center mb-8">
-            <NuxtLink :to="slide.link" class="flex-1 items-center">
-              <img :src="slide.icon.url" :alt="slide.icon.name" class="h-24 object-center mx-auto aspect-auto" />
-              <p class="dark:text-white mt-4 mx-8">{{ slide.nameLong  }}</p>
-            </NuxtLink>
-          </SwiperSlide>
-        </Swiper>
-      </div>
-
-      <!-- Mobile View -->
-      <div class="md:hidden">
-        <Swiper 
-        :modules="[SwiperAutoplay, SwiperEffectCreative, SwiperNavigation, SwiperPagination]"
-        :slides-per-view="1"
-        :autoplay="{
-          delay: 8000,
-          disableOnInteraction: true,
-        }"
-        :loop="true"
-        :navigation="true"
-        :pagination="true"
-      >
-        <SwiperSlide v-for="slide in data" :key="slide" class="text-center mb-8">
-          <NuxtLink :to="slide.link" class="flex-1 items-center">
-            <img :src="slide.icon.url" :alt="slide.icon.name" class="h-24 object-center mx-auto" />
-            <p class="dark:text-white">{{ slide.nameLong  }}</p>
+      <div class="mx-auto grid w-full max-w-2xl grid-cols-2 lg:grid-cols-3 items-center gap-y-12 gap-x-8 sm:gap-y-14 lg:mx-0 lg:max-w-none">
+        <div v-for="entry in data" :key="entry" class="text-center">
+          <NuxtLink :to="entry.link" target="_blank" class="flex-1 items-center mx-8" >
+            <img :src="entry.icon.url" :alt="entry.icon.name" class="h-16 sm:h-20 object-contain 4 object-center mx-auto aspect-auto dark:bg-gray-700" />
+            <p class="dark:text-white mt-6 mx-8">{{ entry.nameLong  }}</p>
           </NuxtLink>
-        </SwiperSlide>
-      </Swiper>
+        </div>
       </div>
     </div>
   </div>

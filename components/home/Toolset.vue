@@ -14,14 +14,12 @@
             <div v-for="tool in toolset" :key="tool.orderID" class="pt-6 bg-gray-50 border-2 dark:border-gray-700 dark:bg-dark-bg">
               <NuxtLink :to="tool.link">
                 <div class="flow-root rounded-lg  px-6 pb-8">
-                  <div class="-mt-4">
                     <div>
                       <div class="inline-flex items-center justify-center rounded-xl bg-gray-100 p-6 shadow-lg">
-                          <img :src="tool.icon.url" class="max-w-full w-12 h-12" :alt="tool.icon.name" />
+                          <img :src="tool.icon.url" class="max-w-full w-16 h-16" :alt="tool.icon.name" />
                       </div>
                     <h3 class="mt-8 text-lg font-semibold leading-8 tracking-tight text-gray-900 dark:text-white">{{ tool.name }}</h3>
                     <p class="mt-5 text-left ml-8 text-base leading-7 text-gray-600 dark:text-dark-text" v-html="tool.description"></p>
-                  </div>
                   </div>
                 </div>
               </NuxtLink>

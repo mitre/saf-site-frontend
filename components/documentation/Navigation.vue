@@ -53,6 +53,24 @@ const props = defineProps({
     },
 });
 
+const onKeyDown = (event) => {
+    keysPressed[event.key] = true;
+
+    if (event.key === 'k' && (event.metaKey || event.ctrlKey)) {
+        isCommandPaletteOpen.value = !isCommandPaletteOpen.value
+        event.preventDefault();
+        event.stopPropagation();
+    }
+}
+
+onMounted(() => {
+    document.addEventListener('keydown', onKeyDown);
+});
+
+onUnmounted(() => {
+    document.removeEventListener("keydown", onKeyDown);
+});
+
 const route = useRoute()
 const currentSubsectionHref = ref(route.params.section !== undefined ? route.params.section : "beginner-class-overview")
 </script>

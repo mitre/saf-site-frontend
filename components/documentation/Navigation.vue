@@ -54,8 +54,6 @@ const props = defineProps({
 });
 
 const onKeyDown = (event) => {
-    keysPressed[event.key] = true;
-
     if (event.key === 'k' && (event.metaKey || event.ctrlKey)) {
         isCommandPaletteOpen.value = !isCommandPaletteOpen.value
         event.preventDefault();

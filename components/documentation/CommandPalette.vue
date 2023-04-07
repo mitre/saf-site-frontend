@@ -1,12 +1,12 @@
 <template>
     <TransitionRoot :show="props.isCommandPaletteOpen" as="template" @after-leave="query = ''" appear>
-        <Dialog as="div" class="relative z-10" @close="$emit('update:isCommandPaletteOpen', false)">
+        <Dialog as="div" class="relative z-50" @close="$emit('update:isCommandPaletteOpen', false)">
             <TransitionChild as="template" enter="ease-out duration-300" enter-from="opacity-0" enter-to="opacity-100"
                 leave="ease-in duration-200" leave-from="opacity-100" leave-to="opacity-0">
-                <div class="fixed inset-0 bg-gray-500 bg-opacity-25 transition-opacity" />
+                <div class="fixed inset-0 bg-gray-500 bg-opacity-90 transition-opacity" />
             </TransitionChild>
 
-            <div class="fixed inset-0 z-10 overflow-y-auto mt-20">
+            <div class="fixed inset-0 z-50 overflow-y-auto mt-20">
                 <TransitionChild as="template" enter="ease-out duration-300" enter-from="opacity-0 scale-95"
                     enter-to="opacity-100 scale-100" leave="ease-in duration-200" leave-from="opacity-100 scale-100"
                     leave-to="opacity-0 scale-95">
@@ -49,7 +49,7 @@
                                 <ExclamationIcon type="outline" name="exclamation-circle"
                                     class="mx-auto h-6 w-6 text-gray-400" />
                                 <p class="mt-4 font-semibold text-gray-900">No results found</p>
-                                <p class="mt-2 text-gray-500">No components found for this search term. Please try again.
+                                <p class="mt-2 text-gray-500">No results found for this search term. Please try again.
                                 </p>
                             </div>
                         </Combobox>

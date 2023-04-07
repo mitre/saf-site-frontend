@@ -70,5 +70,5 @@ onUnmounted(() => {
 });
 
 const route = useRoute()
-const currentSubsectionHref = ref(route.params.section !== undefined ? route.params.section : "beginner-class-overview")
+const currentSubsectionHref = ref(route.params.section !== undefined ? route.params.section : "mapper-guide-intro")
 </script>

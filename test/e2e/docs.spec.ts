@@ -7,17 +7,18 @@ test('Docs', async ({ page }) => {
   await expect(page).toHaveURL('/docs')
 
   // Check documentation element
-  await page.getByRole('heading', { level: 1, name: 'Class Overview' })
-  await page.getByRole('link', { name: 'The Road to Security Automation' }).click();
-  await expect(page).toHaveURL('/docs#the-road-to-security-automation')
+  await page.getByRole('heading', { level: 1, name: 'Introduction' })
+
 
   // Use next button
-  await page.getByRole('link', { name: 'Next Starting the Journey' }).click();
-  await expect(page).toHaveURL('/docs/starting-the-journey')
-  await page.getByRole('heading', { level: 1, name: 'Starting the Journey' })
+  await page.getByRole('link', { name: 'Next Background & Overview' }).click();
+  await expect(page).toHaveURL('/docs/mapper-background')
+  await page.getByRole('heading', { level: 1, name: 'Background & Overview' })
+  await page.getByRole('link', { name: 'HDF Schema Mapping Example Walkthrough' }).click();
+  await expect(page).toHaveURL('/docs/mapper-background#hdf-schema-mapping-example-walkthrough')
 
   // Click a link from documentation nav
-  await page.getByRole('link', { name: 'How to create a SAF Action Release' }).click();
-  await expect(page).toHaveURL('/docs/how-to-create-a-saf-action-release')
-  await page.getByRole('heading', { level: 1, name: 'How to create a SAF Action Release' })
+  await page.getByRole('link', { name: 'Mapper Creation', exact: true }).click();
+  await expect(page).toHaveURL('/docs/mapper-creation')
+  await page.getByRole('heading', { level: 1, name: 'Mapper Creation' })
 });

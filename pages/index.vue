@@ -1,7 +1,7 @@
 <template>
   <Header />
   <div class="bg-white dark:bg-dark-bg min-h-screen h-full">
-    <main v-if="isLoaded" class="px-6 my-16 mx-auto sm:mt-24 ">
+    <main v-if="isLoaded" class="px-6 mb-16 mx-auto  ">
       <HomeHero />
 
       <HomeCapabilities :capabilities="capabilities" />

@@ -32,7 +32,8 @@ const getPageContent = async () => {
                 return {
                     name: item.title,
                     description: item.description,
-                    imageSrc: item.image.data.attributes.url
+                    imageSrc: item.image.data.attributes.url,
+                    imageAlt: item.image.data.attributes.alternativeText
                 }
             })
             return data

@@ -2,7 +2,7 @@
   <div class="relative bg-white dark:bg-dark-bg flex lg:hidden border-b border-slate-200">
     <button type="button" @click="setIsOpen(true)" class="my-5 flex text-xl dark:text-white" aria-label="Open navigation">
       <MenuIcon class="h-6 w-6 ml-4 stroke-slate-500" />
-      <ol class="ml-4 flex text-sm leading-6 whitespace-nowrap min-w-0">
+      <ol class="ml-4 flex text-sm leading-6 flex-wrap min-w-0">
         <li class="flex items-center text-slate-900 truncate dark:text-slate-400">{{ props.currentSectionTitle }}
           <svg width="3" height="6" aria-hidden="true" class="mx-3 overflow-visible text-slate-400">
             <path d="M0 0L3 3L0 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>

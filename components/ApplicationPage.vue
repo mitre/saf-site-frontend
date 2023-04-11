@@ -22,7 +22,7 @@
                     </div>
                     <div
                         :class="[featureIdx % 2 === 0 ? 'lg:col-start-6 xl:col-start-5 lg:mr-10' : 'lg:col-start-1 lg:ml-10', 'flex-auto lg:row-start-1 lg:col-span-7 xl:col-span-8 ']">
-                        <div class="aspect-w-5 aspect-h-2 overflow-hidden rounded-lg">
+                        <div class="aspect-w-5 aspect-h-2 overflow-hidden rounded-lg drop-shadow-2xl">
                             <img :src="feature.imageSrc" :alt="feature.imageAlt" class="object-cover object-center" />
                         </div>
                     </div>

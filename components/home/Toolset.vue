@@ -11,7 +11,7 @@
         </div>
         <div class="mt-20">
           <div class="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
-            <div v-for="tool in toolset" :key="tool.orderID" class="pt-6 bg-gray-50 border-2 dark:border-gray-700 dark:bg-dark-bg">
+            <div v-for="tool in toolset" :key="tool.orderID" class="pt-6 bg-gray-50 hover:bg-gray-100 border-2 dark:border-gray-700 dark:bg-dark-bg dark:hover:bg-gray-800">
               <NuxtLink :to="tool.link">
                 <div class="flow-root rounded-lg  px-6 pb-8">
                     <div>

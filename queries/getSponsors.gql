@@ -4,7 +4,8 @@ query getSponsors{
       community: {
         eq: "sponsor"
       }
-    }){
+    },
+    pagination: { limit: 100 }){
     data {
       id
       attributes {

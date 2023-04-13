@@ -4,7 +4,8 @@ query getVendors{
       community: {
         eq: "vendor"
       }
-    }){
+    },
+    pagination: { limit: 100 }){
     data {
       id
       attributes {

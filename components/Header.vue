@@ -112,11 +112,11 @@
           <PopoverPanel focus class="fixed w-full max-w-xs px-6">
             <div
               class="rounded-lg shadow-lg ring-1 ring-black dark:ring-gray-500 ring-opacity-5 bg-white dark:bg-dark-bg divide-y-2 divide-gray-50">
-              <div class="pt-2 pb-4 px-5">
+              <div class="pt-2 pb-4 px-5 overflow-y-scroll h-[calc(100vh-110px)]">
                 <div class="flex items-center justify-between">
                   <div class="-mr-2">
                     <PopoverButton
-                      class="bg-white dark:bg-dark-bg rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                      class="bg-white dark:bg-dark-bg rounded-md py-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                       <span class="sr-only">Close menu</span>
                       <XIcon class="h-6 w-6" aria-hidden="true" />
                     </PopoverButton>
@@ -124,6 +124,7 @@
                 </div>
                 <div class="my-3">
                   <nav class="grid gap-y-8 py-2">
+                    <h1 class="font-bold">Framework</h1>
                     <NuxtLink v-for="item in framework" :key="item.name" :to="item.href" :class="[
                       '-m-3 p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-700',
                       item.href == route.fullPath
@@ -135,7 +136,11 @@
                         {{ item.name }}
                       </span>
                     </NuxtLink>
-                    <NuxtLink v-for="item in resources" :key="item.name" :to="item.href" :class="[
+
+                    <hr class="drop-shadow" />
+
+                    <h1 class="font-bold">Libraries</h1>
+                    <NuxtLink v-for="item in libraries" :key="item.name" :to="item.href" :class="[
                       '-m-3 p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-700',
                       item.href == route.fullPath
                         ? 'bg-gray-300 dark:bg-gray-700'
@@ -146,7 +151,22 @@
                         {{ item.name }}
                       </span>
                     </NuxtLink>
+
+                    <hr class="drop-shadow" />
+
+                    <h1 class="font-bold">Resources</h1>
                     <NuxtLink v-for="item in navigation" :key="item.name" :to="item.href" :class="[
+                      '-m-3 p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-700',
+                      item.href == route.fullPath
+                        ? 'bg-gray-300 dark:bg-gray-700'
+                        : ''
+                    ]">
+                      <component :is="item.icon" class="flex-shrink-0 h-6 w-6 text-blue-600" aria-hidden="true" />
+                      <span class="ml-3 text-base font-medium text-gray-900 dark:text-MITRE-silver">
+                        {{ item.name }}
+                      </span>
+                    </NuxtLink>
+                    <NuxtLink v-for="item in resources" :key="item.name" :to="item.href" :class="[
                       '-m-3 p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-700',
                       item.href == route.fullPath
                         ? 'bg-gray-300 dark:bg-gray-700'

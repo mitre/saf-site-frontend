@@ -3,7 +3,7 @@
     <div class="bg-white dark:bg-dark-bg py-24 sm:py-32">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="mx-auto max-w-2xl lg:text-center">
-          <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-50 sm:text-4xl">Jump Start Your Security Journey</p>
+          <p class="mt-2 text-3xl font-bold tracking-tight text-blue-700 sm:text-4xl">Jump Start Your Security Journey</p>
           <p class="mt-6 text-lg leading-8 text-gray-600 dark:text-dark-text">MITRE SAF(c) offers open-source support for multiple workflow capabilities.</p>
         </div>
         <!-- <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-6xl">

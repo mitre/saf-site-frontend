@@ -11,7 +11,7 @@
       <HomeToolset :toolset="toolset"/>
 
       <div class="bg-gray-50 dark:bg-gray-700 py-24 sm:py-32 lg:py-40" >
-        <p class="mt-2 mb-6 md:mb-2  text-3xl text-center font-bold tracking-tight text-gray-900 dark:text-gray-50 sm:text-4xl ">Adopted by The Community</p>
+        <p class="mt-2 mb-6 md:mb-2  text-3xl text-center font-bold tracking-tight text-blue-700 sm:text-4xl ">Adopted by The Community</p>
         <div class="md:flex items-center pt-8">
           <p class="font-bold tracking-tight text-gray-900 dark:text-gray-50  text-2xl sm:text-3xl ml-4 sm:mx-auto  items-center">Sponsors</p>
           <HomeSponsors :data="sponsors" class="ml-auto"/>
@@ -93,6 +93,7 @@ export default {
     async getSponsors() {
       this.sponsors = await useAsyncData('getSponsors', () => GqlGetSponsors())
         .then(({ data }) => {
+          console.log('sponsors', data)
           return data._value.partners.data.map((sponsor) => ({
             name: sponsor.attributes.name,
             nameLong: sponsor.attributes.name_long,
@@ -108,6 +109,7 @@ export default {
     async getVendors() {
       this.vendors = await useAsyncData('getVendors', () => GqlGetVendors())
         .then(({ data }) => {
+          console.log('vendors', data)
           return data._value.partners.data.map((vendor) => ({
             name: vendor.attributes.name,
             nameLong: vendor.attributes.name_long,

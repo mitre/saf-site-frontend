@@ -3,7 +3,7 @@
     <div class="relative bg-white dark:bg-dark-bg py-24 sm:py-32 lg:py-40">
       <div class="mx-auto max-w-md px-6 text-center sm:max-w-3xl lg:max-w-7xl lg:px-8">
         <div class="flex-row mx-auto  max-w-3xl text-left" >
-          <p class="mt-2 max-w-prose sm:text-4xl text-3xl tracking-tight font-bold text-gray-900 dark:text-gray-50">Our Open Source Toolset</p>
+          <p class="mt-2 max-w-prose sm:text-4xl text-3xl tracking-tight font-bold text-blue-700">Our Open Source Toolset</p>
           <p class="mt-5 max-w-prose sm:text-xl text-lg  text-gray-500 dark:text-gray-100"> MITRE SAF maintains a toolset of utilities to support automation.</p>
           <p class="mt-5 max-w-prose sm:text-xl text-lg text-gray-500 dark:text-dark-text">            
             SAF tools are built to be modular. Slot them into your existing pipelines and integrate them with your favorite security tools. You can use SAF tools on their own with no pipeline at all.

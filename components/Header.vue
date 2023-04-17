@@ -117,59 +117,62 @@ import {
   PopoverPanel,
   PopoverOverlay,
 } from '@headlessui/vue';
-import { ref } from 'vue';
+import { ref, markRaw } from 'vue';
 import {
   ShieldCheckIcon,
   QuestionMarkCircleIcon,
-  ViewGridIcon,
   XIcon,
-  CubeIcon,
   ClipboardCheckIcon,
   DotsVerticalIcon,
-  PencilAltIcon,
   UserGroupIcon
 } from '@heroicons/vue/outline';
-import { AcademicCapIcon, BookOpenIcon, ChevronDownIcon, RssIcon } from '@heroicons/vue/solid';
+import { AcademicCapIcon, BookOpenIcon, RssIcon } from '@heroicons/vue/solid';
+
+import PlanIcon from '../assets/PlanIcon.vue'
+import HardenIcon from '../assets/HardenIcon.vue'
+import ValidateIcon from '../assets/ValidateIcon.vue'
+import NormalizeIcon from '../assets/NormalizeIcon.vue'
+import VisualizeIcon from '../assets/VisualizeIcon.vue'
 
 ////  Data  ////
 const selected = ref("")
 const route = useRoute()
-// const options = ref(['Light', 'Dark', 'System'])
-const framework = ref([
+const framework = markRaw([
   {
     name: 'Plan',
     description:
       'Choose, tailor, and create security guidance appropriate for your mission.',
     href: '/framework/plan',
-    icon: PencilAltIcon
+    icon: PlanIcon
+
   },
   {
     name: 'Harden',
     description:
       'Implement security baselines using our Ansible, Chef, and Terraform content.',
     href: '/framework/harden',
-    icon: ShieldCheckIcon
+    icon: HardenIcon
   },
   {
     name: 'Validate',
     description:
       'Generate detailed security testing results through automated tests and manual attestation.',
     href: '/framework/validate',
-    icon: ClipboardCheckIcon
+    icon: ValidateIcon
   },
   {
     name: 'Normalize',
     description:
       'Convert security results from all your security tools into a common data format.',
     href: '/framework/normalize',
-    icon: CubeIcon
+    icon: NormalizeIcon
   },
   {
     name: 'Visualize',
     description:
       'Identify overall security status and deep-dive to solve specific security defects',
     href: '/framework/visualize',
-    icon: ViewGridIcon
+    icon: VisualizeIcon
   }
 ]);
 

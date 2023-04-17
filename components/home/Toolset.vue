@@ -11,7 +11,7 @@
         </div>
         <div class="mt-20">
           <div class="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
-            <div v-for="tool in toolset" :key="tool.orderID" class="pt-6 bg-gray-50 hover:bg-gray-100 border-2 dark:border-gray-700 dark:bg-dark-bg dark:hover:bg-gray-800">
+            <div v-for="tool in toolset" :key="tool.orderID" class="pt-6 bg-gray-50 hover:bg-gray-200 border-2 hover:border-blue-600 dark:hover:border-blue-600 dark:border-gray-700 dark:bg-dark-bg dark:hover:bg-gray-800">
               <NuxtLink :to="tool.link">
                 <div class="flow-root rounded-lg  px-6 pb-8">
                     <div>
@@ -39,18 +39,6 @@ const props = defineProps({
         required: true,
     },
 })
-
-    // const sortedToolset = computed(()=> {
-    //   function compare(a, b) {
-    //     if (a.orderID < b.orderID)
-    //       return -1;
-    //     if (a.orderID > b.orderID)
-    //       return 1;
-    //     return 0;
-    //   }
-
-    //   return this.toolset.sort(compare);
-    // })
 
 const { toolset } = toRefs(props)
 

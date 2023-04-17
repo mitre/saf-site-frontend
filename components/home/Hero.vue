@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-50 dark:bg-gray-700 pt-24">
+  <div class="bg-gray-50 dark:bg-gray-800 pt-24">
     <main>
       <h1 class="text-3xl tracking-tight font-extrabold text-blue-600 sm:text-5xl md:text-6xl text-center">
         <span class="block xl:inline">MITRE Security Automation Framework</span>

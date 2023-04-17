@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="relative bg-gray-50 dark:bg-gray-700 py-24 sm:py-32 lg:py-40">
+    <div class="relative bg-gray-50 dark:bg-gray-800 py-24 sm:py-32 lg:py-40">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="mx-auto max-w-2xl lg:text-center">
           <p class="mt-2 text-3xl font-bold tracking-tight text-blue-700 sm:text-4xl">The SAF Is</p>

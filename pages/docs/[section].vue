@@ -1,122 +1,80 @@
 <template>
-  <div>
-    <div>
-      <Header />
-
-      <DocumentationMobileNavigation :doc-data="docData" :current-subsection-href="currentSubsectionHref"
-        :current-subsection="currentSubsection" :current-section-title="currentSectionTitle" />
-
-      <div class="relative bg-white dark:bg-dark-bg mx-auto flex max-w-8xl justify-center sm:px-2 lg:px-8 xl:px-10">
-        <div class="hidden lg:relative lg:block lg:flex-none">
-          <div class="absolute inset-y-0 right-0 w-[50vw] bg-slate-50 dark:hidden" />
-          <div class="sticky top-[82px] -ml-0.5 h-[calc(100vh-82px)] overflow-y-auto overflow-x-hidden pb-8 pl-0.5">
-            <div class="absolute top-16 bottom-0 right-0 hidden h-12 w-px bg-gradient-to-t from-slate-800 dark:block" />
-            <div class="absolute top-28 bottom-0 right-0 hidden w-px bg-slate-800 dark:block" />
-
-            <div v-if="docData">
-              <DocumentationNavigation :doc-data="docData" :current-subsection-href="currentSubsectionHref" />
-            </div>
-          </div>
-        </div>
-
-        <div class="min-w-0 max-w-2xl flex-auto px-6 lg:py-10 lg:max-w-6xl lg:pr-0 lg:pl-8 xl:px-16">
-          <div v-if="isLoaded">
-            <DocumentationCurrentPage :rendered-content="renderedContent" :current-subsection="currentSubsection"
-            :all-links="allLinks" :current-index="currentIndex" />
-          </div>
-          <div v-else class="grid h-screen place-items-center">
-            <LoadingSpinner />
-          </div> 
-        </div>
-
-        
-
-        <div
-          class="hidden xl:sticky xl:top-[4.5rem] xl:-mr-6 xl:block xl:h-[calc(100vh-4.5rem)] xl:flex-none xl:overflow-y-auto xl:py-16 xl:pr-6">
-          <DocumentationPageNavigation :table-of-contents="tableOfContents"
-            :current-subsection-href="currentSubsectionHref" :current-heading="currentHeading" />
-        </div>
-      </div>
-    </div>
-  </div>
+  <DocumentationComponent :all-links="allLinks" :current-heading="currentHeading" :current-index="currentIndex"
+    :current-section-title="currentSectionTitle" :current-subsection="currentSubsection" :doc-data="docData"
+    :is-loaded="isLoaded" :table-of-contents="tableOfContents" :rendered-content="renderedContent" />
 </template>
-  
-  
-<script>
-import { Dialog, DialogPanel } from '@headlessui/vue'
-import { MenuIcon, XIcon } from '@heroicons/vue/outline'
+
+<script setup>
 import slugify from '@/utils/useSlugify';
 
-export default {
-  data() {
-    return {
-      docData: {},
-      renderedContent: {},
-      tableOfContents: [],
-      currentSectionTitle: "",
-      currentHeading: "",
-      allLinks: [],
-      currentIndex: 0,
-      currentSubsection: "",
-      currentSubsectionHref: "",
-      isOpen: ref(false),
-      isLoaded: false
-    };
-  },
-  mounted() {
-    this.$nextTick(async () => {
-      await this.getData()
-      this.isLoaded = true
+////  Data  ////
+const docData = ref({})
+const renderedContent = ref("")
+const tableOfContents = ref([])
+const currentSectionTitle = ref("")
+const currentHeading = ref("")
+const allLinks = ref([])
+const currentIndex = ref(0)
+const currentSubsection = ref("")
+const isLoaded = ref(false)
+const route = useRoute()
+
+////  Methods  ////
+const getData = async () => {
+  docData.value = await useAsyncData('getDocumentation', () => GqlGetDocumentation({ href: route.params.section }))
+    .then(({ data }) => {
+
+      // Get current document attributes
+      const currentDocAttributes = data._value.currentDoc.data[0].attributes
+      currentSubsection.value = currentDocAttributes.subsections[0].title
+      currentSectionTitle.value = currentDocAttributes.section_title
+
+      // Get the hrefs for all documentation sections
+      allLinks.value = data._value.allLinks.data.flatMap(num => num.attributes.subsections)
+      currentHeading.value = route.hash.replace(/^#+/, '')
+
+      let content = currentDocAttributes.subsections[0].content
+
+      // Parse HTML section content
+      let onPage = [];
+      const parser = new DOMParser();
+      let htmlDoc = parser.parseFromString(content, 'text/html')
+
+      let currentHeader = -1;
+      for (let element of htmlDoc.body.childNodes) {
+        if (element.localName == "h1") {
+          onPage.push({
+            title: element.outerText,
+            subtitles: []
+          })
+          currentHeader += 1;
+          element.id = slugify(element.outerText)
+        }
+        if (element.localName == "h2") {
+          onPage[currentHeader].subtitles.push(element.outerText)
+          element.id = slugify(element.outerText)
+        }
+      }
+
+      renderedContent.value = htmlDoc.documentElement.outerHTML
+      tableOfContents.value = onPage
+
+      return data._value.allLinks.data.map((doc) => ({
+        section_title: doc.attributes.section_title,
+        subsections: doc.attributes.subsections,
+      }))
     });
-  },
-  beforeRouteUpdate(to, from) {
-    this.currentHeading = to.hash.replace(/^#+/, '')
-  },
-  components: { Dialog, DialogPanel, MenuIcon, XIcon },
-  methods: {
-    async getData() {
-      this.docData = await useAsyncData('getDocumentation', () => GqlGetDocumentation({ href: this.$route.params.section }))
-        .then(({ data }) => {
-          let content = data._value.currentDoc.data[0].attributes.subsections[0].content
-          this.currentSubsection = data._value.currentDoc.data[0].attributes.subsections[0].title
-          this.currentSectionTitle = data._value.currentDoc.data[0].attributes.section_title
-          this.currentSubsectionHref = this.$route.params.section
-          this.allLinks = data._value.allLinks.data.flatMap(num => num.attributes.subsections)
-          this.currentHeading = this.$route.hash.replace(/^#+/, '')
-          this.currentIndex = this.allLinks.findIndex((link) => link.href == this.currentSubsectionHref);
-
-          // Parse HTML section content
-          let onPage = [];
-          let parser = new DOMParser();
-          let htmlDoc = parser.parseFromString(content, 'text/html')
-
-          let currentHeader = -1;
-          for (let element in htmlDoc.body.childNodes) {
-            if (htmlDoc.body.childNodes[element].localName == "h1") {
-              onPage.push({
-                title: htmlDoc.body.childNodes[element].outerText,
-                subtitles: []
-              })
-              currentHeader += 1;
-              htmlDoc.body.childNodes[element].id = slugify(htmlDoc.body.childNodes[element].outerText)
-            }
-            if (htmlDoc.body.childNodes[element].localName == "h2") {
-              onPage[currentHeader].subtitles.push(htmlDoc.body.childNodes[element].outerText)
-              htmlDoc.body.childNodes[element].id = slugify(htmlDoc.body.childNodes[element].outerText)
-
-            }
-          }
-
-          this.renderedContent = htmlDoc.documentElement.outerHTML
-          this.tableOfContents = onPage
-
-
-          return data._value.allLinks.data.map((doc) => ({
-            section_title: doc.attributes.section_title,
-            subsections: doc.attributes.subsections,
-          }))
-        });
-    }
-  }
 }
+
+////  Lifecycle  ////
+onMounted(async () => {
+  await nextTick(async () => {
+    await getData()
+    isLoaded.value = true
+  });
+});
+
+onBeforeRouteUpdate(async (to, from) => {
+  currentHeading = to.hash.replace(/^#+/, '')
+})
 </script>

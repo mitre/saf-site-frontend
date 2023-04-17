@@ -31,6 +31,8 @@ export default {
     async getGuidance() {
       this.guidance = await useAsyncData('getGuidanceDataFromID', () => GqlGetGuidanceDataFromID({ id: this.$route.query.id }), { initialCache: false })
         .then(({ data }) => {
+          if(!data._value || !data._value.guidance.data)
+            return navigateTo('/guidance')
           console.log(data)
           const guidance = data._value.guidance.data
           return {

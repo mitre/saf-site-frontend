@@ -1,0 +1,36 @@
+query getApplicationPage($page: String!){
+  appPages(filters:{tool:{name:{eqi: $page}}}){
+    data{
+      attributes{
+        tool{
+          data{
+            attributes{
+              name
+              icon{
+                data{
+                  attributes{
+                    url
+                    alternativeText
+                  }
+                }
+              }
+            }
+          }
+        }
+        grabber
+        description
+        features{
+          title
+          description
+          image{
+            data{
+              attributes{
+                url
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

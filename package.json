@@ -2,6 +2,7 @@
   "name": "saf-site-frontend",
   "description": "The MITRE Security Automation Framework© (SAF) brings together open-source, accessible applications, techniques, libraries, and tools developed by MITRE and the security community to streamline security automation for systems and DevOps pipelines.",
   "version": "1.0.0",
+  "license": "Apache-2.0",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -15,6 +16,7 @@
   },
   "dependencies": {
     "marked": "^4.1.0",
+    "vue-json-viewer": "3",
     "nuxt-graphql-client": "^0.2.27",
     "vue": "^3.2.47"
   },
@@ -45,6 +47,5 @@
     "tailwindcss": "^3.2.6",
     "typescript": "^5.0.2",
     "webpack": "^5.76.1"
-  },
-  "license": "Apache-2.0"
+  }
 }

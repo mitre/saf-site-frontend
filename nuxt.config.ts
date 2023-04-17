@@ -7,7 +7,7 @@ export default defineNuxtConfig({
   modules: ['@nuxtjs/strapi', 'nuxt-graphql-client', '@nuxtjs/tailwindcss'],
   strapi: {
     // Options for strapi
-    url: process.env.STRAPI_URL || 'https://saf-site-backend.herokuapp.com',
+    url: process.env.STRAPI_URL,
     prefix: '/api',
     version: 'v4',
     cookie: {},
@@ -15,7 +15,7 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      GQL_HOST: 'https://saf-site-backend.herokuapp.com/graphql' //'http://localhost:1337/graphql'  //'https://saf-site-backend.herokuapp.com/graphql' // overwritten by process.env.GQL_HOST
+      GQL_HOST: process.env.GQL_HOST
     }
   }
 })

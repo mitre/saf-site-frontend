@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="bg-white dark:bg-dark-bg py-24 sm:py-32">
+  <div class="bg-white dark:bg-dark-bg px-6">
+    <div class=" py-24 sm:py-32">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="mx-auto max-w-2xl lg:text-center">
           <p class="mt-2 text-3xl font-bold tracking-tight text-blue-700 sm:text-4xl">Jump Start Your Security Journey</p>

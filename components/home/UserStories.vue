@@ -1,5 +1,5 @@
 <template>
-  <div class="relative bg-white dark:bg-dark-bg py-24 sm:py-32 lg:py-40">
+  <div class="relative bg-white dark:bg-dark-bg px-6 py-24 sm:py-32 lg:py-40">
     <div class="mx-auto max-w-7xl divide-y divide-gray-900/10 dark:divide-gray-100 px-6   lg:px-8">
         <h2 class="text-3xl sm:text-4xl font-bold leading-10 tracking-tight text-blue-700">User Stories</h2>
         <dl class="mt-10 space-y-8 divide-y divide-gray-900/10 dark:divide-gray-100">

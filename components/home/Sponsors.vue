@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <div class="bg-gray-50 dark:bg-gray-800 mx-auto py-6 px-6 lg:py-16 lg:px-8 lg:max-w-4xl md:max-w-xl max-w-sm">
-      <div class="overflow-hidden rounded-lg  dark:bg-gray-800 mx-auto grid w-full max-w-3xl grid-cols-2 md:grid-cols-3 lg:grid-cols-5 items-center sm:gap-px sm:divide-y-0 gap-y-12 gap-x-10 sm:gap-x-2 sm:gap-y-14 lg:mx-0 lg:max-w-none">
+  <div class="bg-gray-50 dark:bg-gray-800 px-6">
+    <div class=" mx-auto py-6 px-6 lg:py-16 lg:px-8 lg:max-w-4xl md:max-w-xl max-w-sm">
+      <div class="overflow-hidden rounded-lg  dark:bg-gray-800 mx-auto grid w-full max-w-3xl grid-cols-2 md:grid-cols-3 lg:grid-cols-7 items-center sm:gap-px sm:divide-y-0 gap-y-12 gap-x-10 sm:gap-x-6 sm:gap-y-14 lg:mx-0 lg:max-w-none">
         <div v-for="(entry) in data" :key="entry.orderID" class="group relative hover:bg-gray-200 dark:hover:bg-gray-800  bg-gray-50 dark:bg-gray-800 focus-within:ring-2 focus-within:ring-inset focus-within:ring-blue-500 h-full">
           <div class="mt-4">
             <h3 class="text-base font-semibold leading-6 text-gray-900">

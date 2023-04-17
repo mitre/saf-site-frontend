@@ -1,7 +1,7 @@
 <template>
   <Header />
   <div class="bg-white dark:bg-dark-bg min-h-screen h-full">
-    <main v-if="isLoaded" class="px-6 mb-16 mx-auto  ">
+    <main v-if="isLoaded" class=" mb-16 mx-auto  ">
       <HomeHero />
 
       <HomeCapabilities :capabilities="capabilities" />
@@ -13,12 +13,12 @@
       <div class="bg-gray-50 dark:bg-gray-800 py-24 sm:py-32 lg:py-40" >
         <p class="mt-2 mb-6 md:mb-2  text-3xl text-center font-bold tracking-tight text-blue-700 sm:text-4xl ">Adopted by The Community</p>
         <div class="md:flex items-center pt-8">
-          <p class="font-bold tracking-tight text-gray-900 dark:text-gray-50 text-2xl sm:text-3xl ml-4 sm:mx-auto  items-center">Sponsors</p>
-          <HomeSponsors :data="sponsors" class="ml-auto"/>
+          <p class="font-bold tracking-tight text-gray-900 dark:text-gray-50 text-2xl sm:text-3xl mx-4 items-center">Sponsors</p>
+          <HomeSponsors :data="sponsors" class=""/>
         </div>
         <div class="md:flex items-center">
-          <p class="md:hidden font-bold tracking-tight text-gray-900 dark:text-gray-50 text-2xl sm:text-3xl ml-4 sm:mx-auto items-center">Vendors</p>
-          <HomeSponsors :data="vendors" class="mr-auto"/>
+          <p class="md:hidden font-bold tracking-tight text-gray-900 dark:text-gray-50 text-2xl sm:text-3xl ml-8  items-center">Vendors</p>
+          <HomeSponsors :data="vendors" class=""/>
           <p class="hidden md:flex font-bold tracking-tight text-gray-900 dark:text-gray-50 sm:text-3xl mx-auto items-center">Vendors</p>
         </div>
       </div>

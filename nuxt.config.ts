@@ -4,7 +4,7 @@ import { defineNuxtConfig } from 'nuxt/config'
 export default defineNuxtConfig({
   ssr: false,
   css: ["~/assets/tailwind.css"],
-  modules: ['@nuxtjs/strapi', 'nuxt-graphql-client', '@nuxtjs/tailwindcss', 'nuxt-swiper'],
+  modules: ['@nuxtjs/strapi', 'nuxt-graphql-client', '@nuxtjs/tailwindcss'],
   strapi: {
     // Options for strapi
     url: process.env.STRAPI_URL || 'https://saf-site-backend.herokuapp.com',

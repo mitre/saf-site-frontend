@@ -15,7 +15,6 @@
   "dependencies": {
     "marked": "^4.1.0",
     "nuxt-graphql-client": "^0.2.27",
-    "nuxt-swiper": "^1.0.1",
     "vue": "^3.2.47"
   },
   "devDependencies": {

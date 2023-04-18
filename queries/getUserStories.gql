@@ -1,0 +1,13 @@
+query getUserStories{
+  userStories{
+    data{
+      id,
+      attributes{
+        question,
+        answer,
+        order_id,
+      }
+    }
+    
+  }
+}

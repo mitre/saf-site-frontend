@@ -1,0 +1,20 @@
+query getTenets{
+	tenets{
+    data{
+      id,
+      attributes{
+        name,
+        description,
+        order_id,
+        icon{
+          data{
+            attributes{
+              name,
+              url
+            }
+          }
+        }
+      }
+    }
+  }
+} 

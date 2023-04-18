@@ -1,0 +1,26 @@
+query getVendors{
+  partners (
+    filters: {
+      community: {
+        eq: "vendor"
+      }
+    },
+    pagination: { limit: 100 }){
+    data {
+      id
+      attributes {
+        name
+        name_long
+        link
+        community
+        icon {
+          data {
+            attributes {
+              url
+            }
+          }
+        }
+      }
+    }
+  }
+} 

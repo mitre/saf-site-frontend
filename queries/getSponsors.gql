@@ -1,0 +1,26 @@
+query getSponsors{
+  partners (
+    filters: {
+      community: {
+        eq: "sponsor"
+      }
+    },
+    pagination: { limit: 100 }){
+    data {
+      id
+      attributes {
+        name
+        name_long
+        link
+        community
+        icon {
+          data {
+            attributes {
+              url
+            }
+          }
+        }
+      }
+    }
+  }
+} 

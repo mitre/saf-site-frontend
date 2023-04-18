@@ -3,7 +3,7 @@
     <div class=" mx-auto py-6 px-6 lg:py-12 lg:max-w-7xl md:max-w-2xl max-w-md">
       <div class="overflow-hidden rounded-lg  dark:bg-gray-800  mx-auto grid w-full max-w-3xl lg:max-w-none grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-7 items-center sm:gap-px sm:divide-y-0 gap-y-12 gap-x-10 sm:gap-x-6 sm:gap-y-14 lg:mx-0 lg:gap-x-6 ">
         <div v-for="(entry) in data" :key="entry.orderID" class=" group relative hover:bg-gray-200 dark:hover:bg-gray-800  bg-gray-50 dark:bg-gray-800 focus-within:ring-2 focus-within:ring-inset focus-within:ring-blue-500 h-full">
-          <div class="mt-6">
+          <div class="mt-6 sm:mt-6">
             <h3 class="text-base font-semibold leading-6 text-gray-900">
               <NuxtLink :to="entry.link" class="focus:outline-none">
                 <div class="aspect-auto">
@@ -14,7 +14,7 @@
               </NuxtLink>
             </h3>
           </div>
-          <span class="pointer-events-none absolute right-6 top-6 sm:right-0 sm:top-0 text-gray-300 dark:text-gray-100 group-hover:text-blue-500" aria-hidden="true">
+          <span class="pointer-events-none absolute right-0 top-0 sm:right-0 sm:top-0 text-gray-300 dark:text-gray-100 group-hover:text-blue-500" aria-hidden="true">
             <DiagonalArrow />
           </span>
         </div>

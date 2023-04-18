@@ -11,7 +11,7 @@
       <HomeToolset :toolset="toolset"/>
 
       <div class="bg-gray-50 dark:bg-gray-800">
-        <div class="max-w-7xl mx-auto py-24 sm:py-32 lg:py-40" >
+        <div class="lg:max-w-7xl mx-auto py-24 sm:py-32 lg:py-40" >
           <p class="mt-2 mb-6 md:mb-2  text-3xl text-center font-bold tracking-tight text-blue-700 sm:text-4xl ">Adopted by The Community</p>
           <div class="md:flex items-center pt-8 ml-4">
             <p class="font-bold tracking-tight text-gray-900 dark:text-gray-50 text-2xl sm:text-3xl mx-4 items-center">Sponsors</p>

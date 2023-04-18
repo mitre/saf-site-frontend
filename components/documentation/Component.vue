@@ -5,7 +5,8 @@
         <DocumentationMobileNavigation :doc-data="docData" :current-subsection="currentSubsection"
             :current-section-title="currentSectionTitle" />
 
-        <div class="relative bg-white dark:bg-dark-bg mx-auto flex max-w-8xl justify-center sm:px-2 lg:px-8 xl:px-10">
+        <div
+            class="relative bg-white dark:bg-dark-backdrop-primary mx-auto flex max-w-8xl justify-center sm:px-2 lg:px-8 xl:px-10">
             <div class="hidden lg:relative lg:block lg:flex-none">
                 <div class="absolute inset-y-0 right-0 w-[50vw] bg-slate-50 dark:hidden" />
                 <div class="sticky top-[82px] -ml-0.5 h-[calc(100vh-82px)] overflow-y-auto overflow-x-hidden pb-8 pl-0.5">

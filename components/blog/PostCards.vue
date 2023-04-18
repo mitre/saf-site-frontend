@@ -1,11 +1,10 @@
 <template>
-
   <div v-if="isLoaded">
     <div class="mt-4 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
       <div v-for="post in posts" :key="post.title"
         class="flex flex-col rounded-lg shadow-xl border-2 hover:border-2 hover:border-blue-500 dark:hover:border-blue-500 dark:border-gray-600 overflow-hidden">
         <div
-          class="flex-1 bg-white dark:bg-dark-bg hover:bg-gray-100 dark:hover:bg-gray-700 p-6 flex flex-col justify-between">
+          class="flex-1 bg-white dark:bg-dark-backdrop-primary hover:bg-gray-100 dark:hover:bg-gray-700 p-6 flex flex-col justify-between">
           <div class="flex-1">
             <p class="text-sm font-medium text-blue-600">
               <a :href="post.category.href" class="hover:underline">

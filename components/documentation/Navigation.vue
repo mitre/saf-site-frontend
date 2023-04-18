@@ -1,7 +1,7 @@
 <template>
     <DocumentationCommandPalette v-model:is-command-palette-open="isCommandPaletteOpen" />
     <div class="max-w-8xl z-50 mb-10 sticky top-0 mr-5 bg-white dark:bg-slate-900 relative pointer-events-auto">
-        <div class="h-10 w-100 bg-slate-50 dark:bg-dark-bg -ml-0.5"></div>
+        <div class="h-10 w-100 bg-slate-50 dark:bg-dark-backdrop-primary -ml-0.5"></div>
         <button type="button"
             class="w-full lg:flex items-center text-sm leading-6 text-slate-400 rounded-md ring-1 ring-slate-900/10 shadow-sm py-1.5 pl-2 pr-3 hover:ring-slate-300 dark:bg-slate-800 dark:highlight-white/5 dark:hover:bg-slate-700"
             @click="isCommandPaletteOpen = true">

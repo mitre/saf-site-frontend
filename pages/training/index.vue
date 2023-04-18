@@ -1,12 +1,11 @@
 <template>
   <div>
     <Header />
-    <div class="bg-white dark:bg-dark-bg min-h-screen h-full">
+    <div class="bg-white dark:bg-dark-backdrop-primary min-h-screen h-full">
       <div class="relative px-6 sm:py-12 lg:pt-16 lg:pb-28">
         <div v-if="isLoaded" class="md:flex relative">
           <div class="flex-1 mx-auto">
-            <div id="Content Area"
-              class="relative max-w-2xl mx-auto sm:px-6 py-4 px-4  sm:py-4 lg:max-w-6xl lg:px-8">
+            <div id="Content Area" class="relative max-w-2xl mx-auto sm:px-6 py-4 px-4  sm:py-4 lg:max-w-6xl lg:px-8">
               <div id="Overview Section" class="sm:pl-4">
                 <h1
                   class="block text-3xl leading-8 font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
@@ -34,7 +33,7 @@
                     <ol class="mt-4 text-sm leading-6 lg:col-span-7 xl:col-span-8">
                       <li v-for="schedule in schedules" :key="schedule.index" class="relative flex space-x-6 py-6 ">
                         <div class="flex-0 pl-4">
-                          <h3 class="font-semibold text-gray-900 dark:text-MITRE-silver">{{ schedule.title }}</h3>
+                          <h3 class="font-semibold text-gray-900 dark:text-mitre-silver">{{ schedule.title }}</h3>
                           <dl class="mt-2 flex flex-col text-gray-500 xl:flex-row">
                             <div class="flex items-start space-x-3 pl-1">
                               <dt class="mt-0.5">
@@ -58,16 +57,18 @@
                         </div>
                         <div v-else class="right-2 top-0 pt-3 flex-end">
                           <a type="button"
-                            class="inline-flex items-center rounded-full border border-transparent bg-gray-400 sm:px-3 sm:py-1.5 px-3 py-1.5 text-xs text-center font-medium text-white shadow-sm"> Coming Soon!
+                            class="inline-flex items-center rounded-full border border-transparent bg-gray-400 sm:px-3 sm:py-1.5 px-3 py-1.5 text-xs text-center font-medium text-white shadow-sm">
+                            Coming Soon!
                           </a>
                         </div>
                       </li>
                     </ol>
                   </div>
                   <div v-else class="relative max-w-sm mt-6 pl-2 dark:text-dark-text">
-                    <p> Sorry there are no upcoming classes at this time. If you would like to host a class please contact, 
+                    <p> Sorry there are no upcoming classes at this time. If you would like to host a class please
+                      contact,
                       <a href="mailto:saf@groups.mitre.org" class="hover:underline text-blue-500">saf@groups.mitre.org</a>
-                     </p>
+                    </p>
                   </div>
                 </div>
               </div>
@@ -79,7 +80,7 @@
                 <div v-if="courses.length">
                   <div v-for="course in courses" :key="course.index">
                     <div class="sm:pl-4 mt-7 max-w-xl">
-                      <p class="text-2xl font-semibold text-gray-900 dark:text-MITRE-silver">
+                      <p class="text-2xl font-semibold text-gray-900 dark:text-mitre-silver">
                         {{ course.name }}
                       </p>
                       <div
@@ -154,8 +155,8 @@ export default {
         });
     },
     sortData() {
-      this.courses.sort((a,b) => a.index - b.index);
-      this.schedules.sort((a,b) => a.index - b.index);
+      this.courses.sort((a, b) => a.index - b.index);
+      this.schedules.sort((a, b) => a.index - b.index);
     },
     formatDate(value, locale = 'en-US') {
       return new Date(value).toLocaleDateString(locale)

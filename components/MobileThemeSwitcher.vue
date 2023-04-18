@@ -1,5 +1,5 @@
 <template>
-    <label class="text-gray-900 text-base font-medium dark:text-MITRE-silver">Switch Theme</label>
+    <label class="text-gray-900 text-base font-medium dark:text-mitre-silver">Switch Theme</label>
     <div
         class="relative flex items-center ring-1 ring-slate-900/10 rounded-lg shadow-sm p-2 text-slate-700 font-semibold dark:bg-slate-600 dark:ring-0 dark:highlight-white/5 dark:text-slate-200">
         <SunIcon :class="selected == 'Light' ? 'h-6 w-6' : 'hidden'" />

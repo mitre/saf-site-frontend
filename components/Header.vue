@@ -1,6 +1,7 @@
 <template>
   <div class="sticky top-0 z-50 w-full ">
-    <Popover class="bg-white dark:bg-dark-bg border-b-2 border-gray-100 dark:border-gray-500 ">
+    <Popover
+      class="bg-light-backdrop-primary dark:bg-dark-backdrop-primary border-b-2 border-light-border-primary dark:border-dark-border-primary">
       <div class="max-w-8xl mx-auto px-4 sm:px-1">
         <div class="flex justify-between items-center py-3 pl-0 sm:pl-3 md:pl-3 md:justify-start md:space-x-10">
           <div class="flex justify-left md:flex-1 lg:w-0 lg:flex-1">
@@ -10,27 +11,27 @@
             </NuxtLink>
             <NuxtLink to="/" class="flex">
               <h1
-                class="text-2xl tracking-tighter p-2 font-extrabold whitespace-nowrap text-gray-900 dark:text-MITRE-silver  md:text-3xl xl:text-4xl">
+                class="text-2xl tracking-tighter p-2 font-extrabold whitespace-nowrap text-light-text dark:text-dark-text  md:text-3xl xl:text-4xl">
                 <span class="block xl:inline">MITRE SAF</span>
               </h1>
-              <p class="mt-1 text-xs dark:text-dark-text">©</p>
+              <p class="mt-1 text-xs text-light-text dark:text-dark-text">©</p>
             </NuxtLink>
           </div>
 
           <div id="mobile-components" class="-mr-2 -my-2 flex sm:pr-3 md:hidden">
             <!-- TODO: Mobile Site Search-->
             <PopoverButton
-              class="bg-white dark:bg-dark-bg rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+              class="rounded-md p-2 inline-flex items-center justify-center text-nav-light-inactive hover:bg-nav-light-active focus:outline-none focus:ring-2 focus:ring-inset focus:ring-light-border-primary">
               <span class="sr-only">Open menu</span>
               <DotsVerticalIcon class="h-6 w-6 text-gray-400" aria-hidden="true" />
             </PopoverButton>
           </div>
 
           <PopoverGroup as="nav" class="hidden md:flex space-x-7 xl:space-x-10">
-            <NuxtLink to="/getting-started" :class="['text-base font-medium hover:text-gray-900 dark:hover:text-gray-200',
+            <NuxtLink to="/getting-started" :class="['text-base font-medium hover:text-nav-light-hover dark:hover:text-nav-dark-hover',
               '/getting-started' == route.fullPath
-                ? 'text-sky-500'
-                : 'text-gray-600 dark:text-gray-400'
+                ? 'text-nav-light-active dark:text-nav-dark-active'
+                : 'text-nav-light-inactive dark:text-nav-dark-inactive'
             ]">
               Getting Started
             </NuxtLink>
@@ -41,10 +42,10 @@
 
             <NavDropdown label="Libraries" :items="libraries" />
 
-            <NuxtLink v-for="item in navigation" :key="item.name" :to="item.href" :class="['text-base font-medium hover:text-gray-900 dark:hover:text-gray-200',
+            <NuxtLink v-for="item in navigation" :key="item.name" :to="item.href" :class="['text-base font-medium hover:text-nav-light-hover dark:hover:text-nav-dark-hover',
               item.href == route.fullPath
-                ? 'text-sky-500'
-                : 'text-gray-600 dark:text-gray-400'
+                ? 'text-nav-light-active dark:text-nav-dark-active'
+                : 'text-nav-light-inactive dark:text-nav-dark-inactive'
             ]">
               {{ item.name }}
             </NuxtLink>
@@ -65,15 +66,15 @@
         enter-to-class="opacity-100 scale-100" leave-active-class="duration-100 ease-in"
         leave-from-class="opacity-100 scale-100" leave-to-class="opacity-0 scale-95">
         <div class="fixed z-50 top-4 right-4 w-full max-w-xs px-6">
-          <PopoverOverlay class="fixed z-auto inset-0 bg-black/20 backdrop-blur-sm dark:bg-slate-900/80" />
+          <PopoverOverlay class="fixed z-auto inset-0 bg-light-blur/20 backdrop-blur-sm dark:bg-dark-blur/80" />
           <PopoverPanel focus class="fixed w-full max-w-xs px-6">
             <div
-              class="rounded-lg shadow-lg ring-1 ring-black dark:ring-gray-500 ring-opacity-5 bg-white dark:bg-dark-bg divide-y-2 divide-gray-50">
+              class="rounded-lg shadow-lg ring-1 ring-light-dropshadow dark:ring-dark-dropshadow ring-opacity-5 bg-light-backdrop-primary dark:bg-dark-backdrop-primary divide-y-2 divide-light-border-primary">
               <div class="pt-2 pb-4 px-5 overflow-y-scroll h-[calc(100vh-110px)]">
-                <div class="flex items-center justify-between">
+                <div class="flex items-center justify-between ">
                   <div class="-mr-2">
                     <PopoverButton
-                      class="bg-white dark:bg-dark-bg rounded-md py-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                      class="rounded-md my-2 inline-flex items-center justify-center text-nav-light-inactive focus:outline-none focus:ring-2 focus:ring-inset focus:ring-light-border-primary">
                       <span class="sr-only">Close menu</span>
                       <XIcon class="h-6 w-6" aria-hidden="true" />
                     </PopoverButton>

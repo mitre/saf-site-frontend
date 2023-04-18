@@ -2,7 +2,7 @@
   <div>
     <Header />
     <div
-      class="relative py-16 bg-white dark:bg-dark-bg overflow-hidden min-h-screen h-full pt-12 pb-20 px-4 sm:px-6 lg:pt-12 lg:pb-28 lg:px-8">
+      class="relative py-16 bg-white dark:bg-dark-backdrop-primary overflow-hidden min-h-screen h-full pt-12 pb-20 px-4 sm:px-6 lg:pt-12 lg:pb-28 lg:px-8">
       <template v-if="isLoaded">
         <div class="relative px-4 sm:px-6">
           <article>
@@ -32,16 +32,16 @@
             <div class="mx-auto mt-6 px-4 sm:px-6 lg:px-8">
               <dl class="grid grid-cols-1 gap-y-8 sm:grid-cols-2">
                 <div>
-                  <dt class="text-sm font-medium text-gray-500 dark:text-MITRE-silver"> Title </dt>
+                  <dt class="text-sm font-medium text-gray-500 dark:text-mitre-silver"> Title </dt>
                   <dd class="sm:mt-1 text-sm text-gray-900 dark:text-dark-text">{{ author.fields.title }}</dd>
                 </div>
                 <a>
                   <!-- TODO: Add a internal link to the relavent partner page here -->
-                  <dt class="text-sm font-medium text-gray-500 dark:text-MITRE-silver"> Company </dt>
+                  <dt class="text-sm font-medium text-gray-500 dark:text-mitre-silver"> Company </dt>
                   <dd class="sm:mt-1 text-sm text-gray-900 dark:text-dark-text">{{ author.fields.company }}</dd>
                 </a>
                 <div class="sm:col-span-2">
-                  <dt class="text-sm font-medium text-gray-500 dark:text-MITRE-silver">About</dt>
+                  <dt class="text-sm font-medium text-gray-500 dark:text-mitre-silver">About</dt>
                   <div class="prose mt-1 max-w-prose space-y-5 text-sm text-gray-900 dark:text-dark-text"
                     v-html="author.description" />
 
@@ -116,7 +116,7 @@ const route = useRoute()
 const getBlogData = async () => {
   posts.value = await useAsyncData('getBlogDataFromAuthor', () => GqlGetBlogDataFromAuthor({ author: route.query.name }))
     .then(({ data }) => {
-      if(!data._value || !data._value.blogPosts.data)
+      if (!data._value || !data._value.blogPosts.data)
         return navigateTo('/blog')
       return data._value.blogPosts.data.map((post) => ({
         title: post.attributes.title,
@@ -133,7 +133,7 @@ const getBlogData = async () => {
 const getBlogAuthor = async () => {
   authorObjs.value = await useAsyncData('getBlogAuthor', () => GqlGetBlogAuthor({ author: route.query.name }))
     .then(({ data }) => {
-      if(!data._value || !data._value.usersPermissionsUsers.data[0])
+      if (!data._value || !data._value.usersPermissionsUsers.data[0])
         return navigateTo('/blog')
       let socialMedia = data._value.usersPermissionsUsers.data[0].attributes.SocialMedia
       for (let i = 0; i < socialMedia.length; i++) {
@@ -184,7 +184,7 @@ onMounted(async () => {
   await nextTick(async () => {
     await getBlogData()
     await getBlogAuthor()
-    if(authorObjs.value != undefined) 
+    if (authorObjs.value != undefined)
       author.value = authorObjs.value[0]
     isLoaded.value = true
   });

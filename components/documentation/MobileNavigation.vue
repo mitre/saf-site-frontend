@@ -1,5 +1,5 @@
 <template>
-  <div class="relative bg-white dark:bg-dark-bg flex lg:hidden border-b border-slate-200">
+  <div class="relative bg-white dark:bg-dark-backdrop-primary flex lg:hidden border-b border-slate-200">
     <button type="button" @click="setIsOpen(true)" class="my-5 flex text-xl dark:text-white" aria-label="Open navigation">
       <MenuIcon class="h-6 w-6 ml-4 stroke-slate-500" />
       <ol class="ml-4 flex text-sm leading-6 flex-wrap min-w-0">
@@ -15,7 +15,7 @@
       <Dialog :open="isOpen" @close="setIsOpen"
         class="fixed inset-0 z-50 flex items-start overflow-y-auto bg-slate-900/50 pr-10 backdrop-blur lg:hidden"
         aria-label="Navigation">
-        <DialogPanel class="min-h-full w-full max-w-xs bg-slate-50 dark:bg-dark-bg px-4 pt-5 pb-12 sm:px-6">
+        <DialogPanel class="min-h-full w-full max-w-xs bg-slate-50 dark:bg-dark-backdrop-primary px-4 pt-5 pb-12 sm:px-6">
           <div class="flex items-center">
             <button type="button" @click="setIsOpen(false)" aria-label="Close navigation">
               <XIcon class="h-6 w-6 stroke-slate-500" />

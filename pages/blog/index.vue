@@ -2,9 +2,9 @@
   <div>
     <Header />
     <div
-      class="relative bg-white dark:bg-dark-bg min-h-screen h-full pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
+      class="relative bg-white dark:bg-dark-backdrop-primary min-h-screen h-full pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
       <div class="absolute inset-0">
-        <div class="bg-white dark:bg-dark-bg sm:h-2/3 " />
+        <div class="bg-white dark:bg-dark-backdrop-primary sm:h-2/3 " />
       </div>
       <div class="relative max-w-7xl mx-auto">
         <div class="text-center">

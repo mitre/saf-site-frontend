@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header />
-    <div class="relative bg-white dark:bg-dark-bg min-h-screen h-full pt-4 px-4 sm:px-6 lg:px-8">
+    <div class="relative bg-white dark:bg-dark-backdrop-primary min-h-screen h-full pt-4 px-4 sm:px-6 lg:px-8">
       <section aria-labelledby="faq-heading">
         <div class="max-2xl mx-auto py-4 px-4 sm:py-4 sm:px-6 lg:max-w-7xl lg:px-8">
           <div class="max-w-xl">

@@ -1,5 +1,5 @@
 <template>
-    <div class="relative bg-white dark:bg-dark-bg pt-4 px-4 sm:px-6 lg:px-8 min-h-[calc(100vh-295px)] mb-11">
+    <div class="relative bg-white dark:bg-dark-backdrop-primary pt-4 px-4 sm:px-6 lg:px-8 min-h-[calc(100vh-295px)] mb-11">
         <div class="mx-auto max-w-7xl text-center">
             <img :src="`${productIcon}`" class="w-14 md:w-20 aspect-square mx-auto my-2" aria-hidden="true"
                 alt="Alt text here" />

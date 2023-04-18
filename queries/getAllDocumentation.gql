@@ -1,0 +1,15 @@
+query getAllDocumentation{
+  documentations{
+    data{
+      id
+      attributes{
+        section_title
+        subsections{
+          title
+          content
+          href
+        }
+      }
+    }
+  }
+}

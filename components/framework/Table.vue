@@ -78,7 +78,7 @@
                     <tr
                       :class="[index % 2 === 0 ? 'bg-gray-50 dark:bg-gray-200' : 'bg-gray-100 dark:bg-gray-300', 'border-t']">
                       <td class="py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
-                        <span v-if="entry.version != 0">{{ entry.name }}  |  {{ entry.version }} </span>
+                        <span v-if="entry.version != 0">{{ entry.name }} | {{ entry.version }} </span>
                         <span v-else>{{ entry.name }}</span>
                         <!-- Mobile Stacked View -->
                         <dl class="font-normal xl:hidden">
@@ -107,7 +107,7 @@
                                   <ExternalLinkIcon class="h-4 w-4" />
                                 </button>
                               </NuxtLink>
-                              <NuxtLink :to="`/framework/guidance/${slugify(entry.name)}?id=${entry.benchmarkID}`">
+                              <NuxtLink :to="`/libs/guidance/${slugify(entry.name)}?id=${entry.benchmarkID}`">
                                 <button @click="" class="text-blue-600 hover:text-blue-900">View Details<span
                                     class="sr-only">,
                                     {{
@@ -152,9 +152,8 @@
                             <ExternalLinkIcon class="h-4 w-4" />
                           </button>
                         </NuxtLink>
-                        <NuxtLink :to="`/framework/guidance/${slugify(entry.name)}?id=${entry.benchmarkID}`">
-                          <button @click="" class="text-blue-600 hover:text-blue-900">View Details<span
-                              class="sr-only">,
+                        <NuxtLink :to="`/libs/guidance/${slugify(entry.name)}?id=${entry.benchmarkID}`">
+                          <button @click="" class="text-blue-600 hover:text-blue-900">View Details<span class="sr-only">,
                               {{
                                 entry.name
                               }}</span>

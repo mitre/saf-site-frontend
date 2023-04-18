@@ -29,13 +29,13 @@ export default {
   data() {
     return {
       categorizedData: {
-      'Cloud Service Providers': [],
-      'Virtual Platforms': [],
-      'Operating Systems': [],
-      'Databases': [],
-      'Network': [],
-      'Application Logic': [],
-      'Web Servers': [],
+        'Cloud Service Providers': [],
+        'Virtual Platforms': [],
+        'Operating Systems': [],
+        'Databases': [],
+        'Network': [],
+        'Application Logic': [],
+        'Web Servers': [],
       },
       guidanceData: [],
       hardeningData: [],
@@ -60,7 +60,7 @@ export default {
             category: guidance.attributes.category,
             source: guidance.attributes.source,
             date: guidance.attributes.date,
-            version:  guidance.attributes.version.length != 0 ? guidance.attributes.version[0].version : 0,
+            version: guidance.attributes.version.length != 0 ? guidance.attributes.version[0].version : 0,
             hardening: guidance.attributes.hardening.data.map((harden) => ({
               id: harden.id,
               name: harden.attributes.name,
@@ -89,7 +89,7 @@ export default {
     },
     getHardeningData() {
       for (let i = 0; i < this.guidanceData.length; i++) {
-        this.guidanceData[i].hardening.forEach( (harden) => {
+        this.guidanceData[i].hardening.forEach((harden) => {
           let temp = harden
           temp.category = this.guidanceData[i].category
           temp.version = this.guidanceData[i].version
@@ -97,8 +97,8 @@ export default {
           this.hardeningData.push(temp)
         })
       }
-      for(let i=0; i<this.hardeningData.length; i++) {
-        this.categorizedData[this.hardeningData[i].category.replaceAll('_', ' ')].push(this.hardeningData[i]) 
+      for (let i = 0; i < this.hardeningData.length; i++) {
+        this.categorizedData[this.hardeningData[i].category.replaceAll('_', ' ')].push(this.hardeningData[i])
       }
     },
   }

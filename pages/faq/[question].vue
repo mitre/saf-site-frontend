@@ -29,9 +29,9 @@ const answer = ref("")
 const getFAQs = async () => {
   faq.value = await useAsyncData('getFaqByQuestionNumber', () => GqlGetFaqByQuestionNumber({ number: parseInt(route.params.question) }), { initialCache: false })
     .then(({ data }) => {
-      if(!data._value || !data._value.faqs.data[0])
+      if (!data._value || !data._value.faqs.data[0])
         return navigateTo('/faq')
-      
+
       var date = new Date(data._value.faqs.data[0].attributes.updatedAt)
       answer.value = data._value.faqs.data[0].attributes.answer
       return {
@@ -44,7 +44,6 @@ const getFAQs = async () => {
     });
 }
 
-
 ////  Lifecycle  ////
 onMounted(async () => {
   await nextTick(async () => {
@@ -52,9 +51,6 @@ onMounted(async () => {
     isLoaded.value = true
   });
 });
-
-
-
 </script>
 
 

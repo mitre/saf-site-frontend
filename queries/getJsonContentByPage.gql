@@ -1,0 +1,11 @@
+query getJsonContentByPage($pageName: String!){
+  jsonContents(filters:{page:{eq:$pageName}}){
+    data{
+       attributes{
+        name
+        json
+        page
+      }
+    }
+  }
+}

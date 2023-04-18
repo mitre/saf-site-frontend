@@ -1,0 +1,18 @@
+query getConvertToHDFs{
+  convertToHdfs{
+    data{
+       attributes{
+        name
+        logo{
+          data{
+            attributes{
+              name
+              url
+            }
+          }
+        }
+        href
+      }
+    }
+  }
+}

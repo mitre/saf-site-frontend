@@ -35,8 +35,17 @@
  
 <script setup>
 import slugify from '@/utils/useSlugify';
+const props = defineProps({
+  tableOfContents: {
+    type: Array,
+    required: true,
+  },
+  currentHeading: {
+    type: String,
+    required: true,
+  },
 
-const props = defineProps(["tableOfContents", "currentSubsectionHref", "currentHeading"]);
+});
 </script>
 
   

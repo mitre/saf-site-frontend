@@ -1,0 +1,11 @@
+query getTextContentByPage($pageName: String!){
+  textContents(filters:{page:{eq:$pageName}}){
+    data{
+       attributes{
+        name
+        text
+        page
+      }
+    }
+  }
+}

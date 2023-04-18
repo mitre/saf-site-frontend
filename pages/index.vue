@@ -96,7 +96,6 @@ export default {
     async getSponsors() {
       this.sponsors = await useAsyncData('getSponsors', () => GqlGetSponsors())
         .then(({ data }) => {
-          console.log('sponsors', data)
           return data._value.partners.data.map((sponsor) => ({
             name: sponsor.attributes.name,
             nameLong: sponsor.attributes.name_long,
@@ -112,7 +111,6 @@ export default {
     async getVendors() {
       this.vendors = await useAsyncData('getVendors', () => GqlGetVendors())
         .then(({ data }) => {
-          console.log('vendors', data)
           return data._value.partners.data.map((vendor) => ({
             name: vendor.attributes.name,
             nameLong: vendor.attributes.name_long,

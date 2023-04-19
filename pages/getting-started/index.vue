@@ -6,7 +6,7 @@
       <div v-if="isLoaded">
         <div class="sm:flex sm:items-center">
           <div class="sm:flex-auto">
-            <h1 class="text-4xl font-bold text-light-text dark:text-dark-text text-center"><strong>{{ pageTitle
+            <h1 class="text-4xl font-bold text-light-header dark:text-dark-header text-center"><strong>{{ pageTitle
             }}</strong>
             </h1>
             <div

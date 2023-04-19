@@ -1,9 +1,10 @@
 <template>
     <DocumentationCommandPalette v-model:is-command-palette-open="isCommandPaletteOpen" />
-    <div class="max-w-8xl z-50 mb-10 sticky top-0 mr-5 bg-white dark:bg-slate-900 relative pointer-events-auto">
-        <div class="h-10 w-100 bg-slate-50 dark:bg-dark-backdrop-primary -ml-0.5"></div>
+    <div
+        class="max-w-8xl z-50 mb-10 sticky top-0 mr-5 bg-light-backdrop-secondary dark:bg-dark-backdrop-secondary pointer-events-auto">
+        <div class="h-10 w-100 bg-light-backdrop-secondary dark:bg-dark-backdrop-secondary -ml-0.5"></div>
         <button type="button"
-            class="w-full lg:flex items-center text-sm leading-6 text-slate-400 rounded-md ring-1 ring-slate-900/10 shadow-sm py-1.5 pl-2 pr-3 hover:ring-slate-300 dark:bg-slate-800 dark:highlight-white/5 dark:hover:bg-slate-700"
+            class="w-full lg:flex items-center text-sm leading-6 text-light-text dark:text-dark-text rounded-md ring-1 ring-light-backdrop-primary/10 dark:ring-dark-backdrop-primary/10 shadow-sm py-1.5 pl-2 pr-3 hover:ring-light-backdrop-primary dark:hover:ring-dark-backdrop-primary bg-light-backdrop-primary dark:bg-dark-backdrop-primary"
             @click="isCommandPaletteOpen = true">
             <svg width="24" height="24" fill="none" aria-hidden="true" class="mr-3 flex-none inline">
                 <path d="m19 19-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"

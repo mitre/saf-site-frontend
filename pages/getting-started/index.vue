@@ -34,7 +34,6 @@ const pageTitle = ref("")
 const getGettingStartedContent = async () => {
   gettingStartedContent.value = await useAsyncData('getTextContentByPage', () => GqlGetTextContentByPage({ pageName: "Getting Started" }), { initialCache: false })
     .then(({ data }) => {
-      console.log("THis is the data", data._value.textContents.data[0].attributes.text)
       pageTitle.value = data._value.textContents.data[0].attributes.name
       console.log(pageTitle)
       return data._value.textContents.data[0].attributes.text

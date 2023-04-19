@@ -32,6 +32,7 @@ module.exports = {
       colors: {
         light: {
           'text': '#111921',
+          'header': '#2563eb',
           'subtext': '#7E8284',
           'hover': '#111921',
           'icon-primary': '#2563eb',
@@ -46,6 +47,7 @@ module.exports = {
         },
         dark: {
           'text': '#d1d5db',
+          'header': '#61a3eb',
           'subtext': '#9ca3af',
           'hover': '#111921',
           'icon-primary': '',

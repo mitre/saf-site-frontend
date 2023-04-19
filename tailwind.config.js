@@ -45,8 +45,8 @@ module.exports = {
           'border-primary': '#87deff',
         },
         dark: {
-          'text': '#9ca3af',
-          'subtext': '',
+          'text': '#d1d5db',
+          'subtext': '#9ca3af',
           'hover': '#111921',
           'icon-primary': '',
           'highlighter': '',
@@ -54,7 +54,7 @@ module.exports = {
           'focus': '',
           'code': '',
           'backdrop-primary': '#1F1A24',
-          'backdrop-secondary': '',
+          'backdrop-secondary': '#4b5563',
           'border-primary': '',
         },
         btn: {
@@ -105,7 +105,7 @@ module.exports = {
           dark: {
             'active': '#0ea5e9',
             'hover': '#d1d5db',
-            'inactive': '#9ca3af',
+            'inactive': '#d1d5db',
             'disabled': '',
           },
         },

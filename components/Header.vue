@@ -158,6 +158,7 @@ import {
   DesktopComputerIcon,
   MoonIcon,
   SunIcon,
+  ChevronDownIcon
 } from '@heroicons/vue/outline';
 import { AcademicCapIcon, BookOpenIcon, RssIcon } from '@heroicons/vue/solid';
 

@@ -57,7 +57,7 @@ module.exports = {
           'code': '',
           'backdrop-primary': '#1F1A24',
           'backdrop-secondary': '#4b5563',
-          'border-primary': '',
+          'border-primary': '#87deff',
         },
         btn: {
           light: {

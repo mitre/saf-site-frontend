@@ -216,14 +216,14 @@ const libraries = ref([
     description:
       'Implement security baselines using our Ansible, Chef, and Terraform content.',
     href: '/libs/harden',
-    icon: ShieldCheckIcon
+    icon: HardenIcon
   },
   {
     name: 'Validate',
     description:
       'Generate detailed security testing results through automated tests and manual attestation.',
     href: '/libs/validate',
-    icon: ClipboardCheckIcon
+    icon: ValidateIcon
   },
   {
     name: 'TS InSpec Objects',

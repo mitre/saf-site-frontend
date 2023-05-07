@@ -172,6 +172,8 @@ import HardenIcon from '../assets/HardenIcon.vue'
 import ValidateIcon from '../assets/ValidateIcon.vue'
 import NormalizeIcon from '../assets/NormalizeIcon.vue'
 import VisualizeIcon from '../assets/VisualizeIcon.vue'
+import HeimdallLogo from '../assets/HeimdallLogo.vue'
+import SafShieldLogo from '~/assets/SafShieldLogo.vue';
 
 ////  Data  ////
 const selected = ref("")
@@ -252,14 +254,14 @@ const applications = ref([
     description:
       '?????',
     href: '/apps/heimdall',
-    icon: ShieldCheckIcon
+    icon: HeimdallLogo
   },
   {
     name: 'Vulcan',
     description:
       '?????',
     href: '/apps/vulcan',
-    icon: ShieldCheckIcon
+    icon: SafShieldLogo
   },
   {
     name: 'SAF CLI',

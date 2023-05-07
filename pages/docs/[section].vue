@@ -28,10 +28,13 @@ const getData = async () => {
       const currentDocAttributes = data._value.currentDoc.data[0].attributes
       currentSubsection.value = currentDocAttributes.subsections[0].title
       currentSectionTitle.value = currentDocAttributes.section_title
-
       // Get the hrefs for all documentation sections
       allLinks.value = data._value.allLinks.data.flatMap(num => num.attributes.subsections)
       currentHeading.value = route.hash.replace(/^#+/, '')
+
+      currentIndex.value = allLinks.value.findIndex((elem) => {
+        return elem.title === currentDocAttributes.subsections[0].title
+      })
 
       let content = currentDocAttributes.subsections[0].content
 

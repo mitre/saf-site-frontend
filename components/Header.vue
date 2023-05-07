@@ -101,6 +101,11 @@
 
                     <hr class="drop-shadow" />
 
+                    <h1 class="font-bold">Applications</h1>
+                    <NavMobileLinks :items="applications" />
+
+                    <hr class="drop-shadow" />
+
                     <h1 class="font-bold">Libraries</h1>
                     <NavMobileLinks :items="libraries" />
 

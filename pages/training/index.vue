@@ -84,7 +84,7 @@
                   Classes </h2>
                 <hr class="mt-4 w-full" />
                 <div v-if="courses.length">
-                  <div v-for="course in courses" :key="course.index">
+                  <div v-for="(course, index) in courses" :key="course.index">
                     <div class="sm:pl-4 mt-7 max-w-xl">
                       <p class="text-2xl font-semibold text-light-text dark:text-dark-text">
                         {{ course.name }}
@@ -94,8 +94,9 @@
                         v-html="course.description">
                       </div>
                     </div>
+                    <hr v-if="index != courses.length - 1" class="mt-5 w-full" />
                   </div>
-                  <hr class="mt-4 w-full" />
+
                 </div>
                 <div v-else>
                   <p class="relative max-w-sm mt-6 pl-2 text-light-text dark:text-dark-text"> Classes are being updated.

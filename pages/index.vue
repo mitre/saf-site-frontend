@@ -1,6 +1,6 @@
 <template>
   <Header />
-  <div class="bg-white dark:bg-dark-backdrop-primary min-h-screen h-full">
+  <div class="bg-light-backdrop-primary dark:bg-dark-backdrop-primary min-h-screen h-full">
     <main v-if="isLoaded" class=" mb-16 mx-auto">
       <HomeHero />
 
@@ -10,23 +10,24 @@
 
       <HomeToolset :toolset="toolset" />
 
-      <div class="bg-gray-50 dark:bg-gray-800">
+      <div class="bg-light-backdrop-secondary dark:bg-dark-backdrop-secondary">
         <div class="lg:max-w-7xl mx-auto py-24 sm:py-32 lg:py-40">
-          <p class="mt-2 mb-6 md:mb-2  text-3xl text-center font-bold tracking-tight text-blue-700 sm:text-4xl ">Adopted
+          <p class="mt-2 mb-6 md:mb-2 text-3xl text-center font-bold tracking-tight text-light-header sm:text-4xl ">
+            Adopted
             by The Community</p>
           <div class="md:flex items-center pt-8 sm:ml-4">
             <p
-              class="font-bold text-center sm:mx-4 tracking-tight text-gray-900 dark:text-gray-50 text-2xl sm:text-3xl  items-center">
+              class="font-bold text-center sm:mx-4 tracking-tight text-light-text dark:text-dark-text text-2xl sm:text-3xl  items-center">
               Sponsors</p>
             <HomeSponsors :data="sponsors" class="mx-auto mt-4" />
           </div>
           <div class="md:flex items-center sm:ml-4 mt-10">
             <p
-              class="md:hidden text-center font-bold tracking-tight text-gray-900 dark:text-gray-50 text-2xl sm:text-3xl sm:ml-8 items-center">
+              class="md:hidden text-center font-bold tracking-tight text-light-text dark:text-dark-text text-2xl sm:text-3xl sm:ml-8 items-center">
               Vendors</p>
             <HomeSponsors :data="vendors" class="mx-auto mt-4" />
             <p
-              class="hidden md:flex font-bold tracking-tight text-gray-900 dark:text-gray-50 sm:text-3xl items-center mx-4 mr-8">
+              class="hidden md:flex font-bold tracking-tight text-light-text dark:text-dark-text sm:text-3xl items-center mx-4 mr-8">
               Vendors</p>
           </div>
         </div>

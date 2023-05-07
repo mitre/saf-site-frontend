@@ -43,6 +43,7 @@ module.exports = {
           'code': '',
           'backdrop-primary': '#ffffff',
           'backdrop-secondary': '#f1f3f4',
+          'backdrop-tertiary': '#d1d5db',
           'border-primary': '#87deff',
         },
         dark: {
@@ -50,13 +51,14 @@ module.exports = {
           'header': '#61a3eb',
           'subtext': '#9ca3af',
           'hover': '#111921',
-          'icon-primary': '',
+          'icon-primary': '#2563eb',
           'highlighter': '',
           'dropshadow': '#6b7280',
           'focus': '',
           'code': '',
           'backdrop-primary': '#1F1A24',
           'backdrop-secondary': '#4b5563',
+          'backdrop-tertiary': '#d1d5db',
           'border-primary': '#87deff',
         },
         btn: {

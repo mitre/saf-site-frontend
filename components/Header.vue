@@ -236,14 +236,14 @@ const libraries = ref([
     name: 'TS InSpec Objects',
     description:
       '??????????',
-    href: '/libs/inspec-objects',
+    href: '/libs/ts-inspec-objects',
     icon: ClipboardCheckIcon
   },
   {
     name: 'eMASS Client',
     description:
       '?????????',
-    href: '/libs/emass',
+    href: '/libs/emass-client',
     icon: ClipboardCheckIcon
   }
 ]);

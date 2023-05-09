@@ -9,7 +9,7 @@
           <div
             class="relative max-w-xs sm:max-w-md mb-1 rounded-md border border-light-text dark:border-dark-text  px-3 py-2 shadow-sm focus-within:border-light-border-primary dark:focus-within:border-dark-border-primary focus-within:ring-1 focus-within:ring-light-border-primary dark:focus-within:ring-dark-border-primary">
             <input v-model="filter" type="text"
-              class="block w-full border-0 p-0 text-light-text dark:text-dark-text placeholder-light-subtext dark:placeholder-dark-subtext focus:ring-0 sm:text-sm"
+              class="block w-full border-0 p-0 text-light-text dark:text-dark-text placeholder-light-subtext dark:placeholder-dark-subtext focus:ring-0 sm:text-sm bg-light-backdrop-primary dark:bg-dark-backdrop-primary"
               placeholder="Search for ..." />
           </div>
           <div class="overflow-hidden shadow ring-1 ring-light-text dark:ring-dark-text ring-opacity-5 md:rounded-lg">

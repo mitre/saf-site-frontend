@@ -5,29 +5,29 @@
       <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
           <!-- Filter Search -->
-          <label class="block text-sm font-medium text-gray-700 dark:text-gray-400">Search</label>
+          <label class="block text-sm font-medium text-light-text dark:text-dark-text">Search</label>
           <div
-            class="relative max-w-xs sm:max-w-md mb-1 rounded-md border border-gray-300  px-3 py-2 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600">
+            class="relative max-w-xs sm:max-w-md mb-1 rounded-md border border-light-text dark:border-dark-text  px-3 py-2 shadow-sm focus-within:border-light-border-primary dark:focus-within:border-dark-border-primary focus-within:ring-1 focus-within:ring-light-border-primary dark:focus-within:ring-dark-border-primary">
             <input v-model="filter" type="text"
-              class="block w-full border-0 p-0 dark:bg-dark-backdrop-primary text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-500 focus:ring-0 sm:text-sm"
+              class="block w-full border-0 p-0 text-light-text dark:text-dark-text placeholder-light-subtext dark:placeholder-dark-subtext focus:ring-0 sm:text-sm"
               placeholder="Search for ..." />
           </div>
-          <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
+          <div class="overflow-hidden shadow ring-1 ring-light-text dark:ring-dark-text ring-opacity-5 md:rounded-lg">
             <table class="min-w-full">
               <!-- Table Headers -->
-              <thead class="bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
+              <thead class="bg-light-backdrop-primary dark:bg-dark-backdrop-primary text-light-text dark:text-dark-text">
                 <tr>
-                  <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold  sm:pl-6">
+                  <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold sm:pl-6">
                     <a @click="sort('name')" class="group inline-flex cursor-pointer">
                       Name
                       <span v-if="this.currentSort === 'name'"
-                        class="ml-2 flex-none rounded text-gray-400 group-hover:visible group-focus:visible">
+                        class="ml-2 flex-none rounded text-light-subtext dark:text-dark-subtext group-hover:visible group-focus:visible">
                         <ChevronDownIcon :class="currentSortDir == 'desc' ? 'h-5 w-5' : 'hidden'" aria-hidden="true" />
                         <ChevronUpIcon :class="currentSortDir == 'asc' ? 'h-5 w-5' : 'hidden'" aria-hidden="true" />
                       </span>
                       <span v-else>
                         <SwitchVerticalIcon
-                          class="h-5 w-5 ml-2 flex-none rounded text-gray-400 group-hover:visible group-focus:visible" />
+                          class="h-5 w-5 ml-2 flex-none rounded text-light-subtext dark:text-dark-subtext group-hover:visible group-focus:visible" />
                       </span>
                     </a>
                   </th>
@@ -35,13 +35,13 @@
                     <a @click="sort('platform')" class="group inline-flex cursor-pointer">
                       Platform
                       <span v-if="this.currentSort === 'platform'"
-                        class="ml-2 flex-none rounded text-gray-400 group-hover:visible group-focus:visible">
+                        class="ml-2 flex-none rounded text-light-subtext dark:text-dark-subtext group-hover:visible group-focus:visible">
                         <ChevronDownIcon :class="currentSortDir == 'desc' ? 'h-5 w-5' : 'hidden'" aria-hidden="true" />
                         <ChevronUpIcon :class="currentSortDir == 'asc' ? 'h-5 w-5' : 'hidden'" aria-hidden="true" />
                       </span>
                       <span v-else>
                         <SwitchVerticalIcon
-                          class="h-5 w-5 ml-2 flex-none rounded text-gray-400 group-hover:visible group-focus:visible" />
+                          class="h-5 w-5 ml-2 flex-none rounded text-light-subtext dark:text-dark-subtext group-hover:visible group-focus:visible" />
                       </span>
                     </a>
                   </th>
@@ -49,13 +49,13 @@
                     <a @click="sort('partner')" class="group inline-flex cursor-pointer">
                       Partner
                       <span v-if="this.currentSort === 'partner'"
-                        class="ml-2 flex-none rounded text-gray-400 group-hover:visible group-focus:visible">
+                        class="ml-2 flex-none rounded text-light-subtext dark:text-dark-subtext group-hover:visible group-focus:visible">
                         <ChevronDownIcon :class="currentSortDir == 'desc' ? 'h-5 w-5' : 'hidden'" aria-hidden="true" />
                         <ChevronUpIcon :class="currentSortDir == 'asc' ? 'h-5 w-5' : 'hidden'" aria-hidden="true" />
                       </span>
                       <span v-else>
                         <SwitchVerticalIcon
-                          class="h-5 w-5 ml-2 flex-none rounded text-gray-400 group-hover:visible group-focus:visible" />
+                          class="h-5 w-5 ml-2 flex-none rounded text-light-subtext dark:text-dark-subtext group-hover:visible group-focus:visible" />
                       </span>
                     </a>
                   </th>
@@ -65,19 +65,19 @@
                 </tr>
               </thead>
               <!-- Table Contents -->
-              <tbody class="bg-white dark:bg-gray-200">
+              <tbody>
                 <template v-for="[key, value] of Object.entries(sortedEntries)">
-                  <tr class="border-t border-gray-300 ">
+                  <tr class="border-t border-light-border-primary">
                     <th colspan="5" scope="colgroup"
-                      class="bg-gray-200 dark:bg-gray-600 px-4 py-3 text-left text-sm font-semibold text-gray-900 dark:text-white sm:px-6">
+                      class="bg-light-backdrop-tertiary dark:bg-dark-backdrop-tertiary px-4 py-3 text-left text-sm font-semibold text-light-text dark:text-dark-text sm:px-6">
                       {{
                         key
                       }}</th>
                   </tr>
                   <template v-for="(entry, index) in value" :key="index">
                     <tr
-                      :class="[index % 2 === 0 ? 'bg-gray-50 dark:bg-gray-200' : 'bg-gray-100 dark:bg-gray-300', 'border-t']">
-                      <td class="py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
+                      :class="[index % 2 === 0 ? 'bg-light-backdrop-primary dark:bg-dark-backdrop-primary' : 'bg-light-backdrop-secondary dark:bg-dark-backdrop-secondary', 'border-t']">
+                      <td class="py-4 pl-4 pr-3 text-sm font-medium text-light-text dark:text-dark-text sm:pl-6">
                         <span v-if="entry.version != 0">{{ entry.name }} | {{ entry.version }} </span>
                         <span v-else>{{ entry.name }}</span>
                         <!-- Mobile Stacked View -->
@@ -99,7 +99,8 @@
                               <img class="h-6 w-6 rounded-full mr-3" src="@/assets/GitHubLogoBlack.svg"
                                 alt="Github Logo" />
                               <NuxtLink :to="entry.source" target="_blank">
-                                <button @click="" class="flex items-center mr-5 text-blue-600 hover:text-blue-900">
+                                <button @click=""
+                                  class="flex items-center mr-5 text-nav-light-active dark:text-nav-dark-active">
                                   View Code
                                   <span class="sr-only">,
                                     {{ entry.name }}
@@ -108,8 +109,8 @@
                                 </button>
                               </NuxtLink>
                               <NuxtLink :to="`/libs/guidance/${slugify(entry.name)}?id=${entry.benchmarkID}`">
-                                <button @click="" class="text-blue-600 hover:text-blue-900">View Details<span
-                                    class="sr-only">,
+                                <button @click="" class="text-nav-light-active dark:text-nav-dark-active">View
+                                  Details<span class="sr-only">,
                                     {{
                                       entry.name
                                     }}</span>
@@ -120,31 +121,34 @@
                         </dl>
                       </td>
                       <!-- Full View -->
-                      <td
-                        class="sm:table-cell hidden truncate whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-800">
+                      <td class="sm:table-cell hidden truncate whitespace-nowrap px-3 py-4 text-sm">
                         <div class="flex items-center">
                           <img class="h-10 w-10 rounded-full" :src="entry.platform.icon.url"
                             :alt="entry.platform.icon.name" />
-                          <NuxtLink target="_blank" :to="entry.platform.link" class="ml-3 hover:text-blue-500"> {{
-                            entry.platform.name
-                          }} </NuxtLink>
+                          <NuxtLink target="_blank" :to="entry.platform.link"
+                            class="ml-3 text-light-subtext dark:text-dark-subtext hover:text-nav-light-active dark:hover:text-nav-dark-active">
+                            {{
+                              entry.platform.name
+                            }} </NuxtLink>
                         </div>
                       </td>
-                      <td
-                        class="sm:table-cell hidden truncate whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-800">
+                      <td class="sm:table-cell hidden truncate whitespace-nowrap px-3 py-4 text-sm">
                         <div class="flex items-center">
                           <img class="h-10 w-10 rounded-full" :src="entry.partner.icon.url"
                             :alt="entry.partner.icon.name" />
-                          <NuxtLink :to="entry.partner.link" class="ml-3 hover:text-blue-500" target="_blank"> {{
-                            entry.partner.name
-                          }} </NuxtLink>
+                          <NuxtLink :to="entry.partner.link"
+                            class="ml-3 text-light-subtext dark:text-dark-subtext hover:text-nav-light-active dark:hover:text-nav-dark-active"
+                            target="_blank"> {{
+                              entry.partner.name
+                            }} </NuxtLink>
                         </div>
                       </td>
                       <td
                         class="xl:flex items-center hidden relative whitespace-nowrap py-6 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                         <img class="h-6 w-6 rounded-full mr-3" src="@/assets/GitHubLogoBlack.svg" alt="Github Logo" />
                         <NuxtLink :to="entry.source" target="_blank">
-                          <button @click="" class="flex items-center mr-5 text-blue-600 hover:text-blue-900">
+                          <button @click=""
+                            class="flex items-center mr-5 text-nav-light-active dark:text-nav-dark-active">
                             View Code
                             <span class="sr-only">,
                               {{ entry.name }}
@@ -153,7 +157,8 @@
                           </button>
                         </NuxtLink>
                         <NuxtLink :to="`/libs/guidance/${slugify(entry.name)}?id=${entry.benchmarkID}`">
-                          <button @click="" class="text-blue-600 hover:text-blue-900">View Details<span class="sr-only">,
+                          <button @click="" class="text-nav-light-active dark:text-nav-dark-active">View Details<span
+                              class="sr-only">,
                               {{
                                 entry.name
                               }}</span>

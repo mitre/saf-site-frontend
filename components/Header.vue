@@ -12,7 +12,7 @@
             <NuxtLink to="/" class="flex">
               <h1
                 class="text-2xl tracking-tighter p-2 font-extrabold whitespace-nowrap text-light-text dark:text-dark-text  md:text-3xl xl:text-4xl">
-                <span class="block xl:inline">MITRE SAF</span>
+                <span class="block xl:inline font-mitre font-bold">MITRE SAF</span>
               </h1>
               <p class="mt-1 text-xs text-light-text dark:text-dark-text">©</p>
             </NuxtLink>
@@ -28,7 +28,7 @@
           </div>
 
           <PopoverGroup as="nav" class="hidden md:flex space-x-7 xl:space-x-10">
-            <NuxtLink to="/getting-started" :class="['text-base font-medium hover:text-nav-light-hover dark:hover:text-nav-dark-hover',
+            <NuxtLink to="/getting-started" :class="['text-base font-semibold font-mitre hover:text-nav-light-hover dark:hover:text-nav-dark-hover',
               '/getting-started' == route.fullPath
                 ? 'text-nav-light-active dark:text-nav-dark-active'
                 : 'text-nav-light-inactive dark:text-nav-dark-inactive'
@@ -42,7 +42,7 @@
 
             <NavDropdown label="Libraries" :items="libraries" />
 
-            <NuxtLink v-for="item in navigation" :key="item.name" :to="item.href" :class="['text-base font-medium hover:text-nav-light-hover dark:hover:text-nav-dark-hover',
+            <NuxtLink v-for="item in navigation" :key="item.name" :to="item.href" :class="['text-base font-semibold font-mitre hover:text-nav-light-hover dark:hover:text-nav-dark-hover',
               item.href == route.fullPath
                 ? 'text-nav-light-active dark:text-nav-dark-active'
                 : 'text-nav-light-inactive dark:text-nav-dark-inactive'
@@ -90,28 +90,28 @@
                     <PopoverButton
                       class="rounded-md my-2 inline-flex items-center justify-center text-nav-light-inactive focus:outline-none focus:ring-2 focus:ring-inset focus:ring-light-border-primary">
                       <span class="sr-only">Close menu</span>
-                      <XIcon class="h-6 w-6" aria-hidden="true" />
+                      <XIcon class="h-6 w-6 text-light-text dark:text-dark-text" aria-hidden="true" />
                     </PopoverButton>
                   </div>
                 </div>
                 <div class="my-3">
                   <nav class="grid gap-y-8 py-2">
-                    <h1 class="font-bold">Framework</h1>
+                    <h1 class="font-bold text-light-text dark:text-dark-text">Framework</h1>
                     <NavMobileLinks :items="framework" />
 
                     <hr class="drop-shadow" />
 
-                    <h1 class="font-bold">Applications</h1>
+                    <h1 class="font-bold text-light-text dark:text-dark-text">Applications</h1>
                     <NavMobileLinks :items="applications" />
 
                     <hr class="drop-shadow" />
 
-                    <h1 class="font-bold">Libraries</h1>
+                    <h1 class="font-bold text-light-text dark:text-dark-text">Libraries</h1>
                     <NavMobileLinks :items="libraries" />
 
                     <hr class="drop-shadow" />
 
-                    <h1 class="font-bold">Resources</h1>
+                    <h1 class="font-bold text-light-text dark:text-dark-text">Resources</h1>
                     <NavMobileLinks :items="navigation" />
                     <NavMobileLinks :items="resources" />
                   </nav>
@@ -169,7 +169,9 @@ import { AcademicCapIcon, BookOpenIcon, RssIcon } from '@heroicons/vue/solid';
 
 import PlanIcon from '../assets/PlanIcon.vue'
 import HardenIcon from '../assets/HardenIcon.vue'
+import HardenLibIcon from '../assets/HardenLibIcon.vue'
 import ValidateIcon from '../assets/ValidateIcon.vue'
+import ValidationLibIcon from '../assets/ValidationLibIcon.vue'
 import NormalizeIcon from '../assets/NormalizeIcon.vue'
 import VisualizeIcon from '../assets/VisualizeIcon.vue'
 import HeimdallLogo from '../assets/HeimdallLogo.vue'
@@ -223,14 +225,14 @@ const libraries = ref([
     description:
       'Implement security baselines using our Ansible, Chef, and Terraform content.',
     href: '/libs/harden',
-    icon: HardenIcon
+    icon: HardenLibIcon
   },
   {
     name: 'Validate',
     description:
       'Generate detailed security testing results through automated tests and manual attestation.',
     href: '/libs/validate',
-    icon: ValidateIcon
+    icon: ValidationLibIcon
   },
   {
     name: 'TS InSpec Objects',

@@ -2,7 +2,7 @@
   <div v-if="isLoaded">
     <div class="mt-4 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
       <div v-for="post in posts" :key="post.title"
-        class="flex flex-col rounded-lg shadow-xl border-2 hover:border-2 hover:border-nav-light-hover dark:hover:border-nav-dark-hover border-light-border-primary dark:border-dark-border-primary overflow-hidden">
+        class="flex flex-col rounded-lg shadow-lg shadow-light-dropshadow/10 dark:shadow-dark-dropshadow/60 border-2 hover:border-2 hover:border-nav-light-hover dark:hover:border-nav-dark-hover border-light-border-primary dark:border-dark-border-primary overflow-hidden">
         <div
           class="flex-1 bg-light-backdrop-primary dark:bg-dark-backdrop-primary hover:bg-light-backdrop-secondary dark:hover:bg-dark-backdrop-secondary p-6 flex flex-col justify-between">
           <div class="flex-1">

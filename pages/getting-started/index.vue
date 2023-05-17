@@ -10,8 +10,8 @@
             }}</strong>
             </h1>
             <div
-              class="mt-8 mb-6 max-w-5xl mx-auto leading-8 text-left prose prose-sm lg:prose-lg dark:prose-invert dark:text-dark-text prose-li:text-start prose-code:text-start"
-              v-html="gettingStartedContent"></div>
+              class="prose-img mt-8 mb-6 max-w-5xl mx-auto leading-8 text-left prose prose-sm lg:prose-lg dark:prose-invert dark:text-dark-text prose-li:text-start prose-code:text-start"
+              style="" v-html="gettingStartedContent"></div>
           </div>
         </div>
       </div>
@@ -23,6 +23,13 @@
   </div>
 </template>
 
+<style scoped>
+.prose-img>>>img {
+  background-color: #f1f3f4;
+  border-radius: 25px;
+  padding: 10px;
+}
+</style>
 
 <script setup>
 ////  Data  ////

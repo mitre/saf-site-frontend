@@ -32,7 +32,7 @@ module.exports = {
       colors: {
         light: {
           'text': '#111921',
-          'header': '#2563eb',
+          'header': '#005B94',
           'subtext': '#7E8284',
           'hover': '#111921',
           'icon-primary': '#2563eb',
@@ -44,19 +44,20 @@ module.exports = {
           'backdrop-primary': '#ffffff',
           'backdrop-secondary': '#f1f3f4',
           'backdrop-tertiary': '#d1d5db',
+          'backdrop-quaternary': '#d1d5db',
           'border-primary': '#87deff',
         },
         dark: {
           'text': '#d1d5db',
-          'header': '#61a3eb',
-          'subtext': '#9ca3af',
+          'header': '#F1F3F4',
+          'subtext': '#F1F3F4',
           'hover': '#111921',
           'icon-primary': '#2563eb',
           'highlighter': '',
           'dropshadow': '#6b7280',
           'focus': '',
           'code': '',
-          'backdrop-primary': '#1F1A24',
+          'backdrop-primary': '#0B2338',
           'backdrop-secondary': '#4b5563',
           'backdrop-tertiary': '#6b7280',
           'border-primary': '#87deff',
@@ -131,6 +132,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ['"Inter var"', ...defaultTheme.fontFamily.sans],
+        mitre: ['trade-gothic-next-condensed', 'Helvetica', 'Arial', 'Lucida', 'sans-serif']
       },
     },
   },

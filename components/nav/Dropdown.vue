@@ -7,7 +7,7 @@
             items.some(e => e.href === route.fullPath) ? 'text-nav-light-active dark:text-nav-dark-active' : 'text-nav-light-inactive dark:text-nav-dark-inactive',
             'group bg-light-backdrop-primary dark:bg-dark-backdrop-primary rounded-md inline-flex items-center text-base font-medium  hover:text-nav-light-hover dark:hover:text-nav-dark-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-light-border-primary'
         ]">
-            <span>{{ label }}</span>
+            <span class="font-mitre font-semibold">{{ label }}</span>
             <ChevronDownIcon :class="[
                 open ? 'text-nav-light-hover dark:text-nav-dark-hover'
                     : '',

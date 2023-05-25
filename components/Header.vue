@@ -12,7 +12,7 @@
             <NuxtLink to="/" class="flex">
               <h1
                 class="text-2xl tracking-tighter p-2 font-extrabold whitespace-nowrap text-light-text dark:text-dark-text  md:text-3xl xl:text-4xl">
-                <span class="block xl:inline font-mitre font-bold">MITRE SAF</span>
+                <span class="block xl:inline font-mitre font-extrabold">MITRE SAF</span>
               </h1>
               <p class="mt-1 text-xs text-light-text dark:text-dark-text">©</p>
             </NuxtLink>

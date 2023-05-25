@@ -44,7 +44,7 @@ module.exports = {
           'backdrop-primary': '#ffffff',
           'backdrop-secondary': '#f1f3f4',
           'backdrop-tertiary': '#d1d5db',
-          'backdrop-quaternary': '#d1d5db',
+          'backdrop-quaternary': '#b8bec7',
           'border-primary': '#87deff',
         },
         dark: {
@@ -58,8 +58,9 @@ module.exports = {
           'focus': '',
           'code': '',
           'backdrop-primary': '#0B2338',
-          'backdrop-secondary': '#4b5563',
-          'backdrop-tertiary': '#6b7280',
+          'backdrop-secondary': '#2c323a',
+          'backdrop-tertiary': '#424b57',
+          'backdrop-quaternary': '#586474', //#6c717a
           'border-primary': '#87deff',
         },
         btn: {
@@ -132,7 +133,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ['"Inter var"', ...defaultTheme.fontFamily.sans],
-        mitre: ['trade-gothic-next-condensed', 'Helvetica', 'Arial', 'Lucida', 'sans-serif']
+        mitre: ['Arial', 'Lucida', 'sans-serif']//'trade-gothic-next-condensed', 'Helvetica', 
       },
     },
   },

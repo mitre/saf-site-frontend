@@ -63,7 +63,7 @@
             content
             for the guidance.</p>
         </div>
-        <hr class="my-1 h-px border-0 bg-light-border-primary dark:bg-dark-border-primary">
+        <hr class="my-1 h-px border-0 bg-light-backdrop-primary dark:bg-dark-backdrop-primary">
         <div class="sm:flex bg-light-backdrop-tertiary dark:bg-dark-backdrop-tertiary px-4 py-5  sm:gap-4 sm:px-6">
           <div class="flex-1">
             <dt class="text-sm text-center font-medium text-light-text dark:text-dark-text">Harden</dt>
@@ -75,7 +75,8 @@
           </div>
         </div>
         <div class="sm:flex md:max-h-96 h-full">
-          <div class="flex-1 border-r-2 border-light-border-primary dark:border-dark-border-primary overflow-y-scroll">
+          <div
+            class="flex-1 border-r-2 border-light-backdrop-primary dark:border-dark-backdrop-primary overflow-y-scroll">
             <dl v-if="guidance.hardening != null" v-for="hardening in guidance.hardening">
               <div
                 class="bg-light-backdrop-primary dark:bg-dark-backdrop-primary px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-3 sm:px-6">
@@ -121,7 +122,7 @@
                 </div>
               </div>
               <div
-                class="bg-light-backdrop-primary dark:bg-dark-backdrop-primary border-b-4 border-light-border-primary dark:border-dark-border-primary px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
+                class="bg-light-backdrop-primary dark:bg-dark-backdrop-primary border-b-4 border-light-backdrop-primary dark:border-dark-backdrop-primary px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
                 <dt class="flex items-center text-sm font-medium text-light-subtext dark:text-dark-subtext">Link</dt>
                 <a class="inline-block break-all after:content-['_↗'] items-center mt-1 text-sm text-light-text dark:text-dark-text sm:col-span-1 sm:mt-0 hover:text-nav-light-active dark:hover:text-nav-dark-active hover:underline"
                   target="_blank" :href="hardening.source">
@@ -130,9 +131,9 @@
               </div>
             </dl>
           </div>
-          <div class="flex-1 border-r-2 border-light-border-primary dark:border-dark-border-primary overflow-y-auto">
+          <div class="flex-1 border-r-2 border-light-backdrop-primary dark:border-dark-backdrop-primary overflow-y-auto">
             <div class="sm:hidden"> <!-- Mobile Formatting -->
-              <hr class="h-px border-0 bg-light-border-primary dark:bg-dark-border-primary">
+              <hr class="h-px border-0 bg-light-backdrop-primary dark:bg-dark-backdrop-primary">
               <div class="sm:flex bg-light-backdrop-tertiary dark:bg-dark-backdrop-tertiary px-4 py-5 sm:gap-4 sm:px-6">
                 <div class="flex-1">
                   <dt class="text-sm text-center font-medium text-light-text dark:text-dark-text">Validate</dt>
@@ -140,7 +141,7 @@
               </div>
             </div>
             <dl v-if="guidance.validation != null" v-for="validation in guidance.validation"
-              class="border-r-2 border-light-border-primary dark:border-dark-border-primary overflow-y-scroll">
+              class="border-r-2 border-light-backdrop-primary dark:border-dark-backdrop-primary overflow-y-scroll">
               <div
                 class="bg-light-backdrop-primary dark:bg-dark-backdrop-primary px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
                 <dt class="flex items-center text-sm font-medium text-light-subtext dark:text-dark-subtext">Name</dt>
@@ -185,7 +186,7 @@
                 </div>
               </div>
               <div
-                class="bg-light-backdrop-primary dark:bg-dark-backdrop-primary border-b-4 border-light-border-primary dark:border-dark-border-primary px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
+                class="bg-light-backdrop-primary dark:bg-dark-backdrop-primary border-b-4 border-light-backdrop-primary dark:border-dark-backdrop-primary px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
                 <dt class="flex items-center text-sm font-medium text-light-subtext dark:text-dark-subtext">Link</dt>
                 <a class="inline-block break-all after:content-['_↗'] items-center mt-1 text-sm text-light-text dark:text-dark-text sm:col-span-1 sm:mt-0 hover:text-nav-light-active dark:hover:text-nav-dark-active hover:underline"
                   target="_blank" :href="validation.source">

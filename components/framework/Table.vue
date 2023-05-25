@@ -69,14 +69,14 @@
                 <template v-for="[key, value] of Object.entries(sortedEntries)">
                   <tr class="border-t border-light-border-primary">
                     <th colspan="5" scope="colgroup"
-                      class="bg-light-backdrop-tertiary dark:bg-dark-backdrop-tertiary px-4 py-3 text-left text-sm font-semibold text-light-text dark:text-dark-text sm:px-6">
+                      class="bg-light-backdrop-quaternary dark:bg-dark-backdrop-secondary px-4 py-3 text-left text-sm font-semibold text-light-text dark:text-dark-text sm:px-6">
                       {{
                         key
                       }}</th>
                   </tr>
                   <template v-for="(entry, index) in value" :key="index">
                     <tr
-                      :class="[index % 2 === 0 ? 'bg-light-backdrop-primary dark:bg-dark-backdrop-primary' : 'bg-light-backdrop-secondary dark:bg-dark-backdrop-secondary', 'border-t']">
+                      :class="[index % 2 === 0 ? 'bg-light-backdrop-tertiary dark:bg-dark-backdrop-tertiary' : 'bg-light-backdrop-secondary dark:bg-dark-backdrop-quaternary', 'border-t']">
                       <td class="py-4 pl-4 pr-3 text-sm font-medium text-light-text dark:text-dark-text sm:pl-6">
                         <span v-if="entry.version != 0">{{ entry.name }} | {{ entry.version }} </span>
                         <span v-else>{{ entry.name }}</span>
@@ -126,7 +126,7 @@
                           <img class="h-10 w-10 rounded-full" :src="entry.platform.icon.url"
                             :alt="entry.platform.icon.name" />
                           <NuxtLink target="_blank" :to="entry.platform.link"
-                            class="ml-3 text-light-subtext dark:text-dark-subtext hover:text-nav-light-active dark:hover:text-nav-dark-active">
+                            class="ml-3 text-light-text dark:text-dark-text hover:text-nav-light-active dark:hover:text-nav-dark-active">
                             {{
                               entry.platform.name
                             }} </NuxtLink>
@@ -137,7 +137,7 @@
                           <img class="h-10 w-10 rounded-full" :src="entry.partner.icon.url"
                             :alt="entry.partner.icon.name" />
                           <NuxtLink :to="entry.partner.link"
-                            class="ml-3 text-light-subtext dark:text-dark-subtext hover:text-nav-light-active dark:hover:text-nav-dark-active"
+                            class="ml-3 text-light-text dark:text-dark-text hover:text-nav-light-active dark:hover:text-nav-dark-active"
                             target="_blank"> {{
                               entry.partner.name
                             }} </NuxtLink>

@@ -10,16 +10,17 @@
 
       <HomeToolset :toolset="toolset" />
 
-      <div class="bg-light-backdrop-secondary dark:bg-dark-backdrop-secondary">
+      <div class="bg-light-backdrop-primary dark:bg-dark-backdrop-primary">
         <div class="lg:max-w-7xl mx-auto py-24 sm:py-32 lg:py-40">
-          <p class="mt-2 mb-6 md:mb-2 text-3xl text-center font-bold tracking-tight text-light-header sm:text-4xl ">
+          <p
+            class="mt-2 mb-6 md:mb-2 text-3xl text-center font-bold tracking-tight text-light-header dark:text-dark-header sm:text-4xl">
             Adopted
             by The Community</p>
           <div class="md:flex items-center pt-8 sm:ml-4">
             <p
               class="font-bold text-center sm:mx-4 tracking-tight text-light-text dark:text-dark-text text-2xl sm:text-3xl  items-center">
               Sponsors</p>
-            <HomeSponsors :data="sponsors" class="mx-auto mt-4" />
+            <HomeSponsors :data="sponsors" class="bg-light-backdrop-primary dark:bg-dark-backdrop-primary mx-auto mt-4" />
           </div>
           <div class="md:flex items-center sm:ml-4 mt-10">
             <p

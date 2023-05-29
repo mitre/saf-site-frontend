@@ -16,7 +16,7 @@
               sense for your environment.</p>
           </div>
           <div class="mt-16 sm:mt-24">
-            <img src="@/assets/saf-PIPE-diagram-embedded-fonts.svg"
+            <img src="@/assets/saf-PIPE-diagram.svg"
               alt="Diagram of multistage pipeline and the SAF components that support each stage" width="2432"
               height="1442" />
           </div>

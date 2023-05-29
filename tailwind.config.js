@@ -13,22 +13,6 @@ module.exports = {
   ],
   theme: {
     extend: {
-      // colors: {
-      //   "MITRE-blue": "var(--color-MITRE-blue)",
-      //   "MITRE-highlighter": "var(--color-MITRE-highlighter)",
-      //   "MITRE-dark-navy": "var(--color-MITRE-dark-navy)",
-      //   "MITRE-navy": "var(--color-MITRE-navy)",
-      //   "MITRE-light-blue": "var(--color-MITRE-light-blue)",
-      //   "MITRE-black": "var(--color-MITRE-black)",
-      //   "MITRE-dark-gray": "var(--color-MITRE-dark-gray)",
-      //   "MITRE-silver": "var(--color-MITRE-silver)",
-      //   "MITRE-light-silver": "var(--color-MITRE-light-silver)",
-      //   "MITRE-white": "var(--color-MITRE-white)",
-      //   "dark-bg": "var(--color-DARKMODE-dark-bg)",
-      //   "dark-text": "var(--color-DARKMODE-dark-text)",
-      // },
-
-
       colors: {
         light: {
           'text': '#111921',
@@ -132,8 +116,8 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ['"Inter var"', ...defaultTheme.fontFamily.sans],
-        mitre: ['Arial', 'Lucida', 'sans-serif']//'trade-gothic-next-condensed', 'Helvetica', 
+        sans: [...defaultTheme.fontFamily.sans],
+        mitre: 'Roboto Slab'
       },
     },
   },

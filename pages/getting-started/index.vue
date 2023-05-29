@@ -24,7 +24,7 @@
 </template>
 
 <style scoped>
-.prose-img>>>img {
+.prose-img :deep(img) {
   background-color: #f1f3f4;
   border-radius: 25px;
   padding: 10px;

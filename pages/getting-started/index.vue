@@ -6,8 +6,8 @@
       <div v-if="isLoaded">
         <div class="sm:flex sm:items-center">
           <div class="sm:flex-auto">
-            <h1 class="text-4xl font-bold text-light-header dark:text-dark-header text-center"><strong>{{ pageTitle
-            }}</strong>
+            <h1 class="text-4xl font-bold text-light-header dark:text-dark-header text-center"><strong>Getting
+                Started</strong>
             </h1>
             <div
               class="prose-img mt-8 mb-6 max-w-5xl mx-auto leading-8 text-left prose prose-sm lg:prose-lg dark:prose-invert dark:text-dark-text prose-li:text-start prose-code:text-start"
@@ -39,11 +39,9 @@ const pageTitle = ref("")
 
 ////  Methods  ////
 const getGettingStartedContent = async () => {
-  gettingStartedContent.value = await useAsyncData('getTextContentByPage', () => GqlGetTextContentByPage({ pageName: "Getting Started" }), { initialCache: false })
+  gettingStartedContent.value = await useAsyncData('getGettingStartedPage', () => GqlGetGettingStartedPage())
     .then(({ data }) => {
-      pageTitle.value = data._value.textContents.data[0].attributes.name
-      console.log(pageTitle)
-      return data._value.textContents.data[0].attributes.text
+      return data._value.gettingStartedPage.data.attributes.content
     });
 }
 

@@ -9,9 +9,8 @@
             <h1 class="text-4xl font-bold text-light-header dark:text-dark-header text-center"><strong>{{ pageTitle
             }}</strong>
             </h1>
-            <div
-              class="mt-8 mb-6 max-w-5xl mx-auto leading-8 text-left prose prose-sm lg:prose-lg dark:prose-invert dark:text-dark-text prose-li:text-start prose-code:text-start"
-              v-html="gettingStartedContent"></div>
+            <div class="mt-8 mb-6 max-w-5xl mx-auto leading-8 text-left prose prose-sm lg:prose-lg dark:text-dark-text"
+              v-html="libraryContent"></div>
           </div>
         </div>
       </div>
@@ -27,23 +26,23 @@
 <script setup>
 ////  Data  ////
 const isLoaded = ref(false)
-const gettingStartedContent = ref("")
+const libraryContent = ref("")
 const pageTitle = ref("")
 
 ////  Methods  ////
-const getGettingStartedContent = async () => {
-  gettingStartedContent.value = await useAsyncData('getTextContentByPage', () => GqlGetTextContentByPage({ pageName: "eMASS Client" }), { initialCache: false })
+const getLibraryContent = async () => {
+  await useAsyncData('getLibraryPageByName', () => GqlGetLibraryPageByName({ name: "eMASS Client" }), { initialCache: false })
     .then(({ data }) => {
-      pageTitle.value = data._value.textContents.data[0].attributes.name
-      console.log(pageTitle)
-      return data._value.textContents.data[0].attributes.text
+      console.log(data)
+      libraryContent.value = data._value.libraryPages.data[0].attributes.content
+      pageTitle.value = data._value.libraryPages.data[0].attributes.library
     });
 }
 
 ////  Lifecycle  ////
 onMounted(async () => {
   await nextTick(async () => {
-    await getGettingStartedContent()
+    await getLibraryContent()
     isLoaded.value = true
   });
 });

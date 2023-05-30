@@ -18,8 +18,9 @@
               <dt class="text-lg font-bold text-light-text dark:text-dark-text">{{ faq.questionNumber }}. {{ faq.question
               }}
               </dt>
-              <dd class="mt-3 text-sm prose dark:prose-invert line-clamp-3 text-light-text dark:text-dark-text"
-                v-html="faq.answer"></dd>
+              <dd class="mt-3 text-sm prose dark:prose-invert text-light-text dark:text-dark-text">
+                <div class="line-clamp-3" v-html="faq.answer"></div>
+              </dd>
               <dd class="mt-4 text-nav-light-active dark:text-nav-dark-active font-bold">
                 <NuxtLink :to="`/faq/${faq.questionNumber}`">View More</NuxtLink>
               </dd>

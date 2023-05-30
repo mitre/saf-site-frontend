@@ -23,8 +23,7 @@
                                         </div>
                                         <h3
                                             class="mt-8 text-lg font-bold leading-8 tracking-tight text-light-text dark:text-dark-text">
-                                            {{
-                                                item.nameLong }}</h3>
+                                            {{ item.nameLong }}</h3>
                                     </div>
                                 </div>
                             </NuxtLink>

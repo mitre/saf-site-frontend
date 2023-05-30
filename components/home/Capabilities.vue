@@ -3,8 +3,9 @@
     <div class=" py-24 sm:py-32">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="mx-auto max-w-2xl lg:text-center">
-          <p class="mt-2 text-3xl font-bold tracking-tight text-light-header dark:text-dark-header sm:text-4xl">Jump Start
-            Your Security Journey</p>
+          <h1 class="mt-2 text-3xl font-bold tracking-tight text-light-header dark:text-dark-header sm:text-4xl">Jump
+            Start
+            Your Security Journey</h1>
           <p class="mt-6 text-lg leading-8 text-light-text dark:text-dark-text">MITRE SAF(c) offers open-source support
             for
             multiple workflow capabilities.</p>
@@ -23,8 +24,8 @@
               <h3 class="text-base font-semibold leading-6">
                 <NuxtLink :to="capability.link" class="focus:outline-none">
                   <span class="absolute inset-0" aria-hidden="true" />
-                  <p class="text-large font-semibold leading-7 text-light-text dark:text-dark-text"> {{ capability.name }}
-                  </p>
+                  <h2 class="text-xl font-extrabold leading-7 text-light-text dark:text-dark-text"> {{ capability.name }}
+                  </h2>
                   <dd class="mt-2 text-base leading-7 text-light-text dark:text-dark-text"
                     v-html="capability.description">
                   </dd>
@@ -52,8 +53,8 @@
               <h3 class="text-base font-semibold leading-6 text-light-text dark:text-dark-text">
                 <NuxtLink :to="capability.link" class="focus:outline-none">
                   <span class="absolute inset-0" aria-hidden="true" />
-                  <p class="text-large font-semibold leading-7 text-light-text dark:text-dark-text"> {{ capability.name }}
-                  </p>
+                  <h2 class="text-xl font-extrabold leading-7 text-light-text dark:text-dark-text"> {{ capability.name }}
+                  </h2>
                   <dd class="mt-2 text-base leading-7 text-light-text dark:text-dark-text"
                     v-html="capability.description">
                   </dd>

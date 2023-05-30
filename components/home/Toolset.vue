@@ -3,10 +3,10 @@
     <div class="relative bg-light-backdrop-secondary dark:bg-dark-backdrop-secondary py-24 sm:py-32 lg:py-40">
       <div class="mx-auto max-w-md px-6 text-center sm:max-w-3xl lg:max-w-7xl lg:px-8">
         <div class="flex-row mx-auto max-w-3xl text-left">
-          <p
+          <h1
             class="mt-2 max-w-prose sm:text-4xl text-3xl tracking-tight font-bold text-light-header dark:text-dark-header">
             Our Open Source Toolset
-          </p>
+          </h1>
           <p class="mt-5 max-w-prose sm:text-xl text-lg text-light-text dark:text-dark-text"> MITRE SAF maintains a
             toolset
             of utilities to support automation.</p>

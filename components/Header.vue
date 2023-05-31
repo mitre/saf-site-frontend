@@ -23,7 +23,7 @@
             <PopoverButton
               class="rounded-md p-2 inline-flex items-center justify-center text-nav-light-inactive hover:bg-nav-light-active focus:outline-none focus:ring-2 focus:ring-inset focus:ring-light-border-primary">
               <span class="sr-only">Open menu</span>
-              <DotsVerticalIcon class="h-6 w-6 text-gray-400" aria-hidden="true" />
+              <DotsVerticalIcon class="h-6 w-6 text-light-text dark:text-dark-text" aria-hidden="true" />
             </PopoverButton>
           </div>
 
@@ -58,13 +58,13 @@
               <!-- TODO: Site search-->
             </div>
             <div
-              class="text-gray-500 dark:text-dark-text hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
+              class="text-light-text dark:text-dark-text hover:bg-light-backdrop-secondary dark:hover:bg-dark-backdrop-secondary rounded-lg text-sm p-2.5">
               <div class="relative flex items-center ">
                 <SunIcon :class="selected == 'Light' ? 'h-6 w-6' : 'hidden'" />
                 <MoonIcon :class="selected == 'Dark' ? 'h-6 w-6' : 'hidden'" />
                 <DesktopComputerIcon :class="selected == 'System' ? 'h-6 w-6' : 'hidden'" />
                 <select name="theme" id="theme"
-                  class="absolute appearance-none pr-3 w-full h-fit opacity-0 dark:bg-slate-600 dark:text-white"
+                  class="absolute appearance-none pr-3 w-full h-fit opacity-0 bg-light-backdrop-primary dark:bg-dark-backdrop-primary text-light-text dark:text-dark-text"
                   @change="switchSelect($event)">
                   <option :selected="selected == 'Light'">Light</option>
                   <option :selected="selected == 'Dark'">Dark</option>

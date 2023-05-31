@@ -60,16 +60,17 @@
                 <SunIcon :class="selected == 'Light' ? 'h-6 w-6' : 'hidden'" />
                 <MoonIcon :class="selected == 'Dark' ? 'h-6 w-6' : 'hidden'" />
                 <DesktopComputerIcon :class="selected == 'System' ? 'h-6 w-6' : 'hidden'" />
-                <label>
-                  <span class="sr-only">SAF Theme Selector</span>
-                  <select name="SAF Theme Selector"
-                    class="absolute appearance-none pr-3 w-full h-fit opacity-0 bg-light-backdrop-primary dark:bg-dark-backdrop-primary text-light-text dark:text-dark-text"
-                    @change="switchSelect($event)">
-                    <option :selected="selected == 'Light'">Light</option>
-                    <option :selected="selected == 'Dark'">Dark</option>
-                    <option :selected="selected == 'System'">System</option>
-                  </select>
+                <label for="theme-selector" class="sr-only">
+                  <span>SAF Theme Selector</span>
                 </label>
+                <select id="theme-selector" name="SAF Theme Selector"
+                  class="absolute appearance-none pr-3 w-full h-fit opacity-0 bg-light-backdrop-primary dark:bg-dark-backdrop-primary text-light-text dark:text-dark-text"
+                  @change="switchSelect($event)">
+                  <option :selected="selected == 'Light'">Light</option>
+                  <option :selected="selected == 'Dark'">Dark</option>
+                  <option :selected="selected == 'System'">System</option>
+                </select>
+
               </div>
             </div>
           </div>
@@ -118,7 +119,6 @@
                 </div>
               </div>
               <div class="flex items-center justify-between py-6 px-3">
-                <label class="text-gray-900 text-base font-medium dark:text-mitre-silver">Switch Theme</label>
                 <div
                   class="relative flex items-center ring-1 ring-slate-900/10 rounded-lg shadow-sm p-2 text-slate-700 font-semibold dark:bg-slate-600 dark:ring-0 dark:highlight-white/5 dark:text-slate-200">
                   <SunIcon :class="selected == 'Light' ? 'h-6 w-6' : 'hidden'" />
@@ -126,16 +126,18 @@
                   <DesktopComputerIcon :class="selected == 'System' ? 'h-6 w-6' : 'hidden'" />
                   <div class="ml-2">{{ selected }}</div>
                   <ChevronDownIcon class="w-5 h-6  text-slate-400" />
-                  <label>
-                    <span class="sr-only">SAF Theme Selector</span>
-                    <select name="Mobile Theme Selector"
-                      class="absolute appearance-none inset-0 w-full h-full opacity-0 dark:bg-slate-600 dark:text-white"
-                      @change="switchSelect($event)">
-                      <option :selected="selected == 'Light'">Light</option>
-                      <option :selected="selected == 'Dark'">Dark</option>
-                      <option :selected="selected == 'System'">System</option>
-                    </select>
+                  <label for="mobile-theme-selector" class="sr-only">
+                    <span>SAF Theme Selector</span>
                   </label>
+                  <span class="sr-only">SAF Theme Selector</span>
+                  <select name="Mobile Theme Selector"
+                    class="absolute appearance-none inset-0 w-full h-full opacity-0 dark:bg-slate-600 dark:text-white"
+                    @change="switchSelect($event)">
+                    <option :selected="selected == 'Light'">Light</option>
+                    <option :selected="selected == 'Dark'">Dark</option>
+                    <option :selected="selected == 'System'">System</option>
+                  </select>
+
                 </div>
               </div>
             </div>

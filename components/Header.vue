@@ -4,7 +4,7 @@
       class="bg-light-backdrop-primary dark:bg-dark-backdrop-primary border-b-2 border-light-border-primary dark:border-dark-border-primary">
       <div class="max-w-8xl mx-auto px-4 sm:px-1">
         <div class="flex justify-between items-center py-3 pl-0 sm:pl-3 md:pl-3 md:justify-start md:space-x-10">
-          <div class="flex justify-left md:flex-1 lg:w-0 lg:flex-1">
+          <div class="flex justify-left md:flex-1 lg:w-0 lg:flex-1 min-w-max">
             <NuxtLink to="/">
               <span class="sr-only">Workflow</span>
               <img src="@/assets/safLogo.svg" class="w-12 md:w-14" aria-hidden="true" alt="SAF© Logo" />
@@ -18,7 +18,7 @@
             </NuxtLink>
           </div>
 
-          <div id="mobile-components" class="-mr-2 -my-2 flex sm:pr-3 md:hidden">
+          <div id="mobile-components" class="-mr-2 -my-2 flex sm:pr-3 xl:hidden">
             <!-- TODO: Mobile Site Search-->
             <PopoverButton
               class="rounded-md p-2 inline-flex items-center justify-center text-nav-light-inactive hover:bg-nav-light-active focus:outline-none focus:ring-2 focus:ring-inset focus:ring-light-border-primary">
@@ -53,8 +53,8 @@
             <NavDropdown label="More" :items="resources" />
 
           </PopoverGroup>
-          <div class="hidden md:flex items-center justify-end flex-1 pr-2 md:w-0">
-            <div class="hidden md:flex items-center justify-end flex-1 md:w-0">
+          <div class="hidden xl:flex items-center justify-end flex-1 pr-2 md:w-0">
+            <div class="hidden xl:flex items-center justify-end flex-1 md:w-0">
               <!-- TODO: Site search-->
             </div>
             <div

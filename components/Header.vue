@@ -60,13 +60,16 @@
                 <SunIcon :class="selected == 'Light' ? 'h-6 w-6' : 'hidden'" />
                 <MoonIcon :class="selected == 'Dark' ? 'h-6 w-6' : 'hidden'" />
                 <DesktopComputerIcon :class="selected == 'System' ? 'h-6 w-6' : 'hidden'" />
-                <select name="theme" id="theme" aria-label="Site Theme Selector"
-                  class="absolute appearance-none pr-3 w-full h-fit opacity-0 bg-light-backdrop-primary dark:bg-dark-backdrop-primary text-light-text dark:text-dark-text"
-                  @change="switchSelect($event)">
-                  <option :selected="selected == 'Light'">Light</option>
-                  <option :selected="selected == 'Dark'">Dark</option>
-                  <option :selected="selected == 'System'">System</option>
-                </select>
+                <label>
+                  <span class="sr-only">SAF Theme Selector</span>
+                  <select name="theme" id="theme"
+                    class="absolute appearance-none pr-3 w-full h-fit opacity-0 bg-light-backdrop-primary dark:bg-dark-backdrop-primary text-light-text dark:text-dark-text"
+                    @change="switchSelect($event)">
+                    <option :selected="selected == 'Light'">Light</option>
+                    <option :selected="selected == 'Dark'">Dark</option>
+                    <option :selected="selected == 'System'">System</option>
+                  </select>
+                </label>
               </div>
             </div>
           </div>
@@ -123,13 +126,16 @@
                   <DesktopComputerIcon :class="selected == 'System' ? 'h-6 w-6' : 'hidden'" />
                   <div class="ml-2">{{ selected }}</div>
                   <ChevronDownIcon class="w-5 h-6  text-slate-400" />
-                  <select id="theme"
-                    class="absolute appearance-none inset-0 w-full h-full opacity-0 dark:bg-slate-600 dark:text-white"
-                    @change="switchSelect($event)">
-                    <option :selected="selected == 'Light'">Light</option>
-                    <option :selected="selected == 'Dark'">Dark</option>
-                    <option :selected="selected == 'System'">System</option>
-                  </select>
+                  <label>
+                    <span class="sr-only">SAF Theme Selector</span>
+                    <select id="theme"
+                      class="absolute appearance-none inset-0 w-full h-full opacity-0 dark:bg-slate-600 dark:text-white"
+                      @change="switchSelect($event)">
+                      <option :selected="selected == 'Light'">Light</option>
+                      <option :selected="selected == 'Dark'">Dark</option>
+                      <option :selected="selected == 'System'">System</option>
+                    </select>
+                  </label>
                 </div>
               </div>
             </div>

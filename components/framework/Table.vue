@@ -18,7 +18,7 @@
               <thead class="bg-light-backdrop-primary dark:bg-dark-backdrop-primary text-light-text dark:text-dark-text">
                 <tr>
                   <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold sm:pl-6">
-                    <a @click="sort('name')" class="group inline-flex cursor-pointer">
+                    <button @click="sort('name')" class="group inline-flex cursor-pointer">
                       Name
                       <span v-if="this.currentSort === 'name'"
                         class="ml-2 flex-none rounded text-light-subtext dark:text-dark-subtext group-hover:visible group-focus:visible">
@@ -29,10 +29,10 @@
                         <SwitchVerticalIcon
                           class="h-5 w-5 ml-2 flex-none rounded text-light-subtext dark:text-dark-subtext group-hover:visible group-focus:visible" />
                       </span>
-                    </a>
+                    </button>
                   </th>
                   <th scope="col" class="sm:table-cell hidden px-3 py-3.5 text-left text-sm font-semibold">
-                    <a @click="sort('platform')" class="group inline-flex cursor-pointer">
+                    <button @click="sort('platform')" class="group inline-flex cursor-pointer">
                       Platform
                       <span v-if="this.currentSort === 'platform'"
                         class="ml-2 flex-none rounded text-light-subtext dark:text-dark-subtext group-hover:visible group-focus:visible">
@@ -43,10 +43,10 @@
                         <SwitchVerticalIcon
                           class="h-5 w-5 ml-2 flex-none rounded text-light-subtext dark:text-dark-subtext group-hover:visible group-focus:visible" />
                       </span>
-                    </a>
+                    </button>
                   </th>
                   <th scope="col" class="sm:table-cell hidden px-3 py-3.5 text-left text-sm font-semibold">
-                    <a @click="sort('partner')" class="group inline-flex cursor-pointer">
+                    <button @click="sort('partner')" class="focus focus-visible:ring-2 group inline-flex cursor-pointer">
                       Partner
                       <span v-if="this.currentSort === 'partner'"
                         class="ml-2 flex-none rounded text-light-subtext dark:text-dark-subtext group-hover:visible group-focus:visible">
@@ -57,7 +57,7 @@
                         <SwitchVerticalIcon
                           class="h-5 w-5 ml-2 flex-none rounded text-light-subtext dark:text-dark-subtext group-hover:visible group-focus:visible" />
                       </span>
-                    </a>
+                    </button>
                   </th>
                   <th scope="col" class="xl:table-cell hidden relative py-3.5 pl-3 pr-4 sm:pr-6">
                     <span class="sr-only">Edit</span>

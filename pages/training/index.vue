@@ -1,4 +1,8 @@
 <template>
+  <Head>
+    <Title>Training</Title>
+    <Meta name="description" content="Collection of SAF training content" />
+  </Head>
   <div>
     <Header />
     <div class="min-h-screen h-full">

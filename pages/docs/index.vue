@@ -1,4 +1,8 @@
 <template>
+  <Head>
+    <Title>Documentation</Title>
+    <Meta name="description" content="Collection of SAF documentation" />
+  </Head>
   <DocumentationComponent :all-links="allLinks" :current-heading="currentHeading" :current-index="currentIndex"
     :current-section-title="currentSectionTitle" :current-subsection="currentSubsection" :doc-data="docData"
     :is-loaded="isLoaded" :table-of-contents="tableOfContents" :rendered-content="renderedContent" />

@@ -1,7 +1,7 @@
 <template>
     <Head>
         <Title>{{ pageTitle }}</Title>
-        <Meta :name="`Application page for ${pageTitle}`" :content="pageTitle" />
+        <Meta name="description" :content="`Application page for ${pageTitle}`" />
     </Head>
     <Header />
     <div v-if="isLoaded">

@@ -1,4 +1,8 @@
 <template>
+  <Head>
+    <Title>Harden Library</Title>
+    <Meta name="description" content="Harden library content" />
+  </Head>
   <div>
     <Header />
     <div

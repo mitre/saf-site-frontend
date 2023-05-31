@@ -1,4 +1,8 @@
 <template>
+  <Head>
+    <Title>Validate Library</Title>
+    <Meta name="description" content="Validate library content" />
+  </Head>
   <div>
     <Header />
     <div

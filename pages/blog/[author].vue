@@ -1,4 +1,8 @@
 <template>
+  <Head>
+    <Title>{{ author.name }}</Title>
+    <Meta name="description" :content="`Author page for ${author.name}`" />
+  </Head>
   <div>
     <Header />
     <div

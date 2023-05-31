@@ -1,4 +1,8 @@
 <template>
+  <Head>
+    <Title>FAQ</Title>
+    <Meta name="description" content="Collection of frequently asked questions" />
+  </Head>
   <div>
     <Header />
     <div class="relativ min-h-screen h-full pt-4 px-4 sm:px-6 lg:px-8">

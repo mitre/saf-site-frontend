@@ -1,4 +1,8 @@
 <template>
+  <Head>
+    <Title>{{ guidance.name }} Guidance</Title>
+    <Meta name="description" :content="`Guidance for ${guidance.name}`" />
+  </Head>
   <div>
     <Header />
     <div

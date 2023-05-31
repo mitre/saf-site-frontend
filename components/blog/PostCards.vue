@@ -7,7 +7,7 @@
           class="flex-1 bg-light-backdrop-primary dark:bg-dark-backdrop-primary hover:bg-light-backdrop-secondary dark:hover:bg-dark-backdrop-secondary p-6 flex flex-col justify-between">
           <div class="flex-1">
             <p class="text-sm font-medium text-light-icon-primary dark:text-dark-icon-primary">
-              <a :href="post.category.href" class="hover:underline">
+              <a :href="post.category.href">
                 {{ post.category.name }}
               </a>
             </p>

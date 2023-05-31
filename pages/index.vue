@@ -1,4 +1,8 @@
 <template>
+  <Head>
+    <Title>SAF Homepage</Title>
+    <Meta name="description" content="Homepage of the SAF site" />
+  </Head>
   <Header />
   <div class="bg-light-backdrop-primary dark:bg-dark-backdrop-primary min-h-screen h-full">
     <main v-if="isLoaded" class=" mb-16 mx-auto">

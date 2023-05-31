@@ -5,16 +5,13 @@
       <div class="max-w-8xl mx-auto px-4 sm:px-1">
         <div class="flex justify-between items-center py-3 pl-0 sm:pl-3 md:pl-3 md:justify-start md:space-x-10">
           <div class="flex justify-left md:flex-1 lg:w-0 lg:flex-1 min-w-max">
-            <NuxtLink to="/">
-              <span class="sr-only">Workflow</span>
-              <img src="@/assets/safLogo.svg" class="w-12 md:w-14" aria-hidden="true" alt="SAF© Logo" />
-            </NuxtLink>
             <NuxtLink to="/" class="flex">
+              <img src="@/assets/safLogo.svg" class="w-12 md:w-14" aria-hidden="true" alt="SAF© Logo" />
               <h1
                 class="text-2xl tracking-tighter p-2 font-extrabold whitespace-nowrap text-light-text dark:text-dark-text  md:text-3xl xl:text-4xl">
-                <span class="block xl:inline font-mitre font-extrabold">MITRE SAF</span>
+                <span class="block xl:inline font-mitre font-extrabold">MITRE SAF <span
+                    class="mt-1 text-xs text-light-text dark:text-dark-text">©</span></span>
               </h1>
-              <p class="mt-1 text-xs text-light-text dark:text-dark-text">©</p>
             </NuxtLink>
           </div>
 
@@ -63,7 +60,7 @@
                 <SunIcon :class="selected == 'Light' ? 'h-6 w-6' : 'hidden'" />
                 <MoonIcon :class="selected == 'Dark' ? 'h-6 w-6' : 'hidden'" />
                 <DesktopComputerIcon :class="selected == 'System' ? 'h-6 w-6' : 'hidden'" />
-                <select name="theme" id="theme"
+                <select name="theme" id="theme" aria-label="Site Theme Selector"
                   class="absolute appearance-none pr-3 w-full h-fit opacity-0 bg-light-backdrop-primary dark:bg-dark-backdrop-primary text-light-text dark:text-dark-text"
                   @change="switchSelect($event)">
                   <option :selected="selected == 'Light'">Light</option>

@@ -65,8 +65,8 @@
                             Up</a>
                         </div>
                         <div v-else class="right-2 top-0 pt-3 flex-end">
-                          <a type="button"
-                            class="inline-flex items-center rounded-full border border-transparent bg-btn-light-disabled dark:bg-btn-dark-disabled text-btn-light-disabled-text dark:text-btn-dark-disabled-text sm:px-3 sm:py-1.5 px-3 py-1.5 text-xs text-center font-medium shadow-sm">
+                          <a type="button" aria-disabled="true"
+                            class="focus-visible:ring inline-flex items-center rounded-full border border-transparent bg-btn-light-disabled dark:bg-btn-dark-disabled text-btn-light-disabled-text dark:text-btn-dark-disabled-text sm:px-3 sm:py-1.5 px-3 py-1.5 text-xs text-center font-medium shadow-sm">
                             Coming Soon!
                           </a>
                         </div>

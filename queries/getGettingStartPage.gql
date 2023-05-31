@@ -1,0 +1,9 @@
+query getGettingStartedPage{
+  gettingStartedPage{
+    data{
+      attributes{
+        content
+      }
+    }     
+  }
+}

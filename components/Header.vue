@@ -1,6 +1,7 @@
 <template>
   <div class="sticky top-0 z-50 w-full ">
-    <Popover class="bg-white dark:bg-dark-bg border-b-2 border-gray-100 dark:border-gray-500 ">
+    <Popover
+      class="bg-light-backdrop-primary dark:bg-dark-backdrop-primary border-b-2 border-light-border-primary dark:border-dark-border-primary">
       <div class="max-w-8xl mx-auto px-4 sm:px-1">
         <div class="flex justify-between items-center py-3 pl-0 sm:pl-3 md:pl-3 md:justify-start md:space-x-10">
           <div class="flex justify-left md:flex-1 lg:w-0 lg:flex-1 min-w-max">
@@ -10,27 +11,27 @@
             </NuxtLink>
             <NuxtLink to="/" class="flex">
               <h1
-                class="text-2xl tracking-tighter p-2 font-extrabold whitespace-nowrap text-gray-900 dark:text-MITRE-silver  md:text-3xl xl:text-4xl">
-                <span class="block xl:inline">MITRE SAF</span>
+                class="text-2xl tracking-tighter p-2 font-extrabold whitespace-nowrap text-light-text dark:text-dark-text  md:text-3xl xl:text-4xl">
+                <span class="block xl:inline font-mitre font-extrabold">MITRE SAF</span>
               </h1>
-              <p class="mt-1 text-xs dark:text-dark-text">©</p>
+              <p class="mt-1 text-xs text-light-text dark:text-dark-text">©</p>
             </NuxtLink>
           </div>
 
           <div id="mobile-components" class="-mr-2 -my-2 flex sm:pr-3 xl:hidden">
             <!-- TODO: Mobile Site Search-->
             <PopoverButton
-              class="bg-white dark:bg-dark-bg rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+              class="rounded-md p-2 inline-flex items-center justify-center text-nav-light-inactive hover:bg-nav-light-active focus:outline-none focus:ring-2 focus:ring-inset focus:ring-light-border-primary">
               <span class="sr-only">Open menu</span>
-              <DotsVerticalIcon class="h-6 w-6 text-gray-400" aria-hidden="true" />
+              <DotsVerticalIcon class="h-6 w-6 text-light-text dark:text-dark-text" aria-hidden="true" />
             </PopoverButton>
           </div>
 
-          <PopoverGroup as="nav" class="hidden xl:flex space-x-7 xl:space-x-10">
-            <NuxtLink to="/getting-started" :class="['text-base font-medium hover:text-gray-900 dark:hover:text-gray-200',
+          <PopoverGroup as="nav" class="hidden md:flex space-x-7 xl:space-x-10">
+            <NuxtLink to="/getting-started" :class="['text-base font-semibold font-mitre hover:text-nav-light-hover dark:hover:text-nav-dark-hover',
               '/getting-started' == route.fullPath
-                ? 'text-sky-500'
-                : 'text-gray-600 dark:text-gray-400'
+                ? 'text-nav-light-active dark:text-nav-dark-active'
+                : 'text-nav-light-inactive dark:text-nav-dark-inactive'
             ]">
               Getting Started
             </NuxtLink>
@@ -41,10 +42,10 @@
 
             <NavDropdown label="Libraries" :items="libraries" />
 
-            <NuxtLink v-for="item in navigation" :key="item.name" :to="item.href" :class="['text-base font-medium hover:text-gray-900 dark:hover:text-gray-200',
+            <NuxtLink v-for="item in navigation" :key="item.name" :to="item.href" :class="['text-base font-semibold font-mitre hover:text-nav-light-hover dark:hover:text-nav-dark-hover',
               item.href == route.fullPath
-                ? 'text-sky-500'
-                : 'text-gray-600 dark:text-gray-400'
+                ? 'text-nav-light-active dark:text-nav-dark-active'
+                : 'text-nav-light-inactive dark:text-nav-dark-inactive'
             ]">
               {{ item.name }}
             </NuxtLink>
@@ -56,7 +57,21 @@
             <div class="hidden xl:flex items-center justify-end flex-1 md:w-0">
               <!-- TODO: Site search-->
             </div>
-            <ThemeSwitcher :selected="selected" />
+            <div
+              class="text-light-text dark:text-dark-text hover:bg-light-backdrop-secondary dark:hover:bg-dark-backdrop-secondary rounded-lg text-sm p-2.5">
+              <div class="relative flex items-center ">
+                <SunIcon :class="selected == 'Light' ? 'h-6 w-6' : 'hidden'" />
+                <MoonIcon :class="selected == 'Dark' ? 'h-6 w-6' : 'hidden'" />
+                <DesktopComputerIcon :class="selected == 'System' ? 'h-6 w-6' : 'hidden'" />
+                <select name="theme" id="theme"
+                  class="absolute appearance-none pr-3 w-full h-fit opacity-0 bg-light-backdrop-primary dark:bg-dark-backdrop-primary text-light-text dark:text-dark-text"
+                  @change="switchSelect($event)">
+                  <option :selected="selected == 'Light'">Light</option>
+                  <option :selected="selected == 'Dark'">Dark</option>
+                  <option :selected="selected == 'System'">System</option>
+                </select>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -65,40 +80,60 @@
         enter-to-class="opacity-100 scale-100" leave-active-class="duration-100 ease-in"
         leave-from-class="opacity-100 scale-100" leave-to-class="opacity-0 scale-95">
         <div class="fixed z-50 top-4 right-4 w-full max-w-xs px-6">
-          <PopoverOverlay class="fixed z-auto inset-0 bg-black/20 backdrop-blur-sm dark:bg-slate-900/80" />
+          <PopoverOverlay class="fixed z-auto inset-0 bg-light-blur/20 backdrop-blur-sm dark:bg-dark-blur/80" />
           <PopoverPanel focus class="fixed w-full max-w-xs px-6">
             <div
-              class="rounded-lg shadow-lg ring-1 ring-black dark:ring-gray-500 ring-opacity-5 bg-white dark:bg-dark-bg divide-y-2 divide-gray-50">
+              class="rounded-lg shadow-lg ring-1 ring-light-dropshadow dark:ring-dark-dropshadow ring-opacity-5 bg-light-backdrop-primary dark:bg-dark-backdrop-primary divide-y-2 divide-light-border-primary">
               <div class="pt-2 pb-4 px-5 overflow-y-scroll h-[calc(100vh-110px)]">
-                <div class="flex items-center justify-between">
+                <div class="flex items-center justify-between ">
                   <div class="-mr-2">
                     <PopoverButton
-                      class="bg-white dark:bg-dark-bg rounded-md py-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                      class="rounded-md my-2 inline-flex items-center justify-center text-nav-light-inactive focus:outline-none focus:ring-2 focus:ring-inset focus:ring-light-border-primary">
                       <span class="sr-only">Close menu</span>
-                      <XIcon class="h-6 w-6" aria-hidden="true" />
+                      <XIcon class="h-6 w-6 text-light-text dark:text-dark-text" aria-hidden="true" />
                     </PopoverButton>
                   </div>
                 </div>
                 <div class="my-3">
                   <nav class="grid gap-y-8 py-2">
-                    <h1 class="font-bold">Framework</h1>
+                    <h1 class="font-bold text-light-text dark:text-dark-text">Framework</h1>
                     <NavMobileLinks :items="framework" />
 
                     <hr class="drop-shadow" />
 
-                    <h1 class="font-bold">Libraries</h1>
+                    <h1 class="font-bold text-light-text dark:text-dark-text">Applications</h1>
+                    <NavMobileLinks :items="applications" />
+
+                    <hr class="drop-shadow" />
+
+                    <h1 class="font-bold text-light-text dark:text-dark-text">Libraries</h1>
                     <NavMobileLinks :items="libraries" />
 
                     <hr class="drop-shadow" />
 
-                    <h1 class="font-bold">Resources</h1>
+                    <h1 class="font-bold text-light-text dark:text-dark-text">Resources</h1>
                     <NavMobileLinks :items="navigation" />
                     <NavMobileLinks :items="resources" />
                   </nav>
                 </div>
               </div>
               <div class="flex items-center justify-between py-6 px-3">
-                <MobileThemeSwitcher :selected="selected" />
+                <label class="text-gray-900 text-base font-medium dark:text-mitre-silver">Switch Theme</label>
+                <div
+                  class="relative flex items-center ring-1 ring-slate-900/10 rounded-lg shadow-sm p-2 text-slate-700 font-semibold dark:bg-slate-600 dark:ring-0 dark:highlight-white/5 dark:text-slate-200">
+                  <SunIcon :class="selected == 'Light' ? 'h-6 w-6' : 'hidden'" />
+                  <MoonIcon :class="selected == 'Dark' ? 'h-6 w-6' : 'hidden'" />
+                  <DesktopComputerIcon :class="selected == 'System' ? 'h-6 w-6' : 'hidden'" />
+                  <div class="ml-2">{{ selected }}</div>
+                  <ChevronDownIcon class="w-5 h-6  text-slate-400" />
+                  <select id="theme"
+                    class="absolute appearance-none inset-0 w-full h-full opacity-0 dark:bg-slate-600 dark:text-white"
+                    @change="switchSelect($event)">
+                    <option :selected="selected == 'Light'">Light</option>
+                    <option :selected="selected == 'Dark'">Dark</option>
+                    <option :selected="selected == 'System'">System</option>
+                  </select>
+                </div>
               </div>
             </div>
           </PopoverPanel>
@@ -124,15 +159,23 @@ import {
   XIcon,
   ClipboardCheckIcon,
   DotsVerticalIcon,
-  UserGroupIcon
+  UserGroupIcon,
+  DesktopComputerIcon,
+  MoonIcon,
+  SunIcon,
+  ChevronDownIcon
 } from '@heroicons/vue/outline';
 import { AcademicCapIcon, BookOpenIcon, RssIcon } from '@heroicons/vue/solid';
 
 import PlanIcon from '../assets/PlanIcon.vue'
 import HardenIcon from '../assets/HardenIcon.vue'
+import HardenLibIcon from '../assets/HardenLibIcon.vue'
 import ValidateIcon from '../assets/ValidateIcon.vue'
+import ValidationLibIcon from '../assets/ValidationLibIcon.vue'
 import NormalizeIcon from '../assets/NormalizeIcon.vue'
 import VisualizeIcon from '../assets/VisualizeIcon.vue'
+import HeimdallLogo from '../assets/HeimdallLogo.vue'
+import SafShieldLogo from '~/assets/SafShieldLogo.vue';
 
 ////  Data  ////
 const selected = ref("")
@@ -182,27 +225,27 @@ const libraries = ref([
     description:
       'Implement security baselines using our Ansible, Chef, and Terraform content.',
     href: '/libs/harden',
-    icon: ShieldCheckIcon
+    icon: HardenLibIcon
   },
   {
     name: 'Validate',
     description:
       'Generate detailed security testing results through automated tests and manual attestation.',
     href: '/libs/validate',
-    icon: ClipboardCheckIcon
+    icon: ValidationLibIcon
   },
   {
     name: 'TS InSpec Objects',
     description:
       '??????????',
-    href: '/libs/inspec-objects',
+    href: '/libs/ts-inspec-objects',
     icon: ClipboardCheckIcon
   },
   {
     name: 'eMASS Client',
     description:
       '?????????',
-    href: '/libs/emass',
+    href: '/libs/emass-client',
     icon: ClipboardCheckIcon
   }
 ]);
@@ -213,14 +256,14 @@ const applications = ref([
     description:
       '?????',
     href: '/apps/heimdall',
-    icon: ShieldCheckIcon
+    icon: HeimdallLogo
   },
   {
     name: 'Vulcan',
     description:
       '?????',
     href: '/apps/vulcan',
-    icon: ShieldCheckIcon
+    icon: SafShieldLogo
   },
   {
     name: 'SAF CLI',
@@ -280,6 +323,33 @@ const resources = ref([
 
 
 ////  Methods  ////
+const switchSelect = (event) => {
+  if (event.target.value === 'Light') {
+    disableDarkMode()
+    localStorage.setItem('user-theme', 'light');
+    selected.value = "Light"
+    setThemeState(selected.value)
+  }
+  else if (event.target.value == 'Dark') {
+    enableDarkMode()
+    localStorage.setItem('user-theme', 'dark');
+    selected.value = "Dark"
+    setThemeState(selected.value)
+  }
+  else if (event.target.value == 'System') {
+    const userIsInDarkModeOS = window.matchMedia('(prefers-color-scheme: dark)').matches
+    if (userIsInDarkModeOS) {
+      enableDarkMode()
+      localStorage.setItem('user-theme', 'dark');
+      selected.value = "System";
+      setThemeState(selected.value)
+    }
+    else {
+      disableDarkMode()
+      selected.value = "System";
+    }
+  }
+}
 const setThemeState = (mode) => {
   localStorage.setItem('theme', mode)
 }

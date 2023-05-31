@@ -1,7 +1,7 @@
 <template>
-  <nav aria-labelledby="on-this-page-title" class="w-56">
+  <nav aria-labelledby="on-this-page-title" class="ml-5 w-56">
     <div v-if="props.tableOfContents.length > 0">
-      <h2 id="on-this-page-title" class="font-display text-sm font-medium text-slate-900 dark:text-slate-200">
+      <h2 id="on-this-page-title" class="font-bold text-sm text-light-text dark:text-dark-text">
         On this page
       </h2>
       <ol role="list" class="mt-4 space-y-3 text-sm">
@@ -9,16 +9,16 @@
           <li key={{heading.title}}>
             <h3>
               <a :href="`#${slugify(heading.title)}`"
-                :class="props.currentHeading == slugify(heading.title) ? 'text-sky-500' : `font-normal text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300`">
+                :class="props.currentHeading == slugify(heading.title) ? 'text-nav-light-active dark:text-nav-dark-active' : `font-normal text-nav-light-inactive hover:text-nav-light-hover dark:text-nav-dark-inactive dark:hover:text-nav-dark-hover`">
                 {{ heading.title }}
               </a>
             </h3>
             <div v-if="heading.subtitles.length > 0">
-              <ol role="list" class="mt-2 space-y-3 pl-5 text-slate-500 dark:text-slate-400">
+              <ol role="list" class="mt-2 space-y-3 pl-5 text-nav-light-inactive dark:text-nav-dark-inactive">
                 <div v-for="subtitle in heading.subtitles">
                   <li key={{subtitle}}>
                     <a :href="`#${slugify(subtitle)}`"
-                      :class="props.currentHeading == slugify(subtitle) ? 'text-sky-500' : 'hover:text-slate-600 dark:hover:text-slate-300'">
+                      :class="props.currentHeading == slugify(subtitle) ? 'text-nav-light-active dark:text-nav-dark-active' : 'hover:text-nav-light-hover dark:hover:text-nav-dark-hover'">
                       {{ subtitle }}
                     </a>
                   </li>

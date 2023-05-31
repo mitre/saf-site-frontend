@@ -1,9 +1,10 @@
 <template>
   <div>
     <Header />
-    <div class="relative bg-white dark:bg-dark-bg min-h-screen h-full pt-4 px-4 sm:px-6 lg:px-8 mb-8">
+    <div
+      class="relative bg-light-backdrop-primary dark:bg-dark-backdrop-primary min-h-screen h-full pt-4 px-4 sm:px-6 lg:px-8 mb-8">
       <div v-if="isLoaded">
-       <FrameworkModal v-bind:guidance="guidance" />
+        <FrameworkModal v-bind:guidance="guidance" />
       </div>
       <div v-else class="grid h-screen place-items-center">
         <LoadingSpinner />
@@ -15,7 +16,7 @@
 
 <script>
 export default {
- data() {
+  data() {
     return {
       guidance: {},
       isLoaded: false,
@@ -31,7 +32,7 @@ export default {
     async getGuidance() {
       this.guidance = await useAsyncData('getGuidanceDataFromID', () => GqlGetGuidanceDataFromID({ id: this.$route.query.id }), { initialCache: false })
         .then(({ data }) => {
-          if(!data._value || !data._value.guidance.data)
+          if (!data._value || !data._value.guidance.data)
             return navigateTo('/guidance')
           console.log(data)
           const guidance = data._value.guidance.data
@@ -42,7 +43,7 @@ export default {
             category: guidance.attributes.category,
             source: guidance.attributes.source,
             date: guidance.attributes.date,
-            version:  guidance.attributes.version.length != 0 ? guidance.attributes.version[0].version : 0,
+            version: guidance.attributes.version.length != 0 ? guidance.attributes.version[0].version : 0,
             hardening: guidance.attributes.hardening.data ? guidance.attributes.hardening.data.map((harden) => ({
               id: harden.id,
               name: harden.attributes.name,
@@ -66,7 +67,7 @@ export default {
                   url: harden.attributes.partner.data.attributes.icon.data ? harden.attributes.partner.data.attributes.icon.data.attributes.url : null,
                 }
               }
-            })): null,
+            })) : null,
             validation: guidance.attributes.validation.data ? guidance.attributes.validation.data.map((validate) => ({
               id: validate.id,
               name: validate.attributes.name,
@@ -90,7 +91,7 @@ export default {
                   url: validate.attributes.partner.data.attributes.icon.data ? validate.attributes.partner.data.attributes.icon.data.attributes.url : null,
                 }
               }
-            })): null,
+            })) : null,
           }
         });
     },

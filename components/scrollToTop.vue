@@ -1,8 +1,8 @@
 <template>
   <div class="max-w-3xl">
     <div ref="scrollTopButton" class="hidden w-fit flex justify-end fixed right-0 bottom-0 pb-3 pr-2 transition">
-      <div class="text-blue-500 hover:text-blue-400 transition">
-        <button class="flex items-center" @click="scrollToTop" >
+      <div class="text-light-icon-primary dark:text-dark-icon-primary hover:brightness-110 transition">
+        <button class="flex items-center" @click="scrollToTop">
           <ArrowCircleUpIcon class="w-8 h-10 md:w-10 md:h-10 text-blue-500" />
         </button>
       </div>
@@ -11,7 +11,7 @@
 </template>
 
 <script>
-  import {ArrowCircleUpIcon} from '@heroicons/vue/outline'
+import { ArrowCircleUpIcon } from '@heroicons/vue/outline'
 export default {
   components: { ArrowCircleUpIcon },
   mounted() {
@@ -30,7 +30,7 @@ export default {
       }
     },
     scrollToTop() {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+      window.scrollTo({ top: 0, behavior: "smooth" });
     },
   },
 }

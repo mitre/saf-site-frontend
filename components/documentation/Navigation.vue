@@ -1,9 +1,11 @@
 <template>
     <DocumentationCommandPalette v-model:is-command-palette-open="isCommandPaletteOpen" />
-    <div class="max-w-8xl z-50 mb-10 sticky top-0 mr-5 bg-white dark:bg-slate-900 relative pointer-events-auto">
-        <div class="h-10 w-100 bg-slate-50 dark:bg-dark-bg -ml-0.5"></div>
+    <div
+        class="max-w-8xl z-50 mb-10 sticky top-0 mr-5 bg-light-backdrop-secondary dark:bg-dark-backdrop-secondary pointer-events-auto">
+        <div class="h-10 w-100 bg-light-backdrop-tertiary dark:bg-dark-backdrop-tertiary -ml-0.5">
+        </div>
         <button type="button"
-            class="w-full lg:flex items-center text-sm leading-6 text-slate-400 rounded-md ring-1 ring-slate-900/10 shadow-sm py-1.5 pl-2 pr-3 hover:ring-slate-300 dark:bg-slate-800 dark:highlight-white/5 dark:hover:bg-slate-700"
+            class="w-full lg:flex items-center text-sm leading-6 text-light-text dark:text-dark-text rounded-md ring-1 ring-light-backdrop-primary/10 dark:ring-dark-backdrop-primary/10 shadow-sm py-1.5 pl-2 pr-3 hover:ring-light-backdrop-primary dark:hover:ring-dark-backdrop-primary bg-light-backdrop-primary dark:bg-dark-backdrop-primary"
             @click="isCommandPaletteOpen = true">
             <svg width="24" height="24" fill="none" aria-hidden="true" class="mr-3 flex-none inline">
                 <path d="m19 19-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -19,18 +21,18 @@
             <ul role="list" class="space-y-9">
                 <div v-for="(section, key) in props.docData" :key="key">
                     <li key={{section.section_title}}>
-                        <h2 class="font-bold text-slate-900 dark:text-slate-200">
+                        <h2 class="font-bold text-light-text dark:text-dark-text">
                             {{ section.section_title }}
                         </h2>
                         <ul role="list"
-                            class="mt-2 space-y-2 border-l-2 border-slate-100 dark:border-slate-800 lg:mt-4 lg:space-y-4 lg:border-slate-200">
+                            class="mt-2 space-y-2 border-l-2 border-nav-light-inactive dark:border-nav-dark-inactive lg:mt-4 lg:space-y-4">
                             <div v-for="subsection in section.subsections">
                                 <li key={{subsection.title}} class="relative">
                                     <a :href="`/docs/${subsection.href}`" :class="[
                                         'block w-full pl-3.5 before:pointer-events-none before:absolute before:-left-1 before:top-1/2 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full',
                                         subsection.href === currentSubsectionHref
-                                            ? 'font-semibold text-sky-500 before:bg-sky-500'
-                                            : 'text-slate-500 before:hidden before:bg-slate-300 hover:text-slate-600 hover:before:block dark:text-slate-400 dark:before:bg-slate-700 dark:hover:text-slate-300'
+                                            ? 'font-semibold text-nav-light-active before:bg-nav-light-active dark:text-nav-dark-active dark:before:bg-nav-dark-active'
+                                            : 'text-nav-light-inactive dark:text-nav-dark-inactive before:hidden before:bg-nav-light-hover dark:before:bg-nav-dark-inactive hover:text-nav-light-hover dark:hover:text-nav-dark-hover hover:before:block dark:text-nav-dark-text'
                                     ]">
                                         {{ subsection.title }}
                                     </a>

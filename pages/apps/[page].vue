@@ -1,4 +1,8 @@
 <template>
+    <Head>
+        <Title>{{ pageTitle }}</Title>
+        <Meta :name="`Application page for ${pageTitle}`" :content="pageTitle" />
+    </Head>
     <Header />
     <div v-if="isLoaded">
         <ApplicationPage :product-icon="pageIconHref" :title="pageTitle" :grabber="pageGrabber" :description="pageContent"

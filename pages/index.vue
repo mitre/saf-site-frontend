@@ -1,28 +1,24 @@
 <template>
   <Header />
-  <div class="bg-white dark:bg-dark-bg min-h-screen h-full">
+  <div class="bg-light-backdrop-primary dark:bg-dark-backdrop-primary min-h-screen h-full">
     <main v-if="isLoaded" class=" mb-16 mx-auto">
       <HomeHero />
 
       <HomeCapabilities :capabilities="capabilities" />
 
-      <HomeTenets :tenets="tenets"/>
+      <HomeTenets :tenets="tenets" />
 
-      <HomeToolset :toolset="toolset"/>
+      <HomeToolset :toolset="toolset" />
 
-      <div class="bg-gray-50 dark:bg-gray-800">
-        <div class="lg:max-w-7xl mx-auto py-24 sm:py-32 lg:py-40" >
-          <p class="mt-2 mb-6 md:mb-2  text-3xl text-center font-bold tracking-tight text-blue-700 sm:text-4xl ">Adopted by The Community</p>
-          <div class="md:flex items-center pt-8 sm:ml-4">
-            <p class="font-bold text-center sm:mx-4 tracking-tight text-gray-900 dark:text-gray-50 text-2xl sm:text-3xl  items-center">Sponsors</p>
-            <HomeSponsors :data="sponsors" class="mx-auto mt-4" />
-          </div>
-          <div class="md:flex items-center sm:ml-4 mt-10">
-            <p class="md:hidden text-center font-bold tracking-tight text-gray-900 dark:text-gray-50 text-2xl sm:text-3xl sm:ml-8 items-center">Vendors</p>
-            <HomeSponsors :data="vendors" class="mx-auto mt-4" />
-            <p class="hidden md:flex font-bold tracking-tight text-gray-900 dark:text-gray-50 sm:text-3xl items-center mx-4 mr-8">Vendors</p>
-          </div>
-        </div>
+      <div class="py-24">
+        <h1
+          class="mt-2 text-center text-3xl font-bold tracking-tight text-light-header dark:text-dark-header sm:text-4xl">
+          Adopted
+          by The Community</h1>
+        <HomeLogoCloud title="Sponsors" :data="sponsors" />
+
+        <HomeLogoCloud title="Vendors" :data="vendors" />
+
       </div>
 
 
@@ -148,7 +144,7 @@ export default {
         });
     },
     sortItems(items) {
-      return items.sort(function (a,b) {return a.orderID - b.orderID})
+      return items.sort(function (a, b) { return a.orderID - b.orderID })
     }
   }
 }

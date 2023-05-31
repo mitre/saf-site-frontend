@@ -8,14 +8,13 @@
             <NuxtLink to="/" class="flex">
               <img src="@/assets/safLogo.svg" class="w-12 md:w-14" aria-hidden="true" alt="SAF© Logo" />
               <h1
-                class="text-2xl tracking-tighter p-2 font-extrabold whitespace-nowrap text-light-text dark:text-dark-text  md:text-3xl xl:text-4xl">
-                <span class="block xl:inline font-mitre font-extrabold">MITRE SAF <span
-                    class="mt-1 text-xs text-light-text dark:text-dark-text">©</span></span>
+                class="text-2xl tracking-tighter p-2 font-extrabold whitespace-nowrap text-light-text dark:text-dark-text md:text-3xl xl:text-4xl">
+                <span class="block xl:inline font-mitre font-extrabold">MITRE SAF<span class="text-xs">©</span></span>
               </h1>
             </NuxtLink>
           </div>
 
-          <div class="-mr-2 -my-2 flex sm:pr-3 xl:hidden">
+          <div class="-mr-2 -my-2 flex sm:pr-3 lg:hidden">
             <!-- TODO: Mobile Site Search-->
             <PopoverButton
               class="rounded-md p-2 inline-flex items-center justify-center text-nav-light-inactive hover:bg-nav-light-active focus:outline-none focus:ring-2 focus:ring-inset focus:ring-light-border-primary">
@@ -24,7 +23,7 @@
             </PopoverButton>
           </div>
 
-          <PopoverGroup as="nav" class="hidden md:flex space-x-7 xl:space-x-10">
+          <PopoverGroup as="nav" class="hidden lg:flex space-x-5 xl:space-x-10">
             <NuxtLink to="/getting-started" :class="['text-base font-semibold font-mitre hover:text-nav-light-hover dark:hover:text-nav-dark-hover',
               '/getting-started' == route.fullPath
                 ? 'text-nav-light-active dark:text-nav-dark-active'
@@ -50,7 +49,7 @@
             <NavDropdown label="More" :items="resources" />
 
           </PopoverGroup>
-          <div class="hidden xl:flex items-center justify-end flex-1 pr-2 md:w-0">
+          <div class="hidden lg:flex items-center justify-end flex-1 pr-2 md:w-0">
             <div class="hidden xl:flex items-center justify-end flex-1 md:w-0">
               <!-- TODO: Site search-->
             </div>

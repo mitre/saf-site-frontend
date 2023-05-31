@@ -15,7 +15,7 @@
             </NuxtLink>
           </div>
 
-          <div id="mobile-components" class="-mr-2 -my-2 flex sm:pr-3 xl:hidden">
+          <div class="-mr-2 -my-2 flex sm:pr-3 xl:hidden">
             <!-- TODO: Mobile Site Search-->
             <PopoverButton
               class="rounded-md p-2 inline-flex items-center justify-center text-nav-light-inactive hover:bg-nav-light-active focus:outline-none focus:ring-2 focus:ring-inset focus:ring-light-border-primary">
@@ -62,7 +62,7 @@
                 <DesktopComputerIcon :class="selected == 'System' ? 'h-6 w-6' : 'hidden'" />
                 <label>
                   <span class="sr-only">SAF Theme Selector</span>
-                  <select name="theme" id="theme"
+                  <select name="SAF Theme Selector"
                     class="absolute appearance-none pr-3 w-full h-fit opacity-0 bg-light-backdrop-primary dark:bg-dark-backdrop-primary text-light-text dark:text-dark-text"
                     @change="switchSelect($event)">
                     <option :selected="selected == 'Light'">Light</option>
@@ -128,7 +128,7 @@
                   <ChevronDownIcon class="w-5 h-6  text-slate-400" />
                   <label>
                     <span class="sr-only">SAF Theme Selector</span>
-                    <select id="theme"
+                    <select name="Mobile Theme Selector"
                       class="absolute appearance-none inset-0 w-full h-full opacity-0 dark:bg-slate-600 dark:text-white"
                       @change="switchSelect($event)">
                       <option :selected="selected == 'Light'">Light</option>

@@ -6,11 +6,10 @@
         <div
           class="flex-1 bg-light-backdrop-primary dark:bg-dark-backdrop-primary hover:bg-light-backdrop-secondary dark:hover:bg-dark-backdrop-secondary p-6 flex flex-col justify-between">
           <div class="flex-1">
-            <p class="text-sm font-medium text-light-icon-primary dark:text-dark-icon-primary">
-              <a :href="post.category.href">
-                {{ post.category.name }}
-              </a>
-            </p>
+            <span
+              class="text-sm font-semibold rounded-full px-2 py-1 bg-light-backdrop-tertiary dark:bg-dark-backdrop-quaternary text-light-text dark:text-dark-text">
+              {{ post.category.name }}
+            </span>
             <NuxtLink :to="`/blog/${post.date}/${slugify(post.title)}?id=${post.id}`" class="block mt-2">
               <p class="text-xl font-semibold text-light-text dark:text-dark-text">
                 {{ post.title }}

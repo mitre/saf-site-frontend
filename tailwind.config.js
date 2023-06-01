@@ -17,7 +17,7 @@ module.exports = {
         light: {
           'text': '#111921',
           'header': '#005B94',
-          'subtext': '#7E8284',
+          'subtext': '#707475',
           'hover': '#111921',
           'icon-primary': '#2563eb',
           'highlighter': '#FFF601',

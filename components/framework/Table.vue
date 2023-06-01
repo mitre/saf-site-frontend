@@ -5,10 +5,10 @@
       <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
           <!-- Filter Search -->
-          <label class="block text-sm font-medium text-light-text dark:text-dark-text">Search</label>
+          <label for="table-search" class="block text-sm font-medium text-light-text dark:text-dark-text">Search</label>
           <div
             class="relative max-w-xs sm:max-w-md mb-1 rounded-md border border-light-text dark:border-dark-text  px-3 py-2 shadow-sm focus-within:border-light-border-primary dark:focus-within:border-dark-border-primary focus-within:ring-1 focus-within:ring-light-border-primary dark:focus-within:ring-dark-border-primary">
-            <input v-model="filter" type="text"
+            <input id="table-search" name="table-search" v-model="filter" type="text"
               class="block w-full border-0 p-0 text-light-text dark:text-dark-text placeholder-light-subtext dark:placeholder-dark-subtext focus:ring-0 sm:text-sm bg-light-backdrop-primary dark:bg-dark-backdrop-primary"
               placeholder="Search for ..." />
           </div>

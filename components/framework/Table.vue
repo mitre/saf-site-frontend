@@ -145,7 +145,8 @@
                       </td>
                       <td
                         class="xl:flex items-center hidden relative whitespace-nowrap py-6 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                        <img class="h-6 w-6 rounded-full mr-3" src="@/assets/GitHubLogoBlack.svg" alt="Github Logo" />
+                        <img class="h-7 w-7 rounded-full mr-3 dark:bg-white dark:p-1" src="@/assets/GitHubLogoBlack.svg"
+                          alt="Github Logo" />
                         <NuxtLink :to="entry.source" target="_blank">
                           <button @click=""
                             class="flex items-center mr-5 text-nav-light-active dark:text-nav-dark-active">

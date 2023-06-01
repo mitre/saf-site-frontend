@@ -13,11 +13,11 @@
                         <div v-for="item in data" :key="item.id"
                             class="pt-6 bg-light-backdrop-primary dark:bg-dark-backdrop-primary hover:bg-light-backdrop-secondary dark:hover:bg-dark-backdrop-primary border-2 hover:border-nav-light-active dark:hover:border-nav-dark-active border-light-backdrop-tertiary dark:border-dark-backdrop-quaternary">
                             <NuxtLink :to="item.link">
-                                <div class="flow-root rounded-lg px-6 pb-8">
+                                <div class="flex flex-col rounded-lg px-6 pb-8 h-full justify-between">
                                     <div
                                         class="inline-flex items-center justify-center rounded-xl bg-light-backdrop-secondary dark:bg-white p-4 shadow-lg w-full">
                                         <img :src="item.icon.url" :alt="item.icon.name"
-                                            class="max-h-24 object-cover text-light-text dark:text-dark-text aspect-auto dark:bg-white rounded-lg p-1"
+                                            class="max-h-24 object-cover text-light-text dark:text-dark-text aspect-auto dark:bg-white rounded-lg m-6"
                                             aria-hidden="true" />
                                     </div>
                                     <h3

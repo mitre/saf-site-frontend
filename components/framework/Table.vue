@@ -87,11 +87,11 @@
                             <dd class="sm:hidden flex mr-6">
                               <NuxtLink target="_blank" :to="entry.platform.link" class="flex items-center mr-1">
                                 <img class="h-8 w-8 rounded-full mr-1" :src="entry.platform.icon.url"
-                                  :alt="entry.platform.icon.name" />
+                                  :alt="entry.platform.icon.alt" />
                               </NuxtLink>
                               <NuxtLink target="_blank" :to="entry.partner.link" class="flex items-center">
                                 <img class="h-8 w-8 rounded-full" :src="entry.partner.icon.url"
-                                  :alt="entry.platform.icon.name" />
+                                  :alt="entry.platform.icon.alt" />
                               </NuxtLink>
                             </dd>
                             <dd
@@ -124,7 +124,7 @@
                       <td class="sm:table-cell hidden truncate whitespace-nowrap px-3 py-4 text-sm">
                         <div class="flex items-center">
                           <img class="h-10 w-10 rounded-full" :src="entry.platform.icon.url"
-                            :alt="entry.platform.icon.name" />
+                            :alt="entry.platform.icon.alt" />
                           <NuxtLink target="_blank" :to="entry.platform.link"
                             class="ml-3 text-light-text dark:text-dark-text hover:text-nav-light-active dark:hover:text-nav-dark-active">
                             {{
@@ -135,7 +135,7 @@
                       <td class="sm:table-cell hidden truncate whitespace-nowrap px-3 py-4 text-sm">
                         <div class="flex items-center">
                           <img class="h-10 w-10 rounded-full" :src="entry.partner.icon.url"
-                            :alt="entry.partner.icon.name" />
+                            :alt="entry.partner.icon.alt" />
                           <NuxtLink :to="entry.partner.link"
                             class="ml-3 text-light-text dark:text-dark-text hover:text-nav-light-active dark:hover:text-nav-dark-active"
                             target="_blank"> {{

@@ -140,10 +140,6 @@ export default {
             name: tenet.attributes.name,
             description: tenet.attributes.description,
             orderID: tenet.attributes.order_id,
-            icon: {
-              name: tenet.attributes.icon.data ? tenet.attributes.icon.data.attributes.name : null,
-              url: tenet.attributes.icon.data ? tenet.attributes.icon.data.attributes.url : null,
-            },
           }))
         });
     },

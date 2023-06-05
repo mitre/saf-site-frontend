@@ -39,11 +39,11 @@
                   <dt class="text-sm font-bold text-light-text dark:text-dark-text"> Title </dt>
                   <dd class="sm:mt-1 text-sm text-light-text dark:text-dark-text">{{ author.fields.title }}</dd>
                 </div>
-                <a>
+                <div>
                   <!-- TODO: Add a internal link to the relavent partner page here -->
                   <dt class="text-sm font-bold text-light-text dark:text-dark-text"> Company </dt>
                   <dd class="sm:mt-1 text-sm text-light-text dark:text-dark-text">{{ author.fields.company }}</dd>
-                </a>
+                </div>
                 <div class="sm:col-span-2">
                   <dt class="text-sm font-bold text-light-text dark:text-dark-text">About</dt>
                   <div class="prose mt-1 max-w-prose space-y-5 text-sm text-light-text dark:text-dark-text"
@@ -53,6 +53,7 @@
               </dl>
               <div id="Social Medias" class="flex gap-2 pt-5 pb-5">
                 <a v-if="socialMediaLinks.displayEmail != null" v-bind:href="'mailto:' + socialMediaLinks.displayEmail">
+                  <span class="sr-only">Mail Link</span>
                   <MailIcon text-gray-500 class="w-9 h-9 text-light-text dark:text-dark-text" />
                 </a>
                 <a v-if="socialMediaLinks.twitter" v-bind:href="socialMediaLinks.twitter">
@@ -74,6 +75,7 @@
                   <img src="~/assets/LinkedInLogo.png" class="max-w-full h-auto max-h-8" alt="LinkedIn Logo" />
                 </a>
                 <a v-if="socialMediaLinks.other" v-bind:href="socialMediaLinks.other">
+                  <span class="sr-only">External Link</span>
                   <LinkIcon class="w-7 h-8 text-light-text dark:text-dark-text" />
                 </a>
               </div>

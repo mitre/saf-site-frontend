@@ -11,7 +11,14 @@
           <div v-for="tenet in tenets" :key="tenet.orderID" class="lg:mx-auto flex max-w-sm gap-y-4">
             <div class="px-2">
               <div class="flex items-center">
-                <img :src=tenet.icon.url :alt="tenet.icon.name" class="h-12 w-12 mr-2" />
+                <CurrencyDollarIcon v-if="tenet.name === 'Free'"
+                  class="h-12 w-12 mr-2 text-light-text dark:text-dark-text" />
+                <BeakerIcon v-if="tenet.name === 'Open Source'"
+                  class="h-12 w-12 mr-2 text-light-text dark:text-dark-text" />
+                <GlobeIcon v-if="tenet.name === 'Community Project'"
+                  class="h-12 w-12 mr-2 text-light-text dark:text-dark-text" />
+                <AnnotationIcon v-else class="h-12 w-12 mr-2 text-light-text dark:text-dark-text" />
+                <!-- <img :src=tenet.icon.url :alt="tenet.icon.name" class="h-12 w-12 mr-2" /> -->
                 <dd
                   class="text-start text-2xl font-semibold tracking-tight text-light-text dark:text-dark-text sm:text-3xls">
                   {{ tenet.name }}</dd>
@@ -26,7 +33,7 @@
 </template>
 
 <script setup>
-
+import { GlobeIcon, CurrencyDollarIcon, BeakerIcon, AnnotationIcon } from '@heroicons/vue/outline';
 
 const props = defineProps({
   tenets: {

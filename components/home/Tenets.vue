@@ -18,7 +18,6 @@
                 <GlobeIcon v-if="tenet.name === 'Community Project'"
                   class="h-12 w-12 mr-2 text-light-text dark:text-dark-text" />
                 <AnnotationIcon v-else class="h-12 w-12 mr-2 text-light-text dark:text-dark-text" />
-                <!-- <img :src=tenet.icon.url :alt="tenet.icon.name" class="h-12 w-12 mr-2" /> -->
                 <dd
                   class="text-start text-2xl font-semibold tracking-tight text-light-text dark:text-dark-text sm:text-3xls">
                   {{ tenet.name }}</dd>

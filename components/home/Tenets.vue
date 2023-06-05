@@ -13,9 +13,9 @@
               <div class="flex items-center">
                 <CurrencyDollarIcon v-if="tenet.name === 'Free'"
                   class="h-12 w-12 mr-2 text-light-text dark:text-dark-text" />
-                <BeakerIcon v-if="tenet.name === 'Open Source'"
+                <BeakerIcon v-else-if="tenet.name === 'Open Source'"
                   class="h-12 w-12 mr-2 text-light-text dark:text-dark-text" />
-                <GlobeIcon v-if="tenet.name === 'Community Project'"
+                <GlobeIcon v-else-if="tenet.name === 'Community Project'"
                   class="h-12 w-12 mr-2 text-light-text dark:text-dark-text" />
                 <AnnotationIcon v-else class="h-12 w-12 mr-2 text-light-text dark:text-dark-text" />
                 <dd

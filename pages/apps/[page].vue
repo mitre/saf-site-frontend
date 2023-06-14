@@ -26,7 +26,7 @@ const pageFeatures = ref([])
 
 ////  Methods  ////
 const getPageContent = async () => {
-    await useAsyncData('getApplicationPage', () => GqlGetApplicationPage({ page: route.params.page }))
+    await useAsyncData('getApplicationPage', () => GqlGetApplicationPage({ page: route.params.page.replaceAll("-", " ") }))
         .then(({ data }) => {
             pageIconHref.value = data._value.appPages.data[0].attributes.tool.data.attributes.icon.data.attributes.url
             pageTitle.value = data._value.appPages.data[0].attributes.tool.data.attributes.name

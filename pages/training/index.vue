@@ -42,22 +42,22 @@
                       <li v-for="schedule in schedules" :key="schedule.index" class="relative flex space-x-6 py-6 ">
                         <div class="flex-0 pl-4">
                           <h3 class="font-semibold text-light-text dark:text-dark-text">{{ schedule.title }}</h3>
-                          <dl class="mt-2 flex flex-col text-light-subtext dark:text-dark-subtext xl:flex-row">
+                          <div class="mt-2 flex flex-col text-light-subtext dark:text-dark-subtext xl:flex-row">
                             <div class="flex items-start space-x-3 pl-1">
-                              <dt class="mt-0.5">
+                              <span class="mt-0.5">
                                 <span class="sr-only">Date</span>
                                 <CalendarIcon class="h-5 w-5 text-light-subtext dark:text-dark-subtext"
                                   aria-hidden="true" />
-                              </dt>
-                              <dd v-if="schedule.date != null">
+                              </span>
+                              <span v-if="schedule.date != null">
                                 <time :datetime="schedule.date"> {{ formatDate(schedule.date) }} at
                                   {{ formatTime(schedule.date) }} EST </time>
-                              </dd>
-                              <dd v-else>
+                              </span>
+                              <span v-else>
                                 <p> TBD </p>
-                              </dd>
+                              </span>
                             </div>
-                          </dl>
+                          </div>
                         </div>
                         <div v-if="schedule.link != null" class="right-2 top-0 pt-3 flex-end">
                           <a type="button" :href="schedule.link" target="_blank"

@@ -34,23 +34,23 @@
             </div>
             <!-- Description list -->
             <div class="mx-auto mt-6 px-4 sm:px-6 lg:px-8">
-              <dl class="grid grid-cols-1 gap-y-8 sm:grid-cols-2">
+              <div class="grid grid-cols-1 gap-y-8 sm:grid-cols-2">
                 <div>
-                  <dt class="text-sm font-bold text-light-text dark:text-dark-text"> Title </dt>
-                  <dd class="sm:mt-1 text-sm text-light-text dark:text-dark-text">{{ author.fields.title }}</dd>
+                  <span class="text-sm font-bold text-light-text dark:text-dark-text"> Title </span>
+                  <span class="sm:mt-1 text-sm text-light-text dark:text-dark-text">{{ author.fields.title }}</span>
                 </div>
                 <div>
                   <!-- TODO: Add a internal link to the relavent partner page here -->
-                  <dt class="text-sm font-bold text-light-text dark:text-dark-text"> Company </dt>
-                  <dd class="sm:mt-1 text-sm text-light-text dark:text-dark-text">{{ author.fields.company }}</dd>
+                  <span class="text-sm font-bold text-light-text dark:text-dark-text"> Company </span>
+                  <span class="sm:mt-1 text-sm text-light-text dark:text-dark-text">{{ author.fields.company }}</span>
                 </div>
                 <div class="sm:col-span-2">
-                  <dt class="text-sm font-bold text-light-text dark:text-dark-text">About</dt>
+                  <span class="text-sm font-bold text-light-text dark:text-dark-text">About</span>
                   <div class="prose mt-1 max-w-prose space-y-5 text-sm text-light-text dark:text-dark-text"
                     v-html="author.description" />
 
                 </div>
-              </dl>
+              </div>
               <div id="Social Medias" class="flex gap-2 pt-5 pb-5">
                 <a v-if="socialMediaLinks.displayEmail != null" v-bind:href="'mailto:' + socialMediaLinks.displayEmail">
                   <span class="sr-only">Mail Link</span>

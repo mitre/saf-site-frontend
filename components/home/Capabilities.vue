@@ -26,9 +26,9 @@
                   <span class="absolute inset-0" aria-hidden="true" />
                   <h2 class="text-xl font-extrabold leading-7 text-light-text dark:text-dark-text"> {{ capability.name }}
                   </h2>
-                  <dd class="mt-2 text-base leading-7 text-light-text dark:text-dark-text"
+                  <span class="mt-2 text-base leading-7 text-light-text dark:text-dark-text"
                     v-html="capability.description">
-                  </dd>
+                  </span>
                 </NuxtLink>
               </h3>
             </div>
@@ -55,9 +55,9 @@
                   <span class="absolute inset-0" aria-hidden="true" />
                   <h2 class="text-xl font-extrabold leading-7 text-light-text dark:text-dark-text"> {{ capability.name }}
                   </h2>
-                  <dd class="mt-2 text-base leading-7 text-light-text dark:text-dark-text"
+                  <span class="mt-2 text-base leading-7 text-light-text dark:text-dark-text"
                     v-html="capability.description">
-                  </dd>
+                  </span>
                 </NuxtLink>
               </h3>
             </div>

@@ -81,10 +81,10 @@
                         <span v-if="entry.version != 0">{{ entry.name }} | {{ entry.version }} </span>
                         <span v-else>{{ entry.name }}</span>
                         <!-- Mobile Stacked View -->
-                        <dl class="font-normal xl:hidden">
-                          <dt class="sr-only">Title</dt>
+                        <div class="font-normal xl:hidden">
+                          <span class="sr-only">Title</span>
                           <div class="flex items-center mt-2">
-                            <dd class="sm:hidden flex mr-6">
+                            <span class="sm:hidden flex mr-6">
                               <NuxtLink target="_blank" :to="entry.platform.link" class="flex items-center mr-1">
                                 <img class="h-8 w-8 rounded-full mr-1" :src="entry.platform.icon.url"
                                   :alt="entry.platform.icon.alt" />
@@ -93,8 +93,8 @@
                                 <img class="h-8 w-8 rounded-full" :src="entry.partner.icon.url"
                                   :alt="entry.platform.icon.alt" />
                               </NuxtLink>
-                            </dd>
-                            <dd
+                            </span>
+                            <span
                               class="flex items-center relative whitespace-nowrap py-2 text-right text-sm font-medium sm:pr-6">
                               <img class="h-6 w-6 rounded-full mr-3 dark:bg-white dark:p-1"
                                 src="@/assets/GitHubLogoBlack.svg" alt="Github Logo" />
@@ -116,9 +116,9 @@
                                     }}</span>
                                 </button>
                               </NuxtLink>
-                            </dd>
+                            </span>
                           </div>
-                        </dl>
+                        </div>
                       </td>
                       <!-- Full View -->
                       <td class="sm:table-cell hidden truncate whitespace-nowrap px-3 py-4 text-sm">

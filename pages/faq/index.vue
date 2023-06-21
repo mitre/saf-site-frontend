@@ -17,18 +17,19 @@
                 class="text-nav-light-active dark:text-nav-dark-active">saf@groups.mitre.org</a></p>
           </div>
 
-          <dl class="mt-12 grid grid-cols-1 gap-y-10 sm:mt-16 md:grid-cols-2 md:gap-x-6 lg:grid-cols-3">
+          <div class="mt-12 grid grid-cols-1 gap-y-10 sm:mt-16 md:grid-cols-2 md:gap-x-6 lg:grid-cols-3">
             <div v-for="faq in faqs" :key="faq.id">
-              <dt class="text-lg font-bold text-light-text dark:text-dark-text">{{ faq.questionNumber }}. {{ faq.question
+              <span class="text-lg font-bold text-light-text dark:text-dark-text">{{ faq.questionNumber }}. {{
+                faq.question
               }}
-              </dt>
-              <dd class="mt-3 text-sm prose dark:prose-invert line-clamp-3 text-light-text dark:text-dark-text"
-                v-html="faq.answer"></dd>
-              <dd class="mt-4 text-nav-light-active dark:text-nav-dark-active font-bold">
+              </span>
+              <span class="mt-3 text-sm prose dark:prose-invert line-clamp-3 text-light-text dark:text-dark-text"
+                v-html="faq.answer" />
+              <span class="mt-4 text-nav-light-active dark:text-nav-dark-active font-bold">
                 <NuxtLink :to="`/faq/${faq.questionNumber}`">View More</NuxtLink>
-              </dd>
+              </span>
             </div>
-          </dl>
+          </div>
         </div>
       </section>
     </div>

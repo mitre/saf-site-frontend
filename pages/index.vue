@@ -89,6 +89,7 @@ export default {
             icon: {
               name: capability.attributes.icon.data ? capability.attributes.icon.data.attributes.name : null,
               url: capability.attributes.icon.data ? capability.attributes.icon.data.attributes.url : null,
+              alt: capability.attributes.icon.data ? capability.attributes.icon.data.attributes.alternativeText : null,
             },
           }))
         });

@@ -16,7 +16,7 @@
             :class="[capability.orderID === 0 ? 'rounded-tl-lg rounded-tr-lg sm:rounded-tr-none' : '', capability.orderID === 1 ? '' : '', capability.orderID === capabilities.length - 2 ? 'sm:rounded-bl-lg' : '', capability.orderID === capabilities.length - 1 ? 'rounded-bl-lg rounded-br-lg sm:rounded-bl-none' : '', 'group relative bg-white dark:bg-gray-700 p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-blue-500 hover:bg-gray-100 dark:hover:bg-gray-800']">
             <div>
               <div class="inline-flex rounded-lg p-3 ring-4 ring-light-border-primary dark:ring-dark-border-primary">
-                <img :src="capability.icon.url" :alt="capability.icon.name"
+                <img :src="capability.icon.url" :alt="capability.icon.alt"
                   class="h-14 sm:h-16 text-light-text dark:text-dark-text" aria-hidden="true" />
               </div>
             </div>

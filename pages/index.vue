@@ -74,6 +74,7 @@ export default {
             icon: {
               name: tool.attributes.icon.data ? tool.attributes.icon.data.attributes.name : null,
               url: tool.attributes.icon.data ? tool.attributes.icon.data.attributes.url : null,
+              alt: tool.attributes.icon.data ? tool.attributes.icon.data.attributes.alternativeText : null,
             },
           }))
         });
@@ -105,6 +106,7 @@ export default {
             icon: {
               name: sponsor.attributes.icon.data ? sponsor.attributes.icon.data.attributes.name : null,
               url: sponsor.attributes.icon.data ? sponsor.attributes.icon.data.attributes.url : null,
+              alt: sponsor.attributes.icon.data ? sponsor.attributes.icon.data.attributes.alternativeText : null,
             },
           }))
         });
@@ -120,6 +122,7 @@ export default {
             icon: {
               name: vendor.attributes.icon.data ? vendor.attributes.icon.data.attributes.name : null,
               url: vendor.attributes.icon.data ? vendor.attributes.icon.data.attributes.url : null,
+              alt: vendor.attributes.icon.data ? vendor.attributes.icon.data.attributes.alternativeText : null,
             },
           }))
         });

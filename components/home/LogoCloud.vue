@@ -16,7 +16,7 @@
                                 <div class="flex flex-col rounded-lg px-6 pb-8 h-full justify-between">
                                     <div
                                         class="inline-flex items-center justify-center rounded-xl bg-light-backdrop-secondary dark:bg-white p-4 shadow-lg w-full">
-                                        <img :src="item.icon.url" :alt="item.icon.name"
+                                        <img :src="item.icon.url" :alt="item.icon.alt"
                                             class="max-h-24 object-cover text-light-text dark:text-dark-text aspect-auto dark:bg-white rounded-lg m-6"
                                             aria-hidden="true" />
                                     </div>

@@ -24,7 +24,7 @@
                   <div>
                     <div
                       class="inline-flex items-center justify-center rounded-xl bg-light-backdrop-secondary dark:bg-dark-backdrop-tertiary p-6 shadow-lg">
-                      <img :src="tool.icon.url" class="max-w-full w-16 h-16" :alt="tool.icon.name" />
+                      <img :src="tool.icon.url" class="max-w-full w-16 h-16" :alt="tool.icon.alt" />
                     </div>
                     <h3 class="mt-8 text-lg font-bold leading-8 tracking-tight text-light-text dark:text-dark-text">{{
                       tool.name }}</h3>

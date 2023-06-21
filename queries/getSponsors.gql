@@ -16,7 +16,9 @@ query getSponsors{
         icon {
           data {
             attributes {
+              name
               url
+              alternativeText
             }
           }
         }

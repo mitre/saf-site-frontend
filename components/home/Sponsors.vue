@@ -9,7 +9,7 @@
             <h3 class="text-base font-semibold leading-6 text-light-text dark:text-dark-text">
               <NuxtLink :to="entry.link" class="focus:outline-none">
                 <div class="aspect-auto">
-                  <img :src="entry.icon.url" :alt="entry.icon.name"
+                  <img :src="entry.icon.url" :alt="entry.icon.alt"
                     class="max-h-24 object-cover text-light-text dark:text-dark-text mx-auto" aria-hidden="true" />
                 </div>
                 <p class="text-light-text dark:text-dark-text mt-6 text-center hidden md:block">{{ entry.nameLong }}</p>

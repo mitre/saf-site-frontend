@@ -16,7 +16,9 @@ query getVendors{
         icon {
           data {
             attributes {
+              name
               url
+              alternativeText
             }
           }
         }

@@ -69,7 +69,7 @@
                 <template v-for="[key, value] of Object.entries(sortedEntries)">
                   <tr class="border-t border-light-border-primary">
                     <th colspan="5" scope="colgroup"
-                      class="bg-light-backdrop-quaternary dark:bg-dark-backdrop-secondary px-4 py-3 text-left text-sm font-semibold text-light-text dark:text-dark-text sm:px-6">
+                      class="bg-light-backdrop-quaternary dark:bg-dark-backdrop-secondary px-4 py-3 text-left text-md font-bold text-light-text dark:text-dark-text sm:px-6">
                       {{
                         key
                       }}</th>

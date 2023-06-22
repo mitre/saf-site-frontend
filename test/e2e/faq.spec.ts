@@ -8,7 +8,7 @@ test('FAQ', async ({ page }) => {
   await expect(page).toHaveURL('/faq')
 
   // Faq 1
-  const faq1 = await page.locator('dl div').filter({ hasText: '1. How many NIST SP 800-53 Security Controls are assessed under the MITRE SAF?' });
+  const faq1 = await page.locator('span:nth-child(3) > a').first()
   await faq1.getByRole("link",{name: "View More"}).click();
   await expect(page).toHaveURL('/faq/1')
   await expect(page.getByRole('heading', { level: 1, name: '1. How many NIST SP 800-53 Security Controls are assessed under the MITRE SAF?' })).toBeVisible();
@@ -20,7 +20,7 @@ test('FAQ', async ({ page }) => {
   await expect(page).toHaveURL('/faq')
   
   // Faq 5
-  const faq5 = await page.locator('dl div').filter({ hasText: '5. What happened to Heimdall_Tools and InSpec_Tools?' });
+  const faq5 = await page.locator('div:nth-child(5) > .mt-4 > a')
   await faq5.getByRole("link",{name: "View More"}).click();
   await expect(page).toHaveURL('/faq/5')
   await expect(page.getByRole('heading', { level: 1, name: '5. What happened to Heimdall_Tools and InSpec_Tools?' })).toBeVisible();

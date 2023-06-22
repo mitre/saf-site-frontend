@@ -4,7 +4,7 @@ test('Hardening', async ({ page }) => {
   // Navigate to harden page
   await page.goto('/');
   await page.getByRole('button', { name: 'Libraries' }).click();
-  await page.getByRole('link', { name: 'Harden' }).click();
+  await page.getByRole('link', { name: 'Harden' }).nth(0).click();
   await expect(page).toHaveURL('/libs/harden')
 
   await expect(page.getByRole('heading', { level: 1, name: 'Harden' })).toBeVisible();

@@ -1,4 +1,8 @@
 <template>
+    <Head>
+        <Title>{{ pageTitle }}</Title>
+        <Meta name="description" :content="`Framework page for ${pageTitle}`" />
+    </Head>
     <Header />
     <div v-if="isLoaded">
         <FrameworkPage :product-icon="pageIconHref" :title="pageTitle" :grabber="pageGrabber" :description="pageContent"

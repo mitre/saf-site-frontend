@@ -17,7 +17,7 @@ module.exports = {
         light: {
           'text': '#111921',
           'header': '#005B94',
-          'subtext': '#7E8284',
+          'subtext': '#707475',
           'hover': '#111921',
           'icon-primary': '#2563eb',
           'highlighter': '#FFF601',
@@ -42,9 +42,9 @@ module.exports = {
           'focus': '',
           'code': '',
           'backdrop-primary': '#0B2338',
-          'backdrop-secondary': '#2c323a',
-          'backdrop-tertiary': '#424b57',
-          'backdrop-quaternary': '#586474', //#6c717a
+          'backdrop-secondary': '#18181b',
+          'backdrop-tertiary': '#27272a',
+          'backdrop-quaternary': '#303036', //#6c717a
           'border-primary': '#87deff',
         },
         btn: {

@@ -1,4 +1,8 @@
 <template>
+  <Head>
+    <Title>eMASS Client</Title>
+    <Meta name="description" content="eMASS Client library content" />
+  </Head>
   <div>
     <Header />
     <div

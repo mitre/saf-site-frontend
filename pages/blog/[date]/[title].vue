@@ -1,4 +1,8 @@
 <template>
+  <Head>
+    <Title>{{ postData.title }}</Title>
+    <Meta name="description" :content="`${postData.title} blog post`" />
+  </Head>
   <div>
     <Header />
     <div v-if="isLoaded">

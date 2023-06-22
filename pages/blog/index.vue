@@ -1,4 +1,8 @@
 <template>
+  <Head>
+    <Title>Blog</Title>
+    <Meta name="description" content="Collection of SAF blog posts" />
+  </Head>
   <div>
     <Header />
     <div

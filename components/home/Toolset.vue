@@ -18,13 +18,13 @@
         <div class="mt-20">
           <div class="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
             <div v-for="tool in toolset" :key="tool.orderID"
-              class="pt-6 bg-light-backdrop-primary dark:bg-dark-backdrop-primary hover:bg-light-backdrop-secondary dark:hover:bg-dark-backdrop-primary border-2 hover:border-nav-light-active dark:hover:border-nav-dark-active border-light-backdrop-tertiary dark:border-dark-backdrop-tertiary">
+              class="pt-6 bg-light-backdrop-primary dark:bg-dark-backdrop-primary hover:bg-light-backdrop-secondary dark:hover:bg-dark-backdrop-primary border-2 hover:border-nav-light-active dark:hover:border-nav-dark-active border-light-backdrop-tertiary dark:border-dark-backdrop-quaternary">
               <NuxtLink :to="tool.link">
                 <div class="flow-root rounded-lg px-6 pb-8">
                   <div>
                     <div
-                      class="inline-flex items-center justify-center rounded-xl bg-light-backdrop-secondary dark:bg-dark-backdrop-secondary p-6 shadow-lg">
-                      <img :src="tool.icon.url" class="max-w-full w-16 h-16" :alt="tool.icon.name" />
+                      class="inline-flex items-center justify-center rounded-xl bg-light-backdrop-secondary dark:bg-dark-backdrop-tertiary p-6 shadow-lg">
+                      <img :src="tool.icon.url" class="max-w-full w-16 h-16" :alt="tool.icon.alt" />
                     </div>
                     <h3 class="mt-8 text-lg font-bold leading-8 tracking-tight text-light-text dark:text-dark-text">{{
                       tool.name }}</h3>

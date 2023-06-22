@@ -1,4 +1,8 @@
 <template>
+  <Head>
+    <Title>Getting Started</Title>
+    <Meta name="description" content="Getting started content for SAF" />
+  </Head>
   <div>
     <Header />
     <div

@@ -5,29 +5,25 @@
       <div class="max-w-8xl mx-auto px-4 sm:px-1">
         <div class="flex justify-between items-center py-3 pl-0 sm:pl-3 md:pl-3 md:justify-start md:space-x-10">
           <div class="flex justify-left md:flex-1 lg:w-0 lg:flex-1 min-w-max">
-            <NuxtLink to="/">
-              <span class="sr-only">Workflow</span>
-              <img src="@/assets/safLogo.svg" class="w-12 md:w-14" aria-hidden="true" alt="SAF© Logo" />
-            </NuxtLink>
             <NuxtLink to="/" class="flex">
+              <img src="@/assets/safLogo.svg" class="w-12 md:w-14" aria-hidden="true" alt="SAF© Logo" />
               <h1
-                class="text-2xl tracking-tighter p-2 font-extrabold whitespace-nowrap text-light-text dark:text-dark-text  md:text-3xl xl:text-4xl">
-                <span class="block xl:inline font-mitre font-extrabold">MITRE SAF</span>
+                class="text-2xl tracking-tighter p-2 font-extrabold whitespace-nowrap text-light-text dark:text-dark-text md:text-3xl xl:text-4xl">
+                <span class="block xl:inline font-mitre font-extrabold">MITRE SAF<span class="text-xs">©</span></span>
               </h1>
-              <p class="mt-1 text-xs text-light-text dark:text-dark-text">©</p>
             </NuxtLink>
           </div>
 
-          <div id="mobile-components" class="-mr-2 -my-2 flex sm:pr-3 xl:hidden">
+          <div class="-mr-2 -my-2 flex sm:pr-3 lg:hidden">
             <!-- TODO: Mobile Site Search-->
             <PopoverButton
               class="rounded-md p-2 inline-flex items-center justify-center text-nav-light-inactive hover:bg-nav-light-active focus:outline-none focus:ring-2 focus:ring-inset focus:ring-light-border-primary">
-              <span class="sr-only">Open menu</span>
+              <span class="sr-only text-white">Open menu</span>
               <DotsVerticalIcon class="h-6 w-6 text-light-text dark:text-dark-text" aria-hidden="true" />
             </PopoverButton>
           </div>
 
-          <PopoverGroup as="nav" class="hidden md:flex space-x-7 xl:space-x-10">
+          <PopoverGroup as="nav" class="hidden lg:flex space-x-5 xl:space-x-10">
             <NuxtLink to="/getting-started" :class="['text-base font-semibold font-mitre hover:text-nav-light-hover dark:hover:text-nav-dark-hover',
               '/getting-started' == route.fullPath
                 ? 'text-nav-light-active dark:text-nav-dark-active'
@@ -53,7 +49,7 @@
             <NavDropdown label="More" :items="resources" />
 
           </PopoverGroup>
-          <div class="hidden xl:flex items-center justify-end flex-1 pr-2 md:w-0">
+          <div class="hidden lg:flex items-center justify-end flex-1 pr-2 md:w-0">
             <div class="hidden xl:flex items-center justify-end flex-1 md:w-0">
               <!-- TODO: Site search-->
             </div>
@@ -63,13 +59,17 @@
                 <SunIcon :class="selected == 'Light' ? 'h-6 w-6' : 'hidden'" />
                 <MoonIcon :class="selected == 'Dark' ? 'h-6 w-6' : 'hidden'" />
                 <DesktopComputerIcon :class="selected == 'System' ? 'h-6 w-6' : 'hidden'" />
-                <select name="theme" id="theme"
+                <label for="theme-selector" class="sr-only">
+                  <span>SAF Theme Selector</span>
+                </label>
+                <select id="theme-selector" name="SAF Theme Selector"
                   class="absolute appearance-none pr-3 w-full h-fit opacity-0 bg-light-backdrop-primary dark:bg-dark-backdrop-primary text-light-text dark:text-dark-text"
                   @change="switchSelect($event)">
                   <option :selected="selected == 'Light'">Light</option>
                   <option :selected="selected == 'Dark'">Dark</option>
                   <option :selected="selected == 'System'">System</option>
                 </select>
+
               </div>
             </div>
           </div>
@@ -118,7 +118,6 @@
                 </div>
               </div>
               <div class="flex items-center justify-between py-6 px-3">
-                <label class="text-gray-900 text-base font-medium dark:text-mitre-silver">Switch Theme</label>
                 <div
                   class="relative flex items-center ring-1 ring-slate-900/10 rounded-lg shadow-sm p-2 text-slate-700 font-semibold dark:bg-slate-600 dark:ring-0 dark:highlight-white/5 dark:text-slate-200">
                   <SunIcon :class="selected == 'Light' ? 'h-6 w-6' : 'hidden'" />
@@ -126,13 +125,18 @@
                   <DesktopComputerIcon :class="selected == 'System' ? 'h-6 w-6' : 'hidden'" />
                   <div class="ml-2">{{ selected }}</div>
                   <ChevronDownIcon class="w-5 h-6  text-slate-400" />
-                  <select id="theme"
+                  <label for="mobile-theme-selector" class="sr-only">
+                    <span>SAF Theme Selector</span>
+                  </label>
+                  <span class="sr-only">SAF Theme Selector</span>
+                  <select name="Mobile Theme Selector"
                     class="absolute appearance-none inset-0 w-full h-full opacity-0 dark:bg-slate-600 dark:text-white"
                     @change="switchSelect($event)">
                     <option :selected="selected == 'Light'">Light</option>
                     <option :selected="selected == 'Dark'">Dark</option>
                     <option :selected="selected == 'System'">System</option>
                   </select>
+
                 </div>
               </div>
             </div>

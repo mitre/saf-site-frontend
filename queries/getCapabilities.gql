@@ -12,6 +12,7 @@ query getCapabilities{
             attributes{
               name,
               url,
+              alternativeText
             }
           }
         },

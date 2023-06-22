@@ -7,26 +7,32 @@
             Is
           </h1>
         </div>
-        <dl class="mt-24 grid grid-cols-1 gap-y-16 gap-x-8 lg:grid-cols-3">
+        <div class="mt-24 grid grid-cols-1 gap-y-16 gap-x-8 lg:grid-cols-3">
           <div v-for="tenet in tenets" :key="tenet.orderID" class="lg:mx-auto flex max-w-sm gap-y-4">
             <div class="px-2">
               <div class="flex items-center">
-                <img :src=tenet.icon.url :alt="tenet.icon.name" class="h-12 w-12 mr-2" />
-                <dd
+                <CurrencyDollarIcon v-if="tenet.name === 'Free'"
+                  class="h-12 w-12 mr-2 text-light-text dark:text-dark-text" />
+                <BeakerIcon v-else-if="tenet.name === 'Open Source'"
+                  class="h-12 w-12 mr-2 text-light-text dark:text-dark-text" />
+                <GlobeIcon v-else-if="tenet.name === 'Community Project'"
+                  class="h-12 w-12 mr-2 text-light-text dark:text-dark-text" />
+                <AnnotationIcon v-else class="h-12 w-12 mr-2 text-light-text dark:text-dark-text" />
+                <div
                   class="text-start text-2xl font-semibold tracking-tight text-light-text dark:text-dark-text sm:text-3xls">
-                  {{ tenet.name }}</dd>
+                  {{ tenet.name }}</div>
               </div>
-              <dd class="text-start mt-3 leading-7 text-light-text dark:text-dark-text" v-html="tenet.description"></dd>
+              <div class="text-start mt-3 leading-7 text-light-text dark:text-dark-text" v-html="tenet.description" />
             </div>
           </div>
-        </dl>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-
+import { GlobeIcon, CurrencyDollarIcon, BeakerIcon, AnnotationIcon } from '@heroicons/vue/outline';
 
 const props = defineProps({
   tenets: {

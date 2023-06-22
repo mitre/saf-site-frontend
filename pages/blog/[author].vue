@@ -1,4 +1,8 @@
 <template>
+  <Head>
+    <Title>{{ author.name }}</Title>
+    <Meta name="description" :content="`Author page for ${author.name}`" />
+  </Head>
   <div>
     <Header />
     <div
@@ -30,25 +34,26 @@
             </div>
             <!-- Description list -->
             <div class="mx-auto mt-6 px-4 sm:px-6 lg:px-8">
-              <dl class="grid grid-cols-1 gap-y-8 sm:grid-cols-2">
+              <div class="grid grid-cols-1 gap-y-8 sm:grid-cols-2">
                 <div>
-                  <dt class="text-sm font-bold text-light-text dark:text-dark-text"> Title </dt>
-                  <dd class="sm:mt-1 text-sm text-light-text dark:text-dark-text">{{ author.fields.title }}</dd>
+                  <span class="text-sm font-bold text-light-text dark:text-dark-text"> Title </span>
+                  <span class="sm:mt-1 text-sm text-light-text dark:text-dark-text">{{ author.fields.title }}</span>
                 </div>
-                <a>
+                <div>
                   <!-- TODO: Add a internal link to the relavent partner page here -->
-                  <dt class="text-sm font-bold text-light-text dark:text-dark-text"> Company </dt>
-                  <dd class="sm:mt-1 text-sm text-light-text dark:text-dark-text">{{ author.fields.company }}</dd>
-                </a>
+                  <span class="text-sm font-bold text-light-text dark:text-dark-text"> Company </span>
+                  <span class="sm:mt-1 text-sm text-light-text dark:text-dark-text">{{ author.fields.company }}</span>
+                </div>
                 <div class="sm:col-span-2">
-                  <dt class="text-sm font-bold text-light-text dark:text-dark-text">About</dt>
+                  <span class="text-sm font-bold text-light-text dark:text-dark-text">About</span>
                   <div class="prose mt-1 max-w-prose space-y-5 text-sm text-light-text dark:text-dark-text"
                     v-html="author.description" />
 
                 </div>
-              </dl>
+              </div>
               <div id="Social Medias" class="flex gap-2 pt-5 pb-5">
                 <a v-if="socialMediaLinks.displayEmail != null" v-bind:href="'mailto:' + socialMediaLinks.displayEmail">
+                  <span class="sr-only">Mail Link</span>
                   <MailIcon text-gray-500 class="w-9 h-9 text-light-text dark:text-dark-text" />
                 </a>
                 <a v-if="socialMediaLinks.twitter" v-bind:href="socialMediaLinks.twitter">
@@ -70,6 +75,7 @@
                   <img src="~/assets/LinkedInLogo.png" class="max-w-full h-auto max-h-8" alt="LinkedIn Logo" />
                 </a>
                 <a v-if="socialMediaLinks.other" v-bind:href="socialMediaLinks.other">
+                  <span class="sr-only">External Link</span>
                   <LinkIcon class="w-7 h-8 text-light-text dark:text-dark-text" />
                 </a>
               </div>

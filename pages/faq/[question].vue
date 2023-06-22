@@ -1,4 +1,8 @@
 <template>
+  <Head>
+    <Title>Question {{ faq.questionNumber }}</Title>
+    <Meta name="description" :content="`Answer to question ${faq.questionNumber}`" />
+  </Head>
   <div>
     <Header />
     <div v-if="isLoaded">

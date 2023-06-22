@@ -1,4 +1,8 @@
 <template>
+  <Head>
+    <Title>TS InSpec Objects</Title>
+    <Meta name="description" content="TS InSpec Objects library content" />
+  </Head>
   <div>
     <Header />
     <div

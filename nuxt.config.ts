@@ -17,5 +17,12 @@ export default defineNuxtConfig({
     public: {
       GQL_HOST: process.env.GQL_HOST
     }
+  },
+  app:{
+    head:{
+      htmlAttrs:{
+        lang: 'en',
+      }
+    }
   }
 })

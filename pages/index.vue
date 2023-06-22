@@ -1,4 +1,8 @@
 <template>
+  <Head>
+    <Title>SAF Homepage</Title>
+    <Meta name="description" content="Homepage of the SAF site" />
+  </Head>
   <Header />
   <div class="bg-light-backdrop-primary dark:bg-dark-backdrop-primary min-h-screen h-full">
     <main v-if="isLoaded" class=" mb-16 mx-auto">
@@ -70,6 +74,7 @@ export default {
             icon: {
               name: tool.attributes.icon.data ? tool.attributes.icon.data.attributes.name : null,
               url: tool.attributes.icon.data ? tool.attributes.icon.data.attributes.url : null,
+              alt: tool.attributes.icon.data ? tool.attributes.icon.data.attributes.alternativeText : null,
             },
           }))
         });
@@ -85,6 +90,7 @@ export default {
             icon: {
               name: capability.attributes.icon.data ? capability.attributes.icon.data.attributes.name : null,
               url: capability.attributes.icon.data ? capability.attributes.icon.data.attributes.url : null,
+              alt: capability.attributes.icon.data ? capability.attributes.icon.data.attributes.alternativeText : null,
             },
           }))
         });
@@ -100,6 +106,7 @@ export default {
             icon: {
               name: sponsor.attributes.icon.data ? sponsor.attributes.icon.data.attributes.name : null,
               url: sponsor.attributes.icon.data ? sponsor.attributes.icon.data.attributes.url : null,
+              alt: sponsor.attributes.icon.data ? sponsor.attributes.icon.data.attributes.alternativeText : null,
             },
           }))
         });
@@ -115,6 +122,7 @@ export default {
             icon: {
               name: vendor.attributes.icon.data ? vendor.attributes.icon.data.attributes.name : null,
               url: vendor.attributes.icon.data ? vendor.attributes.icon.data.attributes.url : null,
+              alt: vendor.attributes.icon.data ? vendor.attributes.icon.data.attributes.alternativeText : null,
             },
           }))
         });
@@ -136,10 +144,6 @@ export default {
             name: tenet.attributes.name,
             description: tenet.attributes.description,
             orderID: tenet.attributes.order_id,
-            icon: {
-              name: tenet.attributes.icon.data ? tenet.attributes.icon.data.attributes.name : null,
-              url: tenet.attributes.icon.data ? tenet.attributes.icon.data.attributes.url : null,
-            },
           }))
         });
     },

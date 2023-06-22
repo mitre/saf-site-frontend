@@ -1,6 +1,6 @@
 <template>
   <Header />
-  <div class="min-h-full pt-16 pb-12 flex flex-col bg-white dark:bg-dark-backdrop-primary">
+  <div class="min-h-screen pt-16 pb-12 flex flex-col bg-white dark:bg-dark-backdrop-primary">
     <main class="flex-grow flex flex-col justify-center max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex-shrink-0 flex justify-center">
         <a href="/" class="inline-flex">
@@ -21,12 +21,12 @@
         </div>
       </div>
     </main>
-    <footer class="flex-shrink-0 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex-shrink-0 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
       <nav class="flex justify-center space-x-4">
         <a href="mailto:saf@groups.mitre.org" class="text-sm font-medium text-gray-500 hover:text-gray-600">Contact
           Support</a>
       </nav>
-    </footer>
+    </div>
   </div>
   <Footer />
 </template>

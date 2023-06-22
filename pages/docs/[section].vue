@@ -1,4 +1,8 @@
 <template>
+  <Head>
+    <Title>Documentation</Title>
+    <Meta name="description" content="Collection of SAF documentation" />
+  </Head>
   <DocumentationComponent :all-links="allLinks" :current-heading="currentHeading" :current-index="currentIndex"
     :current-section-title="currentSectionTitle" :current-subsection="currentSubsection" :doc-data="docData"
     :is-loaded="isLoaded" :table-of-contents="tableOfContents" :rendered-content="renderedContent" />
@@ -23,10 +27,16 @@ const route = useRoute()
 const getData = async () => {
   docData.value = await useAsyncData('getDocumentation', () => GqlGetDocumentation({ href: route.params.section }))
     .then(({ data }) => {
+      if (!data._value || !data._value.currentDoc.data[0]) {
+        return navigateTo('/docs')
+      }
 
       // Get current document attributes
       const currentDocAttributes = data._value.currentDoc.data[0].attributes
-      currentSubsection.value = currentDocAttributes.subsections[0].title
+      const currentSubsectionIndex = currentDocAttributes.subsections.findIndex((elem) => {
+        return elem.href === route.params.section
+      })
+      currentSubsection.value = currentDocAttributes.subsections[currentSubsectionIndex].title
       currentSectionTitle.value = currentDocAttributes.section_title
       // Get the hrefs for all documentation sections
       allLinks.value = data._value.allLinks.data.flatMap(num => num.attributes.subsections)
@@ -36,7 +46,7 @@ const getData = async () => {
         return elem.title === currentDocAttributes.subsections[0].title
       })
 
-      let content = currentDocAttributes.subsections[0].content
+      let content = currentDocAttributes.subsections[currentSubsectionIndex].content
 
       // Parse HTML section content
       let onPage = [];
@@ -72,12 +82,13 @@ const getData = async () => {
 ////  Lifecycle  ////
 onMounted(async () => {
   await nextTick(async () => {
+    console.log("What", route.params.section)
     await getData()
     isLoaded.value = true
   });
 });
 
 onBeforeRouteUpdate(async (to, from) => {
-  currentHeading = to.hash.replace(/^#+/, '')
+  currentHeading.value = to.hash.replace(/^#+/, '')
 })
 </script>

@@ -1,7 +1,7 @@
 <template>
     <Head>
         <Title>{{ pageTitle }}</Title>
-        <Meta :name="`Application page for ${pageTitle}`" :content="pageTitle" />
+        <Meta name="description" :content="`Application page for ${pageTitle}`" />
     </Head>
     <Header />
     <div v-if="isLoaded">
@@ -26,12 +26,13 @@ const pageFeatures = ref([])
 
 ////  Methods  ////
 const getPageContent = async () => {
-    await useAsyncData('getApplicationPage', () => GqlGetApplicationPage({ page: route.params.page }))
+    await useAsyncData('getApplicationPage', () => GqlGetApplicationPage({ page: route.params.page.replaceAll("-", " ") }))
         .then(({ data }) => {
             pageIconHref.value = data._value.appPages.data[0].attributes.tool.data.attributes.icon.data.attributes.url
             pageTitle.value = data._value.appPages.data[0].attributes.tool.data.attributes.name
             pageGrabber.value = data._value.appPages.data[0].attributes.grabber
             pageContent.value = data._value.appPages.data[0].attributes.description
+            console.log(data._value.appPages.data[0].attributes.features)
             pageFeatures.value = data._value.appPages.data[0].attributes.features.map((item) => {
                 return {
                     name: item.title,

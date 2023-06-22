@@ -5,10 +5,10 @@
       <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
           <!-- Filter Search -->
-          <label class="block text-sm font-medium text-light-text dark:text-dark-text">Search</label>
+          <label for="table-search" class="block text-sm font-medium text-light-text dark:text-dark-text">Search</label>
           <div
             class="relative max-w-xs sm:max-w-md mb-1 rounded-md border border-light-text dark:border-dark-text  px-3 py-2 shadow-sm focus-within:border-light-border-primary dark:focus-within:border-dark-border-primary focus-within:ring-1 focus-within:ring-light-border-primary dark:focus-within:ring-dark-border-primary">
-            <input v-model="filter" type="text"
+            <input id="table-search" name="table-search" v-model="filter" type="text"
               class="block w-full border-0 p-0 text-light-text dark:text-dark-text placeholder-light-subtext dark:placeholder-dark-subtext focus:ring-0 sm:text-sm bg-light-backdrop-primary dark:bg-dark-backdrop-primary"
               placeholder="Search for ..." />
           </div>
@@ -18,7 +18,7 @@
               <thead class="bg-light-backdrop-primary dark:bg-dark-backdrop-primary text-light-text dark:text-dark-text">
                 <tr>
                   <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold sm:pl-6">
-                    <a @click="sort('name')" class="group inline-flex cursor-pointer">
+                    <button @click="sort('name')" class="group inline-flex cursor-pointer">
                       Name
                       <span v-if="this.currentSort === 'name'"
                         class="ml-2 flex-none rounded text-light-subtext dark:text-dark-subtext group-hover:visible group-focus:visible">
@@ -29,10 +29,10 @@
                         <SwitchVerticalIcon
                           class="h-5 w-5 ml-2 flex-none rounded text-light-subtext dark:text-dark-subtext group-hover:visible group-focus:visible" />
                       </span>
-                    </a>
+                    </button>
                   </th>
                   <th scope="col" class="sm:table-cell hidden px-3 py-3.5 text-left text-sm font-semibold">
-                    <a @click="sort('platform')" class="group inline-flex cursor-pointer">
+                    <button @click="sort('platform')" class="group inline-flex cursor-pointer">
                       Platform
                       <span v-if="this.currentSort === 'platform'"
                         class="ml-2 flex-none rounded text-light-subtext dark:text-dark-subtext group-hover:visible group-focus:visible">
@@ -43,10 +43,10 @@
                         <SwitchVerticalIcon
                           class="h-5 w-5 ml-2 flex-none rounded text-light-subtext dark:text-dark-subtext group-hover:visible group-focus:visible" />
                       </span>
-                    </a>
+                    </button>
                   </th>
                   <th scope="col" class="sm:table-cell hidden px-3 py-3.5 text-left text-sm font-semibold">
-                    <a @click="sort('partner')" class="group inline-flex cursor-pointer">
+                    <button @click="sort('partner')" class="focus focus-visible:ring-2 group inline-flex cursor-pointer">
                       Partner
                       <span v-if="this.currentSort === 'partner'"
                         class="ml-2 flex-none rounded text-light-subtext dark:text-dark-subtext group-hover:visible group-focus:visible">
@@ -57,7 +57,7 @@
                         <SwitchVerticalIcon
                           class="h-5 w-5 ml-2 flex-none rounded text-light-subtext dark:text-dark-subtext group-hover:visible group-focus:visible" />
                       </span>
-                    </a>
+                    </button>
                   </th>
                   <th scope="col" class="xl:table-cell hidden relative py-3.5 pl-3 pr-4 sm:pr-6">
                     <span class="sr-only">Edit</span>
@@ -81,23 +81,23 @@
                         <span v-if="entry.version != 0">{{ entry.name }} | {{ entry.version }} </span>
                         <span v-else>{{ entry.name }}</span>
                         <!-- Mobile Stacked View -->
-                        <dl class="font-normal xl:hidden">
-                          <dt class="sr-only">Title</dt>
+                        <div class="font-normal xl:hidden">
+                          <span class="sr-only">Title</span>
                           <div class="flex items-center mt-2">
-                            <dd class="sm:hidden flex mr-6">
+                            <span class="sm:hidden flex mr-6">
                               <NuxtLink target="_blank" :to="entry.platform.link" class="flex items-center mr-1">
                                 <img class="h-8 w-8 rounded-full mr-1" :src="entry.platform.icon.url"
-                                  :alt="entry.platform.icon.name" />
+                                  :alt="entry.platform.icon.alt" />
                               </NuxtLink>
                               <NuxtLink target="_blank" :to="entry.partner.link" class="flex items-center">
                                 <img class="h-8 w-8 rounded-full" :src="entry.partner.icon.url"
-                                  :alt="entry.platform.icon.name" />
+                                  :alt="entry.platform.icon.alt" />
                               </NuxtLink>
-                            </dd>
-                            <dd
+                            </span>
+                            <span
                               class="flex items-center relative whitespace-nowrap py-2 text-right text-sm font-medium sm:pr-6">
-                              <img class="h-6 w-6 rounded-full mr-3" src="@/assets/GitHubLogoBlack.svg"
-                                alt="Github Logo" />
+                              <img class="h-6 w-6 rounded-full mr-3 dark:bg-white dark:p-1"
+                                src="@/assets/GitHubLogoBlack.svg" alt="Github Logo" />
                               <NuxtLink :to="entry.source" target="_blank">
                                 <button @click=""
                                   class="flex items-center mr-5 text-nav-light-active dark:text-nav-dark-active">
@@ -116,15 +116,15 @@
                                     }}</span>
                                 </button>
                               </NuxtLink>
-                            </dd>
+                            </span>
                           </div>
-                        </dl>
+                        </div>
                       </td>
                       <!-- Full View -->
                       <td class="sm:table-cell hidden truncate whitespace-nowrap px-3 py-4 text-sm">
                         <div class="flex items-center">
                           <img class="h-10 w-10 rounded-full" :src="entry.platform.icon.url"
-                            :alt="entry.platform.icon.name" />
+                            :alt="entry.platform.icon.alt" />
                           <NuxtLink target="_blank" :to="entry.platform.link"
                             class="ml-3 text-light-text dark:text-dark-text hover:text-nav-light-active dark:hover:text-nav-dark-active">
                             {{
@@ -135,7 +135,7 @@
                       <td class="sm:table-cell hidden truncate whitespace-nowrap px-3 py-4 text-sm">
                         <div class="flex items-center">
                           <img class="h-10 w-10 rounded-full" :src="entry.partner.icon.url"
-                            :alt="entry.partner.icon.name" />
+                            :alt="entry.partner.icon.alt" />
                           <NuxtLink :to="entry.partner.link"
                             class="ml-3 text-light-text dark:text-dark-text hover:text-nav-light-active dark:hover:text-nav-dark-active"
                             target="_blank"> {{
@@ -145,7 +145,8 @@
                       </td>
                       <td
                         class="xl:flex items-center hidden relative whitespace-nowrap py-6 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                        <img class="h-6 w-6 rounded-full mr-3" src="@/assets/GitHubLogoBlack.svg" alt="Github Logo" />
+                        <img class="h-7 w-7 rounded-full mr-3 dark:bg-white dark:p-1" src="@/assets/GitHubLogoBlack.svg"
+                          alt="Github Logo" />
                         <NuxtLink :to="entry.source" target="_blank">
                           <button @click=""
                             class="flex items-center mr-5 text-nav-light-active dark:text-nav-dark-active">

@@ -27,6 +27,9 @@ const route = useRoute()
 const getData = async () => {
   docData.value = await useAsyncData('getIndexDocumentation', () => GqlGetIndexDocumentation())
     .then(({ data }) => {
+      if (!data._value || !data._value.currentDoc.data[0]) {
+        return navigateTo('/docs')
+      }
 
       // Get current document attributes
       const currentDocAttributes = data._value.currentDoc.data[0].attributes

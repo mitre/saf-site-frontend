@@ -11,7 +11,7 @@
     <div class="mt-12 mb-6 lg:mb-0 flex border-t border-light-border-primary dark:border-dark-border-primary pt-6">
         <div v-if="props.allLinks[props.currentIndex - 1]">
             <a :href="`/docs/${props.allLinks[props.currentIndex - 1].href}`"
-                class="text-base font-semibold text-nav-light-inactive dark:text-nav-dark-inactive hover:text-nav-light-hover dark:hover:text-nav-dark-hover">
+                class="text-base font-semibold text-nav-light-inactive dark:text-nav-dark-inactive hover:text-nav-light-hover dark:hover:text-nav-dark-hover flex flex-col">
                 <span class="font-display text-sm font-medium text-nav-light-inactive dark:text-nav-dark-inactive">
                     Previous
                 </span>
@@ -22,7 +22,7 @@
         </div>
         <div v-if="props.allLinks[props.currentIndex + 1]" class="ml-auto text-right">
             <a :href="`/docs/${props.allLinks[props.currentIndex + 1].href}`"
-                class="text-base font-semibold text-nav-light-inactive dark:text-nav-dark-inactive hover:text-nav-light-hover dark:hover:text-nav-dark-hover">
+                class="text-base font-semibold text-nav-light-inactive dark:text-nav-dark-inactive hover:text-nav-light-hover dark:hover:text-nav-dark-hover flex flex-col">
                 <span class="font-display text-sm font-medium text-nav-light-inactive dark:text-nav-dark-inactive">
                     Next
                 </span>

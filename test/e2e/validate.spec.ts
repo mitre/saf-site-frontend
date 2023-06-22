@@ -4,7 +4,7 @@ test('Validation', async ({ page }) => {
   // Navigate to validate page
   await page.goto('/');
   await page.getByRole('button', { name: 'Libraries' }).click();
-  await page.getByRole('link', { name: 'Validate' }).click();
+  await page.getByRole('link', { name: 'Validate' }).nth(0).click();
   await expect(page).toHaveURL('/libs/validate')
 
   await expect(page.getByRole('heading', { level: 1, name: 'Validate' })).toBeVisible();

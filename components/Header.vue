@@ -184,6 +184,8 @@ import SafShieldLogo from '~/assets/SafShieldLogo.vue';
 ////  Data  ////
 const selected = ref("")
 const route = useRoute()
+// const capabilitiesGrabberMapping = ref({})
+const appGrabberMapping = ref({})
 const framework = markRaw([
   {
     name: 'Plan',
@@ -239,18 +241,25 @@ const libraries = ref([
     icon: ValidationLibIcon
   },
   {
+    name: 'HDF Converters',
+    description:
+      '?????',
+    href: '/apps/hdf-converters',
+    icon: SafShieldLogo
+  },
+  {
     name: 'TS InSpec Objects',
     description:
       '??????????',
     href: '/libs/ts-inspec-objects',
-    icon: ClipboardCheckIcon
+    icon: SafShieldLogo
   },
   {
     name: 'eMASS Client',
     description:
       '?????????',
     href: '/libs/emass-client',
-    icon: ClipboardCheckIcon
+    icon: SafShieldLogo
   }
 ]);
 
@@ -274,14 +283,14 @@ const applications = ref([
     description:
       '?????',
     href: '/apps/saf-cli',
-    icon: ShieldCheckIcon
+    icon: SafShieldLogo
   },
   {
     name: 'eMASSer',
     description:
       '?????',
     href: '/apps/emasser',
-    icon: ShieldCheckIcon
+    icon: SafShieldLogo
   },
 ]);
 
@@ -327,6 +336,37 @@ const resources = ref([
 
 
 ////  Methods  ////
+// const getCapabilities = async () => {
+//   capabilities.value = await useAsyncData('getCapabilities', () => GqlGetCapabilities())
+//     .then(({ data }) => {
+//       let returnObj = {}
+//       for(const obj of data._value.capabilities.data){
+//         returnObj[capability.attributes.name] = capability.attributes.description
+//       }
+//       return data._value.capabilities.data.map((capability) => ({
+//         name: capability.attributes.name,
+//         description: capability.attributes.description,
+//         orderID: capability.attributes.order_id,
+//         link: capability.attributes.link,
+//         icon: {
+//           name: capability.attributes.icon.data ? capability.attributes.icon.data.attributes.name : null,
+//           url: capability.attributes.icon.data ? capability.attributes.icon.data.attributes.url : null,
+//         },
+//       }))
+//     });
+// }
+
+const getApplications = async () => {
+  appGrabberMapping.value = await useAsyncData('getAllApplications', () => GqlGetAllApplications())
+    .then(({ data }) => {
+      let mapping = {}
+      console.log(data._value)
+      for (const app of data._value.appPages.data) {
+        mapping[app.attributes.tool.data.attributes.name] = app.attributes.grabber
+      }
+      return mapping
+    });
+}
 const switchSelect = (event) => {
   if (event.target.value === 'Light') {
     disableDarkMode()
@@ -369,7 +409,13 @@ const disableDarkMode = () => {
 }
 
 ////  Lifecycle  ////
-onMounted(() => {
+onMounted(async () => {
+  await nextTick(async () => {
+    await getApplications()
+    console.log("Printing", appGrabberMapping)
+    // isLoaded.value = true
+  });
+
   if (localStorage.getItem('wasVisited') == undefined) {
     selected.value = "Light"
     setThemeState(selected.value)

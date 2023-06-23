@@ -44,7 +44,7 @@
     "nuxt": "^3.3.1",
     "prettier": "^2.8.0",
     "prettier-plugin-tailwindcss": "^0.2.4",
-    "tailwindcss": "^3.2.6",
+    "tailwindcss": "^3.3.2",
     "typescript": "^5.0.2",
     "webpack": "^5.88.0"
   }

@@ -1,21 +1,21 @@
 <template>
   <div v-if="isLoaded">
     <div class="mt-4 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
-      <div v-for="post in posts" :key="post.title"
-        class="flex flex-col rounded-lg shadow-lg shadow-dropshadow/10 /60 border-2 hover:border-2 hover:border-nav-hover  border-accent  overflow-hidden">
-        <div class="flex-1 bg-neutral-1  hover:bg-neutral-2  p-6 flex flex-col justify-between">
+      <NuxtLink :to="`/blog/${post.date}/${slugify(post.title)}?id=${post.id}`" v-for="post in posts" :key="post.title"
+        class="flex flex-col rounded-lg shadow-lg border-2 hover:border-2 hover:border-nav-hover  border-accent  overflow-hidden">
+        <div class="flex-1 bg-neutral-2 hover:bg-opacity-60 p-6 flex flex-col justify-between">
           <div class="flex-1">
             <span class="text-sm font-semibold rounded-full px-2 py-1 bg-neutral-3  text-base ">
               {{ post.category.name }}
             </span>
-            <NuxtLink :to="`/blog/${post.date}/${slugify(post.title)}?id=${post.id}`" class="block mt-2">
+            <div class="block mt-2">
               <p class="text-xl font-semibold text-base ">
                 {{ post.title }}
               </p>
               <p class="mt-3 text-base text-muted  line-clamp-2">
                 {{ post.description }}
               </p>
-            </NuxtLink>
+            </div>
           </div>
           <div class="mt-6 flex items-center">
             <div class="flex-shrink-0">
@@ -36,7 +36,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </NuxtLink>
     </div>
   </div>
   <div v-else class="grid h-screen place-items-center">

@@ -29,7 +29,7 @@ module.exports = {
         'muted': withOpacity('--color-text-muted'),
         'highlighter': withOpacity('--color-text-highlighter'),
         'fill': withOpacity('--color-fill'),
-        'dropshadow': withOpacity('--color-dropshadow:'),
+        'dropshadow': withOpacity('--color-dropshadow'),
         'blur': withOpacity('--color-blur'),
         'accent': withOpacity('--color-accent'),
         'neutral-1': withOpacity('--color-neutral-1'),

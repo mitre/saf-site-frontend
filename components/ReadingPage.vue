@@ -2,7 +2,7 @@
     <div class="relative py-16 overflow-hidden min-h-screen h-full">
         <ScrollToTop />
         <div
-            class="relative w-full bg-neutral-1  px-6 py-12 shadow-2xl shadow-dropshadow/10  ring-1 ring-accent/5  md:mx-auto md:max-w-3xl lg:max-w-4xl lg:pt-16 lg:pb-28">
+            class="relative w-full bg-neutral-1  px-6 py-12 shadow-2xl shadow-dropshadow  ring-1 ring-accent/5  md:mx-auto md:max-w-3xl lg:max-w-4xl lg:pt-16 lg:pb-28">
             <div class="relative px-4 sm:px-6 lg:px-8">
                 <div class="text-lg prose prose-lg max-w-prose mx-auto ">
                     <h1>

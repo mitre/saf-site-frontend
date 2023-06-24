@@ -5,13 +5,13 @@
         <DocumentationMobileNavigation :doc-data="docData" :current-subsection="currentSubsection"
             :current-section-title="currentSectionTitle" />
 
-        <div class="relative bg-neutral-3  mx-auto flex max-w-8xl justify-center sm:px-2 lg:px-8 xl:px-10">
+        <div class="relative bg-neutral-2  mx-auto flex max-w-8xl justify-center sm:px-2 lg:px-8 xl:px-10">
             <div class="hidden lg:relative lg:block lg:flex-none">
-                <div class="absolute inset-y-0 right-0 w-[50vw] bg-neutral-3  dark:hidden" />
+                <div class="absolute inset-y-0 right-0 w-[50vw] bg-neutral-2  dark:hidden" />
                 <div class="sticky top-[82px] -ml-0.5 h-[calc(100vh-82px)] overflow-y-auto overflow-x-hidden pb-8 pl-0.5">
                     <div
-                        class="absolute top-16 bottom-0 right-0 hidden h-12 w-px bg-gradient-to-t from-neutral-3  dark:block" />
-                    <div class="absolute top-28 bottom-0 right-0 hidden w-px bg-neutral-3  dark:block" />
+                        class="absolute top-16 bottom-0 right-0 hidden h-12 w-px bg-gradient-to-t from-neutral-2  dark:block" />
+                    <div class="absolute top-28 bottom-0 right-0 hidden w-px bg-neutral-2  dark:block" />
 
                     <div v-if="docData">
                         <DocumentationNavigation :doc-data="docData" />

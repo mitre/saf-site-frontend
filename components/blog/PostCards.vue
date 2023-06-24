@@ -2,19 +2,17 @@
   <div v-if="isLoaded">
     <div class="mt-4 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
       <div v-for="post in posts" :key="post.title"
-        class="flex flex-col rounded-lg shadow-lg shadow-light-dropshadow/10 dark:shadow-dark-dropshadow/60 border-2 hover:border-2 hover:border-nav-light-hover dark:hover:border-nav-dark-hover border-light-border-primary dark:border-dark-border-primary overflow-hidden">
-        <div
-          class="flex-1 bg-light-backdrop-primary dark:bg-dark-backdrop-primary hover:bg-light-backdrop-secondary dark:hover:bg-dark-backdrop-secondary p-6 flex flex-col justify-between">
+        class="flex flex-col rounded-lg shadow-lg shadow-dropshadow/10 /60 border-2 hover:border-2 hover:border-nav-hover  border-accent  overflow-hidden">
+        <div class="flex-1 bg-neutral-1  hover:bg-neutral-2  p-6 flex flex-col justify-between">
           <div class="flex-1">
-            <span
-              class="text-sm font-semibold rounded-full px-2 py-1 bg-light-backdrop-tertiary dark:bg-dark-backdrop-quaternary text-light-text dark:text-dark-text">
+            <span class="text-sm font-semibold rounded-full px-2 py-1 bg-neutral-3  text-base ">
               {{ post.category.name }}
             </span>
             <NuxtLink :to="`/blog/${post.date}/${slugify(post.title)}?id=${post.id}`" class="block mt-2">
-              <p class="text-xl font-semibold text-light-text dark:text-dark-text">
+              <p class="text-xl font-semibold text-base ">
                 {{ post.title }}
               </p>
-              <p class="mt-3 text-base text-light-subtext dark:text-dark-subtext line-clamp-2">
+              <p class="mt-3 text-base text-muted  line-clamp-2">
                 {{ post.description }}
               </p>
             </NuxtLink>
@@ -23,17 +21,17 @@
             <div class="flex-shrink-0">
             </div>
             <div class="ml-3">
-              <span class="text-sm font-medium text-light-text dark:text-dark-text">
+              <span class="text-sm font-medium text-base ">
                 <NuxtLink :to="`/blog/authors?name=${post.author}`" class="hover:underline">
                   <p>{{ post.author }}</p>
                 </NuxtLink>
               </span>
-              <div class="flex space-x-1 text-sm text-light-subtext dark:text-dark-subtext">
+              <div class="flex space-x-1 text-sm text-muted ">
                 <time :datetime="post.datetime">
                   {{ post.date }}
                 </time>
                 <span aria-hidden="true"> &middot; </span>
-                <span class="text-light-subtext dark:text-dark-subtext"> {{ readingTime(post.content) }} min read </span>
+                <span class="text-muted "> {{ readingTime(post.content) }} min read </span>
               </div>
             </div>
           </div>

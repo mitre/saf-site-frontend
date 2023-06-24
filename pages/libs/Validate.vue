@@ -5,13 +5,12 @@
   </Head>
   <div>
     <Header />
-    <div
-      class="relative bg-light-backdrop-primary dark:bg-dark-backdrop-primary min-h-screen h-full pt-4 px-4 sm:px-6 lg:px-8">
+    <div class="relative bg-neutral-1  min-h-screen h-full pt-4 px-4 sm:px-6 lg:px-8">
       <div v-if="isLoaded">
         <div class="sm:flex sm:items-center">
           <div class="sm:flex-auto">
-            <h1 class="text-xl font-bold text-light-header dark:text-dark-header">Validate</h1>
-            <p class="mt-2 text-sm text-light-text dark:text-dark-text">These open-source community-based InSpec profiles
+            <h1 class="text-xl font-bold text-header ">Validate</h1>
+            <p class="mt-2 text-sm text-base ">These open-source community-based InSpec profiles
               validate the security of common system components. MITRE is helping to provide stewardship over these
               profiles,
               hosted here and at other community vendor sites. If you are interested in new profiles, please contact us

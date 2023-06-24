@@ -5,8 +5,7 @@
   </Head>
   <div>
     <Header />
-    <div
-      class="relative bg-light-backdrop-primary dark:bg-dark-backdrop-primary min-h-screen h-full pt-4 px-4 sm:px-6 lg:px-8 mb-8">
+    <div class="relative bg-neutral-1  min-h-screen h-full pt-4 px-4 sm:px-6 lg:px-8 mb-8">
       <div v-if="isLoaded">
         <FrameworkModal v-bind:guidance="guidance" />
       </div>

@@ -5,6 +5,96 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    /* text #111921 */
+    --color-text-base: 17, 25, 33;
+    /* header #005B94 */
+    --color-text-header: 0, 91, 148;
+    /* subtext #707475 */
+    --color-text-muted: 112, 116, 117
+      /* --color-text-inverted: 79, 70, 229; */
+      /* highlighter #FFF601 */
+      --color-text-highlighter: 255, 246, 1;
+    /* primary #2563eb*/
+    --color-fill: 37, 99, 235;
+    /* dropshadow #000000*/
+    --color-dropshadow: 0, 0, 0;
+    /* blur #000000*/
+    --color-blur: 0, 0, 0;
+    /* accent #87deff*/
+    --color-accent: 135, 222, 255;
+    /* backdrop-primary #ffffff*/
+    --color-neutral-1: 255, 255, 255;
+    /* backdrop-secondary #f1f3f4*/
+    --color-neutral-2: 241, 243, 244;
+    /* backdrop-tertiary #d1d5db*/
+    --color-neutral-3: 209, 213, 219;
+    /* backdrop-quaternary #b8bec7*/
+    --color-neutral-4: 184, 190, 199;
+    /* btn-primary #0b2338*/
+    --color-button-accent: 11, 35, 56;
+    /* btn-primary-hover */
+    /* --color-button-accent-hover: 238, 242, 255; */
+    /* btn-primary-text #ffffff*/
+    --color-button-text: 255, 255, 255;
+    /* btn-disabled #9ca3af*/
+    --color-button-disabled: 156, 163, 175;
+    /* btn-disabled-text #000000*/
+    --color-button-disabled-text: 0, 0, 0;
+    /* nav-active #005b94*/
+    --color-nav-active: 0, 91, 148;
+    /* nav-hover #7E8284*/
+    --color-nav-hover: 126, 130, 132;
+    /* nav-inactive #111921*/
+    --color-nav-base: 17, 25, 33;
+  }
+
+  .dark {
+    /* text #d1d5db */
+    --color-text-base: 209, 213, 219;
+    /* header #F1F3F4 */
+    --color-text-header: 241, 243, 244;
+    /* subtext #a0a0a0 */
+    --color-text-muted: 160, 160, 160;
+    /* --color-text-inverted: 79, 70, 229; */
+    /* highlighter #FFF601 */
+    --color-text-highlighter: 255, 246, 1;
+    /* primary #2563eb*/
+    --color-fill: 37, 99, 235;
+    /* dropshadow #6b7280*/
+    --color-dropshadow: 107, 114, 128;
+    /* blur #000000*/
+    --color-blur: 0, 0, 0;
+    /* accent #87deff*/
+    --color-accent: 135, 222, 255;
+    /* backdrop-primary #121212*/
+    --color-neutral-1: 18, 18, 18;
+    /* backdrop-secondary #242424*/
+    --color-neutral-2: 36, 36, 36;
+    /* backdrop-tertiary #3b3b3b*/
+    --color-neutral-3: 59, 59, 59;
+    /* backdrop-quaternary #545454*/
+    --color-neutral-4: 84, 84, 84;
+    /* btn-primary #2563eb*/
+    --color-button-accent: 37, 99, 235;
+    /* btn-primary-hover */
+    /* --color-button-accent-hover: 238, 242, 255; */
+    /* btn-primary-text #d1d5db*/
+    --color-button-text: 209, 213, 219;
+    /* btn-disabled #9ca3af*/
+    --color-button-disabled: 156, 163, 175;
+    /* btn-disabled-text #000000*/
+    --color-button-disabled-text: 0, 0, 0;
+    /* nav-active #0ea5e9*/
+    --color-nav-active: 14, 165, 233;
+    /* nav-hover #8c8c8d*/
+    --color-nav-hover: 140, 140, 141;
+    /* nav-inactive #d1d5db*/
+    --color-nav-base: 209, 213, 219;
+  }
+}
+
 html {
   scroll-padding-top: 90px;
 }

@@ -1,6 +1,6 @@
 <template>
-  <footer class="bg-light-backdrop-primary dark:bg-dark-backdrop-primary">
-    <div class="border-b-2 border-light-border-primary dark:border-dark-border-primary max-w-full mx-auto px-4 sm:px-1" />
+  <footer class="bg-neutral-1 ">
+    <div class="border-b-2 border-accent  max-w-full mx-auto px-4 sm:px-1" />
     <div class="max-w-4xl mx-auto py-12 px-4 sm:px-6 md:flex md:items-center md:justify-between justify-right lg:px-5">
       <div class="flex justify-center space-x-6 md:order-2">
         <a href="https://github.com/" aria-label="GitHub Link">
@@ -17,10 +17,10 @@
         </a>
       </div>
       <div class="mt-8 mr-4 md:mt-0 md:order-1">
-        <p class="block text-center text-light-text dark:text-dark-text">Copyright © {{ copyrightYear }}, The MITRE
+        <p class="block text-center text-base ">Copyright © {{ copyrightYear }}, The MITRE
           Corporation. All rights
           reserved. </p>
-        <p class="block text-center text-base text-light-text dark:text-dark-text">MITRE is a registered trademark of The
+        <p class="block text-center text-base text-base ">MITRE is a registered trademark of The
           MITRE Corporation.
           Material on this site may be copied and distributed with permission only.</p>
       </div>

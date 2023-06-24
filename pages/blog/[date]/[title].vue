@@ -8,7 +8,7 @@
     <div v-if="isLoaded">
       <ReadingPage :title="postData.title" :last-updated="postData.date" :author="postAuthor">
         <div
-          class="mt-8 mx-auto leading-8 text-left prose prose-sm lg:prose-lg dark:prose-invert text-light-text dark:text-dark-text prose-li:text-start prose-code:text-start"
+          class="mt-8 mx-auto leading-8 text-left prose prose-sm lg:prose-lg dark:prose-invert text-base  prose-li:text-start prose-code:text-start"
           v-html="renderedContent"></div>
       </ReadingPage>
     </div>

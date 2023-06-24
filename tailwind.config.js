@@ -1,5 +1,15 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 
+function withOpacity(variableName) {
+  return ({ opacityValue }) => {
+    if (opacityValue !== undefined) {
+      return `rgba(var(${variableName}), ${opacityValue})`
+    }
+    return `rgb(var(${variableName}))`
+  }
+}
+
+
 /** @type {import("@types/tailwindcss/tailwind-config").TailwindConfig } */
 module.exports = {
   darkMode: 'class',
@@ -14,121 +24,52 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        light: {
-          'text': '#111921',
-          'header': '#005B94',
-          'subtext': '#707475',
-          'hover': '#111921',
-          'icon-primary': '#2563eb',
-          'highlighter': '#FFF601',
-          'dropshadow': '#000000',
-          'blur': '#000000',
-          'focus': '',
-          'code': '',
-          'backdrop-primary': '#ffffff',
-          'backdrop-secondary': '#f1f3f4',
-          'backdrop-tertiary': '#d1d5db',
-          'backdrop-quaternary': '#b8bec7',
-          'border-primary': '#87deff',
-        },
-        dark: {
-          'text': '#d1d5db',
-          'header': '#F1F3F4',
-          'subtext': '#F1F3F4',
-          'hover': '#111921',
-          'icon-primary': '#2563eb',
-          'highlighter': '',
-          'dropshadow': '#6b7280',
-          'focus': '',
-          'code': '',
-          'backdrop-primary': '#0B2338',
-          'backdrop-secondary': '#18181b',
-          'backdrop-tertiary': '#27272a',
-          'backdrop-quaternary': '#303036', //#6c717a
-          'border-primary': '#87deff',
-        },
-        btn: {
-          light: {
-            'primary': '#0b2338',
-            'secondary': '#ffffff',
-            'tertiary': '',
-            'danger': '',
-            'disabled': '#9ca3af',
-            'primary-text': '#83d9fa',
-            'secondary-text': '#0b2338',
-            'tertiary-text': '',
-            'danger-text': '',
-            'disabled-text': '#000000',
-            'primary-hover': '#ffffff',
-            'secondary-hover': '#0b2338',
-            'tertiary-hover': '',
-            'danger-hover': '',
-            'primary-hover-text': '#0b2338',
-            'secondary-hover-text': '#83d9fa',
-            'tertiary-hover-text': '',
-            'danger-hover-text': '',
-            'primary-border': '#87deff',
-            'secondary-border': '#87deff',
-            'tertiary-border': '',
-            'danger-border': '',
-          },
-          dark: {
-            'primary': '',
-            'secondary': '',
-            'tertiary': '',
-            'danger': '',
-            'disabled': '#9ca3af',
-            'primary-text': '',
-            'secondary-text': '',
-            'tertiary-text': '',
-            'danger-text': '',
-            'disabled-text': '#000000',
-            'primary-hover': '',
-            'secondary-hover': '',
-            'tertiary-hover': '',
-            'danger-hover': '',
-          },
-        },
-        nav: {
-          light: {
-            'active': '#005b94',
-            'hover': '#7E8284',
-            'inactive': '#111921',
-            'disabled': '',
-          },
-          dark: {
-            'active': '#0ea5e9',
-            'hover': '#d1d5db',
-            'inactive': '#d1d5db',
-            'disabled': '',
-          },
-        },
-        mitre: {
-          blue: '#005B94',
-          highlighter: '#FFF601',
-          'dark-navy': '#0B2338',
-          navy: '#0D2F4F',
-          'light-blue': '#87DEFF',
-          black: '#111921',
-          'dark-gray': '#7E8284',
-          silver: '#D4D4D3',
-          'light-silver': '#F1F3F4',
-        },
+        'base': withOpacity('--color-text-base'),
+        'header': withOpacity('--color-text-header'),
+        'muted': withOpacity('--color-text-muted'),
+        'highlighter': withOpacity('--color-text-highlighter'),
+        'fill': withOpacity('--color-fill'),
+        'dropshadow': withOpacity('--color-dropshadow:'),
+        'blur': withOpacity('--color-blur'),
+        'accent': withOpacity('--color-accent'),
+        'neutral-1': withOpacity('--color-neutral-1'),
+        'neutral-2': withOpacity('--color-neutral-2'),
+        'neutral-3': withOpacity('--color-neutral-3'),
+        'neutral-4': withOpacity('--color-neutral-4'),
+        'button-accent': withOpacity('--color-button-accent'),
+        'button-text': withOpacity('--color-button-text'),
+        'button-disabled': withOpacity('--color-button-disabled'),
+        'button-disabled-text': withOpacity('--color-button-disabled-text'),
+        'nav-active': withOpacity(' --color-nav-active'),
+        'nav-hover': withOpacity(' --color-nav-hover'),
+        'nav-base': withOpacity('--color-nav-base'),
       },
-      fontFamily: {
-        sans: [...defaultTheme.fontFamily.sans],
-        mitre: 'Roboto Slab'
+      mitre: {
+        blue: '#005B94',
+        highlighter: '#FFF601',
+        'dark-navy': '#0B2338',
+        navy: '#0D2F4F',
+        'light-blue': '#87DEFF',
+        black: '#111921',
+        'dark-gray': '#7E8284',
+        silver: '#D4D4D3',
+        'light-silver': '#F1F3F4',
       },
     },
+    fontFamily: {
+      sans: [...defaultTheme.fontFamily.sans],
+      mitre: 'Roboto Slab'
+    },
   },
+},
   corePlugins: {
-    aspectRatio: false,
+  aspectRatio: false,
   },
-  plugins: [
-    require('@tailwindcss/forms'),
-    require('@tailwindcss/typography'),
-    require('@tailwindcss/aspect-ratio'),
-  ],
+plugins: [
+  require('@tailwindcss/forms'),
+  require('@tailwindcss/typography'),
+  require('@tailwindcss/aspect-ratio'),
+],
 }
 
 

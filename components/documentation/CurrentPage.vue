@@ -2,17 +2,16 @@
     <ScrollToTop />
 
     <article class="pt-6 lg:pt-0">
-        <h1
-            class="text-5xl font-bold text-light-header dark:text-dark-header border-b border-light-border-primary dark:border-dark-border-primary pb-4 mb-6  text-center">
+        <h1 class="text-5xl font-bold text-header  border-b border-accent  pb-4 mb-6  text-center">
             {{ props.currentSubsection }}</h1>
         <span v-if="props.renderedContent" v-html="props.renderedContent"
             class="mt-8 mx-auto leading-8 prose dark:prose-invert"></span>
     </article>
-    <div class="mt-12 mb-6 lg:mb-0 flex border-t border-light-border-primary dark:border-dark-border-primary pt-6">
+    <div class="mt-12 mb-6 lg:mb-0 flex border-t border-accent  pt-6">
         <div v-if="props.allLinks[props.currentIndex - 1]">
             <a :href="`/docs/${props.allLinks[props.currentIndex - 1].href}`"
-                class="text-base font-semibold text-nav-light-inactive dark:text-nav-dark-inactive hover:text-nav-light-hover dark:hover:text-nav-dark-hover flex flex-col">
-                <span class="font-display text-sm font-medium text-nav-light-inactive dark:text-nav-dark-inactive">
+                class="text-base font-semibold text-nav-base  hover:text-nav-hover  flex flex-col">
+                <span class="font-display text-sm font-medium text-nav-base ">
                     Previous
                 </span>
                 <span class="mt-1">
@@ -22,8 +21,8 @@
         </div>
         <div v-if="props.allLinks[props.currentIndex + 1]" class="ml-auto text-right">
             <a :href="`/docs/${props.allLinks[props.currentIndex + 1].href}`"
-                class="text-base font-semibold text-nav-light-inactive dark:text-nav-dark-inactive hover:text-nav-light-hover dark:hover:text-nav-dark-hover flex flex-col">
-                <span class="font-display text-sm font-medium text-nav-light-inactive dark:text-nav-dark-inactive">
+                class="text-base font-semibold text-nav-base  hover:text-nav-hover  flex flex-col">
+                <span class="font-display text-sm font-medium text-nav-base ">
                     Next
                 </span>
                 <span class="mt-1">

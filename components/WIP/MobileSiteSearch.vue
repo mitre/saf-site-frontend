@@ -8,7 +8,7 @@
                     <SearchIcon class="h-5 w-5 text-base " aria-hidden="true" />
                 </div>
                 <input id="search" name="search"
-                    class="block w-0 focus:w-full pl-5 focus:pl-10 pr-4 py-3 border border-transparent rounded-md leading-5 bg-white  text-gray-300 placeholder-gray-400 focus:outline-none focus:bg-white dark:focus:bg-mitre-light-silver focus:border-white  focus:ring-blue-400  focus:text-gray-900 sm:text-sm hover:bg-gray-200 dark:hover:bg-gray-700"
+                    class="block w-0 focus:w-full pl-5 focus:pl-10 pr-4 py-3 border border-transparent rounded-md leading-5 bg-white  text-gray-300 placeholder-gray-400 focus:outline-none focus:bg-white dark:focus:bg-mitre-light-silver focus:border-white  focus:ring-blue-400  focus:text-gray-900 sm:text-sm hover:bg-gray-200 "
                     placeholder="Search" type="search" />
             </div>
         </div>

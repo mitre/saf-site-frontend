@@ -99,7 +99,7 @@
                                 src="@/assets/GitHubLogoBlack.svg" alt="Github Logo" />
                               <NuxtLink :to="entry.source" target="_blank">
                                 <button @click=""
-                                  class="flex items-center mr-5 bg-[#005B94] p-2 rounded-lg text-base font-semibold">
+                                  class="flex items-center mr-5 bg-button-accent p-2 rounded-lg text-button-text font-semibold">
                                   View Code
                                   <span class="sr-only">,
                                     {{ entry.name }}
@@ -148,7 +148,7 @@
                           alt="Github Logo" />
                         <NuxtLink :to="entry.source" target="_blank">
                           <button @click=""
-                            class="flex items-center mr-5 bg-[#005B94] p-2 rounded-lg text-base font-semibold">
+                            class="flex items-center mr-5 bg-button-accent p-2 rounded-lg text-button-text font-semibold">
                             View Code
                             <span class="sr-only">,
                               {{ entry.name }}
@@ -157,7 +157,7 @@
                           </button>
                         </NuxtLink>
                         <NuxtLink :to="`/libs/guidance/${slugify(entry.name)}?id=${entry.benchmarkID}`">
-                          <button @click="" class="bg-[#005B94] p-2 rounded-lg text-base font-semibold">View
+                          <button @click="" class="bg-button-accent p-2 rounded-lg text-button-text font-semibold">View
                             Details<span class="sr-only">,
                               {{
                                 entry.name

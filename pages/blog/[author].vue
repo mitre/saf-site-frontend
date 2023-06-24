@@ -53,7 +53,7 @@
               <div id="Social Medias" class="flex gap-2 pt-5 pb-5">
                 <a v-if="socialMediaLinks.displayEmail != null" v-bind:href="'mailto:' + socialMediaLinks.displayEmail">
                   <span class="sr-only">Mail Link</span>
-                  <MailIcon text-gray-500 class="w-9 h-9 text-base " />
+                  <MailIcon class="w-9 h-9 text-base " />
                 </a>
                 <a v-if="socialMediaLinks.twitter" v-bind:href="socialMediaLinks.twitter">
                   <img src="~/assets/TwitterLogo.png" class="max-w-full h-auto max-h-8" alt="Twitter Logo" />

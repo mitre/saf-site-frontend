@@ -20,7 +20,7 @@
         <p class="block text-center text-base ">Copyright © {{ copyrightYear }}, The MITRE
           Corporation. All rights
           reserved. </p>
-        <p class="block text-center text-base text-base ">MITRE is a registered trademark of The
+        <p class="block text-center text-base">MITRE is a registered trademark of The
           MITRE Corporation.
           Material on this site may be copied and distributed with permission only.</p>
       </div>

@@ -15,7 +15,7 @@
           <div class="overflow-hidden shadow ring-1 ring-base  ring-opacity-5 md:rounded-lg">
             <table class="min-w-full">
               <!-- Table Headers -->
-              <thead class="bg-neutral-1  text-base ">
+              <thead class="bg-neutral-1 text-base">
                 <tr>
                   <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold sm:pl-6">
                     <button @click="sort('name')" class="group inline-flex cursor-pointer">
@@ -69,13 +69,13 @@
                 <template v-for="[key, value] of Object.entries(sortedEntries)">
                   <tr class="border-t border-accent">
                     <th colspan="5" scope="colgroup"
-                      class="bg-neutral-4  px-4 py-3 text-left text-sm font-semibold text-base  sm:px-6">
+                      class="bg-neutral-4 dark:bg-neutral-2 px-4 py-3 text-left text-sm font-semibold text-base  sm:px-6">
                       {{
                         key
                       }}</th>
                   </tr>
                   <template v-for="(entry, index) in value" :key="index">
-                    <tr :class="[index % 2 === 0 ? 'bg-neutral-3 ' : 'bg-neutral-2 ', 'border-t']">
+                    <tr :class="[index % 2 === 0 ? 'bg-neutral-3' : 'bg-neutral-3 dark:bg-neutral-4', 'border-t']">
                       <td class="py-4 pl-4 pr-3 text-sm font-medium text-base  sm:pl-6">
                         <span v-if="entry.version != 0">{{ entry.name }} | {{ entry.version }} </span>
                         <span v-else>{{ entry.name }}</span>
@@ -108,7 +108,8 @@
                                 </button>
                               </NuxtLink>
                               <NuxtLink :to="`/libs/guidance/${slugify(entry.name)}?id=${entry.benchmarkID}`">
-                                <button @click="" class="text-nav-active ">View
+                                <button @click=""
+                                  class="bg-button-accent p-2 rounded-lg text-button-text font-semibold">View
                                   Details<span class="sr-only">,
                                     {{
                                       entry.name

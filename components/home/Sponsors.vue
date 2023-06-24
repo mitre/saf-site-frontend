@@ -6,7 +6,7 @@
         <div v-for="(entry) in data" :key="entry.orderID"
           class=" group relative hover:bg-neutral-3  bg-neutral-2  focus-within:ring-2 focus-within:ring-inset focus-within:ring-blue-500 h-full border-2 border-accent ">
           <div class="mt-6 sm:mt-6">
-            <h3 class="text-base font-semibold leading-6 text-base ">
+            <h3 class="text-base font-semibold leading-6">
               <NuxtLink :to="entry.link" class="focus:outline-none">
                 <div class="aspect-auto">
                   <img :src="entry.icon.url" :alt="entry.icon.alt" class="max-h-24 object-cover text-base  mx-auto"

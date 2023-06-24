@@ -43,33 +43,32 @@ module.exports = {
         'nav-active': withOpacity(' --color-nav-active'),
         'nav-hover': withOpacity(' --color-nav-hover'),
         'nav-base': withOpacity('--color-nav-base'),
+        mitre: {
+          blue: '#005B94',
+          highlighter: '#FFF601',
+          'dark-navy': '#0B2338',
+          navy: '#0D2F4F',
+          'light-blue': '#87DEFF',
+          black: '#111921',
+          'dark-gray': '#7E8284',
+          silver: '#D4D4D3',
+          'light-silver': '#F1F3F4',
+        },
       },
-      mitre: {
-        blue: '#005B94',
-        highlighter: '#FFF601',
-        'dark-navy': '#0B2338',
-        navy: '#0D2F4F',
-        'light-blue': '#87DEFF',
-        black: '#111921',
-        'dark-gray': '#7E8284',
-        silver: '#D4D4D3',
-        'light-silver': '#F1F3F4',
+      fontFamily: {
+        sans: [...defaultTheme.fontFamily.sans],
+        mitre: 'Roboto Slab'
       },
-    },
-    fontFamily: {
-      sans: [...defaultTheme.fontFamily.sans],
-      mitre: 'Roboto Slab'
     },
   },
-},
   corePlugins: {
-  aspectRatio: false,
+    aspectRatio: false,
   },
-plugins: [
-  require('@tailwindcss/forms'),
-  require('@tailwindcss/typography'),
-  require('@tailwindcss/aspect-ratio'),
-],
+  plugins: [
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/aspect-ratio'),
+  ],
 }
 
 

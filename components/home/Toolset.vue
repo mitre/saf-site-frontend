@@ -26,7 +26,7 @@
                     </div>
                     <h3 class="mt-8 text-lg font-bold leading-8 tracking-tight text-base ">{{
                       tool.name }}</h3>
-                    <p class="mt-5 text-left ml-8 text-base leading-7 text-base " v-html="tool.description"></p>
+                    <p class="mt-5 text-left ml-8 text-base leading-7" v-html="tool.description"></p>
                   </div>
                 </div>
               </NuxtLink>

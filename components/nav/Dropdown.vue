@@ -30,7 +30,7 @@
                         ]">
                             <component :is="item.icon" class="flex-shrink-0 h-6 w-6 text-fill" aria-hidden="true" />
                             <div class="ml-4">
-                                <p class="text-base font-medium text-base ">
+                                <p class="text-base font-medium">
                                     {{ item.name }}
                                 </p>
                                 <p class="mt-1 text-sm text-muted ">

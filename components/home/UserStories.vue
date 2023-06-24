@@ -5,10 +5,10 @@
         Stories</h2>
       <div class="mt-10 space-y-8 divide-y divide-accent ">
         <div v-for="userStory in userStories" :key="userStory.id" class="pt-8 lg:grid lg:grid-cols-12 lg:gap-8">
-          <span class="text-base font-bold leading-7 text-base  lg:col-span-5">{{
+          <span class="text-base font-bold leading-7 lg:col-span-5">{{
             userStory.question }}</span>
           <span class="mt-4 lg:col-span-7 lg:mt-0">
-            <div class="text-base leading-7 text-base " v-html="userStory.answer" />
+            <div class="text-base leading-7" v-html="userStory.answer" />
           </span>
         </div>
       </div>

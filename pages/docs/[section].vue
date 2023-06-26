@@ -43,7 +43,7 @@ const getData = async () => {
       currentHeading.value = route.hash.replace(/^#+/, '')
 
       currentIndex.value = allLinks.value.findIndex((elem) => {
-        return elem.title === currentDocAttributes.subsections[0].title
+        return elem.title === currentDocAttributes.subsections[currentSubsectionIndex].title
       })
 
       let content = currentDocAttributes.subsections[currentSubsectionIndex].content

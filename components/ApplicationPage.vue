@@ -1,5 +1,5 @@
 <template>
-    <div class="relative min-h-screen h-full pt-4 px-4 sm:px-6 lg:px-8">
+    <div class="relative h-full pt-4 px-4 sm:px-6 lg:px-8">
         <div class="mx-auto max-w-7xl text-center">
             <img :src="`${productIcon}`" class="w-14 md:w-20 aspect-square mx-auto my-2" aria-hidden="true"
                 alt="Alt text here" />

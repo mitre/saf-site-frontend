@@ -17,7 +17,7 @@
             <!-- TODO: Mobile Site Search-->
             <PopoverButton
               class="rounded-md p-2 inline-flex items-center justify-center text-nav-base hover:bg-nav-active focus:outline-none focus:ring-2 focus:ring-inset focus:ring-accent">
-              <span class="sr-only text-white">Open menu</span>
+              <span class="sr-only">Open menu</span>
               <DotsVerticalIcon class="h-6 w-6 text-base " aria-hidden="true" />
             </PopoverButton>
           </div>

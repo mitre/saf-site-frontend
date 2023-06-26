@@ -99,7 +99,7 @@
                                 src="@/assets/GitHubLogoBlack.svg" alt="Github Logo" />
                               <NuxtLink :to="entry.source" target="_blank">
                                 <button @click=""
-                                  class="flex items-center mr-5 bg-button-accent p-2 rounded-lg text-button-text font-semibold">
+                                  class="flex items-center mr-5 bg-button-accent p-2 rounded-lg text-button-text font-bold">
                                   View Code
                                   <span class="sr-only">,
                                     {{ entry.name }}

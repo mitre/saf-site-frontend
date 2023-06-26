@@ -75,7 +75,7 @@
                       }}</th>
                   </tr>
                   <template v-for="(entry, index) in value" :key="index">
-                    <tr :class="[index % 2 === 0 ? 'bg-neutral-3' : 'bg-neutral-3 dark:bg-neutral-4', 'border-t']">
+                    <tr :class="[index % 2 === 0 ? 'bg-neutral-3' : 'bg-neutral-2 dark:bg-neutral-4', 'border-t']">
                       <td class="py-4 pl-4 pr-3 text-sm font-medium text-base  sm:pl-6">
                         <span v-if="entry.version != 0">{{ entry.name }} | {{ entry.version }} </span>
                         <span v-else>{{ entry.name }}</span>

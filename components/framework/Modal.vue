@@ -11,35 +11,35 @@
       <div class="sm:flex">
         <div class="flex-1 border-t border-accent ">
           <div>
-            <div class="bg-neutral-1  px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-              <span class="text-sm font-medium text-muted ">Category</span>
+            <div class="bg-neutral-1  px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 border-b">
+              <span class="text-sm font-medium text-muted">Category</span>
               <span class="mt-1 text-sm text-base  sm:col-span-2 sm:mt-0">{{
                 guidance.category.replaceAll('_', ' ') }}
               </span>
             </div>
-            <div class="bg-neutral-2  px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <div class="bg-neutral-2  px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 border-b">
               <span class="text-sm font-medium text-muted ">Name</span>
               <span class="mt-1 text-sm text-base  sm:col-span-2 sm:mt-0">{{ guidance.name
               }}</span>
             </div>
-            <div class="bg-neutral-1  px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <div class="bg-neutral-1  px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 border-b">
               <span class="text-sm font-medium text-muted ">Version</span>
               <span v-if="guidance.version != 0" class="mt-1 text-sm text-base  sm:col-span-2 sm:mt-0">{{
                 guidance.version }}</span>
               <span v-else class="mt-1 text-sm text-base  sm:col-span-2 sm:mt-0"> N/A </span>
             </div>
-            <div class="bg-neutral-2  px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <div class="bg-neutral-2  px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 border-b">
               <span class="text-sm font-medium text-muted ">Type</span>
               <span class="mt-1 text-sm text-base  sm:col-span-2 sm:mt-0">{{ guidance.type
               }}</span>
             </div>
-            <div class="bg-neutral-1  px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <div class="bg-neutral-1  px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 border-b">
               <span class="text-sm font-medium text-muted ">Date</span>
               <span v-if="guidance.date" class="mt-1 text-sm text-base  sm:col-span-2 sm:mt-0">{{
                 guidance.date }}</span>
               <span v-else class="mt-1 text-sm text-base  sm:col-span-2 sm:mt-0"> N/A </span>
             </div>
-            <div class="bg-neutral-2  px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <div class="bg-neutral-2  px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 border-b">
               <span class="text-sm font-medium text-muted ">Url</span>
               <a class="flex items-center after:content-['_↗'] mt-1 text-sm text-base  sm:col-span-2 sm:mt-0  hover:text-nav-light-active dark:hover:text-nav-dark-active hover:underline"
                 target="_blank" :href="guidance.source">{{ guidance.source }}
@@ -60,7 +60,7 @@
         <hr class="my-1 h-px border-0 bg-neutral-1 ">
         <div class="sm:flex bg-neutral-2 px-4 py-5 sm:gap-4 sm:px-6 border-b-2 border-neutral-1">
           <div class="flex-1">
-            <span class="text-sm text-center font-medium text-base ">Harden</span>
+            <span class="text-sm text-center font-medium text-base">Harden</span>
           </div>
           <div class="flex-1">
             <div class="hidden sm:block">
@@ -71,16 +71,16 @@
         <div class="sm:flex md:max-h-96 h-full">
           <div class="flex-1 border-r-2 border-neutral-1 overflow-y-scroll">
             <div v-if="guidance.hardening != null" v-for="hardening in guidance.hardening">
-              <div class="bg-neutral-1  px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-3 sm:px-6">
-                <span class="flex items-center text-sm font-medium text-muted ">Name</span>
+              <div class="bg-neutral-1  px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-3 sm:px-6 border-b">
+                <span class="flex items-center text-sm font-medium text-muted">Name</span>
                 <div class="flex items-center">
                   <span class="mt-1 sm:ml-3 text-sm text-base   sm:col-span-2 sm:mt-0">
                     {{ hardening.name }}
                   </span>
                 </div>
               </div>
-              <div class="bg-neutral-2  px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
-                <span class="flex items-center text-sm font-medium text-muted ">Platform
+              <div class="bg-neutral-2  px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6 border-b">
+                <span class="flex items-center text-sm font-medium text-muted">Platform
                 </span>
                 <div class="flex items-center">
                   <div class="h-10 w-10 flex-shrink-0">
@@ -91,7 +91,7 @@
                     target="_blank" :href="hardening.platform.link">{{ hardening.platform.name }}</a>
                 </div>
               </div>
-              <div class="bg-neutral-1  px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
+              <div class="bg-neutral-1  px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6 border-b">
                 <span class="flex items-center text-sm font-medium text-muted ">Partner</span>
                 <div class="flex items-center">
                   <div class="h-10 w-10 flex-shrink-0">
@@ -102,7 +102,7 @@
                     target="_blank" :href="hardening.partner.link">{{ hardening.partner.name }}</a>
                 </div>
               </div>
-              <div class="bg-neutral-2  px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-3 sm:px-6">
+              <div class="bg-neutral-2  px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-3 sm:px-6 border-b">
                 <span class="flex items-center text-sm font-medium text-muted ">Last
                   Updated
                 </span>
@@ -126,21 +126,21 @@
               <hr class="h-px border-0 bg-neutral-1 ">
               <div class="sm:flex bg-neutral-2 px-4 py-5 sm:gap-4 sm:px-6 border-b-2 border-neutral-1">
                 <div class="flex-1">
-                  <span class="text-sm text-center font-medium text-base ">Validate</span>
+                  <span class="text-sm text-center font-medium text-base">Validate</span>
                 </div>
               </div>
             </div>
             <div v-if="guidance.validation != null" v-for="validation in guidance.validation" class="overflow-y-scroll">
-              <div class="bg-neutral-1  px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
-                <span class="flex items-center text-sm font-medium text-muted ">Name</span>
+              <div class="bg-neutral-1  px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6 border-b">
+                <span class="flex items-center text-sm font-medium text-muted">Name</span>
                 <div class="flex items-center">
                   <span class="mt-1 sm:ml-3 text-sm text-base  sm:col-span-2 sm:mt-0">
                     {{ validation.name }}
                   </span>
                 </div>
               </div>
-              <div class="bg-neutral-2  px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
-                <span class="flex items-center text-sm font-medium text-muted ">Platform
+              <div class="bg-neutral-2  px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6 border-b">
+                <span class="flex items-center text-sm font-medium text-muted">Platform
                 </span>
                 <div class="flex items-center">
                   <div class="h-10 w-10 flex-shrink-0">
@@ -151,7 +151,7 @@
                     target="_blank" :href="validation.platform.link">{{ validation.platform.name }}</a>
                 </div>
               </div>
-              <div class="bg-neutral-1  px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
+              <div class="bg-neutral-1  px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6 border-b">
                 <span class="flex items-center text-sm font-medium text-muted ">Partner
                 </span>
                 <div class="flex items-center">
@@ -163,8 +163,8 @@
                     target="_blank" :href="validation.partner.link">{{ validation.partner.name }}</a>
                 </div>
               </div>
-              <div class="bg-neutral-2  px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-3 sm:px-6">
-                <span class="flex items-center text-sm font-medium text-muted ">Last
+              <div class="bg-neutral-2  px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-3 sm:px-6 border-b">
+                <span class="flex items-center text-sm font-medium text-muted">Last
                   Updated
                 </span>
                 <div class="flex items-center">
@@ -174,7 +174,7 @@
                 </div>
               </div>
               <div class="bg-neutral-1 border-b-4 border-accent  px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
-                <span class="flex items-center text-sm font-medium text-muted ">Link</span>
+                <span class="flex items-center text-sm font-medium text-muted">Link</span>
                 <a class="inline-block break-all after:content-['_↗'] items-center mt-1 text-sm text-base  sm:col-span-1 sm:mt-0 hover:text-nav-light-active dark:hover:text-nav-dark-active hover:underline"
                   target="_blank" :href="validation.source">
                   {{ validation.source }}

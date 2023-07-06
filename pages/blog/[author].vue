@@ -97,7 +97,6 @@
 </template>
 
 <script setup>
-import { marked } from 'marked'
 import { LinkIcon, MailIcon } from '@heroicons/vue/outline'
 
 ////  Data  ////
@@ -174,7 +173,7 @@ const getBlogAuthor = async () => {
           title: author.attributes.jobTitle,
           company: author.attributes.partner.data.attributes.name.replace('_', ' '),
         },
-        description: marked(author.attributes.description),
+        description: author.attributes.description,
         photo: {
           name: author.attributes.photo.data ? author.attributes.photo.data.attributes.name : null,
           url: author.attributes.photo.data ? author.attributes.photo.data.attributes.url : null,

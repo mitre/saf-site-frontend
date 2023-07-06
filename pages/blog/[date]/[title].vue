@@ -20,7 +20,6 @@
 </template>
 
 <script setup>
-import { marked } from 'marked'
 import { ref, onMounted, nextTick } from 'vue';
 
 ////  Data  ////
@@ -37,7 +36,7 @@ const getBlogPost = async () => {
       if (!data._value || !data._value.blogPost.data)
         return navigateTo('/blog')
       postData.value = data._value.blogPost.data.attributes
-      renderedContent.value = marked(postData.value.content)
+      renderedContent.value = postData.value.content
       postAuthor.value = postData.value.users_permissions_user.data.attributes.name
       isLoaded.value = true
     });

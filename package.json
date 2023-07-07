@@ -15,7 +15,7 @@
     "test:e2e": "yarn playwright test"
   },
   "dependencies": {
-    "marked": "^4.1.0",
+    "marked": "^5.1.1",
     "vue-json-viewer": "3",
     "nuxt-graphql-client": "^0.2.27",
     "vue": "^3.2.47"

@@ -51,10 +51,10 @@
   }
 
   .dark {
-    /* text #d1d5db */
-    --color-text-base: 209, 213, 219;
-    /* header #F1F3F4 */
-    --color-text-header: 241, 243, 244;
+    /* text #ffffff */
+    --color-text-base: 255, 255, 255;
+    /* header #ffffff */
+    --color-text-header: 255, 255, 255;
     /* subtext #a0a0a0 */
     --color-text-muted: 160, 160, 160;
     /* --color-text-inverted: 79, 70, 229; */
@@ -88,10 +88,10 @@
     --color-button-disabled-text: 0, 0, 0;
     /* nav-active #0ea5e9*/
     --color-nav-active: 14, 165, 233;
-    /* nav-hover #8c8c8d*/
-    --color-nav-hover: 140, 140, 141;
-    /* nav-inactive #d1d5db*/
-    --color-nav-base: 209, 213, 219;
+    /* nav-hover #a0a0a0*/
+    --color-nav-hover: 160, 160, 160;
+    /* nav-inactive #ffffff*/
+    --color-nav-base: 255, 255, 255;
   }
 }
 
@@ -99,8 +99,8 @@ html {
   scroll-padding-top: 90px;
 }
 
-h1,
+/* h1,
 h2,
 h3 {
   font-family: 'Roboto Slab';
-}
+} */

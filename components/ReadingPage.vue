@@ -6,8 +6,7 @@
             <div class="relative px-4 sm:px-6 lg:px-8">
                 <div class="text-lg prose prose-lg max-w-prose mx-auto ">
                     <h1>
-                        <span
-                            class="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-base  sm:text-4xl">
+                        <span class="mt-2 block text-4xl text-center leading-8 font-extrabold tracking-tight sm:text-4xl">
                             {{ title }}
                         </span>
                         <span class="pt-3 block text-base text-center text-nav-active  font-semibold tracking-wide">

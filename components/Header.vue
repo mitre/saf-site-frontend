@@ -7,7 +7,7 @@
             <NuxtLink to="/" class="flex">
               <img src="@/assets/safLogo.svg" class="w-12 md:w-14" aria-hidden="true" alt="SAF© Logo" />
               <h1
-                class="text-2xl tracking-tighter p-2 font-extrabold whitespace-nowrap text-base  md:text-3xl xl:text-4xl">
+                class="text-2xl tracking-tighter p-2 font-extrabold whitespace-nowrap text-header  md:text-3xl xl:text-4xl">
                 <span class="block xl:inline font-mitre font-extrabold">MITRE SAF<span class="text-xs">©</span></span>
               </h1>
             </NuxtLink>

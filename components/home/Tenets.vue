@@ -11,14 +11,14 @@
           <div v-for="tenet in tenets" :key="tenet.orderID" class="lg:mx-auto flex max-w-sm gap-y-4">
             <div class="px-2">
               <div class="flex items-center">
-                <CurrencyDollarIcon v-if="tenet.name === 'Free'" class="h-12 w-12 mr-2 text-base " />
-                <BeakerIcon v-else-if="tenet.name === 'Open Source'" class="h-12 w-12 mr-2 text-base " />
-                <GlobeIcon v-else-if="tenet.name === 'Community Project'" class="h-12 w-12 mr-2 text-base " />
+                <CurrencyDollarIcon v-if="tenet.name === 'Free'" class="h-12 w-12 mr-2" />
+                <BeakerIcon v-else-if="tenet.name === 'Open Source'" class="h-12 w-12 mr-2" />
+                <GlobeIcon v-else-if="tenet.name === 'Community Project'" class="h-12 w-12 mr-2" />
                 <AnnotationIcon v-else class="h-12 w-12 mr-2 text-base " />
-                <div class="text-start text-2xl font-semibold tracking-tight text-base  sm:text-3xls">
+                <div class="text-start text-2xl font-extrabold tracking-tight sm:text-3xl">
                   {{ tenet.name }}</div>
               </div>
-              <div class="text-start mt-3 leading-7 text-base " v-html="tenet.description" />
+              <div class="text-start mt-3 leading-7 text-lg" v-html="tenet.description" />
             </div>
           </div>
         </div>

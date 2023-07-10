@@ -4,7 +4,7 @@
             <div class="mx-auto max-w-7xl text-center">
                 <img :src="`${productIcon}`" class="w-14 md:w-20 aspect-square mx-auto my-2" aria-hidden="true"
                     alt="Alt text here" />
-                <h2 class="text-3xl font-bold tracking-tight text-header  sm:text-4xl">{{
+                <h2 class="text-4xl font-bold tracking-tight text-header  sm:text-4xl">{{
                     title }}</h2>
                 <h3 class="mt-6 mx-auto leading-8 text-center text-base ">{{ grabber }}</h3>
                 <div class="prose dark:prose-invert max-w-none mt-8 mx-auto leading-8 text-left text-base "

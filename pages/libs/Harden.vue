@@ -5,13 +5,12 @@
   </Head>
   <div>
     <Header />
-    <div
-      class="relative bg-light-backdrop-primary dark:bg-dark-backdrop-primary min-h-screen h-full pt-4 px-4 sm:px-6 lg:px-8">
+    <div class="relative bg-neutral-1  min-h-screen h-full pt-4 px-4 sm:px-6 lg:px-8">
       <div v-if="isLoaded">
         <div class="sm:flex sm:items-center">
           <div class="sm:flex-auto">
-            <h1 class="text-xl font-bold text-light-header dark:text-dark-header">Harden</h1>
-            <p class="mt-2 text-sm text-light-text dark:text-dark-text">These open-source community-based hardening
+            <h1 class="text-4xl font-bold text-header">Harden</h1>
+            <p class="mt-2">These open-source community-based hardening
               baselines help to securely configure common system components.
               MITRE is helping to provide stewardship over these hardening baselines, hosted here and at other community
               vendor sites.

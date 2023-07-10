@@ -5,16 +5,15 @@
   </Head>
   <div>
     <Header />
-    <div
-      class="relative bg-light-backdrop-primary dark:bg-dark-backdrop-primary max-w-8xl min-h-screen h-full pt-4 px-4 sm:px-6 lg:px-8">
+    <div class="relative bg-neutral-1  max-w-8xl min-h-screen h-full pt-4 px-4 sm:px-6 lg:px-8">
       <div v-if="isLoaded">
         <div class="sm:flex sm:items-center">
           <div class="sm:flex-auto">
-            <h1 class="text-4xl font-bold text-light-header dark:text-dark-header text-center"><strong>Getting
+            <h1 class="text-4xl font-bold text-header  text-center"><strong>Getting
                 Started</strong>
             </h1>
             <div
-              class="prose-img mt-8 mb-6 max-w-5xl mx-auto leading-8 text-left prose prose-sm lg:prose-lg dark:prose-invert dark:text-dark-text prose-li:text-start prose-code:text-start"
+              class="prose-img mt-8 mb-6 max-w-5xl mx-auto leading-8 text-left prose prose-sm lg:prose-lg dark:prose-invert  prose-li:text-start prose-code:text-start"
               style="" v-html="gettingStartedContent"></div>
           </div>
         </div>

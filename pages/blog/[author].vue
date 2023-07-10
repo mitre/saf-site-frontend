@@ -6,7 +6,7 @@
   <div>
     <Header />
     <div
-      class="relative py-16 bg-light-backdrop-primary dark:bg-dark-backdrop-primary overflow-hidden min-h-screen h-full pt-12 pb-20 px-4 sm:px-6 lg:pt-12 lg:pb-28 lg:px-8">
+      class="relative py-16 bg-neutral-1  overflow-hidden min-h-screen h-full pt-12 pb-20 px-4 sm:px-6 lg:pt-12 lg:pb-28 lg:px-8">
       <template v-if="isLoaded">
         <div class="relative px-4 sm:px-6">
           <article>
@@ -18,17 +18,17 @@
               <div class="mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="mt-2 sm:-mt-16 sm:flex sm:items-end sm:space-x-5">
                   <div v-if="author.photo" class="flex">
-                    <img class="h-24 w-24 rounded-full ring-4 ring-light-text dark:ring-dark-text sm:h-32 sm:w-32 p-2"
-                      :src="author.photo.url" v-bind:alt="author.photo.name" />
+                    <img class="h-24 w-24 rounded-full ring-4 ring-base  sm:h-32 sm:w-32 p-2" :src="author.photo.url"
+                      v-bind:alt="author.photo.name" />
                   </div>
                   <div class="mt-6 sm:flex sm:min-w-0 sm:flex-1 sm:items-center sm:justify-end sm:space-x-6 sm:pb-1">
                     <div class="mt-6 min-w-0 flex-1 sm:hidden 2xl:block">
-                      <h1 class="truncate text-2xl font-bold text-light-text dark:text-dark-text">{{ author.name }}</h1>
+                      <h1 class="truncate text-2xl font-bold text-base ">{{ author.name }}</h1>
                     </div>
                   </div>
                 </div>
                 <div class="mt-6 hidden min-w-0 flex-1 sm:block 2xl:hidden">
-                  <h1 class="truncate text-2xl font-bold text-light-text dark:text-dark-text">{{ author.name }}</h1>
+                  <h1 class="truncate text-2xl font-bold text-base ">{{ author.name }}</h1>
                 </div>
               </div>
             </div>
@@ -36,25 +36,24 @@
             <div class="mx-auto mt-6 px-4 sm:px-6 lg:px-8">
               <div class="grid grid-cols-1 gap-y-8 sm:grid-cols-2">
                 <div>
-                  <span class="text-sm font-bold text-light-text dark:text-dark-text"> Title </span>
-                  <span class="sm:mt-1 text-sm text-light-text dark:text-dark-text">{{ author.fields.title }}</span>
+                  <span class="text-sm font-bold text-base "> Title </span>
+                  <span class="sm:mt-1 text-sm text-base ">{{ author.fields.title }}</span>
                 </div>
                 <div>
                   <!-- TODO: Add a internal link to the relavent partner page here -->
-                  <span class="text-sm font-bold text-light-text dark:text-dark-text"> Company </span>
-                  <span class="sm:mt-1 text-sm text-light-text dark:text-dark-text">{{ author.fields.company }}</span>
+                  <span class="text-sm font-bold text-base "> Company </span>
+                  <span class="sm:mt-1 text-sm text-base ">{{ author.fields.company }}</span>
                 </div>
                 <div class="sm:col-span-2">
-                  <span class="text-sm font-bold text-light-text dark:text-dark-text">About</span>
-                  <div class="prose mt-1 max-w-prose space-y-5 text-sm text-light-text dark:text-dark-text"
-                    v-html="author.description" />
+                  <span class="text-sm font-bold text-base ">About</span>
+                  <div class="prose mt-1 max-w-prose space-y-5 text-sm text-base " v-html="author.description" />
 
                 </div>
               </div>
               <div id="Social Medias" class="flex gap-2 pt-5 pb-5">
                 <a v-if="socialMediaLinks.displayEmail != null" v-bind:href="'mailto:' + socialMediaLinks.displayEmail">
                   <span class="sr-only">Mail Link</span>
-                  <MailIcon text-gray-500 class="w-9 h-9 text-light-text dark:text-dark-text" />
+                  <MailIcon class="w-9 h-9 text-base " />
                 </a>
                 <a v-if="socialMediaLinks.twitter" v-bind:href="socialMediaLinks.twitter">
                   <img src="~/assets/TwitterLogo.png" class="max-w-full h-auto max-h-8" alt="Twitter Logo" />
@@ -76,14 +75,14 @@
                 </a>
                 <a v-if="socialMediaLinks.other" v-bind:href="socialMediaLinks.other">
                   <span class="sr-only">External Link</span>
-                  <LinkIcon class="w-7 h-8 text-light-text dark:text-dark-text" />
+                  <LinkIcon class="w-7 h-8 text-base " />
                 </a>
               </div>
             </div>
-            <div class="border-b border-light-border-primary dark:border-dark-border-primary pb-5" />
+            <div class="border-b border-accent  pb-5" />
           </article>
         </div>
-        <span class="block text-xl pt-12 text-center underline font-bold text-light-text dark:text-dark-text">
+        <span class="block text-xl pt-12 text-center underline font-bold text-base ">
           Recent Articles
         </span>
         <!-- Blog Cards -->
@@ -98,7 +97,6 @@
 </template>
 
 <script setup>
-import { marked } from 'marked'
 import { LinkIcon, MailIcon } from '@heroicons/vue/outline'
 
 ////  Data  ////
@@ -175,7 +173,7 @@ const getBlogAuthor = async () => {
           title: author.attributes.jobTitle,
           company: author.attributes.partner.data.attributes.name.replace('_', ' '),
         },
-        description: marked(author.attributes.description),
+        description: author.attributes.description,
         photo: {
           name: author.attributes.photo.data ? author.attributes.photo.data.attributes.name : null,
           url: author.attributes.photo.data ? author.attributes.photo.data.attributes.url : null,

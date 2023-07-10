@@ -8,7 +8,7 @@
     <div v-if="isLoaded">
       <ReadingPage :title="postData.title" :last-updated="postData.date" :author="postAuthor">
         <div
-          class="mt-8 mx-auto leading-8 text-left prose prose-sm lg:prose-lg dark:prose-invert text-light-text dark:text-dark-text prose-li:text-start prose-code:text-start"
+          class="mt-8 mx-auto leading-8 text-left prose prose-sm lg:prose-lg dark:prose-invert text-base  prose-li:text-start prose-code:text-start"
           v-html="renderedContent"></div>
       </ReadingPage>
     </div>
@@ -20,7 +20,6 @@
 </template>
 
 <script setup>
-import { marked } from 'marked'
 import { ref, onMounted, nextTick } from 'vue';
 
 ////  Data  ////
@@ -37,7 +36,7 @@ const getBlogPost = async () => {
       if (!data._value || !data._value.blogPost.data)
         return navigateTo('/blog')
       postData.value = data._value.blogPost.data.attributes
-      renderedContent.value = marked(postData.value.content)
+      renderedContent.value = postData.value.content
       postAuthor.value = postData.value.users_permissions_user.data.attributes.name
       isLoaded.value = true
     });

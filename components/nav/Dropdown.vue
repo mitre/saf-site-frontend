@@ -2,17 +2,17 @@
     <Popover class="relative" v-slot="{ open }">
         <PopoverButton :class="[
             open
-                ? 'text-nav-light-hover dark:text-nav-dark-hover'
+                ? 'text-nav-hover '
                 : '',
-            items.some(e => e.href === route.fullPath) ? 'text-nav-light-active dark:text-nav-dark-active' : 'text-nav-light-inactive dark:text-nav-dark-inactive',
-            'group bg-light-backdrop-primary dark:bg-dark-backdrop-primary rounded-md inline-flex items-center text-base font-medium  hover:text-nav-light-hover dark:hover:text-nav-dark-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-light-border-primary'
+            items.some(e => e.href === route.fullPath) ? 'text-nav-active ' : 'text-nav-base ',
+            'group bg-neutral-1  rounded-md inline-flex items-center text-base font-medium  hover:text-nav-hover  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent'
         ]">
             <span class="font-mitre font-semibold">{{ label }}</span>
             <ChevronDownIcon :class="[
-                open ? 'text-nav-light-hover dark:text-nav-dark-hover'
+                open ? 'text-nav-hover '
                     : '',
-                items.some(e => e.href === route.fullPath) ? 'text-nav-light-active dark:text-nav-dark-active' : 'text-nav-light-inactive dark:text-nav-dark-inactive',
-                'ml-2 h-5 w-5 group-hover:text-nav-light-hover dark:group-hover:text-nav-dark-hover'
+                items.some(e => e.href === route.fullPath) ? 'text-nav-active ' : 'text-nav-base ',
+                'ml-2 h-5 w-5 group-hover:text-nav-hover '
             ]" aria-hidden="true" />
         </PopoverButton>
 
@@ -20,23 +20,20 @@
             enter-to-class="opacity-100 translate-y-0" leave-active-class="transition ease-in duration-150"
             leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 translate-y-1">
             <PopoverPanel class="absolute z-10 left-1/2 transform -translate-x-1/2 mt-3 px-2 w-screen max-w-md sm:px-0">
-                <div
-                    class="rounded-lg shadow-lg ring-light-dropshadow dark:ring-dark-dropshadow ring-opacity-5 overflow-hidden">
-                    <div
-                        class="relative grid gap-6 bg-light-backdrop-primary dark:bg-dark-backdrop-primary px-5 py-6 sm:gap-8 sm:p-8">
+                <div class="rounded-lg shadow-lg ring-dropshadow  ring-opacity-5 overflow-hidden">
+                    <div class="relative grid gap-6 bg-neutral-1  px-5 py-6 sm:gap-8 sm:p-8">
                         <NuxtLink v-for="item in items" :key="item.name" :to="item.href" :class="[
-                            '-m-3 p-3 flex items-start rounded-lg hover:bg-light-backdrop-secondary dark:hover:bg-dark-backdrop-secondary',
+                            '-m-3 p-3 flex items-start rounded-lg hover:bg-neutral-2 ',
                             item.href == route.fullPath
-                                ? 'bg-light-backdrop-secondary dark:bg-dark-backdrop-secondary'
+                                ? 'bg-neutral-2 '
                                 : ''
                         ]">
-                            <component :is="item.icon" class="flex-shrink-0 h-6 w-6 text-light-icon-primary"
-                                aria-hidden="true" />
+                            <component :is="item.icon" class="flex-shrink-0 h-6 w-6 text-fill" aria-hidden="true" />
                             <div class="ml-4">
-                                <p class="text-base font-medium text-light-text dark:text-dark-text">
+                                <p class="text-base font-medium">
                                     {{ item.name }}
                                 </p>
-                                <p class="mt-1 text-sm text-light-subtext dark:text-dark-subtext">
+                                <p class="mt-1 text-sm text-muted ">
                                     {{ item.description }}
                                 </p>
                             </div>

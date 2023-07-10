@@ -4,7 +4,7 @@
     <Meta name="description" content="Homepage of the SAF site" />
   </Head>
   <Header />
-  <div class="bg-light-backdrop-primary dark:bg-dark-backdrop-primary min-h-screen h-full">
+  <div class="bg-neutral-1 min-h-screen h-full">
     <main v-if="isLoaded" class=" mb-16 mx-auto">
       <HomeHero />
 
@@ -15,8 +15,7 @@
       <HomeToolset :toolset="toolset" />
 
       <div class="py-24">
-        <h1
-          class="mt-2 text-center text-3xl font-bold tracking-tight text-light-header dark:text-dark-header sm:text-4xl">
+        <h1 class="mt-2 text-center font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-header">
           Adopted
           by The Community</h1>
         <HomeLogoCloud title="Sponsors" :data="sponsors" />

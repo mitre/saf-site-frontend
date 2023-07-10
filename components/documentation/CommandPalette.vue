@@ -3,7 +3,7 @@
         <Dialog as="div" class="relative z-50" @close="$emit('update:isCommandPaletteOpen', false)">
             <TransitionChild as="template" enter="ease-out duration-300" enter-from="opacity-0" enter-to="opacity-100"
                 leave="ease-in duration-200" leave-from="opacity-100" leave-to="opacity-0">
-                <div class="fixed inset-0 bg-light-blur dark:bg-dark-blur bg-opacity-90 transition-opacity" />
+                <div class="fixed inset-0 bg-blur  bg-opacity-90 transition-opacity" />
             </TransitionChild>
 
             <div class="fixed inset-0 z-50 overflow-y-auto mt-20">
@@ -11,32 +11,29 @@
                     enter-to="opacity-100 scale-100" leave="ease-in duration-200" leave-from="opacity-100 scale-100"
                     leave-to="opacity-0 scale-95">
                     <DialogPanel
-                        class="mt-5 mx-auto max-w-xl transform divide-y divide-light-border-primary dark:divide-dark-border-primary dark:divide-opacity-20 bg-light-backdrop-primary dark:bg-dark-backdrop-primary overflow-hidden rounded-xl  shadow-2xl ring-1 ring-light-border-primary dark:ring-dark-border-primary ring-opacity-5 transition-all">
+                        class="mt-5 mx-auto max-w-xl transform divide-y divide-accent  dark:divide-opacity-20 bg-neutral-1  overflow-hidden rounded-xl  shadow-2xl ring-1 ring-accent  ring-opacity-5 transition-all">
                         <Combobox>
                             <div class="relative">
-                                <SearchIcon
-                                    class="pointer-events-none absolute top-3.5 left-4 h-5 w-5 text-light-text dark:text-dark-text"
+                                <SearchIcon class="pointer-events-none absolute top-3.5 left-4 h-5 w-5 text-base "
                                     aria-hidden="true" />
                                 <ComboboxInput
-                                    class="h-12 w-full border-0 bg-transparent pl-11 pr-4 text-light-text dark:text-dark-text  placeholder:text-light-text dark:placeholder:text-dark-text focus:ring-0 sm:text-sm "
+                                    class="h-12 w-full border-0 bg-transparent pl-11 pr-4 text-base   placeholder:text-base  focus:ring-0 sm:text-sm "
                                     placeholder="Search..." @change="query = $event.target.value" />
                             </div>
 
                             <ComboboxOptions v-if="Object.keys(filteredItems).length > 0" static
                                 class="max-h-96 scroll-py-3 overflow-y-auto p-3">
                                 <div v-for="section in Object.keys(filteredItems)" class="mb-2">
-                                    <h1 class="font-bold mb-1 text-light-text dark:text-dark-text">{{ section }}</h1>
+                                    <h1 class="font-bold mb-1 text-base ">{{ section }}</h1>
                                     <ComboboxOption v-for="item in filteredItems[section]" :key="item.id" :value="item"
                                         as="template" v-slot="{ active }">
                                         <li
-                                            :class="['flex cursor-default select-none rounded-xl p-3', active && 'bg-light-backdrop-secondary dark:bg-dark-backdrop-secondary']">
+                                            :class="['flex cursor-default select-none rounded-xl p-3', active && 'bg-neutral-2 ']">
                                             <a :href="`/docs/${item.subsection_href}`" class="ml-4 flex-auto">
-                                                <p
-                                                    :class="['text-sm font-semibold', active ? 'text-light-text dark:text-dark-text' : 'text-light-text dark:text-dark-text']">
+                                                <p :class="['text-sm font-semibold', active ? 'text-base ' : 'text-base ']">
                                                     {{ item.subsection_title }}
                                                 </p>
-                                                <p
-                                                    :class="['text-sm', active ? 'text-light-subtext dark:text-dark-subtext' : 'text-light-subtext dark:text-dark-subtext']">
+                                                <p :class="['text-sm', active ? 'text-muted ' : 'text-muted ']">
                                                     {{ item.text_found !== "" ? item.text_found + "..." : "" }}
                                                 </p>
                                             </a>
@@ -48,9 +45,9 @@
                             <div v-if="query !== '' && Object.keys(filteredItems).length === 0"
                                 class="py-14 px-6 text-center text-sm sm:px-14">
                                 <ExclamationIcon type="outline" name="exclamation-circle"
-                                    class="mx-auto h-6 w-6 text-light-text dark:text-dark-text" />
-                                <p class="mt-4 font-semibold text-light-text dark:text-dark-text">No results found</p>
-                                <p class="mt-2 text-light-subtext dark:text-dark-subtext">No results found for this search
+                                    class="mx-auto h-6 w-6 text-base " />
+                                <p class="mt-4 font-semibold text-base ">No results found</p>
+                                <p class="mt-2 text-muted ">No results found for this search
                                     term. Please try again.
                                 </p>
                             </div>

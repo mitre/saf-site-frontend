@@ -9,7 +9,7 @@
           <div
             class="relative max-w-xs sm:max-w-md mb-1 rounded-md border border-base   px-3 py-2 shadow-sm focus-within:border-accent  focus-within:ring-1 focus-within:ring-accent ">
             <input id="table-search" name="table-search" v-model="filter" type="text"
-              class="block w-full border-0 p-0  placeholder-muted dark:placeholder-dark-subtext focus:ring-0 sm:bg-neutral-1 "
+              class="block w-full border-0 p-0 placeholder-muted dark:placeholder-dark-subtext focus:ring-0 bg-neutral-1 "
               placeholder="Search for ..." />
           </div>
           <div class="overflow-hidden shadow ring-1 ring-base ring-opacity-5 md:rounded-lg">
@@ -68,8 +68,7 @@
               <tbody>
                 <template v-for="[key, value] of Object.entries(sortedEntries)">
                   <tr class="border-t border-accent">
-                    <th colspan="5" scope="colgroup"
-                      class="bg-neutral-4 dark:bg-neutral-2 px-4 py-3 text-left italic sm:px-6">
+                    <th colspan="5" scope="colgroup" class="bg-neutral-4 dark:bg-neutral-2 px-4 py-3 text-left sm:px-6">
                       {{
                         key
                       }}</th>
@@ -83,7 +82,7 @@
                         <div class="xl:hidden">
                           <span class="sr-only">Title</span>
                           <div class="flex items-center mt-2">
-                            <span class="sm:hidden flex mr-6">
+                            <span class="sm:hidden flex sm:mr-6 mr-2">
                               <NuxtLink target="_blank" :to="entry.platform.link" class="flex items-center mr-1">
                                 <img class="h-8 w-8 rounded-full mr-1" :src="entry.platform.icon.url"
                                   :alt="entry.platform.icon.alt" />
@@ -93,12 +92,12 @@
                                   :alt="entry.platform.icon.alt" />
                               </NuxtLink>
                             </span>
-                            <span class="flex items-center relative whitespace-nowrap py-2 text-right  sm:pr-6">
+                            <span class="flex items-center relative whitespace-nowrap py-2 text-right sm:pr-6">
                               <img class="h-6 w-6 rounded-full mr-3 dark:bg-white dark:p-1"
                                 src="@/assets/GitHubLogoBlack.svg" alt="Github Logo" />
                               <NuxtLink :to="entry.source" target="_blank">
                                 <button @click=""
-                                  class="flex items-center mr-5 bg-button-accent p-2 rounded-lg text-button-text ">
+                                  class="flex items-center mr-2 sm:mr-5 bg-button-accent p-2 rounded-lg text-button-text ">
                                   View Code
                                   <span class="sr-only">,
                                     {{ entry.name }}
@@ -106,7 +105,8 @@
                                   <ExternalLinkIcon class="h-4 w-4" />
                                 </button>
                               </NuxtLink>
-                              <NuxtLink :to="`/libs/guidance/${slugify(entry.name)}?id=${entry.benchmarkID}`">
+                              <NuxtLink class="mr-2"
+                                :to="`/libs/guidance/${slugify(entry.name)}?id=${entry.benchmarkID}`">
                                 <button @click="" class="bg-button-accent p-2 rounded-lg text-button-text ">View
                                   Details<span class="sr-only">,
                                     {{
@@ -145,7 +145,7 @@
                           alt="Github Logo" />
                         <NuxtLink :to="entry.source" target="_blank">
                           <button @click=""
-                            class="flex items-center mr-5 bg-button-accent p-2 rounded-lg text-button-text ">
+                            class="flex items-center mr-2 sm:mr-5 bg-button-accent p-2 rounded-lg text-button-text ">
                             View Code
                             <span class="sr-only">,
                               {{ entry.name }}
@@ -153,7 +153,7 @@
                             <ExternalLinkIcon class="h-4 w-4" />
                           </button>
                         </NuxtLink>
-                        <NuxtLink :to="`/libs/guidance/${slugify(entry.name)}?id=${entry.benchmarkID}`">
+                        <NuxtLink :to="`/libs/guidance/${slugify(entry.name)}?id=${entry.benchmarkID}`" class="mr-2">
                           <button @click="" class="bg-button-accent p-2 rounded-lg text-button-text ">View
                             Details<span class="sr-only">,
                               {{

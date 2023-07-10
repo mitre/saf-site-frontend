@@ -5,23 +5,23 @@
       <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
           <!-- Filter Search -->
-          <label for="table-search" class="block text-sm font-medium text-base ">Search</label>
+          <label for="table-search" class="block font-bold">Search</label>
           <div
             class="relative max-w-xs sm:max-w-md mb-1 rounded-md border border-base   px-3 py-2 shadow-sm focus-within:border-accent  focus-within:ring-1 focus-within:ring-accent ">
             <input id="table-search" name="table-search" v-model="filter" type="text"
-              class="block w-full border-0 p-0 text-base  placeholder-muted dark:placeholder-dark-subtext focus:ring-0 sm:text-sm bg-neutral-1 "
+              class="block w-full border-0 p-0  placeholder-muted dark:placeholder-dark-subtext focus:ring-0 sm:bg-neutral-1 "
               placeholder="Search for ..." />
           </div>
-          <div class="overflow-hidden shadow ring-1 ring-base  ring-opacity-5 md:rounded-lg">
-            <table class="min-w-full">
+          <div class="overflow-hidden shadow ring-1 ring-base ring-opacity-5 md:rounded-lg">
+            <table class="min-w-full font-semibold">
               <!-- Table Headers -->
-              <thead class="bg-neutral-1 text-base">
-                <tr>
-                  <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold sm:pl-6">
+              <thead class="bg-neutral-1 ">
+                <tr class="font-bold text-md">
+                  <th scope="col" class="py-3.5 pl-4 pr-3 text-left sm:pl-6">
                     <button @click="sort('name')" class="group inline-flex cursor-pointer">
                       Name
                       <span v-if="this.currentSort === 'name'"
-                        class="ml-2 flex-none rounded text-muted  group-hover:visible group-focus:visible">
+                        class="ml-2 flex-none rounded text-muted group-hover:visible group-focus:visible">
                         <ChevronDownIcon :class="currentSortDir == 'desc' ? 'h-5 w-5' : 'hidden'" aria-hidden="true" />
                         <ChevronUpIcon :class="currentSortDir == 'asc' ? 'h-5 w-5' : 'hidden'" aria-hidden="true" />
                       </span>
@@ -31,7 +31,7 @@
                       </span>
                     </button>
                   </th>
-                  <th scope="col" class="sm:table-cell hidden px-3 py-3.5 text-left text-sm font-semibold">
+                  <th scope="col" class="sm:table-cell hidden px-3 py-3.5 text-left ">
                     <button @click="sort('platform')" class="group inline-flex cursor-pointer">
                       Platform
                       <span v-if="this.currentSort === 'platform'"
@@ -45,7 +45,7 @@
                       </span>
                     </button>
                   </th>
-                  <th scope="col" class="sm:table-cell hidden px-3 py-3.5 text-left text-sm font-semibold">
+                  <th scope="col" class="sm:table-cell hidden px-3 py-3.5 text-left ">
                     <button @click="sort('partner')" class="focus focus-visible:ring-2 group inline-flex cursor-pointer">
                       Partner
                       <span v-if="this.currentSort === 'partner'"
@@ -69,18 +69,18 @@
                 <template v-for="[key, value] of Object.entries(sortedEntries)">
                   <tr class="border-t border-accent">
                     <th colspan="5" scope="colgroup"
-                      class="bg-neutral-4 dark:bg-neutral-2 px-4 py-3 text-left text-sm font-bold text-base sm:px-6">
+                      class="bg-neutral-4 dark:bg-neutral-2 px-4 py-3 text-left italic sm:px-6">
                       {{
                         key
                       }}</th>
                   </tr>
                   <template v-for="(entry, index) in value" :key="index">
                     <tr :class="[index % 2 === 0 ? 'bg-neutral-3' : 'bg-neutral-2 dark:bg-neutral-4', 'border-t']">
-                      <td class="py-4 pl-4 pr-3 text-sm font-medium text-base  sm:pl-6">
+                      <td class="py-4 pl-4 pr-3    sm:pl-6">
                         <span v-if="entry.version != 0">{{ entry.name }} | {{ entry.version }} </span>
                         <span v-else>{{ entry.name }}</span>
                         <!-- Mobile Stacked View -->
-                        <div class="font-normal xl:hidden">
+                        <div class="xl:hidden">
                           <span class="sr-only">Title</span>
                           <div class="flex items-center mt-2">
                             <span class="sm:hidden flex mr-6">
@@ -93,13 +93,12 @@
                                   :alt="entry.platform.icon.alt" />
                               </NuxtLink>
                             </span>
-                            <span
-                              class="flex items-center relative whitespace-nowrap py-2 text-right text-sm font-medium sm:pr-6">
+                            <span class="flex items-center relative whitespace-nowrap py-2 text-right  sm:pr-6">
                               <img class="h-6 w-6 rounded-full mr-3 dark:bg-white dark:p-1"
                                 src="@/assets/GitHubLogoBlack.svg" alt="Github Logo" />
                               <NuxtLink :to="entry.source" target="_blank">
                                 <button @click=""
-                                  class="flex items-center mr-5 bg-button-accent p-2 rounded-lg text-button-text font-bold">
+                                  class="flex items-center mr-5 bg-button-accent p-2 rounded-lg text-button-text ">
                                   View Code
                                   <span class="sr-only">,
                                     {{ entry.name }}
@@ -108,8 +107,7 @@
                                 </button>
                               </NuxtLink>
                               <NuxtLink :to="`/libs/guidance/${slugify(entry.name)}?id=${entry.benchmarkID}`">
-                                <button @click=""
-                                  class="bg-button-accent p-2 rounded-lg text-button-text font-semibold">View
+                                <button @click="" class="bg-button-accent p-2 rounded-lg text-button-text ">View
                                   Details<span class="sr-only">,
                                     {{
                                       entry.name
@@ -121,35 +119,33 @@
                         </div>
                       </td>
                       <!-- Full View -->
-                      <td class="sm:table-cell hidden truncate whitespace-nowrap px-3 py-4 text-sm">
+                      <td class="sm:table-cell hidden truncate whitespace-nowrap px-3 py-4 ">
                         <div class="flex items-center">
                           <img class="h-10 w-10 rounded-full" :src="entry.platform.icon.url"
                             :alt="entry.platform.icon.alt" />
-                          <NuxtLink target="_blank" :to="entry.platform.link"
-                            class="ml-3 text-base  hover:text-nav-active ">
+                          <NuxtLink target="_blank" :to="entry.platform.link" class="ml-3   hover:text-nav-active ">
                             {{
                               entry.platform.name
                             }} </NuxtLink>
                         </div>
                       </td>
-                      <td class="sm:table-cell hidden truncate whitespace-nowrap px-3 py-4 text-sm">
+                      <td class="sm:table-cell hidden truncate whitespace-nowrap px-3 py-4 ">
                         <div class="flex items-center">
                           <img class="h-10 w-10 rounded-full" :src="entry.partner.icon.url"
                             :alt="entry.partner.icon.alt" />
-                          <NuxtLink :to="entry.partner.link" class="ml-3 text-base  hover:text-nav-active "
-                            target="_blank">
+                          <NuxtLink :to="entry.partner.link" class="ml-3   hover:text-nav-active " target="_blank">
                             {{
                               entry.partner.name
                             }} </NuxtLink>
                         </div>
                       </td>
                       <td
-                        class="xl:flex items-center hidden relative whitespace-nowrap py-6 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                        class="xl:flex items-center hidden relative whitespace-nowrap py-6 pl-3 pr-4 text-right  sm:pr-6">
                         <img class="h-7 w-7 rounded-full mr-3 dark:bg-white dark:p-1" src="@/assets/GitHubLogoBlack.svg"
                           alt="Github Logo" />
                         <NuxtLink :to="entry.source" target="_blank">
                           <button @click=""
-                            class="flex items-center mr-5 bg-button-accent p-2 rounded-lg text-button-text font-semibold">
+                            class="flex items-center mr-5 bg-button-accent p-2 rounded-lg text-button-text ">
                             View Code
                             <span class="sr-only">,
                               {{ entry.name }}
@@ -158,7 +154,7 @@
                           </button>
                         </NuxtLink>
                         <NuxtLink :to="`/libs/guidance/${slugify(entry.name)}?id=${entry.benchmarkID}`">
-                          <button @click="" class="bg-button-accent p-2 rounded-lg text-button-text font-semibold">View
+                          <button @click="" class="bg-button-accent p-2 rounded-lg text-button-text ">View
                             Details<span class="sr-only">,
                               {{
                                 entry.name

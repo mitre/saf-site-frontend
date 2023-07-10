@@ -9,8 +9,8 @@
       <div v-if="isLoaded">
         <div class="sm:flex sm:items-center">
           <div class="sm:flex-auto">
-            <h1 class="text-xl font-bold text-header ">Validate</h1>
-            <p class="mt-2 text-sm text-base ">These open-source community-based InSpec profiles
+            <h1 class="text-4xl font-bold text-header">Validate</h1>
+            <p class="mt-2 text-base">These open-source community-based InSpec profiles
               validate the security of common system components. MITRE is helping to provide stewardship over these
               profiles,
               hosted here and at other community vendor sites. If you are interested in new profiles, please contact us

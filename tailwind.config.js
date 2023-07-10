@@ -24,7 +24,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'base': withOpacity('--color-text-base'),
+        'foreground': withOpacity('--color-text-base'),
         'header': withOpacity('--color-text-header'),
         'muted': withOpacity('--color-text-muted'),
         'highlighter': withOpacity('--color-text-highlighter'),

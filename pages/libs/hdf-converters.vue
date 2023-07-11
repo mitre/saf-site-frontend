@@ -1,7 +1,7 @@
 <template>
   <Head>
-    <Title>TS InSpec Objects</Title>
-    <Meta name="description" content="TS InSpec Objects library content" />
+    <Title>HDF Converters</Title>
+    <Meta name="description" content="HDF Converters library content" />
   </Head>
   <div>
     <Header />
@@ -34,7 +34,7 @@ const pageTitle = ref("")
 
 ////  Methods  ////
 const getLibraryContent = async () => {
-  await useAsyncData('getLibraryPageByName', () => GqlGetLibraryPageByName({ name: "TS InSpec Objects" }), { initialCache: false })
+  await useAsyncData('getLibraryPageByName', () => GqlGetLibraryPageByName({ name: "HDF Converters" }), { initialCache: false })
     .then(({ data }) => {
       libraryContent.value = data._value.libraryPages.data[0].attributes.content
       pageTitle.value = data._value.libraryPages.data[0].attributes.library

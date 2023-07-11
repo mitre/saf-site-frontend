@@ -1,33 +1,36 @@
 <template>
-  <Head>
-    <Title>Harden Library</Title>
-    <Meta name="description" content="Harden library content" />
-  </Head>
   <div>
-    <Header />
-    <div
-      class="relative h-full min-h-screen bg-neutral-1 px-4 pt-4 sm:px-6 lg:px-8"
-    >
-      <div v-if="isLoaded">
-        <div class="sm:flex sm:items-center">
-          <div class="sm:flex-auto">
-            <h1 class="text-4xl font-bold text-header">Harden</h1>
-            <p class="mt-2">
-              These open-source community-based hardening baselines help to
-              securely configure common system components. MITRE is helping to
-              provide stewardship over these hardening baselines, hosted here
-              and at other community vendor sites. If you are interested in new
-              hardening baselines, please contact us at saf@groups.mitre.org .
-            </p>
+    <Head>
+      <Title>Harden Library</Title>
+      <Meta name="description" content="Harden library content" />
+    </Head>
+    <div>
+      <Header />
+      <div
+        class="relative h-full min-h-screen bg-neutral-1 px-4 pt-4 sm:px-6 lg:px-8"
+      >
+        <div v-if="isLoaded">
+          <div class="sm:flex sm:items-center">
+            <div class="sm:flex-auto">
+              <h1 class="text-4xl font-bold text-header">Harden</h1>
+              <p class="mt-2">
+                These open-source community-based hardening baselines help to
+                securely configure common system components. MITRE is helping to
+                provide stewardship over these hardening baselines, hosted here
+                and at other community vendor sites. If you are interested in
+                new hardening baselines, please contact us at
+                saf@groups.mitre.org .
+              </p>
+            </div>
           </div>
+          <FrameworkTable :entries="categorizedData" />
         </div>
-        <FrameworkTable :entries="categorizedData" />
+        <div v-else class="grid h-screen place-items-center">
+          <LoadingSpinner />
+        </div>
       </div>
-      <div v-else class="grid h-screen place-items-center">
-        <LoadingSpinner />
-      </div>
+      <Footer />
     </div>
-    <Footer />
   </div>
 </template>
 

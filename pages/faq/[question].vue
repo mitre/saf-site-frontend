@@ -1,29 +1,31 @@
 <template>
-  <Head>
-    <Title>Question {{ faq.questionNumber }}</Title>
-    <Meta
-      name="description"
-      :content="`Answer to question ${faq.questionNumber}`"
-    />
-  </Head>
   <div>
-    <Header />
-    <div v-if="isLoaded">
-      <ReadingPage
-        :title="faq.questionNumber + '. ' + faq.question"
-        :last-updated="faq.updated"
-        :author="faq.author"
-      >
-        <div
-          class="prose prose-sm mx-auto mt-8 text-left text-base leading-8 dark:prose-invert lg:prose-lg prose-code:text-start prose-li:text-start"
-          v-html="answer"
-        ></div>
-      </ReadingPage>
+    <Head>
+      <Title>Question {{ faq.questionNumber }}</Title>
+      <Meta
+        name="description"
+        :content="`Answer to question ${faq.questionNumber}`"
+      />
+    </Head>
+    <div>
+      <Header />
+      <div v-if="isLoaded">
+        <ReadingPage
+          :title="faq.questionNumber + '. ' + faq.question"
+          :last-updated="faq.updated"
+          :author="faq.author"
+        >
+          <div
+            class="prose prose-sm mx-auto mt-8 text-left text-base leading-8 dark:prose-invert lg:prose-lg prose-code:text-start prose-li:text-start"
+            v-html="answer"
+          ></div>
+        </ReadingPage>
+      </div>
+      <div v-else class="grid h-screen place-items-center">
+        <LoadingSpinner />
+      </div>
+      <Footer />
     </div>
-    <div v-else class="grid h-screen place-items-center">
-      <LoadingSpinner />
-    </div>
-    <Footer />
   </div>
 </template>
 

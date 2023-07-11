@@ -1,22 +1,24 @@
 <template>
-  <Head>
-    <Title>{{ pageTitle }}</Title>
-    <Meta name="description" :content="`Framework page for ${pageTitle}`" />
-  </Head>
-  <Header />
-  <div v-if="isLoaded">
-    <FrameworkPage
-      :product-icon="pageIconHref"
-      :title="pageTitle"
-      :grabber="pageGrabber"
-      :description="pageContent"
-      :features="pageFeatures"
-    />
+  <div>
+    <Head>
+      <Title>{{ pageTitle }}</Title>
+      <Meta name="description" :content="`Framework page for ${pageTitle}`" />
+    </Head>
+    <Header />
+    <div v-if="isLoaded">
+      <FrameworkPage
+        :product-icon="pageIconHref"
+        :title="pageTitle"
+        :grabber="pageGrabber"
+        :description="pageContent"
+        :features="pageFeatures"
+      />
+    </div>
+    <div v-else class="grid h-screen place-items-center">
+      <LoadingSpinner />
+    </div>
+    <Footer />
   </div>
-  <div v-else class="grid h-screen place-items-center">
-    <LoadingSpinner />
-  </div>
-  <Footer />
 </template>
 
 <script setup>

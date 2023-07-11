@@ -1,34 +1,36 @@
 <template>
-  <Head>
-    <Title>SAF Homepage</Title>
-    <Meta name="description" content="Homepage of the SAF site" />
-  </Head>
-  <Header />
-  <div class="h-full min-h-screen bg-neutral-1">
-    <main v-if="isLoaded" class="mx-auto mb-16">
-      <HomeHero />
+  <div>
+    <Head>
+      <Title>SAF Homepage</Title>
+      <Meta name="description" content="Homepage of the SAF site" />
+    </Head>
+    <Header />
+    <div class="h-full min-h-screen bg-neutral-1">
+      <main v-if="isLoaded" class="mx-auto mb-16">
+        <HomeHero />
 
-      <HomeCapabilities :capabilities="capabilities" />
+        <HomeCapabilities :capabilities="capabilities" />
 
-      <HomeTenets :tenets="tenets" />
+        <HomeTenets :tenets="tenets" />
 
-      <HomeToolset :toolset="toolset" />
+        <HomeToolset :toolset="toolset" />
 
-      <div class="py-24">
-        <h1
-          class="mt-2 text-center text-4xl font-extrabold tracking-tight text-header sm:text-5xl lg:text-6xl"
-        >
-          Adopted by The Community
-        </h1>
-        <HomeLogoCloud title="Sponsors" :data="sponsors" />
+        <div class="py-24">
+          <h1
+            class="mt-2 text-center text-4xl font-extrabold tracking-tight text-header sm:text-5xl lg:text-6xl"
+          >
+            Adopted by The Community
+          </h1>
+          <HomeLogoCloud title="Sponsors" :data="sponsors" />
 
-        <HomeLogoCloud title="Vendors" :data="vendors" />
-      </div>
+          <HomeLogoCloud title="Vendors" :data="vendors" />
+        </div>
 
-      <HomeUserStories :user-stories="userStories" />
-    </main>
+        <HomeUserStories :user-stories="userStories" />
+      </main>
+    </div>
+    <Footer />
   </div>
-  <Footer />
 </template>
 
 <script>

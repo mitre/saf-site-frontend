@@ -1,37 +1,40 @@
 <template>
-  <Head>
-    <Title>Validate Library</Title>
-    <Meta name="description" content="Validate library content" />
-  </Head>
   <div>
-    <Header />
-    <div
-      class="relative h-full min-h-screen bg-neutral-1 px-4 pt-4 sm:px-6 lg:px-8"
-    >
-      <div v-if="isLoaded">
-        <div class="sm:flex sm:items-center">
-          <div class="sm:flex-auto">
-            <h1 class="text-4xl font-bold text-header">Validate</h1>
-            <p class="mt-2">
-              These open-source community-based InSpec profiles validate the
-              security of common system components. MITRE is helping to provide
-              stewardship over these profiles, hosted here and at other
-              community vendor sites. If you are interested in new profiles,
-              please contact us at saf@groups.mitre.org. If you are interested
-              in developing and contributing your own profiles, please see our
-              training material. All assessment tests under MITRE SAF© are
-              associated with NIST SP 800-53 Security Controls. Explore these
-              associations in this Control Assessment Range table!
-            </p>
+    <Head>
+      <Title>Validate Library</Title>
+      <Meta name="description" content="Validate library content" />
+    </Head>
+    <div>
+      <Header />
+      <div
+        class="relative h-full min-h-screen bg-neutral-1 px-4 pt-4 sm:px-6 lg:px-8"
+      >
+        <div v-if="isLoaded">
+          <div class="sm:flex sm:items-center">
+            <div class="sm:flex-auto">
+              <h1 class="text-4xl font-bold text-header">Validate</h1>
+              <p class="mt-2">
+                These open-source community-based InSpec profiles validate the
+                security of common system components. MITRE is helping to
+                provide stewardship over these profiles, hosted here and at
+                other community vendor sites. If you are interested in new
+                profiles, please contact us at saf@groups.mitre.org. If you are
+                interested in developing and contributing your own profiles,
+                please see our training material. All assessment tests under
+                MITRE SAF© are associated with NIST SP 800-53 Security Controls.
+                Explore these associations in this Control Assessment Range
+                table!
+              </p>
+            </div>
           </div>
+          <FrameworkTable :entries="categorizedData" />
         </div>
-        <FrameworkTable :entries="categorizedData" />
+        <div v-else class="grid h-screen place-items-center">
+          <LoadingSpinner />
+        </div>
       </div>
-      <div v-else class="grid h-screen place-items-center">
-        <LoadingSpinner />
-      </div>
+      <Footer />
     </div>
-    <Footer />
   </div>
 </template>
 

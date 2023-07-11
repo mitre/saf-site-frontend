@@ -101,4 +101,16 @@ const props = defineProps({
     required: true
   }
 });
+
+const {
+  docData,
+  renderedContent,
+  tableOfContents,
+  currentSectionTitle,
+  currentHeading,
+  allLinks,
+  currentIndex,
+  currentSubsection,
+  isLoaded
+} = toRefs(props);
 </script>

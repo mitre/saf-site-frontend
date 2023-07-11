@@ -1,21 +1,23 @@
 <template>
-  <Head>
-    <Title>{{ guidance.name }} Guidance</Title>
-    <Meta name="description" :content="`Guidance for ${guidance.name}`" />
-  </Head>
   <div>
-    <Header />
-    <div
-      class="relative mb-8 h-full min-h-screen bg-neutral-1 px-4 pt-4 sm:px-6 lg:px-8"
-    >
-      <div v-if="isLoaded">
-        <FrameworkModal :guidance="guidance" />
+    <Head>
+      <Title>{{ guidance.name }} Guidance</Title>
+      <Meta name="description" :content="`Guidance for ${guidance.name}`" />
+    </Head>
+    <div>
+      <Header />
+      <div
+        class="relative mb-8 h-full min-h-screen bg-neutral-1 px-4 pt-4 sm:px-6 lg:px-8"
+      >
+        <div v-if="isLoaded">
+          <FrameworkModal :guidance="guidance" />
+        </div>
+        <div v-else class="grid h-screen place-items-center">
+          <LoadingSpinner />
+        </div>
       </div>
-      <div v-else class="grid h-screen place-items-center">
-        <LoadingSpinner />
-      </div>
+      <Footer />
     </div>
-    <Footer />
   </div>
 </template>
 
@@ -42,7 +44,6 @@ export default {
       ).then(({data}) => {
         if (!data._value || !data._value.guidance.data)
           return navigateTo('/guidance');
-        console.log(data);
         const guidance = data._value.guidance.data;
         return {
           name: guidance.attributes.name,

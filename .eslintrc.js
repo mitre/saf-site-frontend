@@ -51,7 +51,6 @@ module.exports = {
     GqlGetApplicationPage: 'readonly',
     GqlGetFrameworkPage: 'readonly',
     GqlGetLibraryPageByName: 'readonly',
-    GqlGetLibraryPageByName: 'readonly',
     useNuxtApp: 'readonly',
     useRoute: 'readonly',
     useAsyncData: 'readonly',

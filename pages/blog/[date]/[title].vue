@@ -1,26 +1,28 @@
 <template>
-  <Head>
-    <Title>{{ postData.title }}</Title>
-    <Meta name="description" :content="`${postData.title} blog post`" />
-  </Head>
   <div>
-    <Header />
-    <div v-if="isLoaded">
-      <ReadingPage
-        :title="postData.title"
-        :last-updated="postData.date"
-        :author="postAuthor"
-      >
-        <div
-          class="prose prose-sm mx-auto mt-8 text-left text-base leading-8 dark:prose-invert lg:prose-lg prose-code:text-start prose-li:text-start"
-          v-html="renderedContent"
-        ></div>
-      </ReadingPage>
+    <Head>
+      <Title>{{ postData.title }}</Title>
+      <Meta name="description" :content="`${postData.title} blog post`" />
+    </Head>
+    <div>
+      <Header />
+      <div v-if="isLoaded">
+        <ReadingPage
+          :title="postData.title"
+          :last-updated="postData.date"
+          :author="postAuthor"
+        >
+          <div
+            class="prose prose-sm mx-auto mt-8 text-left text-base leading-8 dark:prose-invert lg:prose-lg prose-code:text-start prose-li:text-start"
+            v-html="renderedContent"
+          ></div>
+        </ReadingPage>
+      </div>
+      <div v-else class="grid h-screen place-items-center">
+        <LoadingSpinner />
+      </div>
+      <Footer />
     </div>
-    <div v-else class="grid h-screen place-items-center">
-      <LoadingSpinner />
-    </div>
-    <Footer />
   </div>
 </template>
 

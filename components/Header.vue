@@ -362,6 +362,19 @@ const resources = ref([
 ]);
 
 /// /  Methods  ////
+const setThemeState = (mode) => {
+  localStorage.setItem('theme', mode);
+};
+const getThemeState = () => {
+  const theme = localStorage.getItem('theme');
+  selected.value = theme;
+};
+const enableDarkMode = () => {
+  document.documentElement.classList.add('dark');
+};
+const disableDarkMode = () => {
+  document.documentElement.classList.remove('dark');
+};
 const switchSelect = (event) => {
   if (event.target.value === 'Light') {
     disableDarkMode();
@@ -387,19 +400,6 @@ const switchSelect = (event) => {
       selected.value = 'System';
     }
   }
-};
-const setThemeState = (mode) => {
-  localStorage.setItem('theme', mode);
-};
-const getThemeState = () => {
-  const theme = localStorage.getItem('theme');
-  selected.value = theme;
-};
-const enableDarkMode = () => {
-  document.documentElement.classList.add('dark');
-};
-const disableDarkMode = () => {
-  document.documentElement.classList.remove('dark');
 };
 
 /// /  Lifecycle  ////

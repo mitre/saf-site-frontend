@@ -94,14 +94,14 @@
               </div>
             </div>
             <div class="mt-8">
-              <h3 class="text-base text-base font-semibold leading-6">
+              <h3 class="text-base font-semibold leading-6">
                 <NuxtLink :to="capability.link" class="focus:outline-none">
                   <span class="absolute inset-0" aria-hidden="true" />
-                  <h2 class="text-base text-xl font-extrabold leading-7">
+                  <h2 class="text-xl font-extrabold leading-7">
                     {{ capability.name }}
                   </h2>
                   <span
-                    class="mt-2 text-base text-base leading-7"
+                    class="mt-2 text-base leading-7"
                     v-html="capability.description"
                   >
                   </span>

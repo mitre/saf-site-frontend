@@ -42,7 +42,6 @@ const getPageContent = async () => {
       data.value.appPages.data[0].attributes.tool.data.attributes.name;
     pageGrabber.value = data.value.appPages.data[0].attributes.grabber;
     pageContent.value = data.value.appPages.data[0].attributes.description;
-    console.log(data.value.appPages.data[0].attributes.features);
     pageFeatures.value = data.value.appPages.data[0].attributes.features.map(
       (item) => ({
         name: item.title,

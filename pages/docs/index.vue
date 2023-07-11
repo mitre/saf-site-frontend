@@ -94,7 +94,7 @@ onMounted(async () => {
   });
 });
 
-onBeforeRouteUpdate(async (to, from) => {
+onBeforeRouteUpdate(async (to) => {
   currentHeading.value = to.hash.replace(/^#+/, '');
 });
 </script>

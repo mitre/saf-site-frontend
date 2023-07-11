@@ -19,8 +19,8 @@
             </h3>
             <div v-if="heading.subtitles.length > 0">
               <ol role="list" class="mt-2 space-y-3 pl-5 text-nav-base">
-                <div v-for="subtitle in heading.subtitles">
-                  <li key="{{subtitle}}">
+                <div v-for="subtitle in heading.subtitles" :key="subtitle">
+                  <li :key="subtitle">
                     <a
                       :href="`#${slugify(subtitle)}`"
                       :class="

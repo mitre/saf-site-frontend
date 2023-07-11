@@ -28,13 +28,15 @@
               Page not found.
             </h1>
             <p class="mt-2 text-base text-gray-500">
-              Sorry, we couldn’t find the page you’re looking for.
+              Sorry, we couldn't find the page you're looking for.
             </p>
             <div class="mt-6">
               <a
                 href="/#"
                 class="text-base font-medium text-blue-600 hover:text-blue-500"
-                >Go back home<span aria-hidden="true"> &rarr;</span></a
+              >
+                Go back home
+                <span aria-hidden="true"> &rarr;</span></a
               >
             </div>
           </div>
@@ -54,9 +56,13 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: ['error']
-  // layout: 'error',
-};
+<script setup>
+const props = defineProps({
+  error: {
+    type: String,
+    required: true
+  }
+});
+
+const {error} = toRefs(props);
 </script>

@@ -134,8 +134,9 @@
                 </thead>
                 <!-- Table Contents -->
                 <tbody>
-                  <template
+                  <div
                     v-for="[key, value] of Object.entries(sortedEntries)"
+                    :key="key"
                   >
                     <tr class="border-t border-accent">
                       <th
@@ -146,7 +147,7 @@
                         {{ key }}
                       </th>
                     </tr>
-                    <template v-for="(entry, index) in value" :key="index">
+                    <div v-for="(entry, index) in value" :key="index">
                       <tr
                         :class="[
                           index % 2 === 0
@@ -199,7 +200,6 @@
                                 <NuxtLink :to="entry.source" target="_blank">
                                   <button
                                     class="mr-2 flex items-center rounded-lg bg-button-accent p-2 text-button-text sm:mr-5"
-                                    @click=""
                                   >
                                     View Code
                                     <span class="sr-only"
@@ -217,7 +217,6 @@
                                 >
                                   <button
                                     class="rounded-lg bg-button-accent p-2 text-button-text"
-                                    @click=""
                                   >
                                     View Details<span class="sr-only"
                                       >, {{ entry.name }}</span
@@ -276,7 +275,6 @@
                           <NuxtLink :to="entry.source" target="_blank">
                             <button
                               class="mr-2 flex items-center rounded-lg bg-button-accent p-2 text-button-text sm:mr-5"
-                              @click=""
                             >
                               View Code
                               <span class="sr-only"
@@ -294,7 +292,6 @@
                           >
                             <button
                               class="rounded-lg bg-button-accent p-2 text-button-text"
-                              @click=""
                             >
                               View Details<span class="sr-only"
                                 >, {{ entry.name }}</span
@@ -303,8 +300,8 @@
                           </NuxtLink>
                         </td>
                       </tr>
-                    </template>
-                  </template>
+                    </div>
+                  </div>
                 </tbody>
               </table>
             </div>

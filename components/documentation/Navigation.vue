@@ -9,7 +9,7 @@
       <div class="w-100 -ml-0.5 h-10 bg-neutral-2"></div>
       <button
         type="button"
-        class="w-full items-center rounded-md bg-neutral-1 py-1.5 pl-2 pr-3 text-base text-sm leading-6 shadow-sm ring-1 ring-neutral-1/10 hover:ring-neutral-1 lg:flex"
+        class="w-full items-center rounded-md bg-neutral-1 py-1.5 pl-2 pr-3 text-sm leading-6 shadow-sm ring-1 ring-neutral-1/10 hover:ring-neutral-1 lg:flex"
         @click="isCommandPaletteOpen = true"
       >
         <svg
@@ -54,8 +54,11 @@
                 role="list"
                 class="mt-2 space-y-2 border-l-2 border-nav-base lg:mt-4 lg:space-y-4"
               >
-                <div v-for="subsection in section.subsections">
-                  <li key="{{subsection.title}}" class="relative">
+                <div
+                  v-for="subsection in section.subsections"
+                  :key="subsection.title"
+                >
+                  <li :key="subsection.title" class="relative">
                     <a
                       :href="`/docs/${subsection.href}`"
                       :class="[

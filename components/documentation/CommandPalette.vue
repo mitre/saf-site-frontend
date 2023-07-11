@@ -53,7 +53,11 @@
                 static
                 class="max-h-96 scroll-py-3 overflow-y-auto p-3"
               >
-                <div v-for="section in Object.keys(filteredItems)" class="mb-2">
+                <div
+                  v-for="section in Object.keys(filteredItems)"
+                  :key="section"
+                  class="mb-2"
+                >
                   <h1 class="mb-1 text-base font-bold">{{ section }}</h1>
                   <ComboboxOption
                     v-for="item in filteredItems[section]"

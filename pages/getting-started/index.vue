@@ -36,7 +36,6 @@
 /// /  Data  ////
 const isLoaded = ref(false);
 const gettingStartedContent = ref('');
-const pageTitle = ref('');
 
 /// /  Methods  ////
 const getGettingStartedContent = async () => {

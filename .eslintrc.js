@@ -67,11 +67,18 @@ module.exports = {
       files: ['*.{ts,tsx}'],
       parser: '@typescript-eslint/parser',
       plugins: ['@typescript-eslint'],
-      extends: ['plugin:@typescript-eslint/recommended']
+      extends: [
+        'plugin:@typescript-eslint/recommended',
+        'plugin:import/errors',
+        'plugin:import/warnings',
+        'plugin:import/typescript'
+      ]
     }
   ],
   // add your custom rules here
   rules: {
-    'vue/multi-word-component-names': 'off'
+    'vue/multi-word-component-names': 'off',
+    'vue/no-v-model-argument': 'off', // This should be supported in Vue 3 and seems to break command palette code
+    'no-restricted-syntax': 'off'
   }
 };

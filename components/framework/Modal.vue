@@ -94,11 +94,11 @@
           </div>
         </div>
         <div class="h-full font-semibold sm:flex md:max-h-96">
-          <div class="flex-1 overflow-y-scroll border-r-2 border-neutral-1">
-            <div
-              v-for="hardening in guidance.hardening"
-              v-if="guidance.hardening != null"
-            >
+          <div
+            v-if="guidance.hardening != null"
+            class="flex-1 overflow-y-scroll border-r-2 border-neutral-1"
+          >
+            <div v-for="hardening in guidance.hardening" :key="hardening.name">
               <div
                 class="border-b bg-neutral-1 px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-3 sm:px-6"
               >
@@ -185,82 +185,84 @@
                 </div>
               </div>
             </div>
-            <div
-              v-for="validation in guidance.validation"
-              v-if="guidance.validation != null"
-              class="overflow-y-scroll"
-            >
+            <div v-if="guidance.validation != null">
               <div
-                class="border-b bg-neutral-1 px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6"
+                v-for="validation in guidance.validation"
+                :key="validation.name"
+                class="overflow-y-scroll"
               >
-                <span class="flex items-center">Name</span>
-                <div class="flex items-center">
-                  <span class="mt-1 sm:col-span-2 sm:ml-3 sm:mt-0">
-                    {{ validation.name }}
-                  </span>
-                </div>
-              </div>
-              <div
-                class="border-b bg-neutral-2 px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6"
-              >
-                <span class="flex items-center">Platform </span>
-                <div class="flex items-center">
-                  <div class="h-10 w-10 flex-shrink-0">
-                    <img
-                      class="h-10 w-10 rounded-full"
-                      :src="validation.platform.icon.url"
-                      :alt="validation.platform.icon.name"
-                    />
-                  </div>
-                  <a
-                    class="hover:text-nav-light-active dark:hover:text-nav-dark-active ml-3 mt-1 hover:underline sm:col-span-2 sm:mt-0"
-                    target="_blank"
-                    :href="validation.platform.link"
-                    >{{ validation.platform.name }}</a
-                  >
-                </div>
-              </div>
-              <div
-                class="border-b bg-neutral-1 px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6"
-              >
-                <span class="flex items-center">Partner </span>
-                <div class="flex items-center">
-                  <div class="h-10 w-10 flex-shrink-0">
-                    <img
-                      class="h-10 w-10 rounded-full"
-                      :src="validation.partner.icon.url"
-                      :alt="validation.partner.icon.name"
-                    />
-                  </div>
-                  <a
-                    class="hover:text-nav-light-active dark:hover:text-nav-dark-active ml-3 mt-1 hover:underline sm:col-span-2 sm:mt-0"
-                    target="_blank"
-                    :href="validation.partner.link"
-                    >{{ validation.partner.name }}</a
-                  >
-                </div>
-              </div>
-              <div
-                class="border-b bg-neutral-2 px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-3 sm:px-6"
-              >
-                <span class="flex items-center">Last Updated </span>
-                <div class="flex items-center">
-                  <span class="mt-1 sm:col-span-2 sm:ml-3 sm:mt-0">
-                    {{ validation.last_update }}
-                  </span>
-                </div>
-              </div>
-              <div
-                class="border-b-4 border-accent bg-neutral-1 px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6"
-              >
-                <span class="flex items-center">Link</span>
-                <a
-                  class="hover:text-nav-light-active dark:hover:text-nav-dark-active mt-1 inline-block items-center break-all after:content-['_↗'] hover:underline sm:col-span-1 sm:mt-0"
-                  target="_blank"
-                  :href="validation.source"
+                <div
+                  class="border-b bg-neutral-1 px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6"
                 >
-                  {{ validation.source }}
-                </a>
+                  <span class="flex items-center">Name</span>
+                  <div class="flex items-center">
+                    <span class="mt-1 sm:col-span-2 sm:ml-3 sm:mt-0">
+                      {{ validation.name }}
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="border-b bg-neutral-2 px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6"
+                >
+                  <span class="flex items-center">Platform </span>
+                  <div class="flex items-center">
+                    <div class="h-10 w-10 flex-shrink-0">
+                      <img
+                        class="h-10 w-10 rounded-full"
+                        :src="validation.platform.icon.url"
+                        :alt="validation.platform.icon.name"
+                      />
+                    </div>
+                    <a
+                      class="hover:text-nav-light-active dark:hover:text-nav-dark-active ml-3 mt-1 hover:underline sm:col-span-2 sm:mt-0"
+                      target="_blank"
+                      :href="validation.platform.link"
+                      >{{ validation.platform.name }}</a
+                    >
+                  </div>
+                </div>
+                <div
+                  class="border-b bg-neutral-1 px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6"
+                >
+                  <span class="flex items-center">Partner </span>
+                  <div class="flex items-center">
+                    <div class="h-10 w-10 flex-shrink-0">
+                      <img
+                        class="h-10 w-10 rounded-full"
+                        :src="validation.partner.icon.url"
+                        :alt="validation.partner.icon.name"
+                      />
+                    </div>
+                    <a
+                      class="hover:text-nav-light-active dark:hover:text-nav-dark-active ml-3 mt-1 hover:underline sm:col-span-2 sm:mt-0"
+                      target="_blank"
+                      :href="validation.partner.link"
+                      >{{ validation.partner.name }}</a
+                    >
+                  </div>
+                </div>
+                <div
+                  class="border-b bg-neutral-2 px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-3 sm:px-6"
+                >
+                  <span class="flex items-center">Last Updated </span>
+                  <div class="flex items-center">
+                    <span class="mt-1 sm:col-span-2 sm:ml-3 sm:mt-0">
+                      {{ validation.last_update }}
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="border-b-4 border-accent bg-neutral-1 px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6"
+                >
+                  <span class="flex items-center">Link</span>
+                  <a
+                    class="hover:text-nav-light-active dark:hover:text-nav-dark-active mt-1 inline-block items-center break-all after:content-['_↗'] hover:underline sm:col-span-1 sm:mt-0"
+                    target="_blank"
+                    :href="validation.source"
+                  >
+                    {{ validation.source }}
+                  </a>
+                </div>
               </div>
             </div>
           </div>

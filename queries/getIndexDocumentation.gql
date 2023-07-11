@@ -1,10 +1,10 @@
-query getIndexDocumentation{
-  currentDoc:documentations(filters: {order_id: {eq: 0}}){
-    data{
+query getIndexDocumentation {
+  currentDoc: documentations(filters: {order_id: {eq: 0}}) {
+    data {
       id
-      attributes{
+      attributes {
         section_title
-        subsections{
+        subsections {
           id
           title
           href
@@ -13,12 +13,12 @@ query getIndexDocumentation{
       }
     }
   }
-  
-  allLinks:documentations(sort: "order_id:asc"){
-    data{
-      attributes{
+
+  allLinks: documentations(sort: "order_id:asc") {
+    data {
+      attributes {
         section_title
-        subsections{
+        subsections {
           title
           href
         }

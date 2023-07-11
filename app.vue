@@ -1,15 +1,13 @@
 <template>
-  <div class="bg-neutral-1 text-foreground overscroll-none">
+  <div class="overscroll-none bg-neutral-1 text-foreground">
     <NuxtLayout>
       <NuxtLoadingIndicator />
       <!-- <NuxtLoadingBar :duration="1000" /> -->
       <NuxtPage />
     </NuxtLayout>
   </div>
-</template> 
-
+</template>
 
 <script setup>
-import './assets/tailwind.css'
-</script> 
-
+import './assets/tailwind.css';
+</script>

@@ -1,5 +1,5 @@
-import type { PlaywrightTestConfig } from '@playwright/test';
-import { devices } from '@playwright/test';
+import type {PlaywrightTestConfig} from '@playwright/test';
+import {devices} from '@playwright/test';
 
 /**
  * Read environment variables from file.
@@ -14,13 +14,13 @@ const config: PlaywrightTestConfig = {
   testDir: './test/e2e',
   /* Maximum time one test can run for. */
 
-  timeout: 10 * 60 * 1000,  // minutes * seconds * milliseconds
+  timeout: 10 * 60 * 1000, // minutes * seconds * milliseconds
   expect: {
     /**
      * Maximum time expect() should wait for the condition to be met.
      * For example in `await expect(locator).toHaveText();`
      */
-    timeout: 10 * 60 * 1000,  // minutes * seconds * milliseconds
+    timeout: 10 * 60 * 1000 // minutes * seconds * milliseconds
   },
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -37,11 +37,11 @@ const config: PlaywrightTestConfig = {
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
     actionTimeout: 0,
     /* Base URL to use in actions like `await page.goto('/')`. */
-    
+
     baseURL: process.env.PLAYWRIGHT_TEST_BASE_URL || 'http://localhost:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
+    trace: 'on-first-retry'
   },
 
   /* Configure projects for major browsers */
@@ -52,8 +52,8 @@ const config: PlaywrightTestConfig = {
         ...devices['Desktop Chrome'],
         contextOptions: {
           ignoreHTTPSErrors: true
-        },
-      },
+        }
+      }
     },
 
     {
@@ -62,8 +62,8 @@ const config: PlaywrightTestConfig = {
         ...devices['Desktop Firefox'],
         contextOptions: {
           ignoreHTTPSErrors: true
-        },
-      },
+        }
+      }
     },
 
     {
@@ -72,9 +72,9 @@ const config: PlaywrightTestConfig = {
         ...devices['Desktop Safari'],
         contextOptions: {
           ignoreHTTPSErrors: true
-        },
-      },
-    },
+        }
+      }
+    }
 
     /* Test against mobile viewports. */
     // {
@@ -103,7 +103,7 @@ const config: PlaywrightTestConfig = {
     //     channel: 'chrome',
     //   },
     // },
-  ],
+  ]
 
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */
   // outputDir: 'test-results/',

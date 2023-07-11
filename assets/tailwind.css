@@ -12,10 +12,10 @@
     /* header #005B94 */
     --color-text-header: 0, 91, 148;
     /* subtext #707475 */
-    --color-text-muted: 112, 116, 117
-      /* --color-text-inverted: 79, 70, 229; */
-      /* highlighter #FFF601 */
-      --color-text-highlighter: 255, 246, 1;
+    --color-text-muted: 112, 116, 117;
+    /* --color-text-inverted: 79, 70, 229; */
+    /* highlighter #FFF601 */
+    --color-text-highlighter: 255, 246, 1;
     /* primary #2563eb*/
     --color-fill: 37, 99, 235;
     /* dropshadow #000000*/

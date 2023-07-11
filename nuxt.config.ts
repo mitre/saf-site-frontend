@@ -1,9 +1,9 @@
-import { defineNuxtConfig } from 'nuxt/config'
+import {defineNuxtConfig} from 'nuxt/config';
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
   ssr: false,
-  css: ["~/assets/tailwind.css"],
+  css: ['~/assets/tailwind.css'],
   modules: ['@nuxtjs/strapi', 'nuxt-graphql-client', '@nuxtjs/tailwindcss'],
   strapi: {
     // Options for strapi
@@ -18,11 +18,11 @@ export default defineNuxtConfig({
       GQL_HOST: process.env.GQL_HOST
     }
   },
-  app:{
-    head:{
-      htmlAttrs:{
-        lang: 'en',
+  app: {
+    head: {
+      htmlAttrs: {
+        lang: 'en'
       }
     }
   }
-})
+});

@@ -1,14 +1,14 @@
-query getFrameworkPage($page: String!){
-  frameworkPages(filters:{capability:{name:{eqi: $page}}}){
-    data{
-      attributes{
-        capability{
-          data{
-            attributes{
+query getFrameworkPage($page: String!) {
+  frameworkPages(filters: {capability: {name: {eqi: $page}}}) {
+    data {
+      attributes {
+        capability {
+          data {
+            attributes {
               name
-              icon{
-                data{
-                  attributes{
+              icon {
+                data {
+                  attributes {
                     url
                   }
                 }

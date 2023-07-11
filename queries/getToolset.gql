@@ -1,21 +1,21 @@
-query getToolset{
-  tools{
-    data{
-      id,
-      attributes{
-        name,
-        description,
+query getToolset {
+  tools {
+    data {
+      id
+      attributes {
+        name
+        description
         order_id
         link
-        icon{
-          data{
-            attributes{
+        icon {
+          data {
+            attributes {
               name
               url
               alternativeText
             }
           }
-        },
+        }
       }
     }
   }

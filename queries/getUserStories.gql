@@ -1,13 +1,12 @@
-query getUserStories{
-  userStories{
-    data{
-      id,
-      attributes{
-        question,
-        answer,
-        order_id,
+query getUserStories {
+  userStories {
+    data {
+      id
+      attributes {
+        question
+        answer
+        order_id
       }
     }
-    
   }
 }

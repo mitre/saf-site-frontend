@@ -1,21 +1,21 @@
-query getCapabilities{
-  capabilities{
-    data{
-      id,
-      attributes{
-        name,
-        description,
+query getCapabilities {
+  capabilities {
+    data {
+      id
+      attributes {
+        name
+        description
         order_id
         link
-        icon{
-          data{
-            attributes{
-              name,
-              url,
+        icon {
+          data {
+            attributes {
+              name
+              url
               alternativeText
             }
           }
-        },
+        }
       }
     }
   }

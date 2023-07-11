@@ -1,14 +1,13 @@
-const defaultTheme = require('tailwindcss/defaultTheme')
+const defaultTheme = require('tailwindcss/defaultTheme');
 
 function withOpacity(variableName) {
-  return ({ opacityValue }) => {
+  return ({opacityValue}) => {
     if (opacityValue !== undefined) {
-      return `rgba(var(${variableName}), ${opacityValue})`
+      return `rgba(var(${variableName}), ${opacityValue})`;
     }
-    return `rgb(var(${variableName}))`
-  }
+    return `rgb(var(${variableName}))`;
+  };
 }
-
 
 /** @type {import("@types/tailwindcss/tailwind-config").TailwindConfig } */
 module.exports = {
@@ -16,22 +15,22 @@ module.exports = {
   content: [
     './index.html',
     './src/**/*.{vue,js,ts,jsx,tsx}',
-    "./components/**/*.{js,vue,ts}",
-    "./layouts/**/*.vue",
-    "./pages/**/*.vue",
-    "./plugins/**/*.{js,ts}",
+    './components/**/*.{js,vue,ts}',
+    './layouts/**/*.vue',
+    './pages/**/*.vue',
+    './plugins/**/*.{js,ts}'
   ],
   theme: {
     extend: {
       colors: {
-        'foreground': withOpacity('--color-text-base'),
-        'header': withOpacity('--color-text-header'),
-        'muted': withOpacity('--color-text-muted'),
-        'highlighter': withOpacity('--color-text-highlighter'),
-        'fill': withOpacity('--color-fill'),
-        'dropshadow': withOpacity('--color-dropshadow'),
-        'blur': withOpacity('--color-blur'),
-        'accent': withOpacity('--color-accent'),
+        foreground: withOpacity('--color-text-base'),
+        header: withOpacity('--color-text-header'),
+        muted: withOpacity('--color-text-muted'),
+        highlighter: withOpacity('--color-text-highlighter'),
+        fill: withOpacity('--color-fill'),
+        dropshadow: withOpacity('--color-dropshadow'),
+        blur: withOpacity('--color-blur'),
+        accent: withOpacity('--color-accent'),
         'neutral-1': withOpacity('--color-neutral-1'),
         'neutral-2': withOpacity('--color-neutral-2'),
         'neutral-3': withOpacity('--color-neutral-3'),
@@ -52,23 +51,21 @@ module.exports = {
           black: '#111921',
           'dark-gray': '#7E8284',
           silver: '#D4D4D3',
-          'light-silver': '#F1F3F4',
-        },
+          'light-silver': '#F1F3F4'
+        }
       },
       fontFamily: {
         sans: [...defaultTheme.fontFamily.sans],
         mitre: 'Roboto Slab'
-      },
-    },
+      }
+    }
   },
   corePlugins: {
-    aspectRatio: false,
+    aspectRatio: false
   },
   plugins: [
     require('@tailwindcss/forms'),
     require('@tailwindcss/typography'),
-    require('@tailwindcss/aspect-ratio'),
-  ],
-}
-
-
+    require('@tailwindcss/aspect-ratio')
+  ]
+};

@@ -52,7 +52,7 @@
             <div class="hidden xl:flex items-center justify-end flex-1 md:w-0">
               <!-- TODO: Site search-->
             </div>
-            <div class="hover:bg-neutral-2  rounded-lgp-2.5">
+            <div class="hover:bg-neutral-2  rounded-lg p-2.5">
               <div class="relative flex items-center ">
                 <SunIcon :class="selected == 'Light' ? 'h-6 w-6' : 'hidden'" />
                 <MoonIcon :class="selected == 'Dark' ? 'h-6 w-6' : 'hidden'" />

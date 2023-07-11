@@ -1,7 +1,7 @@
 <template>
   <Head>
-    <Title>eMASS Client</Title>
-    <Meta name="description" content="eMASS Client library content" />
+    <Title>HDF Converters</Title>
+    <Meta name="description" content="HDF Converters library content" />
   </Head>
   <div>
     <Header />
@@ -34,9 +34,8 @@ const pageTitle = ref("")
 
 ////  Methods  ////
 const getLibraryContent = async () => {
-  await useAsyncData('getLibraryPageByName', () => GqlGetLibraryPageByName({ name: "eMASS Client" }), { initialCache: false })
+  await useAsyncData('getLibraryPageByName', () => GqlGetLibraryPageByName({ name: "HDF Converters" }), { initialCache: false })
     .then(({ data }) => {
-      console.log(data)
       libraryContent.value = data._value.libraryPages.data[0].attributes.content
       pageTitle.value = data._value.libraryPages.data[0].attributes.library
     });

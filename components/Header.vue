@@ -5,7 +5,7 @@
         <div class="flex justify-between items-center py-3 pl-0 sm:pl-3 md:pl-3 md:justify-start md:space-x-10">
           <div class="flex justify-left md:flex-1 lg:w-0 lg:flex-1 min-w-max">
             <NuxtLink to="/" class="flex">
-              <img src="@/assets/safLogo.svg" class="w-12 md:w-14" aria-hidden="true" alt="SAF© Logo" />
+              <img src="@/assets/logos/safLogo.svg" class="w-12 md:w-14" aria-hidden="true" alt="SAF© Logo" />
               <h1
                 class="text-2xl tracking-tighter p-2 font-extrabold whitespace-nowrap text-header  md:text-3xl xl:text-4xl">
                 <span class="block xl:inline font-mitre font-extrabold">MITRE SAF<span class="text-xs">©</span></span>
@@ -52,7 +52,7 @@
             <div class="hidden xl:flex items-center justify-end flex-1 md:w-0">
               <!-- TODO: Site search-->
             </div>
-            <div class="text-base  hover:bg-neutral-2  rounded-lg text-sm p-2.5">
+            <div class="hover:bg-neutral-2  rounded-lg p-2.5">
               <div class="relative flex items-center ">
                 <SunIcon :class="selected == 'Light' ? 'h-6 w-6' : 'hidden'" />
                 <MoonIcon :class="selected == 'Dark' ? 'h-6 w-6' : 'hidden'" />
@@ -156,10 +156,8 @@ import {
 } from '@headlessui/vue';
 import { ref, markRaw } from 'vue';
 import {
-  ShieldCheckIcon,
   QuestionMarkCircleIcon,
   XIcon,
-  ClipboardCheckIcon,
   DotsVerticalIcon,
   UserGroupIcon,
   DesktopComputerIcon,
@@ -169,15 +167,15 @@ import {
 } from '@heroicons/vue/outline';
 import { AcademicCapIcon, BookOpenIcon, RssIcon } from '@heroicons/vue/solid';
 
-import PlanIcon from '../assets/PlanIcon.vue'
-import HardenIcon from '../assets/HardenIcon.vue'
-import HardenLibIcon from '../assets/HardenLibIcon.vue'
-import ValidateIcon from '../assets/ValidateIcon.vue'
-import ValidationLibIcon from '../assets/ValidationLibIcon.vue'
-import NormalizeIcon from '../assets/NormalizeIcon.vue'
-import VisualizeIcon from '../assets/VisualizeIcon.vue'
-import HeimdallLogo from '../assets/HeimdallLogo.vue'
-import SafShieldLogo from '~/assets/SafShieldLogo.vue';
+import PlanIcon from '@/assets/icons/PlanIcon.vue'
+import HardenIcon from '@/assets/icons/HardenIcon.vue'
+import HardenLibIcon from '@/assets/icons/HardenLibIcon.vue'
+import ValidateIcon from '@/assets/icons/ValidateIcon.vue'
+import ValidationLibIcon from '@/assets/icons/ValidationLibIcon.vue'
+import NormalizeIcon from '@/assets/icons/NormalizeIcon.vue'
+import VisualizeIcon from '@/assets/icons/VisualizeIcon.vue'
+import HeimdallLogo from '@/assets/icons/HeimdallLogo.vue'
+import SafShieldLogo from '@/assets/icons/SafShieldLogo.vue';
 
 ////  Data  ////
 const selected = ref("")
@@ -186,7 +184,7 @@ const framework = markRaw([
   {
     name: 'Plan',
     description:
-      'Choose, tailor, and create security guidance appropriate for your mission.',
+      'Choose, tailor, and create security configuration guidance appropriate for your mission.',
     href: '/framework/plan',
     icon: PlanIcon
 
@@ -194,7 +192,7 @@ const framework = markRaw([
   {
     name: 'Harden',
     description:
-      'Implement security baselines using our Ansible, Chef, and Terraform content.',
+      'Take action to configure software for security.',
     href: '/framework/harden',
     icon: HardenIcon
   },
@@ -215,7 +213,7 @@ const framework = markRaw([
   {
     name: 'Visualize',
     description:
-      'Identify overall security status and deep-dive to solve specific security defects',
+      'View comprehensive security status, identify security defects, and manage remediation.',
     href: '/framework/visualize',
     icon: VisualizeIcon
   }
@@ -237,49 +235,52 @@ const libraries = ref([
     icon: ValidationLibIcon
   },
   {
+    name: 'HDF Converters',
+    description:
+      '?????',
+    href: '/libs/hdf-converters',
+    icon: SafShieldLogo
+  },
+  {
     name: 'TS InSpec Objects',
     description:
       '??????????',
     href: '/libs/ts-inspec-objects',
-    icon: ClipboardCheckIcon
+    icon: SafShieldLogo
   },
   {
     name: 'eMASS Client',
     description:
       '?????????',
     href: '/libs/emass-client',
-    icon: ClipboardCheckIcon
+    icon: SafShieldLogo
   }
 ]);
 
-const applications = ref([
+const applications = shallowRef([
   {
     name: 'Heimdall',
-    description:
-      '?????',
+    description: "Security Data Visualization App",
     href: '/apps/heimdall',
     icon: HeimdallLogo
   },
   {
     name: 'Vulcan',
-    description:
-      '?????',
+    description: "Security Guidance Authorship App",
     href: '/apps/vulcan',
     icon: SafShieldLogo
   },
   {
     name: 'SAF CLI',
-    description:
-      '?????',
+    description: "Support utility for security automation",
     href: '/apps/saf-cli',
-    icon: ShieldCheckIcon
+    icon: SafShieldLogo
   },
   {
     name: 'eMASSer',
-    description:
-      '?????',
+    description: "Automate interactions with eMASS",
     href: '/apps/emasser',
-    icon: ShieldCheckIcon
+    icon: SafShieldLogo
   },
 ]);
 

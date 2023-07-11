@@ -5,7 +5,7 @@
       <div class="flex-shrink-0 flex justify-center">
         <a href="/" class="inline-flex">
           <span class="sr-only">Workflow</span>
-          <img class="h-40 sm:h-56 w-auto" src="./assets/safLogo.svg" alt="SAF Logo" />
+          <img class="h-40 sm:h-56 w-auto" src="./assets/logos/safLogo.svg" alt="SAF Logo" />
         </a>
       </div>
       <div class="py-16">

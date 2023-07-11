@@ -21,7 +21,7 @@
             leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 translate-y-1">
             <PopoverPanel class="absolute z-10 left-1/2 transform -translate-x-1/2 mt-3 px-2 w-screen max-w-md sm:px-0">
                 <div class="rounded-lg shadow-lg ring-dropshadow  ring-opacity-5 overflow-hidden">
-                    <div class="relative grid gap-6 bg-neutral-1  px-5 py-6 sm:gap-8 sm:p-8">
+                    <div class="relative grid gap-6 bg-neutral-1 rounded-xl px-5 py-6 sm:gap-8 sm:p-8 border border-accent">
                         <NuxtLink v-for="item in items" :key="item.name" :to="item.href" :class="[
                             '-m-3 p-3 flex items-start rounded-lg hover:bg-neutral-2 ',
                             item.href == route.fullPath

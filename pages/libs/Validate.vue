@@ -21,9 +21,9 @@
                 profiles, please contact us at saf@groups.mitre.org. If you are
                 interested in developing and contributing your own profiles,
                 please see our training material. All assessment tests under
-                MITRE SAF© are associated with NIST SP 800-53 Security Controls.
-                Explore these associations in this Control Assessment Range
-                table!
+                MITRE SAF© are associated with NIST SP 800-53 Security
+                Controls. Explore these associations in this Control Assessment
+                Range table!
               </p>
             </div>
           </div>

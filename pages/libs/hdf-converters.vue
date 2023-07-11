@@ -12,7 +12,7 @@
             <h1 class="text-4xl font-bold text-header  text-center"><strong>{{ pageTitle
             }}</strong>
             </h1>
-            <div class="mt-8 mb-6 max-w-5xl mx-auto leading-8 text-left prose prose-sm lg:prose-lg "
+            <div class="mt-8 mb-6 max-w-5xl mx-auto leading-8 text-left prose prose-sm lg:prose-lg text-foreground"
               v-html="libraryContent"></div>
           </div>
         </div>

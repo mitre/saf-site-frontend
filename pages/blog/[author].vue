@@ -211,6 +211,8 @@ const getBlogAuthor = async () => {
     const socialMedia =
       data.value.usersPermissionsUsers.data[0].attributes.SocialMedia;
     for (let i = 0; i < socialMedia.length; i += 1) {
+      // The following eslint disable can't be avoided due to name from GraphQL
+      // eslint-disable-next-line no-underscore-dangle
       switch (socialMedia[i].__typename) {
         case 'ComponentSocialMediaFacebook':
           socialMediaLinks.value.facebook = socialMedia[i].ProfileLink;

@@ -134,7 +134,7 @@
                 </thead>
                 <!-- Table Contents -->
                 <tbody>
-                  <div
+                  <template
                     v-for="[key, value] of Object.entries(sortedEntries)"
                     :key="key"
                   >
@@ -147,7 +147,7 @@
                         {{ key }}
                       </th>
                     </tr>
-                    <div v-for="(entry, index) in value" :key="index">
+                    <template v-for="(entry, index) in value" :key="index">
                       <tr
                         :class="[
                           index % 2 === 0
@@ -300,8 +300,8 @@
                           </NuxtLink>
                         </td>
                       </tr>
-                    </div>
-                  </div>
+                    </template>
+                  </template>
                 </tbody>
               </table>
             </div>

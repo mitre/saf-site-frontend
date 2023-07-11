@@ -20,7 +20,7 @@
 
 <script setup>
 import {ref, onMounted} from 'vue';
-import slugify from '@/utils/useSlugify';
+import slugify from '@/utils/useSlugify.ts';
 
 /// /  Data  ////
 const docData = ref({});

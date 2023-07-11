@@ -43,7 +43,7 @@
 </template>
 
 <script setup>
-import slugify from '@/utils/useSlugify';
+import slugify from '@/utils/useSlugify.ts';
 
 const props = defineProps({
   tableOfContents: {

@@ -30,7 +30,7 @@
 
 <script setup>
 
-import DiagonalArrow from 'assets/DiagonalArrow.vue'
+import DiagonalArrow from 'assets/icons/DiagonalArrow.vue'
 
 const props = defineProps({
   data: {

@@ -56,22 +56,22 @@
                   <MailIcon class="w-9 h-9 text-base " />
                 </a>
                 <a v-if="socialMediaLinks.twitter" v-bind:href="socialMediaLinks.twitter">
-                  <img src="~/assets/TwitterLogo.png" class="max-w-full h-auto max-h-8" alt="Twitter Logo" />
+                  <img src="~/assets/logos/TwitterLogo.png" class="max-w-full h-auto max-h-8" alt="Twitter Logo" />
                 </a>
                 <a v-if="socialMediaLinks.facebook" v-bind:href="socialMediaLinks.facebook">
-                  <img src="~/assets/FacebookLogo.png" class="max-w-full h-auto max-h-8" alt="Facebook Logo" />
+                  <img src="~/assets/logos/FacebookLogo.png" class="max-w-full h-auto max-h-8" alt="Facebook Logo" />
                 </a>
                 <a v-if="socialMediaLinks.instagram" v-bind:href="socialMediaLinks.instagram">
-                  <img src="~/assets/InstagramLogo.png" class="max-w-full h-auto max-h-8" alt="Instagram Logo" />
+                  <img src="~/assets/logos/InstagramLogo.png" class="max-w-full h-auto max-h-8" alt="Instagram Logo" />
                 </a>
                 <a v-if="socialMediaLinks.github" v-bind:href="socialMediaLinks.github" class="dark:hidden">
-                  <img src="@/assets/GitHubLogoBlack.svg" class="max-w-full h-auto max-h-8" alt="GitHub Logo" />
+                  <img src="@/assets/logos/GitHubLogoBlack.svg" class="max-w-full h-auto max-h-8" alt="GitHub Logo" />
                 </a>
                 <a v-if="socialMediaLinks.github" v-bind:href="socialMediaLinks.github" class="hidden dark:flex">
-                  <img src="@/assets/GitHubLogoWhite.svg" class="max-w-full h-auto max-h-8" alt="GitHub Logo" />
+                  <img src="@/assets/logos/GitHubLogoWhite.svg" class="max-w-full h-auto max-h-8" alt="GitHub Logo" />
                 </a>
                 <a v-if="socialMediaLinks.linkedin" v-bind:href="socialMediaLinks.linkedin">
-                  <img src="~/assets/LinkedInLogo.png" class="max-w-full h-auto max-h-8" alt="LinkedIn Logo" />
+                  <img src="~/assets/logos/LinkedInLogo.png" class="max-w-full h-auto max-h-8" alt="LinkedIn Logo" />
                 </a>
                 <a v-if="socialMediaLinks.other" v-bind:href="socialMediaLinks.other">
                   <span class="sr-only">External Link</span>

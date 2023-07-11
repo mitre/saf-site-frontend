@@ -94,7 +94,7 @@
                             </span>
                             <span class="flex items-center relative whitespace-nowrap py-2 text-right sm:pr-6">
                               <img class="h-6 w-6 rounded-full mr-3 dark:bg-white dark:p-1"
-                                src="@/assets/GitHubLogoBlack.svg" alt="Github Logo" />
+                                src="@/assets/logos/GitHubLogoBlack.svg" alt="Github Logo" />
                               <NuxtLink :to="entry.source" target="_blank">
                                 <button @click=""
                                   class="flex items-center mr-2 sm:mr-5 bg-button-accent p-2 rounded-lg text-button-text ">
@@ -141,8 +141,8 @@
                       </td>
                       <td
                         class="xl:flex items-center hidden relative whitespace-nowrap py-6 pl-3 pr-4 text-right  sm:pr-6">
-                        <img class="h-7 w-7 rounded-full mr-3 dark:bg-white dark:p-1" src="@/assets/GitHubLogoBlack.svg"
-                          alt="Github Logo" />
+                        <img class="h-7 w-7 rounded-full mr-3 dark:bg-white dark:p-1"
+                          src="@/assets/logos/GitHubLogoBlack.svg" alt="Github Logo" />
                         <NuxtLink :to="entry.source" target="_blank">
                           <button @click=""
                             class="flex items-center mr-2 sm:mr-5 bg-button-accent p-2 rounded-lg text-button-text ">

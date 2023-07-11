@@ -4,10 +4,10 @@
     <div class="max-w-4xl mx-auto py-12 px-4 sm:px-6 md:flex md:items-center md:justify-between justify-right lg:px-5">
       <div class="flex justify-center space-x-6 md:order-2">
         <a href="https://github.com/" aria-label="GitHub Link">
-          <img src="@/assets/GitHubLogoBlack.svg" class="dark:hidden w-12 md:w-10 aspect-square" aria-hidden="true"
+          <img src="@/assets/logos/GitHubLogoBlack.svg" class="dark:hidden w-12 md:w-10 aspect-square" aria-hidden="true"
             alt="GitHubLogo" />
-          <img src="@/assets/GitHubLogoWhite.svg" class="hidden dark:flex w-12 md:w-10 aspect-square" aria-hidden="true"
-            alt="GitHubLogo" />
+          <img src="@/assets/logos/GitHubLogoWhite.svg" class="hidden dark:flex w-12 md:w-10 aspect-square"
+            aria-hidden="true" alt="GitHubLogo" />
         </a>
         <a href="https://www.netlify.com" class="mx-auto w-24 hidden dark:flex" aria-label="Netlify Link">
           <img src="https://www.netlify.com/v3/img/components/netlify-color-accent.svg" alt="Deploys by Netlify" />

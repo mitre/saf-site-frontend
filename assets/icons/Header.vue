@@ -5,7 +5,7 @@
         <div class="flex justify-between items-center py-3 pl-0 sm:pl-3 md:pl-3 md:justify-start md:space-x-10">
           <div class="flex justify-left md:flex-1 lg:w-0 lg:flex-1 min-w-max">
             <NuxtLink to="/" class="flex">
-              <img src="@/assets/safLogo.svg" class="w-12 md:w-14" aria-hidden="true" alt="SAF© Logo" />
+              <img src="@/assets/logos/safLogo.svg" class="w-12 md:w-14" aria-hidden="true" alt="SAF© Logo" />
               <h1
                 class="text-2xl tracking-tighter p-2 font-extrabold whitespace-nowrap text-header  md:text-3xl xl:text-4xl">
                 <span class="block xl:inline font-mitre font-extrabold">MITRE SAF<span class="text-xs">©</span></span>
@@ -167,15 +167,15 @@ import {
 } from '@heroicons/vue/outline';
 import { AcademicCapIcon, BookOpenIcon, RssIcon } from '@heroicons/vue/solid';
 
-import PlanIcon from '../assets/PlanIcon.vue'
-import HardenIcon from '../assets/HardenIcon.vue'
-import HardenLibIcon from '../assets/HardenLibIcon.vue'
-import ValidateIcon from '../assets/ValidateIcon.vue'
-import ValidationLibIcon from '../assets/ValidationLibIcon.vue'
-import NormalizeIcon from '../assets/NormalizeIcon.vue'
-import VisualizeIcon from '../assets/VisualizeIcon.vue'
-import HeimdallLogo from '../assets/HeimdallLogo.vue'
-import SafShieldLogo from '~/assets/SafShieldLogo.vue';
+import PlanIcon from '../assets/icons/PlanIcon.vue'
+import HardenIcon from '../assets/icons/HardenIcon.vue'
+import HardenLibIcon from '../assets/icons/HardenLibIcon.vue'
+import ValidateIcon from '../assets/icons/ValidateIcon.vue'
+import ValidationLibIcon from '../assets/icons/ValidationLibIcon.vue'
+import NormalizeIcon from '../assets/icons/NormalizeIcon.vue'
+import VisualizeIcon from '../assets/icons/VisualizeIcon.vue'
+import HeimdallLogo from '../assets/icons/HeimdallLogo.vue'
+import SafShieldLogo from '~/assets/icons/SafShieldLogo.vue';
 
 ////  Data  ////
 const selected = ref("")

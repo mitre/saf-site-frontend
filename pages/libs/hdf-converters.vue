@@ -44,8 +44,8 @@ const getLibraryContent = async () => {
     () => GqlGetLibraryPageByName({name: 'HDF Converters'}),
     {initialCache: false}
   ).then(({data}) => {
-    libraryContent.value = data._value.libraryPages.data[0].attributes.content;
-    pageTitle.value = data._value.libraryPages.data[0].attributes.library;
+    libraryContent.value = data.value.libraryPages.data[0].attributes.content;
+    pageTitle.value = data.value.libraryPages.data[0].attributes.library;
   });
 };
 

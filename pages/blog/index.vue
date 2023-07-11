@@ -42,7 +42,7 @@ const posts = ref([]);
 const getBlogPosts = async () => {
   posts.value = await useAsyncData('getAllBlogData', () => GqlBlogPosts()).then(
     ({data}) =>
-      data._value.blogPosts.data.map((post) => ({
+      data.value.blogPosts.data.map((post) => ({
         title: post.attributes.title,
         description: post.attributes.description,
         category: {name: post.attributes.category},

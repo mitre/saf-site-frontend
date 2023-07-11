@@ -46,16 +46,16 @@ const getFAQs = async () => {
       GqlGetFaqByQuestionNumber({number: parseInt(route.params.question, 10)}),
     {initialCache: false}
   ).then(({data}) => {
-    if (!data._value || !data._value.faqs.data[0]) return navigateTo('/faq');
+    if (!data.value || !data.value.faqs.data[0]) return navigateTo('/faq');
 
-    const date = new Date(data._value.faqs.data[0].attributes.updatedAt);
-    answer.value = data._value.faqs.data[0].attributes.answer;
+    const date = new Date(data.value.faqs.data[0].attributes.updatedAt);
+    answer.value = data.value.faqs.data[0].attributes.answer;
     return {
-      question: data._value.faqs.data[0].attributes.question,
-      answer: data._value.faqs.data[0].attributes.answer,
-      questionNumber: data._value.faqs.data[0].attributes.question_number,
+      question: data.value.faqs.data[0].attributes.question,
+      answer: data.value.faqs.data[0].attributes.answer,
+      questionNumber: data.value.faqs.data[0].attributes.question_number,
       updated: date.toDateString(),
-      author: data._value.faqs.data[0].attributes.author.data.attributes.name
+      author: data.value.faqs.data[0].attributes.author.data.attributes.name
     };
   });
 };

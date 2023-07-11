@@ -189,8 +189,8 @@ const getBlogData = async () => {
   posts.value = await useAsyncData('getBlogDataFromAuthor', () =>
     GqlGetBlogDataFromAuthor({author: route.query.name})
   ).then(({data}) => {
-    if (!data._value || !data._value.blogPosts.data) return navigateTo('/blog');
-    return data._value.blogPosts.data.map((post) => ({
+    if (!data.value || !data.value.blogPosts.data) return navigateTo('/blog');
+    return data.value.blogPosts.data.map((post) => ({
       title: post.attributes.title,
       description: post.attributes.description,
       category: {name: post.attributes.category},
@@ -206,10 +206,10 @@ const getBlogAuthor = async () => {
   authorObjs.value = await useAsyncData('getBlogAuthor', () =>
     GqlGetBlogAuthor({author: route.query.name})
   ).then(({data}) => {
-    if (!data._value || !data._value.usersPermissionsUsers.data[0])
+    if (!data.value || !data.value.usersPermissionsUsers.data[0])
       return navigateTo('/blog');
     const socialMedia =
-      data._value.usersPermissionsUsers.data[0].attributes.SocialMedia;
+      data.value.usersPermissionsUsers.data[0].attributes.SocialMedia;
     for (let i = 0; i < socialMedia.length; i += 1) {
       switch (socialMedia[i].__typename) {
         case 'ComponentSocialMediaFacebook':
@@ -237,7 +237,7 @@ const getBlogAuthor = async () => {
         // Error on default
       }
     }
-    return data._value.usersPermissionsUsers.data.map((authorData) => ({
+    return data.value.usersPermissionsUsers.data.map((authorData) => ({
       name: authorData.attributes.name,
       fields: {
         title: authorData.attributes.jobTitle,

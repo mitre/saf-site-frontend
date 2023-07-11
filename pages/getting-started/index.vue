@@ -43,7 +43,7 @@ const getGettingStartedContent = async () => {
   gettingStartedContent.value = await useAsyncData(
     'getGettingStartedPage',
     () => GqlGetGettingStartedPage()
-  ).then(({data}) => data._value.gettingStartedPage.data.attributes.content);
+  ).then(({data}) => data.value.gettingStartedPage.data.attributes.content);
 };
 
 /// /  Lifecycle  ////

@@ -156,7 +156,7 @@ const getDocumentation = async () => {
   ).then(({data}) => {
     const newArray = [];
 
-    data._value.documentations.data.forEach((section) => {
+    data.value.documentations.data.forEach((section) => {
       section.attributes.subsections.forEach((sub) => {
         newArray.push({
           id: section.id,

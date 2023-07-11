@@ -196,7 +196,7 @@ export default {
       this.courses = await useAsyncData('getTrainingData', () =>
         GqlGetTrainingData()
       ).then(({data}) =>
-        data._value.trainingCourses.data.map((course) => ({
+        data.value.trainingCourses.data.map((course) => ({
           name: course.attributes.name,
           description: course.attributes.description,
           index: course.attributes.index
@@ -207,7 +207,7 @@ export default {
       this.schedules = await useAsyncData('getScheduleData', () =>
         GqlGetScheduleData()
       ).then(({data}) =>
-        data._value.courseSchedules.data.map((schedule) => ({
+        data.value.courseSchedules.data.map((schedule) => ({
           title: schedule.attributes.title,
           date: schedule.attributes.date,
           link: schedule.attributes.link,

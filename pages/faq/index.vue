@@ -68,7 +68,7 @@ const parser = new DOMParser();
 const getFAQs = async () => {
   faqs.value = await useAsyncData('getAllFAQs', () => GqlFAQs()).then(
     ({data}) =>
-      data._value.faqs.data.map((faq) => ({
+      data.value.faqs.data.map((faq) => ({
         questionNumber: faq.attributes.question_number,
         question: faq.attributes.question,
         answer: faq.attributes.answer

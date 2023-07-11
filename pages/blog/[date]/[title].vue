@@ -41,8 +41,8 @@ const getBlogPost = async () => {
   await useAsyncData('getBlogDataFromID', () =>
     GqlGetBlogDataFromID({id: route.query.id})
   ).then(({data}) => {
-    if (!data._value || !data._value.blogPost.data) return navigateTo('/blog');
-    postData.value = data._value.blogPost.data.attributes;
+    if (!data.value || !data.value.blogPost.data) return navigateTo('/blog');
+    postData.value = data.value.blogPost.data.attributes;
     renderedContent.value = postData.value.content;
     postAuthor.value =
       postData.value.users_permissions_user.data.attributes.name;

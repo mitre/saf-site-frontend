@@ -19,7 +19,6 @@
 </template>
 
 <script setup>
-import {ref, onMounted, onBeforeRouteUpdate} from 'vue';
 import slugify from '@/utils/useSlugify';
 
 /// /  Data  ////
@@ -39,17 +38,17 @@ const getData = async () => {
   docData.value = await useAsyncData('getIndexDocumentation', () =>
     GqlGetIndexDocumentation()
   ).then(({data}) => {
-    if (!data._value || !data._value.currentDoc.data[0]) {
+    if (!data.value || !data.value.currentDoc.data[0]) {
       return navigateTo('/docs');
     }
 
     // Get current document attributes
-    const currentDocAttributes = data._value.currentDoc.data[0].attributes;
+    const currentDocAttributes = data.value.currentDoc.data[0].attributes;
     currentSubsection.value = currentDocAttributes.subsections[0].title;
     currentSectionTitle.value = currentDocAttributes.section_title;
 
     // Get the hrefs for all documentation sections
-    allLinks.value = data._value.allLinks.data.flatMap(
+    allLinks.value = data.value.allLinks.data.flatMap(
       (num) => num.attributes.subsections
     );
     currentHeading.value = route.hash.replace(/^#+/, '');
@@ -80,7 +79,7 @@ const getData = async () => {
     renderedContent.value = htmlDoc.documentElement.outerHTML;
     tableOfContents.value = onPage;
 
-    return data._value.allLinks.data.map((doc) => ({
+    return data.value.allLinks.data.map((doc) => ({
       section_title: doc.attributes.section_title,
       subsections: doc.attributes.subsections
     }));

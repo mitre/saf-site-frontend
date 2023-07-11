@@ -37,12 +37,12 @@ const getPageContent = async () => {
     GqlGetFrameworkPage({page: route.params.page})
   ).then(({data}) => {
     pageIconHref.value =
-      data._value.frameworkPages.data[0].attributes.capability.data.attributes.icon.data.attributes.url;
+      data.value.frameworkPages.data[0].attributes.capability.data.attributes.icon.data.attributes.url;
     pageTitle.value =
-      data._value.frameworkPages.data[0].attributes.capability.data.attributes.name;
-    pageGrabber.value = data._value.frameworkPages.data[0].attributes.grabber;
+      data.value.frameworkPages.data[0].attributes.capability.data.attributes.name;
+    pageGrabber.value = data.value.frameworkPages.data[0].attributes.grabber;
     pageContent.value =
-      data._value.frameworkPages.data[0].attributes.description;
+      data.value.frameworkPages.data[0].attributes.description;
     return data;
   });
 };

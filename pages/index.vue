@@ -66,7 +66,7 @@ export default {
       this.toolset = await useAsyncData('getToolset', () =>
         GqlGetToolset()
       ).then(({data}) =>
-        data._value.tools.data.map((tool) => ({
+        data.value.tools.data.map((tool) => ({
           name: tool.attributes.name,
           description: tool.attributes.description,
           orderID: tool.attributes.order_id,
@@ -89,7 +89,7 @@ export default {
       this.capabilities = await useAsyncData('getCapabilities', () =>
         GqlGetCapabilities()
       ).then(({data}) =>
-        data._value.capabilities.data.map((capability) => ({
+        data.value.capabilities.data.map((capability) => ({
           name: capability.attributes.name,
           description: capability.attributes.description,
           orderID: capability.attributes.order_id,
@@ -112,7 +112,7 @@ export default {
       this.sponsors = await useAsyncData('getSponsors', () =>
         GqlGetSponsors()
       ).then(({data}) =>
-        data._value.partners.data.map((sponsor) => ({
+        data.value.partners.data.map((sponsor) => ({
           name: sponsor.attributes.name,
           nameLong: sponsor.attributes.name_long,
           link: sponsor.attributes.link,
@@ -135,7 +135,7 @@ export default {
       this.vendors = await useAsyncData('getVendors', () =>
         GqlGetVendors()
       ).then(({data}) =>
-        data._value.partners.data.map((vendor) => ({
+        data.value.partners.data.map((vendor) => ({
           name: vendor.attributes.name,
           nameLong: vendor.attributes.name_long,
           link: vendor.attributes.link,
@@ -158,7 +158,7 @@ export default {
       this.userStories = await useAsyncData('getUserStories', () =>
         GqlGetUserStories()
       ).then(({data}) =>
-        data._value.userStories.data.map((userStory) => ({
+        data.value.userStories.data.map((userStory) => ({
           question: userStory.attributes.question,
           answer: userStory.attributes.answer,
           orderID: userStory.attributes.order_id
@@ -168,7 +168,7 @@ export default {
     async getTenets() {
       this.tenets = await useAsyncData('getTenets', () => GqlGetTenets()).then(
         ({data}) =>
-          data._value.tenets.data.map((tenet) => ({
+          data.value.tenets.data.map((tenet) => ({
             name: tenet.attributes.name,
             description: tenet.attributes.description,
             orderID: tenet.attributes.order_id

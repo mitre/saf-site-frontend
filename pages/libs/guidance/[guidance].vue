@@ -42,9 +42,9 @@ export default {
         () => GqlGetGuidanceDataFromID({id: this.$route.query.id}),
         {initialCache: false}
       ).then(({data}) => {
-        if (!data._value || !data._value.guidance.data)
+        if (!data.value || !data.value.guidance.data)
           return navigateTo('/guidance');
-        const guidance = data._value.guidance.data;
+        const guidance = data.value.guidance.data;
         return {
           name: guidance.attributes.name,
           id: guidance.id,

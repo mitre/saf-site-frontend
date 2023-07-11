@@ -68,7 +68,7 @@ export default {
       this.guidanceData = await useAsyncData('getValidateData', () =>
         GqlGetValidateData()
       ).then(({data}) =>
-        data._value.guidances.data.map((guidance) => ({
+        data.value.guidances.data.map((guidance) => ({
           name: guidance.attributes.name,
           id: guidance.id,
           type: guidance.attributes.type,

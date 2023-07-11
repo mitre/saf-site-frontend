@@ -12,15 +12,15 @@
         >
           <div class="flex-1">
             <span
-              class="rounded-full bg-neutral-3 px-2 py-1 text-base text-sm font-semibold"
+              class="rounded-full bg-neutral-3 px-2 py-1 text-sm font-semibold"
             >
               {{ post.category.name }}
             </span>
             <div class="mt-2 block">
-              <p class="text-base text-xl font-semibold">
+              <p class="text-xl font-semibold">
                 {{ post.title }}
               </p>
-              <p class="mt-3 line-clamp-2 text-base text-muted">
+              <p class="mt-3 line-clamp-2 text-muted">
                 {{ post.description }}
               </p>
             </div>
@@ -28,7 +28,7 @@
           <div class="mt-6 flex items-center">
             <div class="flex-shrink-0"></div>
             <div class="ml-3">
-              <span class="text-base text-sm font-medium">
+              <span class="text-sm font-medium">
                 <NuxtLink
                   :to="`/blog/authors?name=${post.author}`"
                   class="hover:underline"

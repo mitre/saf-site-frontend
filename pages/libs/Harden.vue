@@ -64,7 +64,7 @@ export default {
       this.guidanceData = await useAsyncData('getHardenData', () =>
         GqlGetHardenData()
       ).then(({data}) =>
-        data._value.guidances.data.map((guidance) => ({
+        data.value.guidances.data.map((guidance) => ({
           name: guidance.attributes.name,
           id: guidance.id,
           type: guidance.attributes.type,

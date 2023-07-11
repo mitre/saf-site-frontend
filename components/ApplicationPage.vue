@@ -39,8 +39,8 @@
                 'mt-6 lg:col-span-5 lg:row-start-1 lg:mt-0 xl:col-span-4 '
               ]"
             >
-              <h3 class="text-2xl text-base font-bold">{{ feature.name }}</h3>
-              <p class="mt-2 text-base text-lg">{{ feature.description }}</p>
+              <h3 class="text-2xl font-bold">{{ feature.name }}</h3>
+              <p class="mt-2 text-lg">{{ feature.description }}</p>
             </div>
             <div
               :class="[

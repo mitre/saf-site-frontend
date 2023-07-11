@@ -12,17 +12,18 @@
             <h2 id="faq-heading" class="text-3xl font-bold tracking-tight text-header  ">
               Frequently asked
               questions</h2>
-            <p class="mt-4 text-base text-base ">Have a question you don't see covered here?
+            <p class="mt-4 text-lg">Have a question you don't see covered here?
               Please contact <a href="mailto:saf@groups.mitre.org" class="text-nav-active ">saf@groups.mitre.org</a></p>
           </div>
 
           <div class="mt-12 grid grid-cols-1 gap-y-10 sm:mt-16 md:grid-cols-2 md:gap-x-6 lg:grid-cols-3">
-            <div v-for="faq in faqs" :key="faq.id">
-              <span class="text-lg font-bold text-base ">{{ faq.questionNumber }}. {{
+            <div v-for="faq in faqs" :key="faq.id" class="flex flex-col">
+              <span class="text-lg font-bold">{{ faq.questionNumber }}. {{
                 faq.question
               }}
               </span>
-              <span class="mt-3 text-sm prose dark:prose-invert line-clamp-3 text-base " v-html="faq.answer" />
+              <span class="mt-3 text-sm prose dark:prose-invert">{{ parser.parseFromString(faq.answer,
+                'text/html').body.childNodes[0].innerText.substring(0, 250) + "..." }}</span>
               <span class="mt-4 text-nav-active  font-bold">
                 <NuxtLink :to="`/faq/${faq.questionNumber}`">View More</NuxtLink>
               </span>
@@ -42,6 +43,7 @@ import { ref, onMounted, nextTick } from 'vue';
 ////  Data  ////
 const isLoaded = ref(false)
 const faqs = ref({})
+const parser = new DOMParser();
 
 ////  Methods  ////
 const getFAQs = async () => {

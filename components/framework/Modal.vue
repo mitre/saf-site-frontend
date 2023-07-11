@@ -272,13 +272,13 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    guidance: {
-      type: Object,
-      required: true
-    }
+<script setup>
+const props = defineProps({
+  guidance: {
+    type: Object,
+    required: true
   }
-};
+});
+
+const {guidance} = toRefs(props);
 </script>

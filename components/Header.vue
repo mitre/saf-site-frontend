@@ -167,15 +167,15 @@ import {
 } from '@heroicons/vue/outline';
 import { AcademicCapIcon, BookOpenIcon, RssIcon } from '@heroicons/vue/solid';
 
-import PlanIcon from '../assets/icons/PlanIcon.vue'
-import HardenIcon from '../assets/icons/HardenIcon.vue'
-import HardenLibIcon from '../assets/icons/HardenLibIcon.vue'
-import ValidateIcon from '../assets/icons/ValidateIcon.vue'
-import ValidationLibIcon from '../assets/icons/ValidationLibIcon.vue'
-import NormalizeIcon from '../assets/icons/NormalizeIcon.vue'
-import VisualizeIcon from '../assets/icons/VisualizeIcon.vue'
-import HeimdallLogo from '../assets/icons/HeimdallLogo.vue'
-import SafShieldLogo from '~/assets/icons/SafShieldLogo.vue';
+import PlanIcon from '@/assets/icons/PlanIcon.vue'
+import HardenIcon from '@/assets/icons/HardenIcon.vue'
+import HardenLibIcon from '@/assets/icons/HardenLibIcon.vue'
+import ValidateIcon from '@/assets/icons/ValidateIcon.vue'
+import ValidationLibIcon from '@/assets/icons/ValidationLibIcon.vue'
+import NormalizeIcon from '@/assets/icons/NormalizeIcon.vue'
+import VisualizeIcon from '@/assets/icons/VisualizeIcon.vue'
+import HeimdallLogo from '@/assets/icons/HeimdallLogo.vue'
+import SafShieldLogo from '@/assets/icons/SafShieldLogo.vue';
 
 ////  Data  ////
 const selected = ref("")

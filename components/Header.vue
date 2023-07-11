@@ -238,7 +238,7 @@ const libraries = ref([
     name: 'HDF Converters',
     description:
       '?????',
-    href: '/apps/hdf-converters',
+    href: '/libs/hdf-converters',
     icon: SafShieldLogo
   },
   {

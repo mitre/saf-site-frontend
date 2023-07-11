@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.22.5",
-    "@babel/eslint-parser": "^7.22.6",
+    "@babel/eslint-parser": "^7.22.7",
     "@headlessui/vue": "^1.7.14",
     "@heroicons/vue": "^1.0.6",
     "@nuxtjs/strapi": "^1.9.3",

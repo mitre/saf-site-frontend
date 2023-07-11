@@ -312,109 +312,120 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import {
   ChevronDownIcon,
   ChevronUpIcon,
   SwitchVerticalIcon,
   ExternalLinkIcon
 } from '@heroicons/vue/solid';
+import {ref, computed} from 'vue';
+import slugify from '@/utils/useSlugify.ts';
 
-export default {
-  components: {
-    ChevronDownIcon,
-    ChevronUpIcon,
-    SwitchVerticalIcon,
-    ExternalLinkIcon
-  },
-  props: {
-    entries: {
-      type: Object,
-      required: true
-    }
-  },
-  data() {
-    return {
-      categories: [
-        'Cloud Service Providers',
-        'Virtual Platforms',
-        'Operating Systems',
-        'Databases',
-        'Network',
-        'Application Logic',
-        'Web Servers'
-      ],
-      currentSort: 'name',
-      currentSortDir: 'asc',
-      filter: '',
-      filteredData: {}
-    };
-  },
-  computed: {
-    sortedEntries() {
-      this.categories.forEach((category) => {
-        this.filteredEntries[category].sort((a, b) => {
-          let modifier = 1;
-          if (this.currentSortDir === 'desc') modifier = -1;
-          if (this.currentSort === 'name') {
-            if (a[this.currentSort] < b[this.currentSort]) return -1 * modifier;
-            if (a[this.currentSort] > b[this.currentSort]) return 1 * modifier;
-          } else if (
-            this.currentSort === 'platform' ||
-            this.currentSort === 'partner'
-          ) {
-            if (a[this.currentSort].name < b[this.currentSort].name)
-              return -1 * modifier;
-            if (a[this.currentSort].name > b[this.currentSort].name)
-              return 1 * modifier;
-          } else if (this.currentSort === 'version') {
-            if (a[this.currentSort][0].version < b[this.currentSort][0].version)
-              return -1 * modifier;
-            if (a[this.currentSort][0].version > b[this.currentSort][0].version)
-              return 1 * modifier;
-          }
-        });
-      });
-      return this.filteredData;
-    },
-    filteredEntries() {
-      this.categories.forEach((category) => {
-        this.filteredData[category] = this.entries[category].filter((entry) => {
-          if (this.filter === '') return true;
-          return (
-            entry.name.toLowerCase().indexOf(this.filter.toLowerCase()) >= 0 ||
-            entry.platform.name
-              .toLowerCase()
-              .indexOf(this.filter.toLowerCase()) >= 0 ||
-            entry.partner.name
-              .toLowerCase()
-              .indexOf(this.filter.toLowerCase()) >= 0 ||
-            (entry.version !== 0 &&
-              entry.version.toLowerCase().indexOf(this.filter.toLowerCase()) >=
-                0)
-          );
-        });
-      });
-      return this.filteredData;
-    }
-  },
-  methods: {
-    sort(s) {
-      // if s === current sort then reverse
-      if (s === this.currentSort) {
-        this.currentSortDir = this.currentSortDir === 'asc' ? 'desc' : 'asc';
-      }
-      this.currentSort = s;
-    },
-    slugify(str) {
-      let newStr = str;
-      newStr = newStr.toLowerCase();
-      newStr = newStr.trim();
-      newStr = newStr.replace(/[^\w\s-]/g, '');
-      newStr = newStr.replace(/[\s_-]+/g, '-');
-      newStr = newStr.replace(/^-+|-+$/g, '');
-      return newStr;
-    }
+/// /  Data  ////
+const categories = [
+  'Cloud Service Providers',
+  'Virtual Platforms',
+  'Operating Systems',
+  'Databases',
+  'Network',
+  'Application Logic',
+  'Web Servers'
+];
+const currentSort = ref('name');
+const currentSortDir = ref('asc');
+const filter = ref('');
+const filteredData = ref({});
+
+const props = defineProps({
+  entries: {
+    type: Object,
+    required: true
   }
+});
+
+const {entries} = toRefs(props);
+
+/// /  Methods  ////
+const sort = (s) => {
+  // if s === current sort then reverse
+  if (s === currentSort.value) {
+    currentSortDir.value = currentSortDir.value === 'asc' ? 'desc' : 'asc';
+  }
+  currentSort.value = s;
 };
+
+const filteredEntries = computed({
+  // Getter
+  get() {
+    categories.forEach((category) => {
+      filteredData.value[category] = entries.value[category].filter((entry) => {
+        if (filter.value === '') {
+          return true;
+        }
+        return (
+          entry.name.toLowerCase().indexOf(filter.value.toLowerCase()) >= 0 ||
+          entry.platform.name
+            .toLowerCase()
+            .indexOf(filter.value.toLowerCase()) >= 0 ||
+          entry.partner.name
+            .toLowerCase()
+            .indexOf(filter.value.toLowerCase()) >= 0 ||
+          (entry.version !== 0 &&
+            entry.version.toLowerCase().indexOf(filter.value.toLowerCase()) >=
+              0)
+        );
+      });
+    });
+    return filteredData.value;
+  }
+  // No setter
+});
+
+const sortedEntries = computed({
+  // Getter
+  get() {
+    categories.forEach((category) => {
+      filteredEntries.value[category].sort((a, b) => {
+        let modifier = 1;
+        if (currentSortDir.value === 'desc') {
+          modifier = -1;
+        }
+        if (currentSort.value === 'name') {
+          if (a[currentSort.value] < b[currentSort.value]) {
+            return -1 * modifier;
+          }
+          if (a[currentSort.value] > b[currentSort.value]) {
+            return 1 * modifier;
+          }
+        } else if (
+          currentSort.value === 'platform' ||
+          currentSort.value === 'partner'
+        ) {
+          if (a[currentSort.value].name < b[currentSort.value].name) {
+            return -1 * modifier;
+          }
+          if (a[currentSort.value].name > b[currentSort.value].name) {
+            return 1 * modifier;
+          }
+        } else if (currentSort.value === 'version') {
+          if (
+            a[currentSort.value][0].version < b[currentSort.value][0].version
+          ) {
+            return -1 * modifier;
+          }
+          if (
+            a[currentSort.value][0].version > b[currentSort.value][0].version
+          ) {
+            return 1 * modifier;
+          }
+        }
+        // If all else fails return 0
+        return 0;
+      });
+    });
+    return filteredData.value;
+  }
+  // No setter
+});
 </script>

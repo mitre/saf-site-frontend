@@ -47,4 +47,4 @@ type FAQ = {
   questionNumber: number;
   question: string;
   answer: string;
-}
+};

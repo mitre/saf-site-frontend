@@ -8,6 +8,6 @@
   </div>
 </template>
 
-<script setup>
+<script setup ts="lang">
 import './assets/tailwind.css';
 </script>

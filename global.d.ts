@@ -21,7 +21,7 @@ type AppPageFeatures =
     other: string | null;
   }
 
-  type BlogPosts = {
+  type BlogPost = {
     title: string,
     description: string,
     category: { name: string },
@@ -29,7 +29,7 @@ type AppPageFeatures =
     date: string,
     id: string,
     content: string
-  }[]
+  }
 
   type Author = {
     name: string,

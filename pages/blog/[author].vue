@@ -110,7 +110,7 @@
 import { LinkIcon, MailIcon } from '@heroicons/vue/outline';
 
 /// /  Data  ////
-const posts = ref<BlogPosts>();
+const posts = ref<BlogPost[]>();
 const author = ref<Author>();
 const isLoaded = ref(false);
 const socialMediaLinks = ref<SocialMediaLinkMapping>({

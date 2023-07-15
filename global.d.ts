@@ -48,3 +48,12 @@ type FAQ = {
   question: string;
   answer: string;
 };
+
+type CourseSchedule = {
+  title: string;
+  date: string;
+  link: string;
+  index: number;
+};
+
+type Course = {name: string; description: string; index: number};

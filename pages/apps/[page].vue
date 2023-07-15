@@ -1,14 +1,18 @@
 <template>
   <div>
-
     <Head>
       <Title>{{ pageTitle }}</Title>
       <Meta name="description" :content="`Application page for ${pageTitle}`" />
     </Head>
     <Header />
     <div v-if="isLoaded">
-      <ApplicationPage :product-icon="pageIconHref" :title="pageTitle" :grabber="pageGrabber" :description="pageContent"
-        :features="pageFeatures ?? []" />
+      <ApplicationPage
+        :product-icon="pageIconHref"
+        :title="pageTitle"
+        :grabber="pageGrabber"
+        :description="pageContent"
+        :features="pageFeatures ?? []"
+      />
     </div>
     <div v-else class="grid h-screen place-items-center">
       <LoadingSpinner />
@@ -33,7 +37,7 @@ const getPageContent = async () => {
     GqlGetApplicationPage({
       page: route.fullPath.split('/')[2].replaceAll('-', ' ')
     })
-  ).then(({ data }) => {
+  ).then(({data}) => {
     const pageData = data?.value?.appPages?.data[0].attributes;
     if (pageData) {
       pageIconHref.value =

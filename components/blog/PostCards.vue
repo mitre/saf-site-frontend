@@ -1,11 +1,19 @@
 <template>
   <div v-if="isLoaded">
     <div class="mx-auto mt-4 grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-3">
-      <NuxtLink v-for="post in posts" :key="post.title" :to="`/blog/${post.date}/${slugify(post.title)}?id=${post.id}`"
-        class="flex flex-col overflow-hidden rounded-lg border-2 border-accent shadow-lg hover:border-2 hover:border-nav-hover">
-        <div class="flex flex-1 flex-col justify-between bg-neutral-2 p-6 hover:bg-opacity-60">
+      <NuxtLink
+        v-for="post in posts"
+        :key="post.title"
+        :to="`/blog/${post.date}/${slugify(post.title)}?id=${post.id}`"
+        class="flex flex-col overflow-hidden rounded-lg border-2 border-accent shadow-lg hover:border-2 hover:border-nav-hover"
+      >
+        <div
+          class="flex flex-1 flex-col justify-between bg-neutral-2 p-6 hover:bg-opacity-60"
+        >
           <div class="flex-1">
-            <span class="rounded-full bg-neutral-3 px-2 py-1 text-sm font-semibold">
+            <span
+              class="rounded-full bg-neutral-3 px-2 py-1 text-sm font-semibold"
+            >
               {{ post.category.name }}
             </span>
             <div class="mt-2 block">
@@ -21,7 +29,10 @@
             <div class="flex-shrink-0"></div>
             <div class="ml-3">
               <span class="text-sm font-medium">
-                <NuxtLink :to="`/blog/authors?name=${post.author}`" class="hover:underline">
+                <NuxtLink
+                  :to="`/blog/authors?name=${post.author}`"
+                  class="hover:underline"
+                >
                   <p>{{ post.author }}</p>
                 </NuxtLink>
               </span>
@@ -46,7 +57,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, nextTick } from 'vue';
+import {ref, onMounted, nextTick} from 'vue';
 import slugify from '@/utils/useSlugify';
 
 /// /  Data  ////
@@ -60,7 +71,7 @@ const props = defineProps({
   }
 });
 
-const { posts } = toRefs(props);
+const {posts} = toRefs(props);
 
 /// /  Methods  ////
 const readingTime = (text: string) => {

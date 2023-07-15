@@ -8,7 +8,7 @@
     <Header />
     <div v-if="isLoaded">
       <ApplicationPage :product-icon="pageIconHref" :title="pageTitle" :grabber="pageGrabber" :description="pageContent"
-        :features="pageFeatures" />
+        :features="pageFeatures ?? []" />
     </div>
     <div v-else class="grid h-screen place-items-center">
       <LoadingSpinner />
@@ -25,7 +25,7 @@ const pageIconHref = ref('');
 const pageTitle = ref('');
 const pageContent = ref('');
 const pageGrabber = ref('');
-const pageFeatures = ref<AppPageFeatures>();
+const pageFeatures = ref<ApplicationPageFeature[]>();
 
 /// /  Methods  ////
 const getPageContent = async () => {

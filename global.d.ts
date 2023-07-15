@@ -3,22 +3,22 @@ declare module '@tailwindcss/typography';
 declare module '@tailwindcss/line-clamp';
 declare module '@tailwindcss/aspect-ratio';
 
-type AppPageFeatures =
+type ApplicationPageFeature =
 {
-    name: string,
-    description: string,
-    imageSrc: string,
-    imageAlt: string
-  }[]
+    name: string | undefined,
+    description: string| undefined,
+    imageSrc: string| undefined,
+    imageAlt: string| null| undefined
+  }
 
   type SocialMediaLinkMapping = {
-    facebook: string | null;
-    twitter: string | null;
-    instagram: string | null;
-    github: string | null;
-    linkedin: string | null;
-    displayEmail: string | null;
-    other: string | null;
+    facebook: string | null,
+    twitter: string | null,
+    instagram: string | null,
+    github: string | null,
+    linkedin: string | null,
+    displayEmail: string | null,
+    other: string | null
   }
 
   type BlogPost = {

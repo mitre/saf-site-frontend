@@ -44,7 +44,7 @@ type Author = {
 };
 
 type FAQ = {
-  questionNumber: number | undefined;
-  question: string | undefined;
-  answer: string | undefined;
-};
+  questionNumber: number;
+  question: string;
+  answer: string;
+}

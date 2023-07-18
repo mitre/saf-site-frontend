@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.22.5",
-    "@babel/eslint-parser": "^7.22.6",
+    "@babel/eslint-parser": "^7.22.9",
     "@nuxtjs/strapi": "^1.9.3",
     "@nuxtjs/tailwindcss": "^6.6.0",
     "@playwright/test": "^1.31.2",

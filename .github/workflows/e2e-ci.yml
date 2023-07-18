@@ -1,4 +1,4 @@
-name: "Tests: E2E"
+name: 'Tests: E2E'
 
 on: [pull_request]
 
@@ -14,7 +14,7 @@ jobs:
         uses: josephduffy/wait-for-netlify-action@v1
         id: wait-for-netflify-preview
         with:
-          site_name: "mitre-saf-v2"
+          site_name: 'mitre-saf-v2'
           max_timeout: 180
 
   tests_e2e_netlify:
@@ -32,5 +32,5 @@ jobs:
       - name: yarn run test:e2e
         run: yarn run test:e2e
         env:
-          PLAYWRIGHT_TEST_BASE_URL: "https://deploy-preview-${{env.GITHUB_PR_NUMBER}}--mitre-saf-v2.netlify.app/"
+          PLAYWRIGHT_TEST_BASE_URL: 'https://deploy-preview-${{env.GITHUB_PR_NUMBER}}--mitre-saf-v2.netlify.app/'
           DEBUG: pw:api

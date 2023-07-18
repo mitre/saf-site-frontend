@@ -1,11 +1,11 @@
-query getConvertFromHDFs{
-  convertFromHdfs{
-    data{
-       attributes{
+query getConvertFromHDFs {
+  convertFromHdfs {
+    data {
+      attributes {
         name
-        logo{
-          data{
-            attributes{
+        logo {
+          data {
+            attributes {
               name
               url
             }

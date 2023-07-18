@@ -31,6 +31,7 @@ module.exports = {
     GqlGetBlogDataFromID: 'readonly',
     GqlGetBlogAuthor: 'readonly',
     GqlBlogPosts: 'readonly',
+    GqlGetAllDocumentation: 'readonly',
     GqlGetIndexDocumentation: 'readonly',
     GqlGetDocumentation: 'readonly',
     GqlGetFaqByQuestionNumber: 'readonly',
@@ -39,7 +40,17 @@ module.exports = {
     GqlGetGuidanceDataFromID: 'readonly',
     GqlGetValidateData: 'readonly',
     GqlGetHardenData: 'readonly',
+    GqlGetGettingStartedPage: 'readonly',
+    GqlGetToolset: 'readonly',
+    GqlGetCapabilities: 'readonly',
+    GqlGetSponsors: 'readonly',
+    GqlGetVendors: 'readonly',
+    GqlGetUserStories: 'readonly',
+    GqlGetTenets: 'readonly',
     GqlFAQs: 'readonly',
+    GqlGetApplicationPage: 'readonly',
+    GqlGetFrameworkPage: 'readonly',
+    GqlGetLibraryPageByName: 'readonly',
     useNuxtApp: 'readonly',
     useRoute: 'readonly',
     useAsyncData: 'readonly',
@@ -56,9 +67,18 @@ module.exports = {
       files: ['*.{ts,tsx}'],
       parser: '@typescript-eslint/parser',
       plugins: ['@typescript-eslint'],
-      extends: ['plugin:@typescript-eslint/recommended']
+      extends: [
+        'plugin:@typescript-eslint/recommended',
+        'plugin:import/errors',
+        'plugin:import/warnings',
+        'plugin:import/typescript'
+      ]
     }
   ],
   // add your custom rules here
-  rules: {}
+  rules: {
+    'vue/multi-word-component-names': 'off',
+    'vue/no-v-model-argument': 'off', // This should be supported in Vue 3 and seems to break command palette code
+    'no-restricted-syntax': 'off'
+  }
 };

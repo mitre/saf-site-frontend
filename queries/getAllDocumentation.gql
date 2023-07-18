@@ -1,10 +1,10 @@
-query getAllDocumentation{
-  documentations{
-    data{
+query getAllDocumentation {
+  documentations {
+    data {
       id
-      attributes{
+      attributes {
         section_title
-        subsections{
+        subsections {
           title
           content
           href

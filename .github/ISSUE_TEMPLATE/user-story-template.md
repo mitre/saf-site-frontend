@@ -4,7 +4,6 @@ about: Create a user story for this project
 title: ''
 labels: ''
 assignees: ''
-
 ---
 
 **Summary**
@@ -14,7 +13,6 @@ A user story should typically have a summary structured this way:
 1. **As a** [user concerned by the story]
 1. **I want** [goal of the story]
 1. **so that** [reason for the story]
-
 
 **Acceptance Criteria**
 
@@ -27,18 +25,17 @@ Also, here are a few points that need to be addressed:
 1. Constraint 1;
 1. Constraint 2;
 1. Constraint 3.
-]
+   ]
 
 **Resources:**
 
-* Mockups: [Here goes a URL to or the name of the mockup(s) in inVision];
-* Testing URL: [Here goes a URL to the testing branch or IP];
-* Staging URL: [Here goes a URL to the feature on staging];
-
+- Mockups: [Here goes a URL to or the name of the mockup(s) in inVision];
+- Testing URL: [Here goes a URL to the testing branch or IP];
+- Staging URL: [Here goes a URL to the feature on staging];
 
 **Notes**
 
 [Some complementary notes if necessary:]
 
-* > Here goes a quote from an email
-* Here goes whatever useful information can exist…
+- > Here goes a quote from an email
+- Here goes whatever useful information can exist…

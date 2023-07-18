@@ -1,12 +1,12 @@
-query getTenets{
-	tenets{
-    data{
-      id,
-      attributes{
-        name,
-        description,
-        order_id,
+query getTenets {
+  tenets {
+    data {
+      id
+      attributes {
+        name
+        description
+        order_id
       }
     }
   }
-} 
+}

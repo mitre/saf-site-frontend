@@ -1,11 +1,5 @@
-query getSponsors{
-  partners (
-    filters: {
-      community: {
-        eq: "sponsor"
-      }
-    },
-    pagination: { limit: 100 }){
+query getSponsors {
+  partners(filters: {community: {eq: "sponsor"}}, pagination: {limit: 100}) {
     data {
       id
       attributes {
@@ -25,4 +19,4 @@ query getSponsors{
       }
     }
   }
-} 
+}

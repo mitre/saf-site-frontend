@@ -1,10 +1,10 @@
-query getLibraryPageByName($name: String!){
-  libraryPages(filters:{library:{eqi:$name}}){
-    data{
-      attributes{
+query getLibraryPageByName($name: String!) {
+  libraryPages(filters: {library: {eqi: $name}}) {
+    data {
+      attributes {
         library
         content
       }
-    }     
+    }
   }
 }

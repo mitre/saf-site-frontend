@@ -1,14 +1,14 @@
-query getApplicationPage($page: String!){
-  appPages(filters:{tool:{name:{eqi: $page}}}){
-    data{
-      attributes{
-        tool{
-          data{
-            attributes{
+query getApplicationPage($page: String!) {
+  appPages(filters: {tool: {name: {eqi: $page}}}) {
+    data {
+      attributes {
+        tool {
+          data {
+            attributes {
               name
-              icon{
-                data{
-                  attributes{
+              icon {
+                data {
+                  attributes {
                     url
                     alternativeText
                   }
@@ -19,12 +19,12 @@ query getApplicationPage($page: String!){
         }
         grabber
         description
-        features{
+        features {
           title
           description
-          image{
-            data{
-              attributes{
+          image {
+            data {
+              attributes {
                 url
                 alternativeText
               }

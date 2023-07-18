@@ -1,57 +1,64 @@
 <template>
+  <div>
     <Head>
-        <Title>{{ pageTitle }}</Title>
-        <Meta name="description" :content="`Application page for ${pageTitle}`" />
+      <Title>{{ pageTitle }}</Title>
+      <Meta name="description" :content="`Application page for ${pageTitle}`" />
     </Head>
     <Header />
     <div v-if="isLoaded">
-        <ApplicationPage :product-icon="pageIconHref" :title="pageTitle" :grabber="pageGrabber" :description="pageContent"
-            :features="pageFeatures" />
+      <ApplicationPage
+        :product-icon="pageIconHref"
+        :title="pageTitle"
+        :grabber="pageGrabber"
+        :description="pageContent"
+        :features="pageFeatures"
+      />
     </div>
     <div v-else class="grid h-screen place-items-center">
-        <LoadingSpinner />
+      <LoadingSpinner />
     </div>
     <Footer />
+  </div>
 </template>
 
 <script setup>
-////  Data  ////
-const isLoaded = ref(false)
-const route = useRoute()
-const pageIconHref = ref("")
-const pageTitle = ref("")
-const pageContent = ref("")
-const pageGrabber = ref("")
-const pageFeatures = ref([])
+/// /  Data  ////
+const isLoaded = ref(false);
+const route = useRoute();
+const pageIconHref = ref('');
+const pageTitle = ref('');
+const pageContent = ref('');
+const pageGrabber = ref('');
+const pageFeatures = ref([]);
 
-////  Methods  ////
+/// /  Methods  ////
 const getPageContent = async () => {
-    await useAsyncData('getApplicationPage', () => GqlGetApplicationPage({ page: route.params.page.replaceAll("-", " ") }))
-        .then(({ data }) => {
-            pageIconHref.value = data._value.appPages.data[0].attributes.tool.data.attributes.icon.data.attributes.url
-            pageTitle.value = data._value.appPages.data[0].attributes.tool.data.attributes.name
-            pageGrabber.value = data._value.appPages.data[0].attributes.grabber
-            pageContent.value = data._value.appPages.data[0].attributes.description
-            console.log(data._value.appPages.data[0].attributes.features)
-            pageFeatures.value = data._value.appPages.data[0].attributes.features.map((item) => {
-                return {
-                    name: item.title,
-                    description: item.description,
-                    imageSrc: item.image.data.attributes.url,
-                    imageAlt: item.image.data.attributes.alternativeText
-                }
-            })
-            return data
-        });
-}
+  await useAsyncData('getApplicationPage', () =>
+    GqlGetApplicationPage({page: route.params.page.replaceAll('-', ' ')})
+  ).then(({data}) => {
+    pageIconHref.value =
+      data.value.appPages.data[0].attributes.tool.data.attributes.icon.data.attributes.url;
+    pageTitle.value =
+      data.value.appPages.data[0].attributes.tool.data.attributes.name;
+    pageGrabber.value = data.value.appPages.data[0].attributes.grabber;
+    pageContent.value = data.value.appPages.data[0].attributes.description;
+    pageFeatures.value = data.value.appPages.data[0].attributes.features.map(
+      (item) => ({
+        name: item.title,
+        description: item.description,
+        imageSrc: item.image.data.attributes.url,
+        imageAlt: item.image.data.attributes.alternativeText
+      })
+    );
+    return data;
+  });
+};
 
-
-////  Lifecycle  ////
+/// /  Lifecycle  ////
 onMounted(async () => {
-    await nextTick(async () => {
-        await getPageContent()
-        isLoaded.value = true
-    });
+  await nextTick(async () => {
+    await getPageContent();
+    isLoaded.value = true;
+  });
 });
-
 </script>

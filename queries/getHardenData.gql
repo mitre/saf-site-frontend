@@ -1,67 +1,70 @@
 query getHardenData {
-  guidances(filters:{hardening:{name:{ne: null}}}, pagination: { limit: 100 }){
-    data{
-      id,
-      attributes{
-        name,
-        type,
-        category,
-        source,
-        date,
-        version{
-          __typename,
-          ... on ComponentVersionHistoryCis{
+  guidances(
+    filters: {hardening: {name: {ne: null}}}
+    pagination: {limit: 100}
+  ) {
+    data {
+      id
+      attributes {
+        name
+        type
+        category
+        source
+        date
+        version {
+          __typename
+          ... on ComponentVersionHistoryCis {
             version
           }
-          ... on ComponentVersionHistoryStig{
+          ... on ComponentVersionHistoryStig {
             version
           }
-          ... on ComponentVersionHistoryVendor{
+          ... on ComponentVersionHistoryVendor {
             version
           }
-          ... on ComponentVersionHistoryStigReady{
+          ... on ComponentVersionHistoryStigReady {
             version
           }
-        },
-        hardening{
-          data{
-            id,
-            attributes{
-              name,
-              name_long,
-              source,
-              platform{
-                data{
-                  attributes{
-                    name,
-                    link,
-                    icon{
-                      data{
-                        attributes{
-                          name,
-                          url,
+        }
+        hardening {
+          data {
+            id
+            attributes {
+              name
+              name_long
+              source
+              platform {
+                data {
+                  attributes {
+                    name
+                    link
+                    icon {
+                      data {
+                        attributes {
+                          name
+                          url
                           alternativeText
                         }
                       }
-                    } ,
+                    }
                   }
                 }
               }
-              partner{
-                data{
-                  attributes{
-                    name,
-                    name_long,
-                    link,
-                    icon{
-                      data{
-                        attributes{
-                          name,
-                          url,
+              partner {
+                data {
+                  attributes {
+                    name
+                    name_long
+                    link
+                    icon {
+                      data {
+                        attributes {
+                          name
+                          url
                           alternativeText
                         }
                       }
-                    },
+                    }
                   }
                 }
               }

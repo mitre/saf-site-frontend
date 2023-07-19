@@ -1,14 +1,13 @@
 <template>
   <div>
+
     <Head>
       <Title>Validate Library</Title>
       <Meta name="description" content="Validate library content" />
     </Head>
     <div>
       <Header />
-      <div
-        class="relative h-full min-h-screen bg-neutral-1 px-4 pt-4 sm:px-6 lg:px-8"
-      >
+      <div class="relative h-full min-h-screen bg-neutral-1 px-4 pt-4 sm:px-6 lg:px-8">
         <div v-if="isLoaded">
           <div class="sm:flex sm:items-center">
             <div class="sm:flex-auto">
@@ -18,12 +17,12 @@
                 security of common system components. MITRE is helping to
                 provide stewardship over these profiles, hosted here and at
                 other community vendor sites. If you are interested in new
-                profiles, please contact us at saf@groups.mitre.org. If you are
+                profiles, please contact us at <a href="mailto:saf@groups.mitre.org"
+                  class="underline">saf@groups.mitre.org</a>. If you are
                 interested in developing and contributing your own profiles,
-                please see our training material. All assessment tests under
+                please see our <a href="/training" class="underline">training material</a>. All assessment tests under
                 MITRE SAF© are associated with NIST SP 800-53 Security
-                Controls. Explore these associations in this Control Assessment
-                Range table!
+                Controls.
               </p>
             </div>
           </div>
@@ -67,7 +66,7 @@ export default {
     async getGuidance() {
       this.guidanceData = await useAsyncData('getValidateData', () =>
         GqlGetValidateData()
-      ).then(({data}) =>
+      ).then(({ data }) =>
         data.value.guidances.data.map((guidance) => ({
           name: guidance.attributes.name,
           id: guidance.id,
@@ -90,15 +89,15 @@ export default {
               icon: {
                 name: validate.attributes.platform.data.attributes.icon.data
                   ? validate.attributes.platform.data.attributes.icon.data
-                      .attributes.name
+                    .attributes.name
                   : null,
                 url: validate.attributes.platform.data.attributes.icon.data
                   ? validate.attributes.platform.data.attributes.icon.data
-                      .attributes.url
+                    .attributes.url
                   : null,
                 alt: validate.attributes.platform.data.attributes.icon.data
                   ? validate.attributes.platform.data.attributes.icon.data
-                      .attributes.alternativeText
+                    .attributes.alternativeText
                   : null
               }
             },
@@ -109,15 +108,15 @@ export default {
               icon: {
                 name: validate.attributes.partner.data.attributes.icon.data
                   ? validate.attributes.partner.data.attributes.icon.data
-                      .attributes.name
+                    .attributes.name
                   : null,
                 url: validate.attributes.partner.data.attributes.icon.data
                   ? validate.attributes.partner.data.attributes.icon.data
-                      .attributes.url
+                    .attributes.url
                   : null,
                 alt: validate.attributes.partner.data.attributes.icon.data
                   ? validate.attributes.partner.data.attributes.icon.data
-                      .attributes.alternativeText
+                    .attributes.alternativeText
                   : null
               }
             }

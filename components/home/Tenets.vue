@@ -48,17 +48,18 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import {
   GlobeIcon,
   CurrencyDollarIcon,
   BeakerIcon,
   AnnotationIcon
 } from '@heroicons/vue/outline';
+import {Tenet} from 'global';
 
 const props = defineProps({
   tenets: {
-    type: Array,
+    type: Array<Tenet>,
     required: true
   }
 });

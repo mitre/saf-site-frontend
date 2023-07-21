@@ -69,10 +69,10 @@
   </Popover>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import {Popover, PopoverButton, PopoverPanel} from '@headlessui/vue';
-
 import {ChevronDownIcon} from '@heroicons/vue/solid';
+import {LinkObject} from 'global';
 
 /// /  Props  ////
 const route = useRoute();
@@ -83,7 +83,7 @@ const props = defineProps({
     required: true
   },
   items: {
-    type: Array,
+    type: Array<LinkObject>,
     required: true
   }
 });

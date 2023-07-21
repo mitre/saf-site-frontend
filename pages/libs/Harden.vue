@@ -1,13 +1,14 @@
 <template>
   <div>
-
     <Head>
       <Title>Harden Library</Title>
       <Meta name="description" content="Harden library content" />
     </Head>
     <div>
       <Header />
-      <div class="relative h-full min-h-screen bg-neutral-1 px-4 pt-4 sm:px-6 lg:px-8">
+      <div
+        class="relative h-full min-h-screen bg-neutral-1 px-4 pt-4 sm:px-6 lg:px-8"
+      >
         <div v-if="isLoaded">
           <div class="sm:flex sm:items-center">
             <div class="sm:flex-auto">
@@ -18,7 +19,9 @@
                 provide stewardship over these hardening baselines, hosted here
                 and at other community vendor sites. If you are interested in
                 new hardening baselines, please contact us at
-                <a href="mailto:saf@groups.mitre.org" class="underline">saf@groups.mitre.org</a>.
+                <a href="mailto:saf@groups.mitre.org" class="underline"
+                  >saf@groups.mitre.org</a
+                >.
               </p>
             </div>
           </div>
@@ -62,7 +65,7 @@ export default {
     async getGuidance() {
       this.guidanceData = await useAsyncData('getHardenData', () =>
         GqlGetHardenData()
-      ).then(({ data }) =>
+      ).then(({data}) =>
         data.value.guidances.data.map((guidance) => ({
           name: guidance.attributes.name,
           id: guidance.id,
@@ -85,15 +88,15 @@ export default {
               icon: {
                 name: harden.attributes.platform.data.attributes.icon.data
                   ? harden.attributes.platform.data.attributes.icon.data
-                    .attributes.name
+                      .attributes.name
                   : null,
                 url: harden.attributes.platform.data.attributes.icon.data
                   ? harden.attributes.platform.data.attributes.icon.data
-                    .attributes.url
+                      .attributes.url
                   : null,
                 alt: harden.attributes.platform.data.attributes.icon.data
                   ? harden.attributes.platform.data.attributes.icon.data
-                    .attributes.alternativeText
+                      .attributes.alternativeText
                   : null
               }
             },
@@ -104,15 +107,15 @@ export default {
               icon: {
                 name: harden.attributes.partner.data.attributes.icon.data
                   ? harden.attributes.partner.data.attributes.icon.data
-                    .attributes.name
+                      .attributes.name
                   : null,
                 url: harden.attributes.partner.data.attributes.icon.data
                   ? harden.attributes.partner.data.attributes.icon.data
-                    .attributes.url
+                      .attributes.url
                   : null,
                 alt: harden.attributes.partner.data.attributes.icon.data
                   ? harden.attributes.partner.data.attributes.icon.data
-                    .attributes.alternativeText
+                      .attributes.alternativeText
                   : null
               }
             }

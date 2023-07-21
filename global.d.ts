@@ -1,3 +1,5 @@
+import {FunctionalComponent} from 'vue';
+
 declare module '@tailwindcss/forms';
 declare module '@tailwindcss/typography';
 declare module '@tailwindcss/line-clamp';
@@ -57,3 +59,59 @@ type CourseSchedule = {
 };
 
 type Course = {name: string; description: string; index: number};
+
+type LinkObject = {
+  name: string;
+  description: string;
+  href: string;
+  icon: FunctionalComponent;
+};
+
+type Capability = {
+  name: string;
+  description: string;
+  orderID: number;
+  link: string;
+  icon: {
+    name: string | null;
+    url: string | null;
+    alt: string | null;
+  };
+};
+
+type LogoCloudEntry = {
+  id: number;
+  name: string;
+  nameLong: string;
+  link: string;
+  coummunity: string;
+  icon: {
+    name: string | null;
+    url: string | null;
+    alt: string | null;
+  };
+};
+
+type Tenet = {
+  name: string;
+  description: string;
+  orderID: number;
+};
+
+type Toolset = {
+  name: string;
+  description: string;
+  orderID: number;
+  link: string;
+  icon: {
+    name: string | null;
+    url: string | null;
+    alt: string | null;
+  };
+};
+
+type UserStory = {
+  question: string;
+  answer: string;
+  orderID: number;
+};

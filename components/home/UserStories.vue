@@ -9,7 +9,7 @@
       <div class="mt-10 space-y-8 divide-y divide-accent">
         <div
           v-for="userStory in userStories"
-          :key="userStory.id"
+          :key="userStory.orderID"
           class="pt-8 lg:grid lg:grid-cols-12 lg:gap-8"
         >
           <span class="text-base font-bold leading-7 lg:col-span-5">{{
@@ -24,10 +24,12 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import {UserStory} from 'global';
+
 const props = defineProps({
   userStories: {
-    type: Array,
+    type: Array<UserStory>,
     required: true
   }
 });

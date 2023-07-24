@@ -1,24 +1,17 @@
 <template>
   <div>
+
     <Head>
       <Title>Question {{ faq?.questionNumber ?? 0 }}</Title>
-      <Meta
-        name="description"
-        :content="`Answer to question ${faq?.questionNumber ?? 'error'}`"
-      />
+      <Meta name="description" :content="`Answer to question ${faq?.questionNumber ?? 'error'}`" />
     </Head>
     <div>
       <Header />
       <div v-if="isLoaded && faq">
-        <ReadingPage
-          :title="faq.questionNumber + '. ' + faq.question"
-          :last-updated="faq.updated"
-          :author="faq.author"
-        >
+        <ReadingPage :title="faq.questionNumber + '. ' + faq.question" :last-updated="faq.updated" :author="faq.author">
           <div
-            class="prose prose-sm mx-auto mt-8 text-left text-base leading-8 dark:prose-invert lg:prose-lg prose-code:text-start prose-li:text-start"
-            v-html="answer"
-          ></div>
+            class="prose prose-sm mx-auto mt-8 text-left leading-8 dark:prose-invert lg:prose-lg prose-code:text-start prose-li:text-start"
+            v-html="answer"></div>
         </ReadingPage>
       </div>
       <div v-else class="grid h-screen place-items-center">
@@ -30,7 +23,7 @@
 </template>
 
 <script setup lang="ts">
-import {ref, onMounted, nextTick} from 'vue';
+import { ref, onMounted, nextTick } from 'vue';
 
 /// /  Data  ////
 const isLoaded = ref(false);
@@ -49,7 +42,7 @@ const getFAQs = async () => {
     GqlGetFaqByQuestionNumber({
       number: parseInt(route.params.question.toString(), 10)
     })
-  ).then(({data}) => {
+  ).then(({ data }) => {
     if (!data.value || !data?.value?.faqs?.data.length)
       return navigateTo('/faq');
 

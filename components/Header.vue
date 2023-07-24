@@ -2,23 +2,13 @@
   <div class="sticky top-0 z-50 w-full">
     <Popover class="border-b-2 border-accent bg-neutral-1">
       <div class="max-w-8xl mx-auto px-4 sm:px-1">
-        <div
-          class="flex items-center justify-between py-3 pl-0 sm:pl-3 md:justify-start md:space-x-10 md:pl-3"
-        >
+        <div class="flex items-center justify-between py-3 pl-0 sm:pl-3 md:justify-start md:space-x-10 md:pl-3">
           <div class="justify-left flex min-w-max md:flex-1 lg:w-0 lg:flex-1">
             <NuxtLink to="/" class="flex">
-              <img
-                src="@/assets/logos/safLogo.svg"
-                class="w-12 md:w-14"
-                aria-hidden="true"
-                alt="SAF© Logo"
-              />
+              <img src="@/assets/logos/safLogo.svg" class="w-12 md:w-14" aria-hidden="true" alt="SAF© Logo" />
               <h1
-                class="whitespace-nowrap p-2 text-2xl font-extrabold tracking-tighter text-header md:text-3xl xl:text-4xl"
-              >
-                <span class="block font-mitre font-extrabold xl:inline"
-                  >MITRE SAF<span class="text-xs">©</span></span
-                >
+                class="whitespace-nowrap p-2 text-2xl font-extrabold tracking-tighter text-header md:text-3xl xl:text-4xl">
+                <span class="block font-mitre font-extrabold xl:inline">MITRE SAF<span class="text-xs">©</span></span>
               </h1>
             </NuxtLink>
           </div>
@@ -26,23 +16,19 @@
           <div class="-my-2 -mr-2 flex sm:pr-3 lg:hidden">
             <!-- TODO: Mobile Site Search-->
             <PopoverButton
-              class="inline-flex items-center justify-center rounded-md p-2 text-nav-base hover:bg-nav-active focus:outline-none focus:ring-2 focus:ring-inset focus:ring-accent"
-            >
+              class="inline-flex items-center justify-center rounded-md p-2 text-nav-base hover:bg-nav-active focus:outline-none focus:ring-2 focus:ring-inset focus:ring-accent">
               <span class="sr-only">Open menu</span>
-              <DotsVerticalIcon class="h-6 w-6 text-base" aria-hidden="true" />
+              <DotsVerticalIcon class="h-6 w-6" aria-hidden="true" />
             </PopoverButton>
           </div>
 
           <PopoverGroup as="nav" class="hidden space-x-5 lg:flex xl:space-x-10">
-            <NuxtLink
-              to="/getting-started"
-              :class="[
-                'font-mitre text-base font-semibold hover:text-nav-hover ',
-                '/getting-started' === route.fullPath
-                  ? 'text-nav-active '
-                  : 'text-nav-base '
-              ]"
-            >
+            <NuxtLink to="/getting-started" :class="[
+              'font-mitre font-semibold hover:text-nav-hover ',
+              '/getting-started' === route.fullPath
+                ? 'text-nav-active '
+                : 'text-nav-base '
+            ]">
               Getting Started
             </NuxtLink>
 
@@ -52,25 +38,18 @@
 
             <NavDropdown label="Libraries" :items="libraries" />
 
-            <NuxtLink
-              v-for="item in navigation"
-              :key="item.name"
-              :to="item.href"
-              :class="[
-                'font-mitre text-base font-semibold hover:text-nav-hover ',
-                item.href === route.fullPath
-                  ? 'text-nav-active '
-                  : 'text-nav-base '
-              ]"
-            >
+            <NuxtLink v-for="item in navigation" :key="item.name" :to="item.href" :class="[
+              'font-mitre font-semibold hover:text-nav-hover ',
+              item.href === route.fullPath
+                ? 'text-nav-active '
+                : 'text-nav-base '
+            ]">
               {{ item.name }}
             </NuxtLink>
 
             <NavDropdown label="More" :items="resources" />
           </PopoverGroup>
-          <div
-            class="hidden flex-1 items-center justify-end pr-2 md:w-0 lg:flex"
-          >
+          <div class="hidden flex-1 items-center justify-end pr-2 md:w-0 lg:flex">
             <div class="hidden flex-1 items-center justify-end md:w-0 xl:flex">
               <!-- TODO: Site search-->
             </div>
@@ -78,18 +57,13 @@
               <div class="relative flex items-center">
                 <SunIcon :class="selected === 'Light' ? 'h-6 w-6' : 'hidden'" />
                 <MoonIcon :class="selected === 'Dark' ? 'h-6 w-6' : 'hidden'" />
-                <DesktopComputerIcon
-                  :class="selected === 'System' ? 'h-6 w-6' : 'hidden'"
-                />
+                <DesktopComputerIcon :class="selected === 'System' ? 'h-6 w-6' : 'hidden'" />
                 <label for="theme-selector" class="sr-only">
                   <span>SAF Theme Selector</span>
                 </label>
-                <select
-                  id="theme-selector"
-                  name="SAF Theme Selector"
-                  class="absolute h-fit w-full appearance-none bg-neutral-1 pr-3 text-base opacity-0"
-                  @change="switchSelect($event)"
-                >
+                <select id="theme-selector" name="SAF Theme Selector"
+                  class="absolute h-fit w-full appearance-none bg-neutral-1 pr-3 opacity-0"
+                  @change="switchSelect($event)">
                   <option :selected="selected === 'Light'">Light</option>
                   <option :selected="selected === 'Dark'">Dark</option>
                   <option :selected="selected === 'System'">System</option>
@@ -100,64 +74,50 @@
         </div>
       </div>
       <!-- Mobile Formatting -->
-      <transition
-        enter-active-class="duration-200 ease-out"
-        enter-from-class="opacity-0 scale-95"
-        enter-to-class="opacity-100 scale-100"
-        leave-active-class="duration-100 ease-in"
-        leave-from-class="opacity-100 scale-100"
-        leave-to-class="opacity-0 scale-95"
-      >
+      <transition enter-active-class="duration-200 ease-out" enter-from-class="opacity-0 scale-95"
+        enter-to-class="opacity-100 scale-100" leave-active-class="duration-100 ease-in"
+        leave-from-class="opacity-100 scale-100" leave-to-class="opacity-0 scale-95">
         <div class="fixed right-4 top-4 z-50 w-full max-w-xs px-6">
-          <PopoverOverlay
-            class="fixed inset-0 z-auto bg-blur/20 backdrop-blur-sm"
-          />
+          <PopoverOverlay class="fixed inset-0 z-auto bg-blur/20 backdrop-blur-sm" />
           <PopoverPanel focus class="fixed w-full max-w-xs px-6">
-            <div
-              class="divide-y-2 divide-accent rounded-lg bg-neutral-1 shadow-lg ring-1 ring-dropshadow ring-opacity-5"
-            >
-              <div
-                class="h-[calc(100vh-110px)] overflow-y-scroll px-5 pb-4 pt-2"
-              >
+            <div class="divide-y-2 divide-accent rounded-lg bg-neutral-1 shadow-lg ring-1 ring-dropshadow ring-opacity-5">
+              <div class="h-[calc(100vh-110px)] overflow-y-scroll px-5 pb-4 pt-2">
                 <div class="flex items-center justify-between">
                   <div class="-mr-2">
                     <PopoverButton
-                      class="my-2 inline-flex items-center justify-center rounded-md text-nav-base focus:outline-none focus:ring-2 focus:ring-inset focus:ring-accent"
-                    >
+                      class="my-2 inline-flex items-center justify-center rounded-md text-nav-base focus:outline-none focus:ring-2 focus:ring-inset focus:ring-accent">
                       <span class="sr-only">Close menu</span>
-                      <XIcon class="h-6 w-6 text-base" aria-hidden="true" />
+                      <XIcon class="h-6 w-6" aria-hidden="true" />
                     </PopoverButton>
                   </div>
                 </div>
                 <div class="my-3">
                   <nav class="grid gap-y-8 py-2">
-                    <h1 class="text-base font-bold">Framework</h1>
+                    <h1 class="font-bold">Framework</h1>
                     <NavMobileLinks :items="framework" />
 
                     <hr class="drop-shadow" />
 
-                    <h1 class="text-base font-bold">Applications</h1>
+                    <h1 class="font-bold">Applications</h1>
                     <NavMobileLinks :items="applications" />
 
                     <hr class="drop-shadow" />
 
-                    <h1 class="text-base font-bold">Libraries</h1>
+                    <h1 class="font-bold">Libraries</h1>
                     <NavMobileLinks :items="libraries" />
 
                     <hr class="drop-shadow" />
 
-                    <h1 class="text-base font-bold">Resources</h1>
+                    <h1 class="font-bold">Resources</h1>
                     <div class="-mb-5">
-                      <NavMobileLinks
-                        :items="[
-                          {
-                            name: 'Getting Started',
-                            description: 'Getting started with SAF.',
-                            href: '/getting-started',
-                            icon: PresentationChartBarIcon
-                          }
-                        ]"
-                      />
+                      <NavMobileLinks :items="[
+                        {
+                          name: 'Getting Started',
+                          description: 'Getting started with SAF.',
+                          href: '/getting-started',
+                          icon: PresentationChartBarIcon
+                        }
+                      ]" />
                     </div>
                     <div class="-mb-5">
                       <NavMobileLinks :items="navigation" />
@@ -168,28 +128,19 @@
               </div>
               <div class="flex items-center justify-between px-3 py-6">
                 <div
-                  class="relative flex items-center rounded-lg bg-button-accent p-2 font-semibold text-button-text shadow-sm"
-                >
-                  <SunIcon
-                    :class="selected === 'Light' ? 'h-6 w-6' : 'hidden'"
-                  />
-                  <MoonIcon
-                    :class="selected === 'Dark' ? 'h-6 w-6' : 'hidden'"
-                  />
-                  <DesktopComputerIcon
-                    :class="selected === 'System' ? 'h-6 w-6' : 'hidden'"
-                  />
+                  class="relative flex items-center rounded-lg bg-button-accent p-2 font-semibold text-button-text shadow-sm">
+                  <SunIcon :class="selected === 'Light' ? 'h-6 w-6' : 'hidden'" />
+                  <MoonIcon :class="selected === 'Dark' ? 'h-6 w-6' : 'hidden'" />
+                  <DesktopComputerIcon :class="selected === 'System' ? 'h-6 w-6' : 'hidden'" />
                   <div class="ml-2">{{ selected }}</div>
                   <ChevronDownIcon class="h-6 w-5" />
                   <label for="mobile-theme-selector" class="sr-only">
                     <span>SAF Theme Selector</span>
                   </label>
                   <span class="sr-only">SAF Theme Selector</span>
-                  <select
-                    name="Mobile Theme Selector"
+                  <select name="Mobile Theme Selector"
                     class="absolute inset-0 h-full w-full appearance-none bg-button-accent text-button-text opacity-0"
-                    @change="switchSelect($event)"
-                  >
+                    @change="switchSelect($event)">
                     <option :selected="selected === 'Light'">Light</option>
                     <option :selected="selected === 'Dark'">Dark</option>
                     <option :selected="selected === 'System'">System</option>
@@ -213,7 +164,7 @@ import {
   PopoverPanel,
   PopoverOverlay
 } from '@headlessui/vue';
-import {ref, markRaw, shallowRef} from 'vue';
+import { ref, markRaw, shallowRef } from 'vue';
 import {
   QuestionMarkCircleIcon,
   XIcon,
@@ -225,7 +176,7 @@ import {
   ChevronDownIcon,
   PresentationChartBarIcon
 } from '@heroicons/vue/outline';
-import {AcademicCapIcon, BookOpenIcon, RssIcon} from '@heroicons/vue/solid';
+import { AcademicCapIcon, BookOpenIcon, RssIcon } from '@heroicons/vue/solid';
 
 import PlanIcon from '@/assets/icons/PlanIcon.vue';
 import HardenIcon from '@/assets/icons/HardenIcon.vue';
@@ -414,7 +365,6 @@ const switchSelect = (event) => {
 
 /*   Lifecycle   */
 onMounted(() => {
-  console.log('What is this: ', localStorage.getItem('theme'));
   if (localStorage.getItem('theme') === null) {
     selected.value = 'System';
     setStorageThemeState(selected.value);

@@ -23,7 +23,7 @@
             </div>
           </div>
         </div>
-        <div v-else>
+        <div v-else class="text-center my-5">
           <LoadingSpinner />
         </div>
         <Footer />

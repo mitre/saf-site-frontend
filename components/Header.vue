@@ -75,7 +75,7 @@
               <!-- TODO: Site search-->
             </div>
             <div class="rounded-lg p-2.5 hover:bg-neutral-2">
-              <div class="relative flex items-center">
+              <div class="relative flex items-center text-foreground">
                 <SunIcon :class="selected === 'Light' ? 'h-6 w-6' : 'hidden'" />
                 <MoonIcon :class="selected === 'Dark' ? 'h-6 w-6' : 'hidden'" />
                 <DesktopComputerIcon

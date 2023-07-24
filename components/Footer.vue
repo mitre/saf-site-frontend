@@ -54,6 +54,6 @@
   </footer>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const copyrightYear = `1997-${new Date().getFullYear()}`;
 </script>

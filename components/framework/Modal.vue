@@ -16,7 +16,7 @@
             <div
               class="flex grid-cols-3 flex-col gap-4 border-b bg-neutral-1 px-4 py-5 sm:grid"
             >
-              <span>Category</span>
+              <span class="underline sm:no-underline">Category</span>
               <span class="mt-1 sm:col-span-2 sm:mt-0"
                 >{{ guidance.category.replaceAll('_', ' ') }}
               </span>
@@ -24,7 +24,7 @@
             <div
               class="flex grid-cols-3 flex-col gap-4 border-b bg-neutral-2 px-4 py-5 sm:grid"
             >
-              <span>Name</span>
+              <span class="underline sm:no-underline">Name</span>
               <span class="mt-1 sm:col-span-2 sm:mt-0">{{
                 guidance.name
               }}</span>
@@ -32,7 +32,7 @@
             <div
               class="flex grid-cols-3 flex-col gap-4 border-b bg-neutral-1 px-4 py-5 sm:grid"
             >
-              <span>Version</span>
+              <span class="underline sm:no-underline">Version</span>
               <span
                 v-if="guidance.version != 0"
                 class="mt-1 sm:col-span-2 sm:mt-0"
@@ -43,7 +43,7 @@
             <div
               class="flex grid-cols-3 flex-col gap-4 border-b bg-neutral-2 px-4 py-5 sm:grid"
             >
-              <span>Type</span>
+              <span class="underline sm:no-underline">Type</span>
               <span class="mt-1 sm:col-span-2 sm:mt-0">{{
                 guidance.type
               }}</span>
@@ -51,7 +51,7 @@
             <div
               class="flex grid-cols-3 flex-col gap-4 border-b bg-neutral-1 px-4 py-5 sm:grid"
             >
-              <span>Date</span>
+              <span class="underline sm:no-underline">Date</span>
               <span v-if="guidance.date" class="mt-1 sm:col-span-2 sm:mt-0">{{
                 guidance.date
               }}</span>
@@ -60,7 +60,7 @@
             <div
               class="flex grid-cols-3 flex-col gap-4 border-b bg-neutral-2 px-4 py-5 sm:grid"
             >
-              <span>Url</span>
+              <span class="underline sm:no-underline">Url</span>
               <a
                 class="hover:text-nav-light-active dark:hover:text-nav-dark-active mt-1 flex items-center after:content-['_↗'] hover:underline sm:col-span-2 sm:mt-0"
                 target="_blank"
@@ -102,7 +102,9 @@
               <div
                 class="border-b bg-neutral-1 px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-3 sm:px-6"
               >
-                <span class="flex items-center">Name</span>
+                <span class="flex items-center underline sm:no-underline"
+                  >Name</span
+                >
                 <div class="flex items-center">
                   <span class="mt-1 sm:col-span-2 sm:ml-3 sm:mt-0">
                     {{ hardening.name }}
@@ -112,7 +114,9 @@
               <div
                 class="border-b bg-neutral-2 px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6"
               >
-                <span class="flex items-center">Platform </span>
+                <span class="flex items-center underline sm:no-underline"
+                  >Platform
+                </span>
                 <div class="flex items-center">
                   <div class="h-10 w-10 flex-shrink-0">
                     <img
@@ -132,7 +136,9 @@
               <div
                 class="border-b bg-neutral-1 px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6"
               >
-                <span class="flex items-center">Partner</span>
+                <span class="flex items-center underline sm:no-underline"
+                  >Partner</span
+                >
                 <div class="flex items-center">
                   <div class="h-10 w-10 flex-shrink-0">
                     <img
@@ -152,7 +158,9 @@
               <div
                 class="border-b bg-neutral-2 px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-3 sm:px-6"
               >
-                <span class="flex items-center">Last Updated </span>
+                <span class="flex items-center underline sm:no-underline"
+                  >Last Updated
+                </span>
                 <div class="flex items-center">
                   <span class="mt-1 sm:col-span-2 sm:ml-3 sm:mt-0">
                     {{ hardening.last_update }}
@@ -162,7 +170,9 @@
               <div
                 class="border-b-4 border-accent bg-neutral-1 px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6"
               >
-                <span class="flex items-center">Link</span>
+                <span class="flex items-center underline sm:no-underline"
+                  >Link</span
+                >
                 <a
                   class="hover:text-nav-light-active dark:hover:text-nav-dark-active mt-1 inline-block items-center break-all after:content-['_↗'] hover:underline sm:col-span-1 sm:mt-0"
                   target="_blank"
@@ -194,7 +204,9 @@
                 <div
                   class="border-b bg-neutral-1 px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6"
                 >
-                  <span class="flex items-center">Name</span>
+                  <span class="flex items-center underline sm:no-underline"
+                    >Name</span
+                  >
                   <div class="flex items-center">
                     <span class="mt-1 sm:col-span-2 sm:ml-3 sm:mt-0">
                       {{ validation.name }}
@@ -204,7 +216,9 @@
                 <div
                   class="border-b bg-neutral-2 px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6"
                 >
-                  <span class="flex items-center">Platform </span>
+                  <span class="flex items-center underline sm:no-underline"
+                    >Platform
+                  </span>
                   <div class="flex items-center">
                     <div class="h-10 w-10 flex-shrink-0">
                       <img
@@ -224,7 +238,9 @@
                 <div
                   class="border-b bg-neutral-1 px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6"
                 >
-                  <span class="flex items-center">Partner </span>
+                  <span class="flex items-center underline sm:no-underline"
+                    >Partner
+                  </span>
                   <div class="flex items-center">
                     <div class="h-10 w-10 flex-shrink-0">
                       <img
@@ -244,7 +260,9 @@
                 <div
                   class="border-b bg-neutral-2 px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-3 sm:px-6"
                 >
-                  <span class="flex items-center">Last Updated </span>
+                  <span class="flex items-center underline sm:no-underline"
+                    >Last Updated
+                  </span>
                   <div class="flex items-center">
                     <span class="mt-1 sm:col-span-2 sm:ml-3 sm:mt-0">
                       {{ validation.last_update }}
@@ -254,7 +272,9 @@
                 <div
                   class="border-b-4 border-accent bg-neutral-1 px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6"
                 >
-                  <span class="flex items-center">Link</span>
+                  <span class="flex items-center underline sm:no-underline"
+                    >Link</span
+                  >
                   <a
                     class="hover:text-nav-light-active dark:hover:text-nav-dark-active mt-1 inline-block items-center break-all after:content-['_↗'] hover:underline sm:col-span-1 sm:mt-0"
                     target="_blank"
@@ -272,7 +292,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const props = defineProps({
   guidance: {
     type: Object,

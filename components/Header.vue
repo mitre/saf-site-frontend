@@ -29,7 +29,7 @@
               class="inline-flex items-center justify-center rounded-md p-2 text-nav-base hover:bg-nav-active focus:outline-none focus:ring-2 focus:ring-inset focus:ring-accent"
             >
               <span class="sr-only">Open menu</span>
-              <DotsVerticalIcon class="h-6 w-6 text-base" aria-hidden="true" />
+              <DotsVerticalIcon class="h-6 w-6" aria-hidden="true" />
             </PopoverButton>
           </div>
 
@@ -37,7 +37,7 @@
             <NuxtLink
               to="/getting-started"
               :class="[
-                'font-mitre text-base font-semibold hover:text-nav-hover ',
+                'font-mitre font-semibold hover:text-nav-hover ',
                 '/getting-started' === route.fullPath
                   ? 'text-nav-active '
                   : 'text-nav-base '
@@ -57,7 +57,7 @@
               :key="item.name"
               :to="item.href"
               :class="[
-                'font-mitre text-base font-semibold hover:text-nav-hover ',
+                'font-mitre font-semibold hover:text-nav-hover ',
                 item.href === route.fullPath
                   ? 'text-nav-active '
                   : 'text-nav-base '
@@ -75,7 +75,7 @@
               <!-- TODO: Site search-->
             </div>
             <div class="rounded-lg p-2.5 hover:bg-neutral-2">
-              <div class="relative flex items-center">
+              <div class="relative flex items-center text-foreground">
                 <SunIcon :class="selected === 'Light' ? 'h-6 w-6' : 'hidden'" />
                 <MoonIcon :class="selected === 'Dark' ? 'h-6 w-6' : 'hidden'" />
                 <DesktopComputerIcon
@@ -87,7 +87,7 @@
                 <select
                   id="theme-selector"
                   name="SAF Theme Selector"
-                  class="absolute h-fit w-full appearance-none bg-neutral-1 pr-3 text-base opacity-0"
+                  class="absolute h-fit w-full appearance-none bg-neutral-1 pr-3 opacity-0"
                   @change="switchSelect($event)"
                 >
                   <option :selected="selected === 'Light'">Light</option>
@@ -125,29 +125,43 @@
                       class="my-2 inline-flex items-center justify-center rounded-md text-nav-base focus:outline-none focus:ring-2 focus:ring-inset focus:ring-accent"
                     >
                       <span class="sr-only">Close menu</span>
-                      <XIcon class="h-6 w-6 text-base" aria-hidden="true" />
+                      <XIcon class="h-6 w-6" aria-hidden="true" />
                     </PopoverButton>
                   </div>
                 </div>
                 <div class="my-3">
                   <nav class="grid gap-y-8 py-2">
-                    <h1 class="text-base font-bold">Framework</h1>
+                    <h1 class="font-bold">Framework</h1>
                     <NavMobileLinks :items="framework" />
 
                     <hr class="drop-shadow" />
 
-                    <h1 class="text-base font-bold">Applications</h1>
+                    <h1 class="font-bold">Applications</h1>
                     <NavMobileLinks :items="applications" />
 
                     <hr class="drop-shadow" />
 
-                    <h1 class="text-base font-bold">Libraries</h1>
+                    <h1 class="font-bold">Libraries</h1>
                     <NavMobileLinks :items="libraries" />
 
                     <hr class="drop-shadow" />
 
-                    <h1 class="text-base font-bold">Resources</h1>
-                    <NavMobileLinks :items="navigation" />
+                    <h1 class="font-bold">Resources</h1>
+                    <div class="-mb-5">
+                      <NavMobileLinks
+                        :items="[
+                          {
+                            name: 'Getting Started',
+                            description: 'Getting started with SAF.',
+                            href: '/getting-started',
+                            icon: PresentationChartBarIcon
+                          }
+                        ]"
+                      />
+                    </div>
+                    <div class="-mb-5">
+                      <NavMobileLinks :items="navigation" />
+                    </div>
                     <NavMobileLinks :items="resources" />
                   </nav>
                 </div>
@@ -208,7 +222,8 @@ import {
   DesktopComputerIcon,
   MoonIcon,
   SunIcon,
-  ChevronDownIcon
+  ChevronDownIcon,
+  PresentationChartBarIcon
 } from '@heroicons/vue/outline';
 import {AcademicCapIcon, BookOpenIcon, RssIcon} from '@heroicons/vue/solid';
 
@@ -222,7 +237,7 @@ import VisualizeIcon from '@/assets/icons/VisualizeIcon.vue';
 import HeimdallLogo from '@/assets/icons/HeimdallLogo.vue';
 import SafShieldLogo from '@/assets/icons/SafShieldLogo.vue';
 
-/// /  Data  ////
+/*   Data   */
 const selected = ref('');
 const route = useRoute();
 const framework = markRaw([
@@ -361,14 +376,11 @@ const resources = ref([
   }
 ]);
 
-/// /  Methods  ////
-const setThemeState = (mode) => {
+/*   Methods   */
+const setStorageThemeState = (mode) => {
   localStorage.setItem('theme', mode);
 };
-const getThemeState = () => {
-  const theme = localStorage.getItem('theme');
-  selected.value = theme;
-};
+
 const enableDarkMode = () => {
   document.documentElement.classList.add('dark');
 };
@@ -378,62 +390,49 @@ const disableDarkMode = () => {
 const switchSelect = (event) => {
   if (event.target.value === 'Light') {
     disableDarkMode();
-    localStorage.setItem('user-theme', 'light');
     selected.value = 'Light';
-    setThemeState(selected.value);
+    setStorageThemeState(selected.value);
   } else if (event.target.value === 'Dark') {
     enableDarkMode();
-    localStorage.setItem('user-theme', 'dark');
     selected.value = 'Dark';
-    setThemeState(selected.value);
+    setStorageThemeState(selected.value);
   } else if (event.target.value === 'System') {
     const userIsInDarkModeOS = window.matchMedia(
       '(prefers-color-scheme: dark)'
     ).matches;
     if (userIsInDarkModeOS) {
       enableDarkMode();
-      localStorage.setItem('user-theme', 'dark');
       selected.value = 'System';
-      setThemeState(selected.value);
+      setStorageThemeState(selected.value);
     } else {
       disableDarkMode();
       selected.value = 'System';
+      setStorageThemeState(selected.value);
     }
   }
 };
 
-/// /  Lifecycle  ////
+/*   Lifecycle   */
 onMounted(() => {
-  if (localStorage.getItem('wasVisited') === undefined) {
-    selected.value = 'Light';
-    setThemeState(selected.value);
-    localStorage.setItem('wasVisited', true);
+  if (localStorage.getItem('theme') === null) {
+    selected.value = 'System';
+    setStorageThemeState(selected.value);
+  } else {
+    selected.value = localStorage.getItem('theme');
   }
-
-  getThemeState();
 
   if (selected.value === 'Light') {
     disableDarkMode();
-    localStorage.setItem('user-theme', 'light');
-    selected.value = 'Light';
-    setThemeState(selected.value);
   } else if (selected.value === 'Dark') {
     enableDarkMode();
-    localStorage.setItem('user-theme', 'dark');
-    selected.value = 'Dark';
-    setThemeState(selected.value);
   } else if (selected.value === 'System') {
     const userIsInDarkModeOS = window.matchMedia(
       '(prefers-color-scheme: dark)'
     ).matches;
     if (userIsInDarkModeOS) {
       enableDarkMode();
-      localStorage.setItem('user-theme', 'dark');
-      selected.value = 'System';
-      setThemeState(selected.value);
     } else {
       disableDarkMode();
-      selected.value = 'System';
     }
   }
 });

@@ -29,7 +29,7 @@
                   v-else-if="tenet.name === 'Community Project'"
                   class="mr-2 h-12 w-12"
                 />
-                <AnnotationIcon v-else class="mr-2 h-12 w-12 text-base" />
+                <AnnotationIcon v-else class="mr-2 h-12 w-12" />
                 <div
                   class="text-start text-2xl font-extrabold tracking-tight sm:text-3xl"
                 >
@@ -48,17 +48,18 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import {
   GlobeIcon,
   CurrencyDollarIcon,
   BeakerIcon,
   AnnotationIcon
 } from '@heroicons/vue/outline';
+import {Tenet} from 'global';
 
 const props = defineProps({
   tenets: {
-    type: Array,
+    type: Array<Tenet>,
     required: true
   }
 });

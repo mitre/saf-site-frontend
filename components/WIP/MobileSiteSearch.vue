@@ -7,7 +7,7 @@
         <div
           class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-2"
         >
-          <SearchIcon class="h-5 w-5 text-base" aria-hidden="true" />
+          <SearchIcon class="h-5 w-5" aria-hidden="true" />
         </div>
         <input
           id="search"

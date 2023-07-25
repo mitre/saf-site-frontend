@@ -1,19 +1,19 @@
 <template>
   <div>
     <Head>
-      <Title>{{ postData.title }}</Title>
-      <Meta name="description" :content="`${postData.title} blog post`" />
+      <Title>{{ postTitle }}</Title>
+      <Meta name="description" :content="`${postTitle} blog post`" />
     </Head>
     <div>
       <Header />
       <div v-if="isLoaded">
         <ReadingPage
-          :title="postData.title"
-          :last-updated="postData.date"
+          :title="postTitle"
+          :last-updated="postDate"
           :author="postAuthor"
         >
           <div
-            class="prose prose-sm mx-auto mt-8 text-left text-base leading-8 dark:prose-invert lg:prose-lg prose-code:text-start prose-li:text-start"
+            class="prose prose-sm mx-auto mt-8 text-left leading-8 dark:prose-invert lg:prose-lg prose-code:text-start prose-li:text-start"
             v-html="renderedContent"
           ></div>
         </ReadingPage>
@@ -26,26 +26,31 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import {ref, onMounted, nextTick} from 'vue';
 
 /// /  Data  ////
 const isLoaded = ref(false);
-const postData = ref({});
-const postAuthor = ref({});
+const postTitle = ref('');
+const postDate = ref('');
+const postAuthor = ref('');
 const renderedContent = ref('');
 const route = useRoute();
 
 /// /  Methods  ////
 const getBlogPost = async () => {
   await useAsyncData('getBlogDataFromID', () =>
-    GqlGetBlogDataFromID({id: route.query.id})
+    GqlGetBlogDataFromID({id: route.query.id?.toString() ?? 'Error'})
   ).then(({data}) => {
-    if (!data.value || !data.value.blogPost.data) return navigateTo('/blog');
-    postData.value = data.value.blogPost.data.attributes;
-    renderedContent.value = postData.value.content;
+    if (!data.value || !data?.value?.blogPost?.data) {
+      return navigateTo('/blog');
+    }
+    const postData = data.value.blogPost.data.attributes;
+    postTitle.value = postData?.title ?? 'Error';
+    postDate.value = postData?.date;
+    renderedContent.value = postData?.content ?? 'Error';
     postAuthor.value =
-      postData.value.users_permissions_user.data.attributes.name;
+      postData?.users_permissions_user?.data?.attributes?.name ?? 'Error';
     isLoaded.value = true;
   });
 };

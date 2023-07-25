@@ -32,24 +32,25 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import {ref, onMounted, nextTick} from 'vue';
 
 /// /  Data  ////
-const posts = ref([]);
+const posts = ref();
 
 /// /  Methods  ////
 const getBlogPosts = async () => {
   posts.value = await useAsyncData('getAllBlogData', () => GqlBlogPosts()).then(
     ({data}) =>
-      data.value.blogPosts.data.map((post) => ({
-        title: post.attributes.title,
-        description: post.attributes.description,
-        category: {name: post.attributes.category},
-        author: post.attributes.users_permissions_user.data.attributes.name,
-        date: post.attributes.date,
+      data?.value?.blogPosts?.data.map((post) => ({
+        title: post?.attributes?.title,
+        description: post?.attributes?.description,
+        category: {name: post?.attributes?.category},
+        author:
+          post?.attributes?.users_permissions_user?.data?.attributes?.name,
+        date: post?.attributes?.date,
         id: post.id,
-        content: post.attributes.content
+        content: post?.attributes?.content
       }))
   );
 };

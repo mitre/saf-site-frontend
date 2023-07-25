@@ -10,10 +10,10 @@
           >
             Our Open Source Toolset
           </h1>
-          <p class="mt-5 max-w-prose text-base text-lg sm:text-xl">
+          <p class="mt-5 max-w-prose text-lg sm:text-xl">
             MITRE SAF maintains a toolset of utilities to support automation.
           </p>
-          <p class="mt-5 max-w-prose text-base text-lg sm:text-xl">
+          <p class="mt-5 max-w-prose text-lg sm:text-xl">
             SAF tools are built to be modular. Slot them into your existing
             pipelines and integrate them with your favorite security tools. You
             can use SAF tools on their own with no pipeline at all.
@@ -33,18 +33,16 @@
                       class="inline-flex items-center justify-center rounded-xl bg-neutral-2 p-6 shadow-lg"
                     >
                       <img
-                        :src="tool.icon.url"
+                        :src="tool.icon.url ?? ''"
                         class="h-16 w-16 max-w-full"
-                        :alt="tool.icon.alt"
+                        :alt="tool.icon.alt ?? 'Unknown Image'"
                       />
                     </div>
-                    <h3
-                      class="mt-8 text-base text-lg font-bold leading-8 tracking-tight"
-                    >
+                    <h3 class="mt-8 text-lg font-bold leading-8 tracking-tight">
                       {{ tool.name }}
                     </h3>
                     <p
-                      class="ml-8 mt-5 text-left text-base leading-7"
+                      class="ml-8 mt-5 text-left leading-7"
                       v-html="tool.description"
                     ></p>
                   </div>
@@ -58,10 +56,12 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import {Toolset} from 'global';
+
 const props = defineProps({
   toolset: {
-    type: Array,
+    type: Array<Toolset>,
     required: true
   }
 });

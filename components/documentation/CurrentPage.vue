@@ -18,7 +18,7 @@
       <div v-if="props.allLinks[props.currentIndex - 1]">
         <a
           :href="`/docs/${props.allLinks[props.currentIndex - 1].href}`"
-          class="flex flex-col text-base font-semibold text-nav-base hover:text-nav-hover"
+          class="flex flex-col font-semibold text-nav-base hover:text-nav-hover"
         >
           <span class="font-display text-sm font-medium text-nav-base">
             Previous
@@ -35,7 +35,7 @@
       >
         <a
           :href="`/docs/${props.allLinks[props.currentIndex + 1].href}`"
-          class="flex flex-col text-base font-semibold text-nav-base hover:text-nav-hover"
+          class="flex flex-col font-semibold text-nav-base hover:text-nav-hover"
         >
           <span class="font-display text-sm font-medium text-nav-base">
             Next

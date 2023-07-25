@@ -13,7 +13,7 @@
               {{ title }}
             </span>
             <span
-              class="block pt-3 text-center text-base font-semibold tracking-wide text-nav-active"
+              class="block pt-3 text-center font-semibold tracking-wide text-nav-active"
             >
               Updated: {{ lastUpdated }}
               &nbsp; | &nbsp;
@@ -32,7 +32,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 /// /  Props  ////
 const props = defineProps({
   title: {

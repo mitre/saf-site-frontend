@@ -6,7 +6,7 @@
         items.some((e) => e.href === route.fullPath)
           ? 'text-nav-active '
           : 'text-nav-base ',
-        'group inline-flex  items-center rounded-md bg-neutral-1 text-base font-medium  hover:text-nav-hover  focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2'
+        'group inline-flex  items-center rounded-md bg-neutral-1 font-medium  hover:text-nav-hover  focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2'
       ]"
     >
       <span class="font-mitre font-semibold">{{ label }}</span>
@@ -54,7 +54,7 @@
                 aria-hidden="true"
               />
               <div class="ml-4">
-                <p class="text-base font-medium">
+                <p class="font-medium">
                   {{ item.name }}
                 </p>
                 <p class="mt-1 text-sm text-muted">
@@ -69,10 +69,10 @@
   </Popover>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import {Popover, PopoverButton, PopoverPanel} from '@headlessui/vue';
-
 import {ChevronDownIcon} from '@heroicons/vue/solid';
+import {LinkObject} from 'global';
 
 /// /  Props  ////
 const route = useRoute();
@@ -83,7 +83,7 @@ const props = defineProps({
     required: true
   },
   items: {
-    type: Array,
+    type: Array<LinkObject>,
     required: true
   }
 });

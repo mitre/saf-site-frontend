@@ -43,11 +43,11 @@
       </button>
     </div>
     <div class="w-64 pr-8 xl:w-72 xl:pr-16">
-      <nav class="text-base lg:text-sm">
+      <nav class="lg:text-sm">
         <ul role="list" class="space-y-9">
           <div v-for="(section, key) in props.docData" :key="key">
             <li key="{{section.section_title}}">
-              <h2 class="text-base font-bold">
+              <h2 class="font-bold">
                 {{ section.section_title }}
               </h2>
               <ul

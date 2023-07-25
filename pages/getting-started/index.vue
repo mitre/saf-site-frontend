@@ -9,7 +9,7 @@
       <div
         class="max-w-8xl relative h-full min-h-screen bg-neutral-1 px-4 pt-4 sm:px-6 lg:px-8"
       >
-        <div v-if="isLoaded">
+        <div v-if="isLoaded && gettingStartedContent">
           <div class="sm:flex sm:items-center">
             <div class="sm:flex-auto">
               <h1 class="text-center text-4xl font-bold text-header">
@@ -23,8 +23,8 @@
             </div>
           </div>
         </div>
-        <div v-else>
-          <p>Loading ...</p>
+        <div v-else class="text-center my-5">
+          <LoadingSpinner />
         </div>
         <Footer />
       </div>
@@ -32,17 +32,19 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 /// /  Data  ////
 const isLoaded = ref(false);
-const gettingStartedContent = ref('');
+const gettingStartedContent = ref<string | undefined>();
 
 /// /  Methods  ////
 const getGettingStartedContent = async () => {
   gettingStartedContent.value = await useAsyncData(
     'getGettingStartedPage',
     () => GqlGetGettingStartedPage()
-  ).then(({data}) => data.value.gettingStartedPage.data.attributes.content);
+  ).then(
+    ({data}) => data?.value?.gettingStartedPage?.data?.attributes?.content
+  );
 };
 
 /// /  Lifecycle  ////

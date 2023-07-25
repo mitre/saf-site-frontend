@@ -5,13 +5,12 @@
       <Meta name="description" :content="`Framework page for ${pageTitle}`" />
     </Head>
     <Header />
-    <div v-if="isLoaded">
+    <div v-if="isLoaded && pageTitle !== ''">
       <FrameworkPage
         :product-icon="pageIconHref"
         :title="pageTitle"
         :grabber="pageGrabber"
         :description="pageContent"
-        :features="pageFeatures"
       />
     </div>
     <div v-else class="grid h-screen place-items-center">
@@ -21,7 +20,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 /// /  Data  ////
 const isLoaded = ref(false);
 const route = useRoute();
@@ -29,20 +28,22 @@ const pageIconHref = ref('');
 const pageTitle = ref('');
 const pageContent = ref('');
 const pageGrabber = ref('');
-const pageFeatures = ref([]);
 
 /// /  Methods  ////
 const getPageContent = async () => {
   await useAsyncData('getFrameworkPage', () =>
-    GqlGetFrameworkPage({page: route.params.page})
+    GqlGetFrameworkPage({page: route.params.page.toString()})
   ).then(({data}) => {
     pageIconHref.value =
-      data.value.frameworkPages.data[0].attributes.capability.data.attributes.icon.data.attributes.url;
+      data?.value?.frameworkPages?.data[0]?.attributes?.capability?.data
+        ?.attributes?.icon?.data?.attributes?.url ?? '';
     pageTitle.value =
-      data.value.frameworkPages.data[0].attributes.capability.data.attributes.name;
-    pageGrabber.value = data.value.frameworkPages.data[0].attributes.grabber;
+      data?.value?.frameworkPages?.data[0]?.attributes?.capability?.data
+        ?.attributes?.name ?? '';
+    pageGrabber.value =
+      data?.value?.frameworkPages?.data[0]?.attributes?.grabber ?? '';
     pageContent.value =
-      data.value.frameworkPages.data[0].attributes.description;
+      data.value?.frameworkPages?.data[0]?.attributes?.description ?? '';
     return data;
   });
 };

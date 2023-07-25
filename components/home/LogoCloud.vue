@@ -26,15 +26,13 @@
                     class="inline-flex w-full items-center justify-center rounded-xl bg-neutral-2 p-4 shadow-lg dark:bg-white"
                   >
                     <img
-                      :src="item.icon.url"
-                      :alt="item.icon.alt"
-                      class="aspect-auto m-6 max-h-24 rounded-lg object-cover text-base dark:bg-white"
+                      :src="item.icon.url ?? ''"
+                      :alt="item.icon.alt ?? 'Unknown Image'"
+                      class="aspect-auto m-6 max-h-24 rounded-lg object-cover dark:bg-white"
                       aria-hidden="true"
                     />
                   </div>
-                  <h3
-                    class="mt-8 text-base text-lg font-bold leading-8 tracking-tight"
-                  >
+                  <h3 class="mt-8 text-lg font-bold leading-8 tracking-tight">
                     {{ item.nameLong }}
                   </h3>
                 </div>
@@ -47,14 +45,16 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import {LogoCloudEntry} from 'global';
+
 const props = defineProps({
   title: {
     type: String,
     required: true
   },
   data: {
-    type: Array,
+    type: Array<LogoCloudEntry>,
     required: true
   }
 });

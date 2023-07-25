@@ -12,18 +12,18 @@
       <h2 class="text-4xl font-bold tracking-tight text-header sm:text-4xl">
         {{ title }}
       </h2>
-      <h3 class="mx-auto mt-6 text-center text-base leading-8">
+      <h3 class="mx-auto mt-6 text-center leading-8">
         {{ grabber }}
       </h3>
       <div
-        class="prose mx-auto mt-8 max-w-none text-left text-base leading-8 dark:prose-invert"
+        class="prose mx-auto mt-8 max-w-none text-left leading-8 dark:prose-invert"
         v-html="description"
       ></div>
     </div>
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 /// /  Data  ////
 const props = defineProps({
   productIcon: {

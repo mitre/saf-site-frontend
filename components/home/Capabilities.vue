@@ -1,6 +1,6 @@
 <template>
   <div class="bg-neutral-2 px-6">
-    <div class="py-24 sm:py-32">
+    <div class="py-12">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="mx-auto max-w-6xl lg:text-center">
           <h1
@@ -9,8 +9,11 @@
             Jump Start Your Security Journey
           </h1>
           <p class="mt-6 text-xl leading-8">
-            MITRE SAF(c) offers open-source support for multiple workflow
-            capabilities.
+            MITRE SAF supports security processes at all stages of the software
+            lifecycle, from planning secure system design to analyzing
+            operational security data. All of MITRE SAF's tools can work in
+            concert or standalone; adopt the parts of the Framework that make
+            sense for your environment.
           </p>
         </div>
         <div
@@ -36,15 +39,15 @@
             <div>
               <div class="inline-flex rounded-lg p-3 ring-4 ring-accent">
                 <img
-                  :src="capability.icon.url"
-                  :alt="capability.icon.alt"
-                  class="h-14 text-base sm:h-16"
+                  :src="capability.icon.url ?? ''"
+                  :alt="capability.icon.alt ?? 'Unknown Image'"
+                  class="h-14 sm:h-16"
                   aria-hidden="true"
                 />
               </div>
             </div>
             <div class="mt-8">
-              <h3 class="text-base font-semibold leading-6">
+              <h3 class="font-semibold leading-6">
                 <NuxtLink :to="capability.link" class="focus:outline-none">
                   <span class="absolute inset-0" aria-hidden="true" />
                   <h2 class="text-xl font-extrabold leading-7">
@@ -56,7 +59,7 @@
               </h3>
             </div>
             <span
-              class="pointer-events-none absolute right-6 top-6 text-base group-hover:text-nav-active"
+              class="pointer-events-none absolute right-6 top-6 group-hover:text-nav-active"
               aria-hidden="true"
             >
               <DiagonalArrow />
@@ -86,30 +89,27 @@
             <div>
               <div class="inline-flex rounded-lg p-3 ring-4 ring-accent">
                 <img
-                  :src="capability.icon.url"
-                  :alt="capability.icon.alt"
-                  class="h-14 text-base sm:h-16"
+                  :src="capability.icon.url ?? ''"
+                  :alt="capability.icon.alt ?? 'Unknown Image'"
+                  class="h-14 sm:h-16"
                   aria-hidden="true"
                 />
               </div>
             </div>
             <div class="mt-8">
-              <h3 class="text-base font-semibold leading-6">
+              <h3 class="font-semibold leading-6">
                 <NuxtLink :to="capability.link" class="focus:outline-none">
                   <span class="absolute inset-0" aria-hidden="true" />
                   <h2 class="text-xl font-extrabold leading-7">
                     {{ capability.name }}
                   </h2>
-                  <span
-                    class="mt-2 text-base leading-7"
-                    v-html="capability.description"
-                  >
+                  <span class="mt-2 leading-7" v-html="capability.description">
                   </span>
                 </NuxtLink>
               </h3>
             </div>
             <span
-              class="pointer-events-none absolute right-6 top-6 text-base group-hover:text-nav-active"
+              class="pointer-events-none absolute right-6 top-6 group-hover:text-nav-active"
               aria-hidden="true"
             >
               <DiagonalArrow />
@@ -121,12 +121,13 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import DiagonalArrow from '@/assets/icons/DiagonalArrow.vue';
+import {Capability} from 'global';
 
 const props = defineProps({
   capabilities: {
-    type: Array,
+    type: Array<Capability>,
     required: true
   }
 });

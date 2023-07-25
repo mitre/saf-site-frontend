@@ -14,18 +14,20 @@
         class="h-6 w-6 flex-shrink-0 text-fill"
         aria-hidden="true"
       />
-      <span class="ml-3 text-base font-medium">
+      <span class="ml-3 font-medium">
         {{ item.name }}
       </span>
     </NuxtLink>
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import {LinkObject} from 'global';
+
 /// /  Props  ////
 const props = defineProps({
   items: {
-    type: String,
+    type: Array<LinkObject>,
     required: true
   }
 });

@@ -19,7 +19,9 @@
                 provide stewardship over these hardening baselines, hosted here
                 and at other community vendor sites. If you are interested in
                 new hardening baselines, please contact us at
-                saf@groups.mitre.org .
+                <a href="mailto:saf@groups.mitre.org" class="underline"
+                  >saf@groups.mitre.org</a
+                >.
               </p>
             </div>
           </div>

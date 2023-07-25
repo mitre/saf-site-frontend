@@ -41,11 +41,11 @@
         </a>
       </div>
       <div class="mr-4 mt-8 md:order-1 md:mt-0">
-        <p class="block text-center text-base">
+        <p class="block text-center">
           Copyright © {{ copyrightYear }}, The MITRE Corporation. All rights
           reserved.
         </p>
-        <p class="block text-center text-base">
+        <p class="block text-center">
           MITRE is a registered trademark of The MITRE Corporation. Material on
           this site may be copied and distributed with permission only.
         </p>
@@ -54,6 +54,6 @@
   </footer>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const copyrightYear = `1997-${new Date().getFullYear()}`;
 </script>

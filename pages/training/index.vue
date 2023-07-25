@@ -20,7 +20,7 @@
                   >
                     Our Training
                   </h1>
-                  <p class="mt-6 text-base">
+                  <p class="mt-6">
                     The MITRE SAF© team offers training classes. Dates and
                     sign-up links to participate in synchronous (typically
                     virtual) class offerings are posted on this page when
@@ -52,7 +52,7 @@
                   class="pointer-events-auto relative order-2 pr-6 pt-8"
                 >
                   <div>
-                    <h2 class="pt-6 text-xl font-semibold sm:pl-3">
+                    <h2 class="pt-6 text-3xl font-bold sm:pl-3">
                       Upcoming Classes
                     </h2>
                     <div v-if="schedules.length" class="lg:grid lg:grid-cols-2">
@@ -65,7 +65,7 @@
                           class="relative flex space-x-6 py-6"
                         >
                           <div class="flex-0 pl-4">
-                            <h3 class="text-base font-semibold">
+                            <h3 class="font-semibold">
                               {{ schedule.title }}
                             </h3>
                             <div
@@ -79,7 +79,7 @@
                                     aria-hidden="true"
                                   />
                                 </span>
-                                <span v-if="schedule.date != null">
+                                <span v-if="schedule.date !== ''">
                                   <time :datetime="schedule.date">
                                     {{ formatDate(schedule.date) }} at
                                     {{ formatTime(schedule.date) }} EST
@@ -115,7 +115,7 @@
                         </li>
                       </ol>
                     </div>
-                    <div v-else class="relative mt-6 max-w-sm pl-2 text-base">
+                    <div v-else class="relative mt-6 max-w-sm pl-2">
                       <p>
                         Sorry there are no upcoming classes at this time. If you
                         would like to host a class please contact,
@@ -130,7 +130,7 @@
                 </div>
                 <div id="Embeded Videos" class="order-1 flex-1 pt-9">
                   <h2
-                    class="block pt-4 text-3xl font-bold leading-8 tracking-tight sm:pl-4 sm:text-3xl"
+                    class="block pt-4 text-3xl font-bold leading-8 tracking-tight sm:pl-4"
                   >
                     Classes
                   </h2>
@@ -142,7 +142,7 @@
                           {{ course.name }}
                         </p>
                         <div
-                          class="prose-md prose mb-8 mt-8 max-w-3xl text-left text-base leading-8 dark:prose-invert lg:prose-lg prose-code:text-start prose-li:text-start"
+                          class="prose-md prose mb-8 mt-8 max-w-3xl text-left leading-8 dark:prose-invert lg:prose-lg prose-code:text-start prose-li:text-start"
                           v-html="course.description"
                         ></div>
                       </div>
@@ -153,7 +153,7 @@
                     </div>
                   </div>
                   <div v-else>
-                    <p class="relative mt-6 max-w-sm pl-2 text-base">
+                    <p class="relative mt-6 max-w-sm pl-2">
                       Classes are being updated. Check back later!
                     </p>
                   </div>
@@ -170,64 +170,65 @@
     </div>
   </div>
 </template>
-
-<script>
+<script setup lang="ts">
 import {CalendarIcon} from '@heroicons/vue/solid';
+import {ref, onMounted, nextTick} from 'vue';
 
-export default {
-  components: {CalendarIcon},
-  data() {
-    return {
-      courses: [],
-      schedules: [],
-      isLoaded: false
-    };
-  },
-  mounted() {
-    this.$nextTick(async () => {
-      await this.getTrainingData();
-      await this.getScheduleData();
-      this.sortData();
-      this.isLoaded = true;
-    });
-  },
-  methods: {
-    async getTrainingData() {
-      this.courses = await useAsyncData('getTrainingData', () =>
-        GqlGetTrainingData()
-      ).then(({data}) =>
-        data.value.trainingCourses.data.map((course) => ({
-          name: course.attributes.name,
-          description: course.attributes.description,
-          index: course.attributes.index
-        }))
-      );
-    },
-    async getScheduleData() {
-      this.schedules = await useAsyncData('getScheduleData', () =>
-        GqlGetScheduleData()
-      ).then(({data}) =>
-        data.value.courseSchedules.data.map((schedule) => ({
-          title: schedule.attributes.title,
-          date: schedule.attributes.date,
-          link: schedule.attributes.link,
-          index: schedule.attributes.index
-        }))
-      );
-    },
-    sortData() {
-      this.courses.sort((a, b) => a.index - b.index);
-      this.schedules.sort((a, b) => a.index - b.index);
-    },
-    formatDate(value, locale = 'en-US') {
-      return new Date(value).toLocaleDateString(locale);
-    },
-    formatTime(value, locale = 'en-US') {
-      return new Date(value).toLocaleTimeString(locale, {
-        hour: '2-digit',
-        minute: '2-digit'
-      });
-    }
-  }
+/// /  Data  ////
+const courses = ref<Course[]>([]);
+const schedules = ref<CourseSchedule[]>([]);
+const isLoaded = ref(false);
+
+/// /  Methods  ////
+const getTrainingData = async () => {
+  courses.value = await useAsyncData('getTrainingData', () =>
+    GqlGetTrainingData()
+  ).then(
+    ({data}) =>
+      data?.value?.trainingCourses?.data.map((course) => ({
+        name: course?.attributes?.name ?? '',
+        description: course?.attributes?.description ?? '',
+        index: course?.attributes?.index ?? 0
+      })) ?? []
+  );
 };
+const getScheduleData = async () => {
+  schedules.value = await useAsyncData('getScheduleData', () =>
+    GqlGetScheduleData()
+  ).then(
+    ({data}) =>
+      data?.value?.courseSchedules?.data.map((schedule) => ({
+        title: schedule?.attributes?.title ?? '',
+        date: schedule?.attributes?.date ?? '',
+        link: schedule?.attributes?.link ?? '',
+        index: schedule?.attributes?.index ?? 0
+      })) ?? []
+  );
+};
+
+const sortData = () => {
+  courses?.value?.sort((a, b) => a.index - b.index);
+  schedules?.value?.sort((a, b) => a.index - b.index);
+};
+
+const formatDate = (value: string, locale = 'en-US') => {
+  return new Date(value).toLocaleDateString(locale);
+};
+
+const formatTime = (value: string, locale = 'en-US') => {
+  return new Date(value).toLocaleTimeString(locale, {
+    hour: '2-digit',
+    minute: '2-digit'
+  });
+};
+
+/// /  Lifecycle  ////
+onMounted(async () => {
+  await nextTick(async () => {
+    await getTrainingData();
+    await getScheduleData();
+    sortData();
+    isLoaded.value = true;
+  });
+});
 </script>

@@ -37,9 +37,9 @@
                 </NuxtLink>
               </span>
               <div class="flex space-x-1 text-sm text-muted">
-                <time :datetime="post.datetime">
+                <span>
                   {{ post.date }}
-                </time>
+                </span>
                 <span aria-hidden="true"> &middot; </span>
                 <span class="text-muted">
                   {{ readingTime(post.content) }} min read
@@ -56,9 +56,10 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import {ref, onMounted, nextTick} from 'vue';
-import slugify from '@/utils/useSlugify.ts';
+import slugify from '@/utils/useSlugify';
+import {BlogPost} from 'global';
 
 /// /  Data  ////
 const isLoaded = ref(false);
@@ -66,7 +67,7 @@ const isLoaded = ref(false);
 /// /  Props  ////
 const props = defineProps({
   posts: {
-    type: Array,
+    type: Array<BlogPost>,
     required: true
   }
 });
@@ -74,7 +75,7 @@ const props = defineProps({
 const {posts} = toRefs(props);
 
 /// /  Methods  ////
-const readingTime = (text) => {
+const readingTime = (text: string) => {
   const wpm = 225;
   const words = text.trim().split(/\s+/).length;
   return Math.ceil(words / wpm);

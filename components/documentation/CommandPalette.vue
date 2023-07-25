@@ -38,11 +38,11 @@
             <Combobox>
               <div class="relative">
                 <SearchIcon
-                  class="pointer-events-none absolute left-4 top-3.5 h-5 w-5 text-base"
+                  class="pointer-events-none absolute left-4 top-3.5 h-5 w-5"
                   aria-hidden="true"
                 />
                 <ComboboxInput
-                  class="h-12 w-full border-0 bg-transparent pl-11 pr-4 text-base placeholder:text-base focus:ring-0 sm:text-sm"
+                  class="h-12 w-full border-0 bg-transparent pl-11 pr-4 placeholder:focus:ring-0 sm:text-sm"
                   placeholder="Search..."
                   @change="query = $event.target.value"
                 />
@@ -58,7 +58,7 @@
                   :key="section"
                   class="mb-2"
                 >
-                  <h1 class="mb-1 text-base font-bold">{{ section }}</h1>
+                  <h1 class="mb-1 font-bold">{{ section }}</h1>
                   <ComboboxOption
                     v-for="item in filteredItems[section]"
                     :key="item.id"
@@ -76,12 +76,7 @@
                         :href="`/docs/${item.subsection_href}`"
                         class="ml-4 flex-auto"
                       >
-                        <p
-                          :class="[
-                            'text-sm font-semibold',
-                            active ? 'text-base ' : 'text-base '
-                          ]"
-                        >
+                        <p :class="['text-sm font-semibold', active ? '' : '']">
                           {{ item.subsection_title }}
                         </p>
                         <p
@@ -109,9 +104,9 @@
                 <ExclamationIcon
                   type="outline"
                   name="exclamation-circle"
-                  class="mx-auto h-6 w-6 text-base"
+                  class="mx-auto h-6 w-6"
                 />
-                <p class="mt-4 text-base font-semibold">No results found</p>
+                <p class="mt-4 font-semibold">No results found</p>
                 <p class="mt-2 text-muted">
                   No results found for this search term. Please try again.
                 </p>
@@ -124,7 +119,7 @@
   </TransitionRoot>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import {computed, ref, onMounted, nextTick} from 'vue';
 import {SearchIcon, ExclamationIcon} from '@heroicons/vue/solid';
 import {

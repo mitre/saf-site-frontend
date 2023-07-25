@@ -32,14 +32,18 @@
             <div
               class="mt-12 grid grid-cols-1 gap-y-10 sm:mt-16 md:grid-cols-2 md:gap-x-6 lg:grid-cols-3"
             >
-              <div v-for="faq in faqs" :key="faq.id" class="flex flex-col">
+              <div
+                v-for="faq in faqs"
+                :key="faq.questionNumber"
+                class="flex flex-col"
+              >
                 <span class="text-lg font-bold"
                   >{{ faq.questionNumber }}. {{ faq.question }}
                 </span>
                 <span class="prose mt-3 text-sm dark:prose-invert">{{
                   parser
-                    .parseFromString(faq.answer, 'text/html')
-                    .body.childNodes[0].innerText.substring(0, 250) + '...'
+                    .parseFromString(faq.answer ?? '', 'text/html')
+                    .body.childNodes[0].innerText.substring(0, 125) + '...'
                 }}</span>
                 <span class="mt-4 font-bold text-nav-active">
                   <NuxtLink :to="`/faq/${faq.questionNumber}`"
@@ -56,23 +60,23 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import {ref, onMounted, nextTick} from 'vue';
 
 /// /  Data  ////
 const isLoaded = ref(false);
-const faqs = ref({});
+const faqs = ref<FAQ[]>([]);
 const parser = new DOMParser();
 
 /// /  Methods  ////
 const getFAQs = async () => {
   faqs.value = await useAsyncData('getAllFAQs', () => GqlFAQs()).then(
     ({data}) =>
-      data.value.faqs.data.map((faq) => ({
-        questionNumber: faq.attributes.question_number,
-        question: faq.attributes.question,
-        answer: faq.attributes.answer
-      }))
+      data?.value?.faqs?.data.map((faq) => ({
+        questionNumber: faq?.attributes?.question_number ?? 0,
+        question: faq?.attributes?.question ?? 'Error',
+        answer: faq?.attributes?.answer ?? 'Error'
+      })) ?? []
   );
 };
 

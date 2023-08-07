@@ -14,7 +14,7 @@
           <div
             class="max-2xl mx-auto px-4 py-4 sm:px-6 sm:py-4 lg:max-w-7xl lg:px-8"
           >
-            <div class="max-w-xl">
+            <div>
               <h2
                 id="faq-heading"
                 class="text-3xl font-bold tracking-tight text-header"

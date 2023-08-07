@@ -1,7 +1,7 @@
 <template>
   <div>
     <Head>
-      <Title>HDF Converters</Title>
+      <Title>OHDF Converters</Title>
       <Meta name="description" content="HDF Converters library content" />
     </Head>
     <div>
@@ -41,7 +41,7 @@ const pageTitle = ref('');
 const getLibraryContent = async () => {
   await useAsyncData(
     'getLibraryPageByName',
-    () => GqlGetLibraryPageByName({name: 'HDF Converters'}),
+    () => GqlGetLibraryPageByName({name: 'OHDF Converters'}),
     {initialCache: false}
   ).then(({data}) => {
     libraryContent.value = data.value.libraryPages.data[0].attributes.content;

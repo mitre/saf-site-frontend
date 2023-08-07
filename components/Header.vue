@@ -293,20 +293,21 @@ const libraries = ref([
     icon: ValidationLibIcon
   },
   {
-    name: 'HDF Converters',
-    description: '?????',
-    href: '/libs/hdf-converters',
+    name: 'OHDF Converters',
+    description: 'Convert your security data to, or from, normalized OHDF.',
+    href: '/libs/ohdf-converters',
     icon: SafShieldLogo
   },
   {
     name: 'TS InSpec Objects',
-    description: '??????????',
+    description:
+      'Manipulate InSpec profiles programmatically using Typescript.',
     href: '/libs/ts-inspec-objects',
     icon: SafShieldLogo
   },
   {
     name: 'eMASS Client',
-    description: '?????????',
+    description: 'Interact with eMASS via API.',
     href: '/libs/emass-client',
     icon: SafShieldLogo
   }

@@ -4,7 +4,7 @@
       <div class="mx-auto max-w-7xl text-center">
         <img
           :src="`${productIcon}`"
-          class="aspect-square mx-auto my-2 w-14 md:w-20"
+          class="aspect-square mx-auto my-2 w-14 md:w-20 dark:bg-neutral-4 dark:p-3 dark:rounded-xl"
           aria-hidden="true"
           alt="Alt text here"
         />

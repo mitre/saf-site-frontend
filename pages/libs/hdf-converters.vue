@@ -16,7 +16,7 @@
                 <strong>{{ pageTitle }}</strong>
               </h1>
               <div
-                class="prose prose-sm mx-auto mb-6 mt-8 max-w-5xl text-left leading-8 text-foreground lg:prose-lg"
+                class="prose prose-sm prose-headings:text-foreground prose-a:text-foreground mx-auto mb-6 mt-8 max-w-5xl text-left leading-8 text-foreground lg:prose-lg"
                 v-html="libraryContent"
               ></div>
             </div>

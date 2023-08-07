@@ -13,7 +13,7 @@
               {{ title }}
             </span>
             <span
-              class="block pt-3 text-center font-semibold tracking-wide text-nav-active"
+              class="block pt-3 text-center text-xl font-semibold text-foreground"
             >
               Updated: {{ lastUpdated }}
               &nbsp; | &nbsp;

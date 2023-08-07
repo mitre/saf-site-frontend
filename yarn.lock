@@ -6000,10 +6000,10 @@ nuxi@3.6.5:
   optionalDependencies:
     fsevents "~2.3.2"
 
-nuxt-graphql-client@^0.2.29:
-  version "0.2.29"
-  resolved "https://registry.yarnpkg.com/nuxt-graphql-client/-/nuxt-graphql-client-0.2.29.tgz#35d3408b591501a18b8f86b3f498bea6b38b7832"
-  integrity sha512-mtvZ4GzkH6qecM+Hpfg+65hkZj4qhHRWJXBIuMkdDfJporvAbc/0F5csoXn21WP6y0mNgs8O/KJWSCX59KPpYQ==
+nuxt-graphql-client@^0.2.30:
+  version "0.2.30"
+  resolved "https://registry.yarnpkg.com/nuxt-graphql-client/-/nuxt-graphql-client-0.2.30.tgz#87cd2a55feee5c97428bd963458f18b2cf5a25d2"
+  integrity sha512-GMvjEjeTpFCNdTrom9mKdEGM6ENkqnVY3Dkq2IljrOkfbTe5f77csB2tJ8OsivK1PnTEywbx2QFiYrLfZM/hKA==
   dependencies:
     "@graphql-codegen/cli" "^4.0.1"
     "@graphql-codegen/typescript" "^4.0.1"

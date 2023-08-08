@@ -23,7 +23,7 @@
                   class="flex h-full flex-col justify-between rounded-lg px-6 pb-8"
                 >
                   <div
-                    class="inline-flex w-full items-center justify-center rounded-xl bg-neutral-2 p-4 shadow-lg dark:bg-white"
+                    class="inline-flex w-full items-center justify-center rounded-xl bg-neutral-2 p-4 shadow-lg dark:bg-white h-full"
                   >
                     <img
                       :src="item.icon.url ?? ''"

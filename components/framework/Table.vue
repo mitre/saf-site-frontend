@@ -142,7 +142,7 @@
                       <th
                         colspan="5"
                         scope="colgroup"
-                        class="bg-neutral-4 px-4 py-3 text-left dark:bg-neutral-2 sm:px-6"
+                        class="bg-neutral-4 px-4 py-3 text-lg font-extrabold text-left dark:bg-neutral-2 sm:px-6"
                       >
                         {{ key }}
                       </th>
@@ -192,15 +192,13 @@
                               <span
                                 class="relative flex items-center whitespace-nowrap py-2 text-right sm:pr-6"
                               >
-                                <img
-                                  class="mr-3 h-6 w-6 rounded-full dark:bg-white dark:p-1"
-                                  src="@/assets/logos/GitHubLogoBlack.svg"
-                                  alt="Github Logo"
-                                />
                                 <NuxtLink :to="entry.source" target="_blank">
                                   <button
                                     class="mr-2 flex items-center rounded-lg bg-button-accent p-2 text-button-text sm:mr-5"
                                   >
+                                    <GitHubLogo
+                                      class="mr-2 h-6 w-6 fill-white dark:fill-[#24292f]"
+                                    />
                                     View Code
                                     <span class="sr-only"
                                       >,
@@ -267,15 +265,13 @@
                         <td
                           class="relative hidden items-center whitespace-nowrap py-6 pl-3 pr-4 text-right sm:pr-6 xl:flex"
                         >
-                          <img
-                            class="mr-3 h-7 w-7 rounded-full dark:bg-white dark:p-1"
-                            src="@/assets/logos/GitHubLogoBlack.svg"
-                            alt="Github Logo"
-                          />
                           <NuxtLink :to="entry.source" target="_blank">
                             <button
                               class="mr-2 flex items-center rounded-lg bg-button-accent p-2 text-button-text sm:mr-5"
                             >
+                              <GitHubLogo
+                                class="mr-2 h-6 w-6 fill-white dark:fill-[#24292f]"
+                              />
                               View Code
                               <span class="sr-only"
                                 >,
@@ -319,6 +315,7 @@ import {
   SwitchVerticalIcon,
   ExternalLinkIcon
 } from '@heroicons/vue/solid';
+import GitHubLogo from '@/assets/logos/GitHubLogo.vue';
 import {ref, computed} from 'vue';
 import slugify from '@/utils/useSlugify.ts';
 

@@ -37,7 +37,7 @@
                 </div>
               </div>
               <div
-                class="mt-3 text-start text-lg leading-7"
+                class="prose dark:prose-invert mt-3 text-start text-lg leading-7"
                 v-html="tenet.description"
               />
             </div>

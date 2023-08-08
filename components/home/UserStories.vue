@@ -16,7 +16,10 @@
             userStory.question
           }}</span>
           <span class="mt-4 lg:col-span-7 lg:mt-0">
-            <div class="leading-7" v-html="userStory.answer" />
+            <div
+              class="prose dark:prose-invert leading-7"
+              v-html="userStory.answer"
+            />
           </span>
         </div>
       </div>

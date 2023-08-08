@@ -137,12 +137,12 @@
                   <hr class="mt-4 w-full" />
                   <div v-if="courses.length">
                     <div v-for="(course, index) in courses" :key="course.index">
-                      <div class="mt-7 max-w-xl sm:pl-4">
+                      <div class="mt-7 w-full sm:pl-4">
                         <p class="text-2xl font-semibold">
                           {{ course.name }}
                         </p>
                         <div
-                          class="prose-md prose mb-8 mt-8 max-w-3xl text-left leading-8 dark:prose-invert lg:prose-lg prose-code:text-start prose-li:text-start"
+                          class="prose-md prose mb-8 mt-8 text-left leading-8 dark:prose-invert max-w-full lg:prose-lg prose-code:text-start prose-li:text-start"
                           v-html="course.description"
                         ></div>
                       </div>

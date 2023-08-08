@@ -37,9 +37,7 @@
                 :key="faq.questionNumber"
                 class="flex flex-col"
               >
-                <span class="text-lg font-bold"
-                  >{{ faq.questionNumber }}. {{ faq.question }}
-                </span>
+                <span class="text-lg font-bold">{{ faq.question }} </span>
                 <span class="prose mt-3 text-sm dark:prose-invert">{{
                   parser
                     .parseFromString(faq.answer ?? '', 'text/html')
@@ -61,6 +59,7 @@
 </template>
 
 <script setup lang="ts">
+import {FAQ} from 'global';
 import {ref, onMounted, nextTick} from 'vue';
 
 /// /  Data  ////

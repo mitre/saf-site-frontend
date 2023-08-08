@@ -11,6 +11,7 @@
           :title="postTitle"
           :last-updated="postDate"
           :author="postAuthor"
+          go-back-link="/blog"
         >
           <div
             class="prose prose-sm mx-auto mt-8 text-left leading-8 dark:prose-invert lg:prose-lg prose-code:text-start prose-li:text-start"

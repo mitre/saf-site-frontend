@@ -11,7 +11,7 @@
             Our Open Source Toolset
           </h1>
           <p class="mt-5 max-w-prose text-lg sm:text-xl">
-            MITRE SAF maintains a toolset of utilities to support automation.
+            MITRE SAF© maintains a toolset of utilities to support automation.
           </p>
           <p class="mt-5 max-w-prose text-lg sm:text-xl">
             SAF tools are built to be modular. Slot them into your existing

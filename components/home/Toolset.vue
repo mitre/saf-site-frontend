@@ -34,7 +34,7 @@
                     >
                       <img
                         :src="tool.icon.url ?? ''"
-                        class="h-16 w-16 max-w-full"
+                        class="h-16"
                         :alt="tool.icon.alt ?? 'Unknown Image'"
                       />
                     </div>

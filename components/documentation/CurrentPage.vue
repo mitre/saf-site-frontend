@@ -15,7 +15,7 @@
       ></span>
     </article>
     <div class="mb-6 mt-12 flex border-t border-accent pt-6 lg:mb-0">
-      <div v-if="props.allLinks[props.currentIndex - 1]">
+      <div v-if="props.allLinks[props.currentIndex - 1]" class="ml-3">
         <a
           :href="`/docs/${props.allLinks[props.currentIndex - 1].href}`"
           class="flex flex-col font-semibold text-nav-base hover:text-nav-hover"
@@ -31,7 +31,7 @@
       </div>
       <div
         v-if="props.allLinks[props.currentIndex + 1]"
-        class="ml-auto text-right"
+        class="ml-auto text-right mr-3"
       >
         <a
           :href="`/docs/${props.allLinks[props.currentIndex + 1].href}`"

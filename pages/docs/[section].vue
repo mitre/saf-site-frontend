@@ -1,25 +1,18 @@
 <template>
   <div>
+
     <Head>
       <Title>Documentation</Title>
       <Meta name="description" content="Collection of SAF documentation" />
     </Head>
-    <DocumentationComponent
-      :all-links="allLinks"
-      :current-heading="currentHeading"
-      :current-index="currentIndex"
-      :current-section-title="currentSectionTitle"
-      :current-subsection="currentSubsection"
-      :doc-data="docData"
-      :is-loaded="isLoaded"
-      :table-of-contents="tableOfContents"
-      :rendered-content="renderedContent"
-    />
+    <DocumentationComponent :all-links="allLinks" :current-heading="currentHeading" :current-index="currentIndex"
+      :current-section-title="currentSectionTitle" :current-subsection="currentSubsection" :doc-data="docData"
+      :is-loaded="isLoaded" :table-of-contents="tableOfContents" :rendered-content="renderedContent" />
   </div>
 </template>
 
 <script setup>
-import {ref, onMounted} from 'vue';
+import { ref, onMounted } from 'vue';
 import slugify from '@/utils/useSlugify.ts';
 
 /// /  Data  ////
@@ -37,8 +30,8 @@ const route = useRoute();
 /// /  Methods  ////
 const getData = async () => {
   docData.value = await useAsyncData('getDocumentation', () =>
-    GqlGetDocumentation({href: route.params.section})
-  ).then(({data}) => {
+    GqlGetDocumentation({ href: route.params.section })
+  ).then(({ data }) => {
     if (!data.value || !data.value.currentDoc.data[0]) {
       return navigateTo('/docs');
     }
@@ -63,7 +56,7 @@ const getData = async () => {
         currentDocAttributes.subsections[currentSubsectionIndex].title
     );
 
-    const {content} = currentDocAttributes.subsections[currentSubsectionIndex];
+    const { content } = currentDocAttributes.subsections[currentSubsectionIndex];
 
     // Parse HTML section content
     const onPage = [];
@@ -81,8 +74,10 @@ const getData = async () => {
         element.id = slugify(element.outerText);
       }
       if (element.localName === 'h2') {
-        onPage[currentHeader].subtitles.push(element.outerText);
-        element.id = slugify(element.outerText);
+        if (currentHeader != -1) {
+          onPage[currentHeader].subtitles.push(element.outerText);
+          element.id = slugify(element.outerText);
+        }
       }
     }
 

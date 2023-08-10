@@ -22,7 +22,7 @@
         <div class="fixed inset-0 bg-blur bg-opacity-90 transition-opacity" />
       </TransitionChild>
 
-      <div class="fixed inset-0 z-50 mt-20 overflow-y-auto">
+      <div class="fixed inset-0 z-50 mt-20 overflow-y-auto text-foreground">
         <TransitionChild
           as="template"
           enter="ease-out duration-300"
@@ -42,7 +42,7 @@
                   aria-hidden="true"
                 />
                 <ComboboxInput
-                  class="h-12 w-full border-0 bg-transparent pl-11 pr-4 placeholder:focus:ring-0 sm:text-sm"
+                  class="h-12 w-full border-0 bg-transparent pl-11 pr-4 placeholder:focus:ring-0 sm:text-sm placeholder:text-foreground"
                   placeholder="Search..."
                   @change="query = $event.target.value"
                 />
@@ -101,11 +101,7 @@
                 v-if="query !== '' && Object.keys(filteredItems).length === 0"
                 class="px-6 py-14 text-center text-sm sm:px-14"
               >
-                <ExclamationIcon
-                  type="outline"
-                  name="exclamation-circle"
-                  class="mx-auto h-6 w-6"
-                />
+                <ExclamationIcon class="mx-auto h-6 w-6" />
                 <p class="mt-4 font-semibold">No results found</p>
                 <p class="mt-2 text-muted">
                   No results found for this search term. Please try again.
@@ -132,10 +128,11 @@ import {
   TransitionChild,
   TransitionRoot
 } from '@headlessui/vue';
+import {DocumentationCommandPaletteResult} from 'global';
 
 /// /  Data  ////
 const isLoaded = ref(false);
-const results = ref([]);
+const results = ref<DocumentationCommandPaletteResult[]>();
 const query = ref('');
 
 const props = defineProps({
@@ -153,21 +150,23 @@ const getDocumentation = async () => {
   results.value = await useAsyncData('getAllDocumentation', () =>
     GqlGetAllDocumentation()
   ).then(({data}) => {
-    const newArray = [];
+    const newArray: DocumentationCommandPaletteResult[] = [];
 
-    data.value.documentations.data.forEach((section) => {
-      section.attributes.subsections.forEach((sub) => {
+    data?.value?.documentations?.data.forEach((section) => {
+      section?.attributes?.subsections.forEach((sub) => {
         newArray.push({
-          id: section.id,
-          section_title: section.attributes.section_title,
-          subsection_title: sub.title,
+          id: section?.id ?? 'Error',
+          section_title: section?.attributes?.section_title ?? 'Error',
+          subsection_title: sub?.title ?? 'Error',
           // Replaces are used to take out html characters that shouldn't be searchable
-          subsection_content: sub.content
-            .replace(/<\/?[^>]+(>|$)/g, ' ')
-            .replace(/&nbsp/g, ' ')
-            .replace(/&lt/g, '<')
-            .replace(/&gt/g, '>'),
-          subsection_href: sub.href
+          subsection_content:
+            sub?.content
+              ?.replace(/<\/?[^>]+(>|$)/g, ' ')
+              .replace(/&nbsp/g, ' ')
+              .replace(/&lt/g, '<')
+              .replace(/&gt/g, '>') ?? 'Error',
+          subsection_href: sub?.href ?? 'Error',
+          text_found: null
         });
       });
     });
@@ -180,9 +179,10 @@ const filteredItems = computed(() => {
   if (query.value === '') {
     return {};
   }
-  const resultsMappedObj = {};
+  const resultsMappedObj: {[key: string]: DocumentationCommandPaletteResult[]} =
+    {};
 
-  const filteredResults = results.value.filter(
+  const filteredResults = results?.value?.filter(
     (result) =>
       result.section_title.toLowerCase().includes(query.value.toLowerCase()) ||
       result.subsection_title
@@ -193,39 +193,42 @@ const filteredItems = computed(() => {
         .includes(query.value.toLowerCase())
   );
 
-  for (const result of filteredResults) {
-    const findIndex = result.subsection_content
-      .toLowerCase()
-      .indexOf(query.value.toLowerCase());
-    let startIndex = -1;
-    let endIndex = -1;
-    let resultText = '';
+  if (filteredResults) {
+    for (const result of filteredResults) {
+      const findIndex = result.subsection_content
+        .toLowerCase()
+        .indexOf(query.value.toLowerCase());
+      let startIndex = -1;
+      let endIndex = -1;
+      let resultText = '';
 
-    // If the substring will be out of range at the start
-    if (findIndex - 30 <= 0) {
-      startIndex = 0;
-    } else {
-      startIndex = findIndex - 30;
-      resultText += '...';
-    }
+      // If the substring will be out of range at the start
+      if (findIndex - 30 <= 0) {
+        startIndex = 0;
+      } else {
+        startIndex = findIndex - 30;
+        resultText += '...';
+      }
 
-    // If the substring will be out of range at the end
-    if (findIndex + 30 >= result.subsection_content.length) {
-      endIndex = result.subsection_content.length;
-    } else {
-      endIndex = findIndex + 30;
-    }
+      // If the substring will be out of range at the end
+      if (findIndex + 30 >= result.subsection_content.length) {
+        endIndex = result.subsection_content.length;
+      } else {
+        endIndex = findIndex + 30;
+      }
 
-    result.text_found =
-      findIndex !== -1
-        ? resultText + result.subsection_content.substring(startIndex, endIndex)
-        : '';
+      result.text_found =
+        findIndex !== -1
+          ? resultText +
+            result.subsection_content.substring(startIndex, endIndex)
+          : '';
 
-    // Add result to the mapping of sections
-    if (result.section_title in resultsMappedObj) {
-      resultsMappedObj[result.section_title].push(result);
-    } else {
-      resultsMappedObj[result.section_title] = [result];
+      // Add result to the mapping of sections
+      if (result.section_title in resultsMappedObj) {
+        resultsMappedObj[result.section_title].push(result);
+      } else {
+        resultsMappedObj[result.section_title] = [result];
+      }
     }
   }
   return resultsMappedObj;

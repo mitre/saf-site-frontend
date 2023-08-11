@@ -38,7 +38,7 @@
                         :alt="tool.icon.alt ?? 'Unknown Image'"
                       />
                     </div>
-                    <h3 class="mt-8 text-lg font-bold leading-8 tracking-tight">
+                    <h3 class="mt-8 text-xl font-bold leading-8 tracking-tight">
                       {{ tool.name }}
                     </h3>
                     <p

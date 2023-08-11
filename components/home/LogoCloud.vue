@@ -6,7 +6,7 @@
       >
         <div class="mx-auto max-w-3xl flex-row text-left">
           <h2
-            class="mt-2 max-w-prose text-center text-2xl font-bold tracking-tight text-header sm:text-3xl"
+            class="mt-2 max-w-prose text-center text-3xl font-bold tracking-tight text-header sm:text-4xl"
           >
             {{ title }}
           </h2>
@@ -32,7 +32,7 @@
                       aria-hidden="true"
                     />
                   </div>
-                  <h3 class="mt-8 text-lg font-bold leading-8 tracking-tight">
+                  <h3 class="mt-8 text-2xl font-bold leading-8 tracking-tight">
                     {{ item.nameLong }}
                   </h3>
                 </div>

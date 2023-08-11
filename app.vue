@@ -1,5 +1,5 @@
 <template>
-  <div class="overscroll-none bg-neutral-1 text-foreground">
+  <div class="overscroll-none bg-neutral-1 text-foreground text-lg">
     <NuxtLayout>
       <NuxtLoadingIndicator />
       <!-- <NuxtLoadingBar :duration="1000" /> -->

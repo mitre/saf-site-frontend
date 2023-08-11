@@ -2,7 +2,7 @@
   <div class="relative bg-neutral-2 px-6 py-24 sm:py-32 lg:py-40">
     <div class="mx-auto max-w-7xl divide-y divide-accent px-6 lg:px-8">
       <h2
-        class="text-3xl font-bold leading-10 tracking-tight text-header sm:text-4xl"
+        class="text-4xl font-bold leading-10 tracking-tight text-header sm:text-5xl"
       >
         User Stories
       </h2>

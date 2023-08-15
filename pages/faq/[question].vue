@@ -17,7 +17,7 @@
           go-back-link="/faq"
         >
           <div
-            class="prose prose-sm mx-auto mt-8 text-left leading-8 dark:prose-invert lg:prose-lg prose-code:text-start prose-li:text-start"
+            class="prose prose-xl max-w-full mx-auto mt-8 text-left leading-8 dark:prose-invert prose-code:text-start prose-li:text-start"
             v-html="answer"
           ></div>
         </ReadingPage>

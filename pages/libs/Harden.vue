@@ -12,8 +12,8 @@
         <div v-if="isLoaded">
           <div class="sm:flex sm:items-center">
             <div class="sm:flex-auto">
-              <h1 class="text-4xl font-bold text-header">Harden</h1>
-              <p class="mt-2">
+              <h1 class="text-5xl font-bold text-header">Harden</h1>
+              <p class="mt-2 text-xl">
                 These open-source community-based hardening baselines help to
                 securely configure common system components. MITRE is helping to
                 provide stewardship over these hardening baselines, hosted here

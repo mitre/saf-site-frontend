@@ -12,11 +12,11 @@
         <div v-if="isLoaded && gettingStartedContent">
           <div class="sm:flex sm:items-center">
             <div class="sm:flex-auto">
-              <h1 class="text-center text-4xl font-bold text-header">
+              <h1 class="text-center text-5xl font-bold text-header">
                 <strong>Getting Started</strong>
               </h1>
               <div
-                class="prose-img prose prose-sm mx-auto mb-6 mt-8 max-w-5xl text-left leading-8 dark:prose-invert lg:prose-lg prose-code:text-start prose-li:text-start"
+                class="prose-img prose prose-xl mx-auto mb-6 mt-8 max-w-5xl text-left leading-8 dark:prose-invert prose-code:text-start prose-li:text-start"
                 style=""
                 v-html="gettingStartedContent"
               ></div>

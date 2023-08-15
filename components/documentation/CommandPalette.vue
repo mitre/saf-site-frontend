@@ -22,7 +22,9 @@
         <div class="fixed inset-0 bg-blur bg-opacity-90 transition-opacity" />
       </TransitionChild>
 
-      <div class="fixed inset-0 z-50 mt-20 overflow-y-auto text-foreground">
+      <div
+        class="fixed inset-0 z-50 mt-20 overflow-y-auto text-foreground text-xl"
+      >
         <TransitionChild
           as="template"
           enter="ease-out duration-300"
@@ -33,7 +35,7 @@
           leave-to="opacity-0 scale-95"
         >
           <DialogPanel
-            class="mx-auto mt-5 max-w-xl transform divide-y divide-accent overflow-hidden rounded-xl bg-neutral-1 shadow-2xl ring-1 ring-accent ring-opacity-5 transition-all dark:divide-opacity-20"
+            class="mx-auto mt-5 max-w-5xl transform divide-y divide-accent overflow-hidden rounded-xl bg-neutral-1 shadow-2xl ring-1 ring-accent ring-opacity-5 transition-all dark:divide-opacity-20"
           >
             <Combobox>
               <div class="relative">
@@ -42,7 +44,7 @@
                   aria-hidden="true"
                 />
                 <ComboboxInput
-                  class="h-12 w-full border-0 bg-transparent pl-11 pr-4 placeholder:focus:ring-0 sm:text-sm placeholder:text-foreground"
+                  class="h-12 w-full border-0 bg-transparent pl-11 pr-4 placeholder:focus:ring-0 text-lg placeholder:text-foreground"
                   placeholder="Search..."
                   @change="query = $event.target.value"
                 />
@@ -76,14 +78,11 @@
                         :href="`/docs/${item.subsection_href}`"
                         class="ml-4 flex-auto"
                       >
-                        <p :class="['text-sm font-semibold', active ? '' : '']">
+                        <p :class="['font-semibold', active ? '' : '']">
                           {{ item.subsection_title }}
                         </p>
                         <p
-                          :class="[
-                            'text-sm',
-                            active ? 'text-muted ' : 'text-muted '
-                          ]"
+                          :class="['', active ? 'text-muted ' : 'text-muted ']"
                         >
                           {{
                             item.text_found !== ''
@@ -99,7 +98,7 @@
 
               <div
                 v-if="query !== '' && Object.keys(filteredItems).length === 0"
-                class="px-6 py-14 text-center text-sm sm:px-14"
+                class="px-6 py-14 text-center sm:px-14"
               >
                 <ExclamationIcon class="mx-auto h-6 w-6" />
                 <p class="mt-4 font-semibold">No results found</p>
@@ -203,18 +202,18 @@ const filteredItems = computed(() => {
       let resultText = '';
 
       // If the substring will be out of range at the start
-      if (findIndex - 30 <= 0) {
+      if (findIndex - 50 <= 0) {
         startIndex = 0;
       } else {
-        startIndex = findIndex - 30;
+        startIndex = findIndex - 50;
         resultText += '...';
       }
 
       // If the substring will be out of range at the end
-      if (findIndex + 30 >= result.subsection_content.length) {
+      if (findIndex + 50 >= result.subsection_content.length) {
         endIndex = result.subsection_content.length;
       } else {
-        endIndex = findIndex + 30;
+        endIndex = findIndex + 50;
       }
 
       result.text_found =

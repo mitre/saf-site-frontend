@@ -17,7 +17,7 @@
 
         <div class="py-24">
           <h1
-            class="my-5 text-center text-5xl font-extrabold tracking-tight text-header sm:text-6xl lg:text-7xl"
+            class="my-5 text-center text-5xl sm:text-6xl font-extrabold tracking-tight text-header"
           >
             Adopted by The Community
           </h1>

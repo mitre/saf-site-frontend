@@ -8,9 +8,11 @@
             class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8"
           >
             <!-- Filter Search -->
-            <label for="table-search" class="block font-bold">Search</label>
+            <label for="table-search" class="block font-bold mx-1 mb-2"
+              >Search</label
+            >
             <div
-              class="border-base relative mb-1 max-w-xs rounded-md border px-3 py-2 shadow-sm focus-within:border-accent focus-within:ring-1 focus-within:ring-accent sm:max-w-md"
+              class="border-base relative mb-5 max-w-xs rounded-md border px-3 py-2 shadow-sm focus-within:border-accent focus-within:ring-1 focus-within:ring-accent sm:max-w-md"
             >
               <input
                 id="table-search"
@@ -27,7 +29,7 @@
               <table class="min-w-full font-semibold">
                 <!-- Table Headers -->
                 <thead class="bg-neutral-1">
-                  <tr class="text-md font-bold">
+                  <tr class="text-lg font-bold">
                     <th scope="col" class="py-3.5 pl-4 pr-3 text-left sm:pl-6">
                       <button
                         class="group inline-flex cursor-pointer"
@@ -142,7 +144,7 @@
                       <th
                         colspan="5"
                         scope="colgroup"
-                        class="bg-neutral-4 px-4 py-3 text-lg font-extrabold text-left dark:bg-neutral-2 sm:px-6"
+                        class="bg-neutral-4 px-4 py-3 text-3xl font-extrabold text-left dark:bg-neutral-2 sm:px-6"
                       >
                         {{ key }}
                       </th>
@@ -153,7 +155,7 @@
                           index % 2 === 0
                             ? 'bg-neutral-3'
                             : 'bg-neutral-2 dark:bg-neutral-4',
-                          'border-t'
+                          'border-t text-xl'
                         ]"
                       >
                         <td class="py-4 pl-4 pr-3 sm:pl-6">

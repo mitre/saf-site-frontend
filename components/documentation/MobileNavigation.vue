@@ -2,12 +2,12 @@
   <div class="relative flex border-b border-accent bg-neutral-1 lg:hidden">
     <button
       type="button"
-      class="my-5 flex text-xl"
+      class="my-5 flex text-2xl"
       aria-label="Open navigation"
       @click="setIsOpen(true)"
     >
       <MenuIcon class="stroke-base ml-4 h-6 w-6" />
-      <ol class="ml-4 flex min-w-0 flex-wrap text-sm leading-6">
+      <ol class="ml-4 flex min-w-0 flex-wrap leading-6">
         <li class="flex items-center truncate">
           {{ props.currentSectionTitle }}
           <svg

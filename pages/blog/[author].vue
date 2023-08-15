@@ -30,14 +30,14 @@
                       class="mt-6 sm:flex sm:min-w-0 sm:flex-1 sm:items-center sm:justify-end sm:space-x-6 sm:pb-1"
                     >
                       <div class="mt-6 min-w-0 flex-1 sm:hidden 2xl:block">
-                        <h1 class="truncate text-2xl font-bold">
+                        <h1 class="truncate text-3xl font-bold">
                           {{ author.name }}
                         </h1>
                       </div>
                     </div>
                   </div>
                   <div class="mt-6 hidden min-w-0 flex-1 sm:block 2xl:hidden">
-                    <h1 class="truncate text-2xl font-bold">
+                    <h1 class="truncate text-3xl font-bold">
                       {{ author.name }}
                     </h1>
                   </div>
@@ -45,24 +45,20 @@
               </div>
               <!-- Description list -->
               <div class="mx-auto mt-6 px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-1 gap-y-8 sm:grid-cols-2">
+                <div class="grid grid-cols-1 gap-y-8 sm:grid-cols-2 text-xl">
                   <div class="flex flex-col">
-                    <span class="text-sm font-bold"> Title </span>
-                    <span class="text-sm sm:mt-1">{{
-                      author.fields.title
-                    }}</span>
+                    <span class="font-bold"> Title </span>
+                    <span class="sm:mt-1">{{ author.fields.title }}</span>
                   </div>
                   <div class="flex flex-col">
                     <!-- TODO: Add a internal link to the relavent partner page here -->
-                    <span class="text-sm font-bold"> Company </span>
-                    <span class="text-sm sm:mt-1">{{
-                      author.fields.company
-                    }}</span>
+                    <span class="font-bold"> Company </span>
+                    <span class="sm:mt-1">{{ author.fields.company }}</span>
                   </div>
                   <div class="sm:col-span-2">
-                    <span class="text-sm font-bold">About</span>
+                    <span class="font-bold">About</span>
                     <div
-                      class="prose mt-1 max-w-prose space-y-5 text-sm text-foreground"
+                      class="prose prose-xl mt-1 max-w-prose space-y-5 text-foreground"
                       v-html="author.description"
                     />
                   </div>
@@ -149,7 +145,7 @@
               <div class="border-b border-accent pb-5" />
             </article>
           </div>
-          <span class="block pt-12 text-center text-xl font-bold underline">
+          <span class="block pt-12 text-center text-2xl font-bold underline">
             Recent Articles
           </span>
           <!-- Blog Cards -->

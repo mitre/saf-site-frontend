@@ -6,7 +6,7 @@
       >
         <div class="mx-auto max-w-3xl flex-row text-left">
           <h2
-            class="mt-2 max-w-prose text-center text-3xl font-bold tracking-tight text-header sm:text-4xl"
+            class="mt-2 max-w-prose text-center text-4xl font-bold tracking-tight text-header sm:text-5xl"
           >
             {{ title }}
           </h2>
@@ -23,7 +23,7 @@
                   class="flex h-full flex-col justify-between rounded-lg px-6 pb-8"
                 >
                   <div
-                    class="inline-flex w-full items-center justify-center rounded-xl bg-neutral-2 p-4 shadow-lg dark:bg-white h-full"
+                    class="inline-flex w-full items-center justify-center rounded-xl bg-neutral-2 p-4 shadow-lg dark:bg-white h-1/2"
                   >
                     <img
                       :src="item.icon.url ?? ''"
@@ -32,7 +32,9 @@
                       aria-hidden="true"
                     />
                   </div>
-                  <h3 class="mt-8 text-2xl font-bold leading-8 tracking-tight">
+                  <h3
+                    class="pt-8 text-2xl font-bold leading-8 tracking-tight h-1/2"
+                  >
                     {{ item.nameLong }}
                   </h3>
                 </div>

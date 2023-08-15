@@ -16,7 +16,7 @@
           class="absolute inset-y-0 right-0 w-[50vw] bg-neutral-2 dark:hidden"
         />
         <div
-          class="sticky top-[82px] -ml-0.5 h-[calc(100vh-82px)] overflow-y-auto overflow-x-hidden pb-8 pl-0.5"
+          class="sticky top-[82px] -ml-0.5 h-[calc(100vh-82px)] overflow-y-auto overflow-x-hidden pb-8 pl-1"
         >
           <div
             class="absolute bottom-0 right-0 top-16 hidden h-12 w-px bg-gradient-to-t from-neutral-2 dark:block"

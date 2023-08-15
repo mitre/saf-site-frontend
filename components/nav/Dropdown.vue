@@ -9,7 +9,7 @@
         'group inline-flex  items-center rounded-md bg-neutral-1 font-medium  hover:text-nav-hover  focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2'
       ]"
     >
-      <span class="font-mitre font-semibold">{{ label }}</span>
+      <span class="font-semibold">{{ label }}</span>
       <ChevronDownIcon
         :class="[
           open ? 'text-nav-hover ' : '',
@@ -31,7 +31,7 @@
       leave-to-class="opacity-0 translate-y-1"
     >
       <PopoverPanel
-        class="absolute left-1/2 z-10 mt-3 w-screen max-w-md -translate-x-1/2 transform px-2 sm:px-0"
+        class="absolute left-1/2 z-10 mt-3 w-screen max-w-lg -translate-x-1/2 transform px-2 sm:px-0"
       >
         <div
           class="overflow-hidden rounded-lg shadow-lg ring-dropshadow ring-opacity-5"
@@ -57,7 +57,7 @@
                 <p class="font-medium">
                   {{ item.name }}
                 </p>
-                <p class="mt-1 text-sm text-muted">
+                <p class="mt-1 text-muted">
                   {{ item.description }}
                 </p>
               </div>

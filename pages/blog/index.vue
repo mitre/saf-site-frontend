@@ -7,7 +7,7 @@
     <div>
       <Header />
       <div
-        class="relative h-full min-h-screen bg-neutral-1 px-4 pb-20 pt-16 sm:px-6 lg:px-8 lg:pb-28 lg:pt-24"
+        class="relative h-full min-h-screen bg-neutral-1 px-4 pb-20 pt-12 sm:px-6 lg:px-8 lg:pb-28"
       >
         <div class="absolute inset-0">
           <div class="bg-neutral-1 sm:h-2/3" />
@@ -15,11 +15,11 @@
         <div class="relative mx-auto max-w-7xl">
           <div class="text-center">
             <h2
-              class="text-3xl font-extrabold tracking-tight text-header sm:text-4xl"
+              class="text-4xl font-extrabold tracking-tight text-header sm:text-5xl"
             >
               Blog
             </h2>
-            <p class="mx-auto mt-3 max-w-2xl text-xl text-muted sm:mt-4">
+            <p class="mx-auto mt-3 max-w-2xl text-2xl text-muted sm:mt-4">
               Start Exploring our Recent Developments.
             </p>
           </div>

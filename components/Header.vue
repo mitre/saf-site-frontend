@@ -14,10 +14,10 @@
                 alt="SAF© Logo"
               />
               <h1
-                class="whitespace-nowrap p-2 text-2xl font-extrabold tracking-tighter text-header md:text-3xl xl:text-4xl"
+                class="whitespace-nowrap p-2 text-3xl font-extrabold tracking-tighter text-header md:text-4xl xl:text-5xl"
               >
-                <span class="block font-mitre font-extrabold xl:inline"
-                  >MITRE SAF<span class="text-xs">©</span></span
+                <span class="block font-extrabold xl:inline"
+                  >MITRE SAF<span class="text-sm">©</span></span
                 >
               </h1>
             </NuxtLink>
@@ -33,11 +33,14 @@
             </PopoverButton>
           </div>
 
-          <PopoverGroup as="nav" class="hidden space-x-5 lg:flex xl:space-x-10">
+          <PopoverGroup
+            as="nav"
+            class="text-xl hidden space-x-5 lg:flex xl:space-x-10"
+          >
             <NuxtLink
               to="/getting-started"
               :class="[
-                'font-mitre font-semibold hover:text-nav-hover ',
+                'font-semibold hover:text-nav-hover ',
                 '/getting-started' === route.fullPath
                   ? 'text-nav-active '
                   : 'text-nav-base '
@@ -57,10 +60,10 @@
               :key="item.name"
               :to="item.href"
               :class="[
-                'font-mitre font-semibold hover:text-nav-hover ',
+                'font-semibold hover:text-nav-hover ',
                 item.href === route.fullPath
-                  ? 'text-nav-active '
-                  : 'text-nav-base '
+                  ? 'text-nav-active'
+                  : 'text-nav-base'
               ]"
             >
               {{ item.name }}

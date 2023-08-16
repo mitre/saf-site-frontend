@@ -3,7 +3,10 @@
   <div>
     <Head>
       <Title>Documentation</Title>
-      <Meta name="description" content="Collection of SAF documentation" />
+      <Meta
+        name="description"
+        content="Collection of MITRE SAF© documentation"
+      />
     </Head>
     <DocumentationCollections :collection="collections" />
   </div>

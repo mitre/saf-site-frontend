@@ -1,7 +1,7 @@
 <template>
   <div>
     <Head>
-      <Title>SAF Homepage</Title>
+      <Title>MITRE SAF© Homepage</Title>
       <Meta name="description" content="Homepage of the SAF site" />
     </Head>
     <Header />

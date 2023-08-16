@@ -2,7 +2,10 @@
   <div>
     <Head>
       <Title>Training</Title>
-      <Meta name="description" content="Collection of SAF training content" />
+      <Meta
+        name="description"
+        content="Collection of MITRE SAF© training content"
+      />
     </Head>
     <div>
       <Header />
@@ -21,10 +24,10 @@
                     Our Training
                   </h1>
                   <p class="mt-6">
-                    The MITRE SAF© team offers training classes. Dates and
-                    sign-up links to participate in synchronous (typically
-                    virtual) class offerings are posted on this page when
-                    training dates are finalized. To preview classes, watch
+                    The MITRE SAF<sup>©</sup> team offers training classes.
+                    Dates and sign-up links to participate in synchronous
+                    (typically virtual) class offerings are posted on this page
+                    when training dates are finalized. To preview classes, watch
                     asynchronously, or reference class content, see the class
                     details, materials, and recordings below.
                   </p>
@@ -34,7 +37,7 @@
                       class="hover:underline"
                     >
                       <p class="mt-4 text-nav-active after:content-['_↗']">
-                        SAF Training Site - GitHub
+                        MITRE SAF<sup>©</sup> Training Site - GitHub
                       </p>
                     </a>
                     <a
@@ -42,7 +45,7 @@
                       class="hover:underline"
                     >
                       <p class="mt-4 text-nav-active after:content-['_↗']">
-                        SAF Training Site - Netlify
+                        MITRE SAF<sup>©</sup> Training Site - Netlify
                       </p>
                     </a>
                   </div>

@@ -2,7 +2,10 @@
   <div>
     <Head>
       <Title>Getting Started</Title>
-      <Meta name="description" content="Getting started content for SAF" />
+      <Meta
+        name="description"
+        content="Getting started content for MITRE SAF©"
+      />
     </Head>
     <div>
       <Header />

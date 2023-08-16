@@ -14,7 +14,7 @@
             <div class="sm:flex-auto">
               <h1 class="text-5xl font-bold text-header">Harden</h1>
               <p class="mt-2 text-xl">
-                These open-source community-based hardening baselines help to
+                These open source community-based hardening baselines help to
                 securely configure common system components. MITRE is helping to
                 provide stewardship over these hardening baselines, hosted here
                 and at other community vendor sites. If you are interested in

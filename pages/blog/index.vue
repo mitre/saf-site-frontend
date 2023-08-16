@@ -2,7 +2,7 @@
   <div>
     <Head>
       <Title>Blog</Title>
-      <Meta name="description" content="Collection of SAF blog posts" />
+      <Meta name="description" content="Collection of MITRE SAF© blog posts" />
     </Head>
     <div>
       <Header />

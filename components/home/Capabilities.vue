@@ -9,11 +9,11 @@
             Jump Start Your Security Journey
           </h1>
           <p class="mt-6 text-2xl leading-8">
-            MITRE SAF© supports security processes at all stages of the
-            software lifecycle, from planning secure system design to analyzing
-            operational security data. All of MITRE SAF©'s tools can work in
-            concert or standalone; adopt the parts of the Framework that make
-            sense for your environment.
+            MITRE SAF<sup>©</sup> supports security processes at all stages of
+            the software lifecycle, from planning secure system design to
+            analyzing operational security data. All MITRE SAF<sup>©</sup>
+            tools can work in concert or standalone; adopt the parts of the
+            Framework that make sense for your environment.
           </p>
         </div>
         <div
@@ -51,7 +51,7 @@
                 <NuxtLink :to="capability.link" class="focus:outline-none">
                   <span class="absolute inset-0" aria-hidden="true" />
                   <h2 class="text-2xl font-extrabold leading-7">
-                    {{ capability.name }}
+                    {{ capability.name.toUpperCase() }}
                   </h2>
                   <span class="mt-2 leading-7" v-html="capability.description">
                   </span>
@@ -101,7 +101,7 @@
                 <NuxtLink :to="capability.link" class="focus:outline-none">
                   <span class="absolute inset-0" aria-hidden="true" />
                   <h2 class="text-2xl font-extrabold leading-7">
-                    {{ capability.name }}
+                    {{ capability.name.toUpperCase() }}
                   </h2>
                   <span class="mt-2 leading-7" v-html="capability.description">
                   </span>

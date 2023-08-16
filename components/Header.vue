@@ -11,13 +11,13 @@
                 src="@/assets/logos/safLogo.svg"
                 class="w-12 md:w-14"
                 aria-hidden="true"
-                alt="SAF© Logo"
+                alt="MITRE SAF© Logo"
               />
               <h1
                 class="whitespace-nowrap p-2 text-3xl font-extrabold tracking-tighter text-header md:text-4xl xl:text-5xl"
               >
                 <span class="block font-extrabold xl:inline"
-                  >MITRE SAF<span class="text-sm">©</span></span
+                  >MITRE SAF<sup>©</sup></span
                 >
               </h1>
             </NuxtLink>
@@ -85,11 +85,11 @@
                   :class="selected === 'System' ? 'h-6 w-6' : 'hidden'"
                 />
                 <label for="theme-selector" class="sr-only">
-                  <span>SAF Theme Selector</span>
+                  <span>MITRE SAF<sup>©</sup> Theme Selector</span>
                 </label>
                 <select
                   id="theme-selector"
-                  name="SAF Theme Selector"
+                  name="MITRE SAF Theme Selector"
                   class="absolute h-fit w-full appearance-none bg-neutral-1 pr-3 opacity-0"
                   @change="switchSelect($event)"
                 >
@@ -155,7 +155,7 @@
                         :items="[
                           {
                             name: 'Getting Started',
-                            description: 'Getting started with SAF.',
+                            description: 'Getting started with MITRE SAF©.',
                             href: '/getting-started',
                             icon: PresentationChartBarIcon
                           }
@@ -185,9 +185,11 @@
                   <div class="ml-2">{{ selected }}</div>
                   <ChevronDownIcon class="h-6 w-5" />
                   <label for="mobile-theme-selector" class="sr-only">
-                    <span>SAF Theme Selector</span>
+                    <span>MITRE SAF<sup>©</sup> Theme Selector</span>
                   </label>
-                  <span class="sr-only">SAF Theme Selector</span>
+                  <span class="sr-only"
+                    >MITRE SAF<sup>©</sup> Theme Selector</span
+                  >
                   <select
                     name="Mobile Theme Selector"
                     class="absolute inset-0 h-full w-full appearance-none bg-button-accent text-button-text opacity-0"
@@ -346,7 +348,7 @@ const applications = shallowRef([
 const navigation = ref([
   {
     name: 'Docs',
-    description: 'Documentation of SAF tools.',
+    description: 'Documentation of MITRE SAF© tools.',
     href: '/docs',
     icon: BookOpenIcon
   },

@@ -14,7 +14,7 @@
             <div class="sm:flex-auto">
               <h1 class="text-5xl font-bold text-header">Validate</h1>
               <p class="mt-2 text-xl">
-                These open-source community-based InSpec profiles validate the
+                These open source community-based InSpec profiles validate the
                 security of common system components. MITRE is helping to
                 provide stewardship over these profiles, hosted here and at
                 other community vendor sites. If you are interested in new
@@ -24,8 +24,8 @@
                 >. If you are interested in developing and contributing your own
                 profiles, please see our
                 <a href="/training" class="underline">training material</a>. All
-                assessment tests under MITRE SAF© are associated with NIST SP
-                800-53 Security Controls.
+                assessment tests under MITRE SAF <sup>©</sup> are associated
+                with NIST SP 800-53 Security Controls.
               </p>
             </div>
           </div>

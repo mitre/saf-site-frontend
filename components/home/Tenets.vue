@@ -26,7 +26,7 @@
                   class="mr-1 h-12 w-12 dark:fill-white fill-black dark:stroke-white stroke-black"
                 />
                 <GlobeIcon
-                  v-else-if="tenet.name === 'Community'"
+                  v-else-if="tenet.name === 'A Community'"
                   class="mr-1 h-12 w-12"
                 />
                 <AnnotationIcon v-else class="mr-1 h-12 w-12" />

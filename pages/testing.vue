@@ -19,8 +19,8 @@ import SafShieldLogo from '@/assets/icons/SafShieldLogo.vue';
 /// /  Data  ////
 const collections = [
   {name: 'General', icon: SafShieldLogo, description: 'Testing', link: '/'},
-  {name: 'Heimdall', icon: HeimdallLogo, description: 'Testing', link: '/'},
-  {name: 'Vulcan', icon: SafShieldLogo, description: 'Testing', link: '/'},
+  {name: 'Heimdall©', icon: HeimdallLogo, description: 'Testing', link: '/'},
+  {name: 'Vulcan©', icon: SafShieldLogo, description: 'Testing', link: '/'},
   {name: 'SAF CLI', icon: SafShieldLogo, description: 'Testing', link: '/'},
   {name: 'eMasser', icon: SafShieldLogo, description: 'Testing', link: '/'}
 ];

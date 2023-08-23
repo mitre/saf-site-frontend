@@ -320,13 +320,13 @@ const libraries = ref([
 
 const applications = shallowRef([
   {
-    name: 'Heimdall',
+    name: 'Heimdall©',
     description: 'Security Data Visualization App',
     href: '/apps/heimdall',
     icon: HeimdallLogo
   },
   {
-    name: 'Vulcan',
+    name: 'Vulcan©',
     description: 'Security Guidance Authorship App',
     href: '/apps/vulcan',
     icon: SafShieldLogo

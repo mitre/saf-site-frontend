@@ -1,8 +1,8 @@
 <template>
   <nav aria-labelledby="on-this-page-title" class="ml-5 w-56">
     <div v-if="props.tableOfContents.length > 0">
-      <h2 id="on-this-page-title" class="text-sm font-bold">On this page</h2>
-      <ol role="list" class="mt-4 space-y-3 text-sm">
+      <h2 id="on-this-page-title" class="font-bold">On this page</h2>
+      <ol role="list" class="mt-4 space-y-3">
         <div v-for="(heading, key) in props.tableOfContents" :key="key">
           <li key="{{heading.title}}">
             <h3>

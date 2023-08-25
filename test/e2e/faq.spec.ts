@@ -8,13 +8,13 @@ test('FAQ', async ({page}) => {
   await expect(page).toHaveURL('/faq');
 
   // Faq 1
-  const faq1 = await page.getByText('View More').nth(0); //.locator('div').filter({ hasText: '1. How many NIST SP 800-53 Security Controls are assessed under the MITRE SAF?' });
+  const faq1 = await page.getByText('View More').nth(0); //.locator('div').filter({ hasText: '1. How many NIST SP 800-53 Security Controls are assessed under the MITRE SAF©?' });
   await faq1.click();
   await expect(page).toHaveURL('/faq/1');
   await expect(
     page.getByRole('heading', {
       level: 1,
-      name: '1. How many NIST SP 800-53 Security Controls are assessed under the MITRE SAF?'
+      name: '1. How many NIST SP 800-53 Security Controls are assessed under the MITRE SAF©?'
     })
   ).toBeVisible();
   // await expect(page.getByRole('paragraph', {name: 'Currently, about 162 NIST SP 800-53 security controls are assessed under this framework. Note that assessment coverage varies based on the component type. For more information, explore this Control Assessment Range table!' })).toBeVisible();

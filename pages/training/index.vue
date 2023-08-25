@@ -2,7 +2,10 @@
   <div>
     <Head>
       <Title>Training</Title>
-      <Meta name="description" content="Collection of SAF training content" />
+      <Meta
+        name="description"
+        content="Collection of MITRE SAF© training content"
+      />
     </Head>
     <div>
       <Header />
@@ -16,15 +19,15 @@
               >
                 <div id="Overview Section" class="sm:pl-4">
                   <h1
-                    class="block text-3xl font-extrabold leading-8 tracking-tight text-header sm:text-4xl"
+                    class="block text-4xl font-extrabold leading-8 tracking-tight text-header sm:text-5xl"
                   >
                     Our Training
                   </h1>
                   <p class="mt-6">
-                    The MITRE SAF© team offers training classes. Dates and
-                    sign-up links to participate in synchronous (typically
-                    virtual) class offerings are posted on this page when
-                    training dates are finalized. To preview classes, watch
+                    The MITRE SAF<sup>©</sup> team offers training classes.
+                    Dates and sign-up links to participate in synchronous
+                    (typically virtual) class offerings are posted on this page
+                    when training dates are finalized. To preview classes, watch
                     asynchronously, or reference class content, see the class
                     details, materials, and recordings below.
                   </p>
@@ -34,7 +37,7 @@
                       class="hover:underline"
                     >
                       <p class="mt-4 text-nav-active after:content-['_↗']">
-                        SAF Training Site - GitHub
+                        MITRE SAF<sup>©</sup> Training Site - GitHub
                       </p>
                     </a>
                     <a
@@ -42,7 +45,7 @@
                       class="hover:underline"
                     >
                       <p class="mt-4 text-nav-active after:content-['_↗']">
-                        SAF Training Site - Netlify
+                        MITRE SAF<sup>©</sup> Training Site - Netlify
                       </p>
                     </a>
                   </div>
@@ -52,13 +55,11 @@
                   class="pointer-events-auto relative order-2 pr-6 pt-8"
                 >
                   <div>
-                    <h2 class="pt-6 text-3xl font-bold sm:pl-3">
+                    <h2 class="pt-6 text-4xl font-bold sm:pl-3">
                       Upcoming Classes
                     </h2>
                     <div v-if="schedules.length" class="lg:grid lg:grid-cols-2">
-                      <ol
-                        class="mt-4 text-sm leading-6 lg:col-span-7 xl:col-span-8"
-                      >
+                      <ol class="mt-4 leading-6 lg:col-span-7 xl:col-span-8">
                         <li
                           v-for="schedule in schedules"
                           :key="schedule.index"
@@ -92,14 +93,14 @@
                             </div>
                           </div>
                           <div
-                            v-if="schedule.link != null"
+                            v-if="schedule.link != ''"
                             class="flex-end right-2 top-0 pt-3"
                           >
                             <a
                               type="button"
                               :href="schedule.link"
                               target="_blank"
-                              class="inline-flex items-center rounded-full border border-transparent bg-button-accent px-3 py-1.5 text-center text-xs font-medium text-button-text shadow-sm ring-1 ring-accent hover:bg-opacity-80 sm:px-3 sm:py-1.5"
+                              class="inline-flex items-center rounded-full border border-transparent bg-button-accent px-3 py-1.5 text-center text-sm font-medium text-button-text shadow-sm ring-1 ring-accent hover:bg-opacity-80 sm:px-3 sm:py-1.5"
                               >Sign Up</a
                             >
                           </div>
@@ -107,7 +108,7 @@
                             <a
                               type="button"
                               aria-disabled="true"
-                              class="inline-flex items-center rounded-full border border-transparent bg-button-disabled px-3 py-1.5 text-center text-xs font-medium text-button-disabled-text shadow-sm sm:px-3 sm:py-1.5"
+                              class="inline-flex items-center rounded-full border border-transparent bg-button-disabled px-3 py-1.5 text-center text-sm font-medium text-button-disabled-text shadow-sm sm:px-3 sm:py-1.5"
                             >
                               Coming Soon!
                             </a>
@@ -130,19 +131,19 @@
                 </div>
                 <div id="Embeded Videos" class="order-1 flex-1 pt-9">
                   <h2
-                    class="block pt-4 text-3xl font-bold leading-8 tracking-tight sm:pl-4"
+                    class="block pt-4 text-4xl font-bold leading-8 tracking-tight sm:pl-4"
                   >
                     Classes
                   </h2>
                   <hr class="mt-4 w-full" />
                   <div v-if="courses.length">
                     <div v-for="(course, index) in courses" :key="course.index">
-                      <div class="mt-7 max-w-xl sm:pl-4">
-                        <p class="text-2xl font-semibold">
+                      <div class="mt-7 w-full sm:pl-4">
+                        <p class="text-3xl font-semibold">
                           {{ course.name }}
                         </p>
                         <div
-                          class="prose-md prose mb-8 mt-8 max-w-3xl text-left leading-8 dark:prose-invert lg:prose-lg prose-code:text-start prose-li:text-start"
+                          class="prose prose-xl mb-8 mt-8 text-left leading-8 dark:prose-invert max-w-full prose-code:text-start prose-li:text-start"
                           v-html="course.description"
                         ></div>
                       </div>

@@ -8,9 +8,11 @@
             class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8"
           >
             <!-- Filter Search -->
-            <label for="table-search" class="block font-bold">Search</label>
+            <label for="table-search" class="block font-bold mx-1 mb-2"
+              >Search</label
+            >
             <div
-              class="border-base relative mb-1 max-w-xs rounded-md border px-3 py-2 shadow-sm focus-within:border-accent focus-within:ring-1 focus-within:ring-accent sm:max-w-md"
+              class="border-base relative mb-5 max-w-xs rounded-md border px-3 py-2 shadow-sm focus-within:border-accent focus-within:ring-1 focus-within:ring-accent sm:max-w-md"
             >
               <input
                 id="table-search"
@@ -27,7 +29,7 @@
               <table class="min-w-full font-semibold">
                 <!-- Table Headers -->
                 <thead class="bg-neutral-1">
-                  <tr class="text-md font-bold">
+                  <tr class="text-lg font-bold">
                     <th scope="col" class="py-3.5 pl-4 pr-3 text-left sm:pl-6">
                       <button
                         class="group inline-flex cursor-pointer"
@@ -142,7 +144,7 @@
                       <th
                         colspan="5"
                         scope="colgroup"
-                        class="bg-neutral-4 px-4 py-3 text-left dark:bg-neutral-2 sm:px-6"
+                        class="bg-neutral-4 px-4 py-3 text-3xl font-extrabold text-left dark:bg-neutral-2 sm:px-6"
                       >
                         {{ key }}
                       </th>
@@ -153,7 +155,7 @@
                           index % 2 === 0
                             ? 'bg-neutral-3'
                             : 'bg-neutral-2 dark:bg-neutral-4',
-                          'border-t'
+                          'border-t text-xl'
                         ]"
                       >
                         <td class="py-4 pl-4 pr-3 sm:pl-6">
@@ -192,15 +194,13 @@
                               <span
                                 class="relative flex items-center whitespace-nowrap py-2 text-right sm:pr-6"
                               >
-                                <img
-                                  class="mr-3 h-6 w-6 rounded-full dark:bg-white dark:p-1"
-                                  src="@/assets/logos/GitHubLogoBlack.svg"
-                                  alt="Github Logo"
-                                />
                                 <NuxtLink :to="entry.source" target="_blank">
                                   <button
                                     class="mr-2 flex items-center rounded-lg bg-button-accent p-2 text-button-text sm:mr-5"
                                   >
+                                    <GitHubLogo
+                                      class="mr-2 h-6 w-6 fill-white dark:fill-[#24292f]"
+                                    />
                                     View Code
                                     <span class="sr-only"
                                       >,
@@ -267,15 +267,13 @@
                         <td
                           class="relative hidden items-center whitespace-nowrap py-6 pl-3 pr-4 text-right sm:pr-6 xl:flex"
                         >
-                          <img
-                            class="mr-3 h-7 w-7 rounded-full dark:bg-white dark:p-1"
-                            src="@/assets/logos/GitHubLogoBlack.svg"
-                            alt="Github Logo"
-                          />
                           <NuxtLink :to="entry.source" target="_blank">
                             <button
                               class="mr-2 flex items-center rounded-lg bg-button-accent p-2 text-button-text sm:mr-5"
                             >
+                              <GitHubLogo
+                                class="mr-2 h-6 w-6 fill-white dark:fill-[#24292f]"
+                              />
                               View Code
                               <span class="sr-only"
                                 >,
@@ -319,6 +317,7 @@ import {
   SwitchVerticalIcon,
   ExternalLinkIcon
 } from '@heroicons/vue/solid';
+import GitHubLogo from '@/assets/logos/GitHubLogo.vue';
 import {ref, computed} from 'vue';
 import slugify from '@/utils/useSlugify.ts';
 

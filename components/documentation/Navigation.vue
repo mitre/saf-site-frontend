@@ -9,7 +9,7 @@
       <div class="w-100 -ml-0.5 h-10 bg-neutral-2"></div>
       <button
         type="button"
-        class="w-full items-center rounded-md bg-neutral-1 py-1.5 pl-2 pr-3 text-sm leading-6 shadow-sm ring-1 ring-neutral-1/10 hover:ring-neutral-1 lg:flex"
+        class="w-full items-center rounded-md bg-neutral-1 py-1.5 pl-2 pr-3 leading-6 shadow-sm ring-1 ring-neutral-1/10 hover:ring-neutral-1 lg:flex"
         @click="isCommandPaletteOpen = true"
       >
         <svg
@@ -36,14 +36,13 @@
             stroke-linejoin="round"
           ></circle>
         </svg>
-        Documentation search...<span
-          class="ml-auto flex-none pl-3 text-xs font-semibold"
+        Search<span class="ml-auto flex-none pl-3 text-sm font-semibold"
           >Ctrl K</span
         >
       </button>
     </div>
     <div class="w-64 pr-8 xl:w-72 xl:pr-16">
-      <nav class="lg:text-sm">
+      <nav class="lg:text-base text-lg">
         <ul role="list" class="space-y-9">
           <div v-for="(section, key) in props.docData" :key="key">
             <li key="{{section.section_title}}">

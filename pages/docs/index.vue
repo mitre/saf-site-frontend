@@ -2,7 +2,10 @@
   <div>
     <Head>
       <Title>Documentation</Title>
-      <Meta name="description" content="Collection of SAF documentation" />
+      <Meta
+        name="description"
+        content="Collection of MITRE SAF© documentation"
+      />
     </Head>
     <DocumentationComponent
       :all-links="allLinks"
@@ -71,8 +74,10 @@ const getData = async () => {
         element.id = slugify(element.outerText);
       }
       if (element.localName === 'h2') {
-        onPage[currentHeader].subtitles.push(element.outerText);
-        element.id = slugify(element.outerText);
+        if (currentHeader != -1) {
+          onPage[currentHeader].subtitles.push(element.outerText);
+          element.id = slugify(element.outerText);
+        }
       }
     }
 

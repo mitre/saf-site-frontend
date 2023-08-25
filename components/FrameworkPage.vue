@@ -9,14 +9,14 @@
         aria-hidden="true"
         alt="Alt text here"
       />
-      <h2 class="text-4xl font-bold tracking-tight text-header sm:text-4xl">
+      <h2 class="text-5xl font-bold tracking-tight text-header">
         {{ title }}
       </h2>
-      <h3 class="mx-auto mt-6 text-center leading-8">
+      <h3 class="mx-auto mt-6 text-xl text-center leading-8">
         {{ grabber }}
       </h3>
       <div
-        class="prose mx-auto mt-8 max-w-none text-left leading-8 dark:prose-invert"
+        class="prose prose-xl mx-auto mt-8 max-w-none text-left leading-8 dark:prose-invert"
         v-html="description"
       ></div>
     </div>

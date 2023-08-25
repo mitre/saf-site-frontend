@@ -1,7 +1,7 @@
 <template>
   <div>
     <Head>
-      <Title>HDF Converters</Title>
+      <Title>OHDF Converters</Title>
       <Meta name="description" content="HDF Converters library content" />
     </Head>
     <div>
@@ -12,11 +12,11 @@
         <div v-if="isLoaded">
           <div class="sm:flex sm:items-center">
             <div class="sm:flex-auto">
-              <h1 class="text-center text-4xl font-bold text-header">
+              <h1 class="text-center text-5xl font-bold text-header">
                 <strong>{{ pageTitle }}</strong>
               </h1>
               <div
-                class="prose prose-sm mx-auto mb-6 mt-8 max-w-5xl text-left leading-8 text-foreground lg:prose-lg"
+                class="prose prose-xl prose-headings:text-foreground prose-a:text-foreground mx-auto mb-6 mt-8 max-w-5xl text-left leading-8 text-foreground"
                 v-html="libraryContent"
               ></div>
             </div>
@@ -41,7 +41,7 @@ const pageTitle = ref('');
 const getLibraryContent = async () => {
   await useAsyncData(
     'getLibraryPageByName',
-    () => GqlGetLibraryPageByName({name: 'HDF Converters'}),
+    () => GqlGetLibraryPageByName({name: 'OHDF Converters'}),
     {initialCache: false}
   ).then(({data}) => {
     libraryContent.value = data.value.libraryPages.data[0].attributes.content;

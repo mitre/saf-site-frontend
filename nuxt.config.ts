@@ -22,7 +22,8 @@ export default defineNuxtConfig({
     head: {
       htmlAttrs: {
         lang: 'en'
-      }
+      },
+      link: [{rel: 'icon', type: 'image/svg', href: '/safLogoFavicon.svg'}]
     }
   }
 });

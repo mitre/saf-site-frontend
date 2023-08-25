@@ -11,13 +11,13 @@
                 src="@/assets/logos/safLogo.svg"
                 class="w-12 md:w-14"
                 aria-hidden="true"
-                alt="SAF© Logo"
+                alt="MITRE SAF© Logo"
               />
               <h1
-                class="whitespace-nowrap p-2 text-2xl font-extrabold tracking-tighter text-header md:text-3xl xl:text-4xl"
+                class="whitespace-nowrap p-2 text-3xl font-extrabold tracking-tighter text-header md:text-4xl xl:text-5xl"
               >
-                <span class="block font-mitre font-extrabold xl:inline"
-                  >MITRE SAF<span class="text-xs">©</span></span
+                <span class="block font-extrabold xl:inline"
+                  >MITRE SAF<sup>©</sup></span
                 >
               </h1>
             </NuxtLink>
@@ -33,11 +33,14 @@
             </PopoverButton>
           </div>
 
-          <PopoverGroup as="nav" class="hidden space-x-5 lg:flex xl:space-x-10">
+          <PopoverGroup
+            as="nav"
+            class="text-xl hidden space-x-5 lg:flex xl:space-x-10"
+          >
             <NuxtLink
               to="/getting-started"
               :class="[
-                'font-mitre font-semibold hover:text-nav-hover ',
+                'font-semibold hover:text-nav-hover ',
                 '/getting-started' === route.fullPath
                   ? 'text-nav-active '
                   : 'text-nav-base '
@@ -57,10 +60,10 @@
               :key="item.name"
               :to="item.href"
               :class="[
-                'font-mitre font-semibold hover:text-nav-hover ',
+                'font-semibold hover:text-nav-hover ',
                 item.href === route.fullPath
-                  ? 'text-nav-active '
-                  : 'text-nav-base '
+                  ? 'text-nav-active'
+                  : 'text-nav-base'
               ]"
             >
               {{ item.name }}
@@ -82,11 +85,11 @@
                   :class="selected === 'System' ? 'h-6 w-6' : 'hidden'"
                 />
                 <label for="theme-selector" class="sr-only">
-                  <span>SAF Theme Selector</span>
+                  <span>MITRE SAF<sup>©</sup> Theme Selector</span>
                 </label>
                 <select
                   id="theme-selector"
-                  name="SAF Theme Selector"
+                  name="MITRE SAF Theme Selector"
                   class="absolute h-fit w-full appearance-none bg-neutral-1 pr-3 opacity-0"
                   @change="switchSelect($event)"
                 >
@@ -152,7 +155,7 @@
                         :items="[
                           {
                             name: 'Getting Started',
-                            description: 'Getting started with SAF.',
+                            description: 'Getting started with MITRE SAF©.',
                             href: '/getting-started',
                             icon: PresentationChartBarIcon
                           }
@@ -182,9 +185,11 @@
                   <div class="ml-2">{{ selected }}</div>
                   <ChevronDownIcon class="h-6 w-5" />
                   <label for="mobile-theme-selector" class="sr-only">
-                    <span>SAF Theme Selector</span>
+                    <span>MITRE SAF<sup>©</sup> Theme Selector</span>
                   </label>
-                  <span class="sr-only">SAF Theme Selector</span>
+                  <span class="sr-only"
+                    >MITRE SAF<sup>©</sup> Theme Selector</span
+                  >
                   <select
                     name="Mobile Theme Selector"
                     class="absolute inset-0 h-full w-full appearance-none bg-button-accent text-button-text opacity-0"
@@ -293,20 +298,21 @@ const libraries = ref([
     icon: ValidationLibIcon
   },
   {
-    name: 'HDF Converters',
-    description: '?????',
-    href: '/libs/hdf-converters',
+    name: 'OHDF Converters',
+    description: 'Convert your security data to, or from, normalized OHDF.',
+    href: '/libs/ohdf-converters',
     icon: SafShieldLogo
   },
   {
     name: 'TS InSpec Objects',
-    description: '??????????',
+    description:
+      'Manipulate InSpec profiles programmatically using Typescript.',
     href: '/libs/ts-inspec-objects',
     icon: SafShieldLogo
   },
   {
     name: 'eMASS Client',
-    description: '?????????',
+    description: 'Interact with eMASS via API.',
     href: '/libs/emass-client',
     icon: SafShieldLogo
   }
@@ -314,13 +320,13 @@ const libraries = ref([
 
 const applications = shallowRef([
   {
-    name: 'Heimdall',
+    name: 'Heimdall©',
     description: 'Security Data Visualization App',
     href: '/apps/heimdall',
     icon: HeimdallLogo
   },
   {
-    name: 'Vulcan',
+    name: 'Vulcan©',
     description: 'Security Guidance Authorship App',
     href: '/apps/vulcan',
     icon: SafShieldLogo
@@ -342,7 +348,7 @@ const applications = shallowRef([
 const navigation = ref([
   {
     name: 'Docs',
-    description: 'Documentation of SAF tools.',
+    description: 'Documentation of MITRE SAF© tools.',
     href: '/docs',
     icon: BookOpenIcon
   },

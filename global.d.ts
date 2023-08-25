@@ -115,3 +115,12 @@ type UserStory = {
   answer: string;
   orderID: number;
 };
+
+type DocumentationCommandPaletteResult = {
+  id: string;
+  section_title: string;
+  subsection_title: string;
+  subsection_content: string;
+  subsection_href: string;
+  text_found: string | null;
+};

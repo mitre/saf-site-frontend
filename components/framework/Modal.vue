@@ -5,8 +5,8 @@
       class="mx-auto mt-8 max-w-5xl overflow-hidden bg-neutral-2 shadow sm:rounded-lg"
     >
       <div class="px-4 py-5 sm:px-6">
-        <h3 class="text-xl font-bold leading-6">Guidance Overview</h3>
-        <p class="mt-1 max-w-2xl text-lg text-muted">
+        <h3 class="text-2xl font-bold leading-6">Guidance Overview</h3>
+        <p class="mt-1 max-w-2xl text-xl text-muted">
           Extra details for the guidance overview.
         </p>
       </div>
@@ -75,8 +75,8 @@
       <!-- Harden / Validate Content -->
       <div class="overflow-hidden border-t-2 border-accent bg-neutral-2 shadow">
         <div class="px-4 py-5 sm:px-6">
-          <h3 class="text-lg font-bold leading-6">Related Content</h3>
-          <p class="mt-1 max-w-2xl text-lg text-muted">
+          <h3 class="text-xl font-bold leading-6">Related Content</h3>
+          <p class="mt-1 max-w-2xl text-xl text-muted">
             Related hardening and validation content for the guidance.
           </p>
         </div>

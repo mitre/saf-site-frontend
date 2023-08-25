@@ -4,16 +4,16 @@
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="mx-auto max-w-6xl lg:text-center">
           <h1
-            class="mt-2 text-4xl font-extrabold tracking-tight text-header sm:text-5xl"
+            class="mt-2 text-5xl font-extrabold tracking-tight text-header sm:text-6xl"
           >
             Jump Start Your Security Journey
           </h1>
-          <p class="mt-6 text-xl leading-8">
-            MITRE SAF supports security processes at all stages of the software
-            lifecycle, from planning secure system design to analyzing
-            operational security data. All of MITRE SAF's tools can work in
-            concert or standalone; adopt the parts of the Framework that make
-            sense for your environment.
+          <p class="mt-6 text-2xl leading-8">
+            MITRE SAF<sup>©</sup> supports security processes at all stages of
+            the software lifecycle, from planning secure system design to
+            analyzing operational security data. All MITRE SAF<sup>©</sup>
+            tools can work in concert or standalone; adopt the parts of the
+            Framework that make sense for your environment.
           </p>
         </div>
         <div
@@ -50,8 +50,8 @@
               <h3 class="font-semibold leading-6">
                 <NuxtLink :to="capability.link" class="focus:outline-none">
                   <span class="absolute inset-0" aria-hidden="true" />
-                  <h2 class="text-xl font-extrabold leading-7">
-                    {{ capability.name }}
+                  <h2 class="text-2xl font-extrabold leading-7">
+                    {{ capability.name.toUpperCase() }}
                   </h2>
                   <span class="mt-2 leading-7" v-html="capability.description">
                   </span>
@@ -100,8 +100,8 @@
               <h3 class="font-semibold leading-6">
                 <NuxtLink :to="capability.link" class="focus:outline-none">
                   <span class="absolute inset-0" aria-hidden="true" />
-                  <h2 class="text-xl font-extrabold leading-7">
-                    {{ capability.name }}
+                  <h2 class="text-2xl font-extrabold leading-7">
+                    {{ capability.name.toUpperCase() }}
                   </h2>
                   <span class="mt-2 leading-7" v-html="capability.description">
                   </span>

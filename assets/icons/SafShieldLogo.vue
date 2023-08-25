@@ -8,7 +8,7 @@
     xmlns:xlink="http://www.w3.org/1999/xlink"
   >
     <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
-    <title>SAF SVG - blue</title>
+    <title>MITRE SAF© SVG - blue</title>
     <desc>Created with Sketch.</desc>
     <g
       id="SAF-SVG---blue"

@@ -14,14 +14,14 @@
           <div
             class="max-2xl mx-auto px-4 py-4 sm:px-6 sm:py-4 lg:max-w-7xl lg:px-8"
           >
-            <div class="max-w-xl">
+            <div>
               <h2
                 id="faq-heading"
-                class="text-3xl font-bold tracking-tight text-header"
+                class="text-4xl font-bold tracking-tight text-header"
               >
                 Frequently asked questions
               </h2>
-              <p class="mt-4 text-lg">
+              <p class="mt-4 text-xl">
                 Have a question you don't see covered here? Please contact
                 <a href="mailto:saf@groups.mitre.org" class="text-nav-active"
                   >saf@groups.mitre.org</a
@@ -37,10 +37,8 @@
                 :key="faq.questionNumber"
                 class="flex flex-col"
               >
-                <span class="text-lg font-bold"
-                  >{{ faq.questionNumber }}. {{ faq.question }}
-                </span>
-                <span class="prose mt-3 text-sm dark:prose-invert">{{
+                <span class="text-2xl font-bold">{{ faq.question }} </span>
+                <span class="prose prose-xl mt-3 text-base dark:prose-invert">{{
                   parser
                     .parseFromString(faq.answer ?? '', 'text/html')
                     .body.childNodes[0].innerText.substring(0, 125) + '...'
@@ -61,6 +59,7 @@
 </template>
 
 <script setup lang="ts">
+import {FAQ} from 'global';
 import {ref, onMounted, nextTick} from 'vue';
 
 /// /  Data  ////

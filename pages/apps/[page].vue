@@ -22,6 +22,8 @@
 </template>
 
 <script setup lang="ts">
+import { ApplicationPageFeature } from 'global';
+
 /// /  Data  ////
 const isLoaded = ref(false);
 const route = useRoute();
@@ -33,9 +35,13 @@ const pageFeatures = ref<ApplicationPageFeature[]>();
 
 /// /  Methods  ////
 const getPageContent = async () => {
+  let pageHref = route.fullPath.split('/')[2].replaceAll('-', ' ')
+  if(pageHref == 'heimdall' || pageHref == 'vulcan' ){
+    pageHref += "©"
+  }
   await useAsyncData('getApplicationPage', () =>
     GqlGetApplicationPage({
-      page: route.fullPath.split('/')[2].replaceAll('-', ' ')
+      page: pageHref
     })
   ).then(({data}) => {
     const pageData = data?.value?.appPages?.data[0].attributes;

@@ -35,13 +35,9 @@ const pageFeatures = ref<ApplicationPageFeature[]>();
 
 /// /  Methods  ////
 const getPageContent = async () => {
-  let pageHref = route.fullPath.split('/')[2].replaceAll('-', ' ')
-  if(pageHref == 'heimdall' || pageHref == 'vulcan' ){
-    pageHref += "©"
-  }
   await useAsyncData('getApplicationPage', () =>
     GqlGetApplicationPage({
-      page: pageHref
+      page: route.fullPath.split('/')[2].replaceAll('-', ' ')
     })
   ).then(({data}) => {
     const pageData = data?.value?.appPages?.data[0].attributes;

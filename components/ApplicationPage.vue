@@ -9,7 +9,7 @@
           alt="Alt text here"
         />
         <h2 class="text-5xl font-bold tracking-tight text-header">
-          {{ title }}
+          {{ title }}<sup v-if="title === 'Heimdall' || title === 'Vulcan'">©</sup>
         </h2>
         <h3 class="mx-auto mt-6 text-xl text-center leading-8">
           {{ grabber }}

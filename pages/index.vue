@@ -43,7 +43,10 @@ export default {
       sponsors: [],
       vendors: [],
       tenets: [],
-      isLoaded: false
+      isLoaded: false,
+      sortedSponsors: ["Platform One", "DSCA", "DCSA", "US Air Force", "DOD CIO", "DISA", "US Army ECMA","DHHS","CMS","CDC","NRO"],
+      sortedVendors: ["Progress Chef", "VMware", "Sophos", "Lockheed Martin", "RGS", "Google",
+    "GitHub", "Ansible Lockdown","Oracle","CrunchyData", "Elastic", "Nessus"]
     };
   },
   mounted() {
@@ -128,7 +131,7 @@ export default {
               ? sponsor.attributes.icon.data.attributes.alternativeText
               : null
           }
-        }))
+        })).sort((a, b) => this.sortedSponsors.indexOf(a.name) - this.sortedSponsors.indexOf(b.name))
       );
     },
     async getVendors() {
@@ -151,7 +154,7 @@ export default {
               ? vendor.attributes.icon.data.attributes.alternativeText
               : null
           }
-        }))
+        })).sort((a, b) => this.sortedVendors.indexOf(a.name) - this.sortedVendors.indexOf(b.name))
       );
     },
     async getUserStories() {

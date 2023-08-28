@@ -15,8 +15,9 @@
             security automation.
           </p>
           <p class="mt-5 text-lg sm:text-xl">
-            MITRE SAF<sup>©</sup> tools are built to be modular. Slot them into
-            your existing pipelines and or use them to enhance your favorite
+            MITRE SAF<sup>©</sup> tools are built to be modularand enhance 
+            rather than replace existing toolsets. Slot them into your 
+            existing pipelines and or use them to enhance your favorite
             security tools. You can use MITRE SAF<sup>©</sup> tools on their
             own with or without a pipeline.
           </p>

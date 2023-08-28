@@ -4,7 +4,7 @@
       <div class="mx-auto max-w-7xl">
         <div class="mx-auto max-w-2xl lg:text-center">
           <h1
-            class="mt-2 text-5xl sm:text-6xl font-bold tracking-tight text-header"
+            class="mt-2 text-4xl sm:text-5xl font-bold tracking-tight text-header"
           >
             MITRE SAF<sup>©</sup> Is
           </h1>

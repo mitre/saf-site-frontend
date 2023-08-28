@@ -6,7 +6,7 @@
       >
         <div class="mx-auto max-w-5xl flex-row text-center">
           <h1
-            class="mt-2 text-5xl sm:text-6xl font-bold tracking-tight text-header"
+            class="mt-2 text-4xl sm:text-5xl font-bold tracking-tight text-header"
           >
             The MITRE SAF<sup>©</sup> Open Source Toolset
           </h1>

@@ -4,7 +4,7 @@
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="mx-auto max-w-6xl lg:text-center">
           <h1
-            class="mt-2 text-5xl font-extrabold tracking-tight text-header sm:text-6xl"
+            class="mt-2 text-4xl font-extrabold tracking-tight text-header sm:text-5xl"
           >
             Jump Start Your Security Journey
           </h1>

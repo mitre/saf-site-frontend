@@ -6,7 +6,7 @@
       >
         <div class="mx-auto max-w-3xl flex-row text-left">
           <h2
-            class="mt-2 max-w-prose text-center text-4xl font-bold tracking-tight text-header sm:text-5xl"
+            class="mt-2 max-w-prose text-center text-3xl font-bold tracking-tight text-header sm:text-4xl"
           >
             {{ title }}
           </h2>

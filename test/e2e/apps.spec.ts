@@ -6,13 +6,11 @@ test('App Pages', async ({page}) => {
   await page.getByRole('button', {name: 'Apps'}).click();
   await page
     .getByRole('link', {
-      name: 'Heimdall©'
+      name: 'Heimdall© Security Data Visualization App',
+      exact: true
     })
     .click();
   await expect(page).toHaveURL('/apps/heimdall');
-  await expect(
-    page.getByRole('heading', {name: 'Heimdall©', exact: true})
-  ).toBeVisible();
   await expect(
     page.getByRole('heading', {
       name: 'Security Data Visualization App'

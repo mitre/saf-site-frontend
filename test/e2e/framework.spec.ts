@@ -27,7 +27,7 @@ test('Framework Pages', async ({page}) => {
   await page.getByRole('button', {name: 'Framework'}).click();
   await page
     .getByRole('link', {
-      name: 'Harden'
+      name: 'Harden Take action to configure software for security.'
     })
     .click();
   await expect(page).toHaveURL('/framework/harden');
@@ -48,7 +48,7 @@ test('Framework Pages', async ({page}) => {
   await page.getByRole('button', {name: 'Framework'}).click();
   await page
     .getByRole('link', {
-      name: 'Validate'
+      name: 'Validate Generate detailed security testing results through automated tests and manual attestation.'
     })
     .click();
   await expect(page).toHaveURL('/framework/validate');
@@ -90,7 +90,7 @@ test('Framework Pages', async ({page}) => {
   await page.getByRole('button', {name: 'Framework'}).click();
   await page
     .getByRole('link', {
-      name: 'Visualize'
+      name: 'Visualize View comprehensive security status, identify security defects, and manage remediation.'
     })
     .click();
   await expect(page).toHaveURL('/framework/visualize');

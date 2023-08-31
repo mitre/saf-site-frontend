@@ -139,9 +139,9 @@
                   <div v-if="courses.length">
                     <div v-for="(course, index) in courses" :key="course.index">
                       <div class="mt-7 w-full sm:pl-4">
-                        <p class="text-3xl font-semibold">
+                        <h1 class="text-3xl font-semibold">
                           {{ course.name }}
-                        </p>
+                        </h1>
                         <div
                           class="prose prose-xl mb-8 mt-8 text-left leading-8 dark:prose-invert max-w-full prose-code:text-start prose-li:text-start"
                           v-html="course.description"

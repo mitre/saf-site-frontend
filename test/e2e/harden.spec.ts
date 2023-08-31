@@ -1,6 +1,6 @@
 import {test, expect} from '@playwright/test';
 
-test('Hardening', async ({page}) => {
+test('Hardening Library Page', async ({page}) => {
   // Navigate to harden page
   await page.goto('/');
   await page.getByRole('button', {name: 'Libraries'}).click();

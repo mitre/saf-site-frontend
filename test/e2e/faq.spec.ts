@@ -1,6 +1,6 @@
 import {test, expect} from '@playwright/test';
 
-test('FAQ', async ({page}) => {
+test('FAQ Page', async ({page}) => {
   // Navigate to FAQ
   await page.goto('/');
   await page.getByRole('button', {name: 'More'}).click();
@@ -14,7 +14,7 @@ test('FAQ', async ({page}) => {
   await expect(
     page.getByRole('heading', {
       level: 1,
-      name: '1. How many NIST SP 800-53 Security Controls are assessed under the MITRE SAF©?'
+      name: 'How many NIST SP 800-53 Security Controls are assessed under the MITRE SAF©?'
     })
   ).toBeVisible();
   // await expect(page.getByRole('paragraph', {name: 'Currently, about 162 NIST SP 800-53 security controls are assessed under this framework. Note that assessment coverage varies based on the component type. For more information, explore this Control Assessment Range table!' })).toBeVisible();
@@ -31,7 +31,7 @@ test('FAQ', async ({page}) => {
   await expect(
     page.getByRole('heading', {
       level: 1,
-      name: '5. What happened to Heimdall_Tools and InSpec_Tools?'
+      name: 'What happened to Heimdall_Tools and InSpec_Tools?'
     })
   ).toBeVisible();
   // await expect(page.getByRole('paragraph', {name: 'Currently, about 162 NIST SP 800-53 security controls are assessed under this framework. Note that assessment coverage varies based on the component type. For more information, explore this Control Assessment Range table!' })).toBeVisible();

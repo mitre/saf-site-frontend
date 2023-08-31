@@ -1,6 +1,6 @@
 import {test, expect} from '@playwright/test';
 
-test('Validation', async ({page}) => {
+test('Validation Library Page', async ({page}) => {
   // Navigate to validate page
   await page.goto('/');
   await page.getByRole('button', {name: 'Libraries'}).click();

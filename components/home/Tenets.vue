@@ -6,7 +6,7 @@
           <h1
             class="mt-2 text-4xl sm:text-5xl font-bold tracking-tight text-header"
           >
-            MITRE SAF<sup>©</sup> Is
+            MITRE SAF <sup>©</sup> Is
           </h1>
         </div>
         <div class="mt-24 grid grid-cols-1 gap-y-16 lg:grid-cols-3">

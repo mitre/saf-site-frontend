@@ -14,10 +14,10 @@
                 alt="MITRE SAF© Logo"
               />
               <h1
-                class="whitespace-nowrap p-2 text-3xl font-extrabold tracking-tighter text-header md:text-4xl xl:text-5xl"
+                class="whitespace-nowrap p-2 text-2xl font-extrabold tracking-tighter text-header md:text-3xl xl:text-4xl"
               >
                 <span class="block font-extrabold xl:inline"
-                  >MITRE SAF<sup>©</sup></span
+                  >MITRE SAF <sup>©</sup></span
                 >
               </h1>
             </NuxtLink>
@@ -85,7 +85,7 @@
                   :class="selected === 'System' ? 'h-6 w-6' : 'hidden'"
                 />
                 <label for="theme-selector" class="sr-only">
-                  <span>MITRE SAF<sup>©</sup> Theme Selector</span>
+                  <span>MITRE SAF <sup>©</sup> Theme Selector</span>
                 </label>
                 <select
                   id="theme-selector"
@@ -185,10 +185,10 @@
                   <div class="ml-2">{{ selected }}</div>
                   <ChevronDownIcon class="h-6 w-5" />
                   <label for="mobile-theme-selector" class="sr-only">
-                    <span>MITRE SAF<sup>©</sup> Theme Selector</span>
+                    <span>MITRE SAF <sup>©</sup> Theme Selector</span>
                   </label>
                   <span class="sr-only"
-                    >MITRE SAF<sup>©</sup> Theme Selector</span
+                    >MITRE SAF <sup>©</sup> Theme Selector</span
                   >
                   <select
                     name="Mobile Theme Selector"

@@ -24,7 +24,7 @@
                 >. If you are interested in developing and contributing your own
                 profiles, please see our
                 <a href="/training" class="underline">training material</a>. All
-                assessment tests under MITRE SAF <sup>©</sup> are associated
+                assessment tests under MITRE SAF  <sup>©</sup> are associated
                 with NIST SP 800-53 Security Controls.
               </p>
             </div>

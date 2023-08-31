@@ -9,9 +9,9 @@
             Jump Start Your Security Journey
           </h1>
           <p class="mt-6 text-2xl leading-8">
-            MITRE SAF<sup>©</sup> supports security processes at all stages of
+            MITRE SAF <sup>©</sup> supports security processes at all stages of
             the software lifecycle, from planning secure system design to
-            analyzing operational security data. All MITRE SAF<sup>©</sup>
+            analyzing operational security data. All MITRE SAF <sup>©</sup>
             tools can work in concert or standalone; adopt the parts of the
             Framework that make sense for your environment.
           </p>

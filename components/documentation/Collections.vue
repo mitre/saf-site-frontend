@@ -10,12 +10,12 @@
           Our Documentation Collection
         </h1>
         <!-- <p class="mt-5 max-w-prose text-lg sm:text-xl">
-            MITRE SAF<sup>©</sup> maintains a toolset of utilities to support automation.
+            MITRE SAF <sup>©</sup> maintains a toolset of utilities to support automation.
           </p>
           <p class="mt-5 max-w-prose text-lg sm:text-xl">
-            MITRE SAF<sup>©</sup> tools are built to be modular. Slot them into your existing
+            MITRE SAF <sup>©</sup> tools are built to be modular. Slot them into your existing
             pipelines and integrate them with your favorite security tools. You
-            can use MITRE SAF<sup>©</sup> tools on their own with no pipeline at all.
+            can use MITRE SAF <sup>©</sup> tools on their own with no pipeline at all.
           </p> -->
       </div>
       <div class="mt-20">

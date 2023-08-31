@@ -12,7 +12,7 @@
           </h2>
         </div>
         <div class="mt-12">
-          <div class="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-5">
+          <div class="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
             <div
               v-for="item in data"
               :key="item.id"
@@ -20,9 +20,10 @@
             >
               <NuxtLink :to="item.link">
                 <div
-                  class="flex h-full flex-col justify-between rounded-lg px-6 pb-8"
+                  class="flex h-full flex-col justify-between rounded-lg px-3 pb-8"
                 >
                   <div
+                    v-if="item.icon.url !== null"
                     class="inline-flex w-full items-center justify-center rounded-xl bg-neutral-2 p-4 shadow-lg dark:bg-white h-1/2"
                   >
                     <img

@@ -6,7 +6,7 @@ test('Framework Pages', async ({page}) => {
   await page.getByRole('button', {name: 'Framework'}).click();
   await page
     .getByRole('link', {
-      name: 'Plan'
+      name: 'Plan Choose, tailor, and create security configuration guidance appropriate for your mission.'
     })
     .click();
   await expect(page).toHaveURL('/framework/plan');
@@ -82,7 +82,7 @@ test('Framework Pages', async ({page}) => {
     })
   ).toBeVisible();
   await expect(
-    page.getByRole('heading', {name: 'The MITRE SAF© Normalize Capability'})
+    page.getByRole('heading', {name: 'The Normalization Capability'})
   ).toBeVisible();
 
   // Check Visualize page

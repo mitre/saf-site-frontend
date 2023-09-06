@@ -11,14 +11,14 @@
             The MITRE SAF <sup>©</sup> Open Source Toolset
           </h1>
           <p class="mt-5 text-lg sm:text-xl">
-            MITRE SAF <sup>©</sup> maintains a toolset of utilities that support
-            security automation.
+            MITRE SAF <sup>©</sup> maintains a toolset of utilities that
+            support security automation.
           </p>
           <p class="mt-5 text-lg sm:text-xl">
-            MITRE SAF <sup>©</sup> tools are built to be modular. Slot them into
-            your existing pipelines and or use them to enhance your favorite
-            security tools. You can use MITRE SAF <sup>©</sup> tools on their
-            own with or without a pipeline.
+            MITRE SAF <sup>©</sup> tools are built to be modular. Slot them
+            into your existing pipelines and or use them to enhance your
+            favorite security tools. You can use MITRE SAF <sup>©</sup> tools
+            on their own with or without a pipeline.
           </p>
         </div>
         <div class="mt-20">

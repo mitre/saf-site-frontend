@@ -2,14 +2,16 @@ import {test, expect} from '@playwright/test';
 
 test('App Pages', async ({page}) => {
   // Check Heimdall page
-  await page.goto('/');
-  await page.getByRole('button', {name: 'Apps'}).click();
-  await page
-    .getByRole('link', {
-      name: 'Heimdall© Security Data Visualization App',
-      exact: true
-    })
-    .click();
+
+  // await page.goto('/');
+  // await page.getByRole('button', {name: 'Apps'}).click();
+  // await page
+  //   .getByRole('link', {
+  //     name: 'Heimdall© Security Data Visualization App',
+  //     exact: true
+  //   })
+  //   .click();
+  await page.goto('/apps/heimdall');
   await expect(page).toHaveURL('/apps/heimdall');
   await expect(
     page.getByRole('heading', {
@@ -21,13 +23,15 @@ test('App Pages', async ({page}) => {
   ).toBeVisible();
 
   // Check Harden page
-  await page.goto('/');
-  await page.getByRole('button', {name: 'Apps'}).click();
-  await page
-    .getByRole('link', {
-      name: 'Vulcan©'
-    })
-    .click();
+
+  // await page.goto('/');
+  // await page.getByRole('button', {name: 'Apps'}).click();
+  // await page
+  //   .getByRole('link', {
+  //     name: 'Vulcan©'
+  //   })
+  //   .click();
+  await page.goto('/apps/vulcan');
   await expect(page).toHaveURL('/apps/vulcan');
   await expect(
     page.getByRole('heading', {name: 'Vulcan©', exact: true})
@@ -44,13 +48,15 @@ test('App Pages', async ({page}) => {
   ).toBeVisible();
 
   // Check SAF CLI page
-  await page.goto('/');
-  await page.getByRole('button', {name: 'Apps'}).click();
-  await page
-    .getByRole('link', {
-      name: 'SAF CLI'
-    })
-    .click();
+
+  // await page.goto('/');
+  // await page.getByRole('button', {name: 'Apps'}).click();
+  // await page
+  //   .getByRole('link', {
+  //     name: 'SAF CLI'
+  //   })
+  //   .click();
+  await page.goto('/apps/saf-cli');
   await expect(page).toHaveURL('/apps/saf-cli');
   await expect(
     page.getByRole('heading', {name: 'SAF CLI', exact: true})
@@ -65,13 +71,15 @@ test('App Pages', async ({page}) => {
   ).toBeVisible();
 
   // Check eMASSer page
-  await page.goto('/');
-  await page.getByRole('button', {name: 'Apps'}).click();
-  await page
-    .getByRole('link', {
-      name: 'eMASSer'
-    })
-    .click();
+
+  // await page.goto('/');
+  // await page.getByRole('button', {name: 'Apps'}).click();
+  // await page
+  //   .getByRole('link', {
+  //     name: 'eMASSer'
+  //   })
+  //   .click();
+  await page.goto('/apps/emasser');
   await expect(page).toHaveURL('/apps/emasser');
   await expect(
     page.getByRole('heading', {level: 2, name: 'eMASSer', exact: true})

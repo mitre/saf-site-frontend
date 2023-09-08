@@ -9,7 +9,7 @@
             <NuxtLink to="/" class="flex">
               <img
                 src="@/assets/logos/safLogo.svg"
-                class="w-10"
+                class="w-10 mr-2"
                 aria-hidden="true"
                 alt="MITRE SAF© Shielf"
               /><img

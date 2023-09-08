@@ -28,7 +28,7 @@
             v-for="(feature, featureIdx) in features"
             :key="feature.name"
             :class="[
-              featureIdx % 2 === 0 ? '' : 'bg-neutral-2 ',
+              featureIdx % 2 === 0 ? 'bg-neutral-2' : '',
               'flex flex-col-reverse p-4 lg:grid lg:grid-cols-12 lg:items-center lg:gap-x-8'
             ]"
           >

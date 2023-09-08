@@ -8,18 +8,11 @@
           <div class="justify-left flex min-w-max md:flex-1 lg:w-0 lg:flex-1">
             <NuxtLink to="/" class="flex">
               <img
-                src="@/assets/logos/safLogo.svg"
-                class="w-12 md:w-14"
+                src="@/assets/logos/MITRE-SAF-lockup.svg"
+                class="w-36 md:w-40"
                 aria-hidden="true"
                 alt="MITRE SAF© Logo"
               />
-              <h1
-                class="whitespace-nowrap p-2 text-2xl font-extrabold tracking-tighter text-header md:text-3xl xl:text-4xl"
-              >
-                <span class="block font-extrabold xl:inline"
-                  >MITRE SAF <sup>©</sup></span
-                >
-              </h1>
             </NuxtLink>
           </div>
 

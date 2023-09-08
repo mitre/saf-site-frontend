@@ -16,7 +16,7 @@ const pageTitle = ref('');
 const getLibraryContent = async () => {
   await useAsyncData(
     'getLibraryPageByName',
-    () => GqlGetLibraryPageByName({name: 'eMASS Client'}),
+    () => GqlGetLibraryPageByName({name: 'InSpecJS'}),
     {initialCache: false}
   ).then(({data}) => {
     libraryContent.value = data.value.libraryPages.data[0].attributes.content;

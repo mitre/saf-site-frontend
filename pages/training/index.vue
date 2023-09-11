@@ -24,7 +24,7 @@
                     Our Training
                   </h1>
                   <p class="mt-6">
-                    The MITRE SAF<sup>©</sup> team offers training classes.
+                    The MITRE SAF <sup>©</sup> team offers training classes.
                     Dates and sign-up links to participate in synchronous
                     (typically virtual) class offerings are posted on this page
                     when training dates are finalized. To preview classes, watch
@@ -37,7 +37,7 @@
                       class="hover:underline"
                     >
                       <p class="mt-4 text-nav-active after:content-['_↗']">
-                        MITRE SAF<sup>©</sup> Training Site - GitHub
+                        MITRE SAF <sup>©</sup> Training Site - GitHub
                       </p>
                     </a>
                     <a
@@ -45,7 +45,7 @@
                       class="hover:underline"
                     >
                       <p class="mt-4 text-nav-active after:content-['_↗']">
-                        MITRE SAF<sup>©</sup> Training Site - Netlify
+                        MITRE SAF <sup>©</sup> Training Site - Netlify
                       </p>
                     </a>
                   </div>
@@ -139,9 +139,9 @@
                   <div v-if="courses.length">
                     <div v-for="(course, index) in courses" :key="course.index">
                       <div class="mt-7 w-full sm:pl-4">
-                        <p class="text-3xl font-semibold">
+                        <h1 class="text-3xl font-semibold">
                           {{ course.name }}
-                        </p>
+                        </h1>
                         <div
                           class="prose prose-xl mb-8 mt-8 text-left leading-8 dark:prose-invert max-w-full prose-code:text-start prose-li:text-start"
                           v-html="course.description"

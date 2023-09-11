@@ -4,14 +4,14 @@
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="mx-auto max-w-6xl lg:text-center">
           <h1
-            class="mt-2 text-5xl font-extrabold tracking-tight text-header sm:text-6xl"
+            class="mt-2 text-4xl font-extrabold tracking-tight text-header sm:text-5xl"
           >
             Jump Start Your Security Journey
           </h1>
           <p class="mt-6 text-2xl leading-8">
-            MITRE SAF<sup>©</sup> supports security processes at all stages of
+            MITRE SAF <sup>©</sup> supports security processes at all stages of
             the software lifecycle, from planning secure system design to
-            analyzing operational security data. All MITRE SAF<sup>©</sup>
+            analyzing operational security data. All MITRE SAF <sup>©</sup>
             tools can work in concert or standalone; adopt the parts of the
             Framework that make sense for your environment.
           </p>

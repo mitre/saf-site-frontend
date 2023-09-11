@@ -9,7 +9,8 @@
           alt="Alt text here"
         />
         <h2 class="text-5xl font-bold tracking-tight text-header">
-          {{ title }}<sup v-if="title === 'Heimdall' || title === 'Vulcan'">©</sup>
+          {{ title
+          }}<sup v-if="title === 'Heimdall' || title === 'Vulcan'">©</sup>
         </h2>
         <h3 class="mx-auto mt-6 text-xl text-center leading-8">
           {{ grabber }}
@@ -27,7 +28,7 @@
             v-for="(feature, featureIdx) in features"
             :key="feature.name"
             :class="[
-              featureIdx % 2 === 0 ? '' : 'bg-neutral-2 ',
+              featureIdx % 2 === 0 ? 'bg-neutral-2' : '',
               'flex flex-col-reverse p-4 lg:grid lg:grid-cols-12 lg:items-center lg:gap-x-8'
             ]"
           >

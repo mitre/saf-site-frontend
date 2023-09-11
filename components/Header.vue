@@ -9,17 +9,19 @@
             <NuxtLink to="/" class="flex">
               <img
                 src="@/assets/logos/safLogo.svg"
-                class="w-12 md:w-14"
+                class="w-10"
                 aria-hidden="true"
-                alt="MITRE SAF© Logo"
+                alt="MITRE SAF© Shielf"
+              /><img
+                src="@/assets/logos/MITRE-SAF-lockup.svg"
+                class="w-40"
+                aria-hidden="true"
+                alt="MITRE SAF© Lockup Logo"
               />
-              <h1
-                class="whitespace-nowrap p-2 text-3xl font-extrabold tracking-tighter text-header md:text-4xl xl:text-5xl"
+              <span
+                class="whitespace-nowrap p-2 mb-2 font-bold tracking-tighter text-fill text-2xl"
+                ><sup>©</sup></span
               >
-                <span class="block font-extrabold xl:inline"
-                  >MITRE SAF<sup>©</sup></span
-                >
-              </h1>
             </NuxtLink>
           </div>
 
@@ -85,7 +87,7 @@
                   :class="selected === 'System' ? 'h-6 w-6' : 'hidden'"
                 />
                 <label for="theme-selector" class="sr-only">
-                  <span>MITRE SAF<sup>©</sup> Theme Selector</span>
+                  <span>MITRE SAF <sup>©</sup> Theme Selector</span>
                 </label>
                 <select
                   id="theme-selector"
@@ -185,10 +187,10 @@
                   <div class="ml-2">{{ selected }}</div>
                   <ChevronDownIcon class="h-6 w-5" />
                   <label for="mobile-theme-selector" class="sr-only">
-                    <span>MITRE SAF<sup>©</sup> Theme Selector</span>
+                    <span>MITRE SAF <sup>©</sup> Theme Selector</span>
                   </label>
                   <span class="sr-only"
-                    >MITRE SAF<sup>©</sup> Theme Selector</span
+                    >MITRE SAF <sup>©</sup> Theme Selector</span
                   >
                   <select
                     name="Mobile Theme Selector"
@@ -314,6 +316,18 @@ const libraries = ref([
     name: 'eMASS Client',
     description: 'Interact with eMASS via API.',
     href: '/libs/emass-client',
+    icon: SafShieldLogo
+  },
+  {
+    name: 'InSpecJS',
+    description: 'Deep dive into OHDF files.',
+    href: '/libs/inspecjs',
+    icon: SafShieldLogo
+  },
+  {
+    name: 'STIG XCCDF XML Library',
+    description: 'Get benchmark files.',
+    href: '/libs/stig-xccdf-xml-library',
     icon: SafShieldLogo
   }
 ]);

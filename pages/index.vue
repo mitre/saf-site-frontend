@@ -17,7 +17,7 @@
 
         <div class="py-24">
           <h1
-            class="my-5 text-center text-5xl sm:text-6xl font-extrabold tracking-tight text-header"
+            class="my-5 text-center text-4xl sm:text-5xl font-extrabold tracking-tight text-header"
           >
             Adopted by The Community
           </h1>
@@ -43,7 +43,34 @@ export default {
       sponsors: [],
       vendors: [],
       tenets: [],
-      isLoaded: false
+      isLoaded: false,
+      sortedSponsors: [
+        'Platform One',
+        'DSCA',
+        'DCSA',
+        'US Air Force',
+        'DOD CIO',
+        'DISA',
+        'US Army ECMA',
+        'DHHS',
+        'CMS',
+        'CDC',
+        'NRO'
+      ],
+      sortedVendors: [
+        'Progress Chef',
+        'VMware',
+        'Sophos',
+        'Lockheed Martin',
+        'RGS',
+        'Google',
+        'GitHub',
+        'Ansible Lockdown',
+        'Oracle',
+        'CrunchyData',
+        'Elastic',
+        'Nessus'
+      ]
     };
   },
   mounted() {
@@ -112,46 +139,58 @@ export default {
       this.sponsors = await useAsyncData('getSponsors', () =>
         GqlGetSponsors()
       ).then(({data}) =>
-        data.value.partners.data.map((sponsor) => ({
-          name: sponsor.attributes.name,
-          nameLong: sponsor.attributes.name_long,
-          link: sponsor.attributes.link,
-          coummunity: sponsor.attributes.community,
-          icon: {
-            name: sponsor.attributes.icon.data
-              ? sponsor.attributes.icon.data.attributes.name
-              : null,
-            url: sponsor.attributes.icon.data
-              ? sponsor.attributes.icon.data.attributes.url
-              : null,
-            alt: sponsor.attributes.icon.data
-              ? sponsor.attributes.icon.data.attributes.alternativeText
-              : null
-          }
-        }))
+        data.value.partners.data
+          .map((sponsor) => ({
+            name: sponsor.attributes.name,
+            nameLong: sponsor.attributes.name_long,
+            link: sponsor.attributes.link,
+            coummunity: sponsor.attributes.community,
+            icon: {
+              name: sponsor.attributes.icon.data
+                ? sponsor.attributes.icon.data.attributes.name
+                : null,
+              url: sponsor.attributes.icon.data
+                ? sponsor.attributes.icon.data.attributes.url
+                : null,
+              alt: sponsor.attributes.icon.data
+                ? sponsor.attributes.icon.data.attributes.alternativeText
+                : null
+            }
+          }))
+          .sort(
+            (a, b) =>
+              this.sortedSponsors.indexOf(a.name) -
+              this.sortedSponsors.indexOf(b.name)
+          )
       );
     },
     async getVendors() {
       this.vendors = await useAsyncData('getVendors', () =>
         GqlGetVendors()
       ).then(({data}) =>
-        data.value.partners.data.map((vendor) => ({
-          name: vendor.attributes.name,
-          nameLong: vendor.attributes.name_long,
-          link: vendor.attributes.link,
-          community: vendor.attributes.community,
-          icon: {
-            name: vendor.attributes.icon.data
-              ? vendor.attributes.icon.data.attributes.name
-              : null,
-            url: vendor.attributes.icon.data
-              ? vendor.attributes.icon.data.attributes.url
-              : null,
-            alt: vendor.attributes.icon.data
-              ? vendor.attributes.icon.data.attributes.alternativeText
-              : null
-          }
-        }))
+        data.value.partners.data
+          .map((vendor) => ({
+            name: vendor.attributes.name,
+            nameLong: vendor.attributes.name_long,
+            link: vendor.attributes.link,
+            community: vendor.attributes.community,
+            icon: {
+              name: vendor.attributes.icon.data
+                ? vendor.attributes.icon.data.attributes.name
+                : null,
+              url: vendor.attributes.icon.data
+                ? vendor.attributes.icon.data.attributes.url
+                : null,
+              alt: vendor.attributes.icon.data
+                ? vendor.attributes.icon.data.attributes.alternativeText
+                : null
+            }
+          }))
+          .sort(
+            (a, b) =>
+              this.sortedVendors.indexOf(a.name) -
+              this.sortedVendors.indexOf(b.name)
+          )
       );
     },
     async getUserStories() {

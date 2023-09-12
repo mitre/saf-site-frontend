@@ -24,6 +24,7 @@ export default defineNuxtConfig({
         lang: 'en'
       },
       link: [{rel: 'icon', type: 'image/svg', href: '/safLogoFavicon.svg'}]
-    }
+    },
+    baseURL: '/' //'/mitre-saf/' // baseURL: '/<repository>/'
   }
 });

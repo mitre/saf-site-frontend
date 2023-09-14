@@ -82,7 +82,7 @@ test('App Pages', async ({page}) => {
   await page.goto('/apps/emasser');
   await expect(page).toHaveURL('/apps/emasser');
   await expect(
-    page.getByRole('heading', {level: 2, name: 'eMASSer', exact: true})
+    page.getByRole('heading', {level: 2, name: 'emasser', exact: true})
   ).toBeVisible();
   await expect(
     page.getByRole('heading', {

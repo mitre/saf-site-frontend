@@ -78,7 +78,7 @@ test('Framework Pages', async ({page}) => {
   ).toBeVisible();
   await expect(
     page.getByRole('heading', {
-      name: 'Covert security results from all your security tools into a common data format'
+      name: 'Convert security results from all your security tools into a common data format'
     })
   ).toBeVisible();
   await expect(

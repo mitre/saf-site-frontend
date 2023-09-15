@@ -14,6 +14,7 @@ env:
 
 jobs:
   tests_e2e_netlify_prepare:
+    if: github.event_name == 'pull_request'
     name: Wait for deployment on Netlify
     runs-on: ubuntu-latest
     steps:
@@ -25,6 +26,7 @@ jobs:
           max_timeout: 180
 
   tests_e2e_netlify:
+    if: github.event_name == 'pull_request'
     needs: tests_e2e_netlify_prepare
     name: 'Run end-to-end tests on Netlify PR preview 🧪'
     runs-on: ubuntu-latest

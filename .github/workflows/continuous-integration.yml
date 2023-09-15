@@ -17,7 +17,7 @@ jobs:
     name: Wait for deployment on Netlify
     runs-on: ubuntu-latest
     steps:
-      - name: Waiting for Netlify Preview
+      - name: 'Waiting for Netlify Preview'
         uses: josephduffy/wait-for-netlify-action@v1
         id: wait-for-netflify-preview
         with:
@@ -26,7 +26,7 @@ jobs:
 
   tests_e2e_netlify:
     needs: tests_e2e_netlify_prepare
-    name: Run end-to-end tests on Netlify PR preview
+    name: 'Run end-to-end tests on Netlify PR preview 🧪'
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -41,23 +41,6 @@ jobs:
         env:
           PLAYWRIGHT_TEST_BASE_URL: 'https://deploy-preview-${{env.GITHUB_PR_NUMBER}}--mitre-saf-v2.netlify.app/'
           DEBUG: pw:api
-  e2e:
-    name: 'E2E 🧪'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Use Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16.x
-          cache: 'yarn'
-      - run: yarn install
-      - run: yarn build
-        name: Install dependencies
-      - run: yarn serve&
-        name: Start server
-      - run: yarn wdio run ./wdio-github.conf.js
-        name: Running E2E tests
 
   dependabot:
     name: 'Dependabot'

@@ -1,0 +1,80 @@
+name: Continous Integration
+
+on:
+  push:
+    branches:
+      - 'dev'
+  pull_request:
+
+permissions:
+  contents: write
+
+env:
+  GITHUB_PR_NUMBER: ${{github.event.pull_request.number}}
+
+jobs:
+  tests_e2e_netlify_prepare:
+    name: Wait for deployment on Netlify
+    runs-on: ubuntu-latest
+    steps:
+      - name: Waiting for Netlify Preview
+        uses: josephduffy/wait-for-netlify-action@v1
+        id: wait-for-netflify-preview
+        with:
+          site_name: 'mitre-saf-v2'
+          max_timeout: 180
+
+  tests_e2e_netlify:
+    needs: tests_e2e_netlify_prepare
+    name: Run end-to-end tests on Netlify PR preview
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - name: install dependencies
+        run: yarn install --frozen-lockfile
+      - name: install playwright browsers
+        run: npx playwright install --with-deps
+      - name: yarn run test:e2e
+        run: yarn run test:e2e
+        env:
+          PLAYWRIGHT_TEST_BASE_URL: 'https://deploy-preview-${{env.GITHUB_PR_NUMBER}}--mitre-saf-v2.netlify.app/'
+          DEBUG: pw:api
+  e2e:
+    name: 'E2E 🧪'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+          cache: 'yarn'
+      - run: yarn install
+      - run: yarn build
+        name: Install dependencies
+      - run: yarn serve&
+        name: Start server
+      - run: yarn wdio run ./wdio-github.conf.js
+        name: Running E2E tests
+
+  dependabot:
+    name: 'Dependabot'
+    needs: [tests_e2e_netlify_prepare, tests_e2e_netlify]
+    runs-on: ubuntu-latest
+    if: ${{ github.actor == 'dependabot[bot]' && github.event_name == 'pull_request'}}
+    steps:
+      - name: Dependabot metadata
+        id: metadata
+        uses: dependabot/fetch-metadata@v1.3.1
+        with:
+          github-token: '${{ secrets.GITHUB_TOKEN }}'
+      - name: Enable auto-merge for Dependabot PRs
+        run: gh pr merge --auto --merge "$PR_URL"
+        env:
+          PR_URL: ${{github.event.pull_request.html_url}}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          branch: master
+          folder: public
+          clean: true

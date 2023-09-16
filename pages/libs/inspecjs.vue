@@ -7,12 +7,12 @@
 </template>
 
 <script setup>
-/// /  Data  ////
+/*   Data   */
 const isLoaded = ref(false);
 const libraryContent = ref('');
 const pageTitle = ref('');
 
-/// /  Methods  ////
+/*   Methods   */
 const getLibraryContent = async () => {
   await useAsyncData(
     'getLibraryPageByName',
@@ -24,7 +24,7 @@ const getLibraryContent = async () => {
   });
 };
 
-/// /  Lifecycle  ////
+/*   Lifecycle   */
 onMounted(async () => {
   await nextTick(async () => {
     await getLibraryContent();

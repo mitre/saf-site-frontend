@@ -25,6 +25,7 @@ query getGuidanceDataFromID($id: ID!) {
         }
         hardening {
           data {
+            id
             attributes {
               name
               name_long
@@ -68,6 +69,7 @@ query getGuidanceDataFromID($id: ID!) {
         }
         validation {
           data {
+            id
             attributes {
               name
               name_long

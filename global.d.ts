@@ -124,3 +124,61 @@ type DocumentationCommandPaletteResult = {
   subsection_href: string;
   text_found: string | null;
 };
+
+type Guidance = {
+  name: string,
+  id: number,
+  type: string,
+  category: string,
+  source: string,
+  date: string,
+  version:
+    {__typename: string, version: string},
+  hardening: {
+        id: number,
+        name: string,
+        name_long: string,
+        source: string,string,harden?.attributes?.code_last_updated,
+        platform: {
+          name: string,
+          link: string,
+          icon: {
+            name: string | null,
+            url: string | null,
+          }
+        },
+        partner: {
+          name: string,
+          name_long: string,
+          link: string,
+          icon: {
+            name:string | null,
+            url: string | null,
+          }
+        }
+      }[] | null,
+  validation: {
+        id: number,
+        name: string,
+        name_long: string,
+        source: string,
+        last_update: string,
+        platform: {
+          name: string,
+          link: string,
+          icon: {
+            name: string | null,
+            url: string | null,
+          }
+        },
+        partner: {
+          name: string,
+          name_long: string,
+          link: string,
+          icon: {
+            name: string | null,
+            url: string | null,
+          }
+        }
+      }| null
+};

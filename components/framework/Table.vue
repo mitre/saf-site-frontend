@@ -233,10 +233,11 @@
                         >
                           <div class="flex items-center">
                             <img
-                              class="h-10 w-10 rounded-full"
+                              class="aspect-square w-10 object-cover"
                               :src="entry.platform.icon.url"
                               :alt="entry.platform.icon.alt"
                             />
+            
                             <NuxtLink
                               target="_blank"
                               :to="entry.platform.link"
@@ -251,7 +252,7 @@
                         >
                           <div class="flex items-center">
                             <img
-                              class="h-10 w-10 rounded-full"
+                              class="aspect-square w-10 object-cover"
                               :src="entry.partner.icon.url"
                               :alt="entry.partner.icon.alt"
                             />

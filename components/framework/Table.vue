@@ -214,6 +214,7 @@
                                   :to="`/libs/guidance/${slugify(
                                     entry.name
                                   )}?id=${entry.benchmarkID}`"
+                                  @click="addFilterToSessionStorage"
                                 >
                                   <button
                                     class="rounded-lg bg-button-accent p-2 text-button-text"
@@ -291,6 +292,7 @@
                           >
                             <button
                               class="rounded-lg bg-button-accent p-2 text-button-text"
+                              @click="addFilterToSessionStorage"
                             >
                               View Details<span class="sr-only"
                                 >, {{ entry.name }}</span
@@ -334,7 +336,7 @@ const categories = [
 ];
 const currentSort = ref('name');
 const currentSortDir = ref('asc');
-const filter = ref('');
+const filter =  ref(window.sessionStorage.getItem('filter') !== null ? window.sessionStorage.getItem('filter') : '');
 const filteredData = ref({});
 
 const props = defineProps({
@@ -347,6 +349,10 @@ const props = defineProps({
 const {entries} = toRefs(props);
 
 /// /  Methods  ////
+
+const addFilterToSessionStorage = () =>{
+  window.sessionStorage.setItem('filter',filter.value)
+}
 const sort = (s) => {
   // if s === current sort then reverse
   if (s === currentSort.value) {

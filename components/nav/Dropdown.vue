@@ -37,7 +37,7 @@
           class="overflow-hidden rounded-lg shadow-lg ring-dropshadow ring-opacity-5"
         >
           <div
-            class="relative grid gap-6 rounded-xl border border-accent bg-neutral-1 px-5 py-6 sm:gap-8 sm:p-8"
+            class="relative grid gap-6 rounded-xl border border-accent bg-neutral-1 px-5 py-6 sm:gap-8 sm:p-8 overflow-auto max-h-[87vh]"
           >
             <NuxtLink
               v-for="item in items"

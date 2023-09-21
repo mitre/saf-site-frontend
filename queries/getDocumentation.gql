@@ -1,10 +1,10 @@
-query getDocumentation($href: String!) {
-  currentDoc: documentations(filters: {subsections: {href: {eq: $href}}}) {
+query getDocumentation {
+  currentDoc: documentations {
     data {
       id
       attributes {
         section_title
-        subsections(filters: {href: {eq: $href}}) {
+        subsections {
           id
           title
           href

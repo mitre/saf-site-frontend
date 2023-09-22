@@ -197,7 +197,10 @@
                                     <img
                                       class="mr-1 h-8 w-8 rounded-full"
                                       :src="entry.platform.icon.url ?? ''"
-                                      :alt="entry.platform.icon.alt ?? 'Unknown Image'"
+                                      :alt="
+                                        entry.platform.icon.alt ??
+                                        'Unknown Image'
+                                      "
                                     />
                                   </NuxtLink>
                                   <NuxtLink
@@ -208,7 +211,10 @@
                                     <img
                                       class="h-8 w-8 rounded-full"
                                       :src="entry.partner.icon.url ?? ''"
-                                      :alt="entry.platform.icon.alt ?? 'Unknown Image'"
+                                      :alt="
+                                        entry.platform.icon.alt ??
+                                        'Unknown Image'
+                                      "
                                     />
                                   </NuxtLink>
                                 </span>
@@ -256,7 +262,9 @@
                               <img
                                 class="aspect-square w-10 object-cover"
                                 :src="entry.platform.icon.url ?? ''"
-                                :alt="entry.platform.icon.alt ?? 'Unknown Image'"
+                                :alt="
+                                  entry.platform.icon.alt ?? 'Unknown Image'
+                                "
                               />
 
                               <NuxtLink
@@ -345,7 +353,7 @@ import GitHubLogo from '@/assets/logos/GitHubLogo.vue';
 import {ref, computed} from 'vue';
 import slugify from '@/utils/useSlugify';
 import _ from 'lodash';
-import { FilteredLibraryData, LibraryTableEntry } from '~/global';
+import {FilteredLibraryData, LibraryTableEntry} from '~/global';
 
 /*   Data   */
 const categories = [
@@ -393,29 +401,32 @@ const sort = (s: string) => {
 };
 
 const filteredEntries = computed(() => {
-    categories.forEach((category) => {
-      if(filteredData.value){
-      filteredData.value[category] = entries.value[category].filter((entry: LibraryTableEntry) => {
-        if (filter.value === '' || filter.value === null) {
-          return true;
+  categories.forEach((category) => {
+    if (filteredData.value) {
+      filteredData.value[category] = entries.value[category].filter(
+        (entry: LibraryTableEntry) => {
+          if (filter.value === '' || filter.value === null) {
+            return true;
+          }
+          return (
+            entry.name.toLowerCase().indexOf(filter.value.toLowerCase()) >= 0 ||
+            entry.platform.name
+              .toLowerCase()
+              .indexOf(filter.value.toLowerCase()) >= 0 ||
+            entry.partner.name
+              .toLowerCase()
+              .indexOf(filter.value.toLowerCase()) >= 0
+          );
         }
-        return (
-          entry.name.toLowerCase().indexOf(filter.value.toLowerCase()) >= 0 ||
-          entry.platform.name
-            .toLowerCase()
-            .indexOf(filter.value.toLowerCase()) >= 0 ||
-          entry.partner.name
-            .toLowerCase()
-            .indexOf(filter.value.toLowerCase()) >= 0
-        );
-      })};
-    })
-    return filteredData.value;
+      );
+    }
+  });
+  return filteredData.value;
 });
 
-const sortedEntries = computed(() =>{
-    categories.forEach((category) => {
-      if(filteredEntries.value){
+const sortedEntries = computed(() => {
+  categories.forEach((category) => {
+    if (filteredEntries.value) {
       filteredEntries.value[category].sort((a, b) => {
         let modifier = 1;
         if (currentSortDir.value === 'desc') {
@@ -438,10 +449,11 @@ const sortedEntries = computed(() =>{
           if (a[currentSort.value].name > b[currentSort.value].name) {
             return 1 * modifier;
           }
-        } 
+        }
         return 0;
       });
-    }});
-    return filteredData.value;
+    }
   });
+  return filteredData.value;
+});
 </script>

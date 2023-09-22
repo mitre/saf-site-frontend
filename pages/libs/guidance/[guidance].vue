@@ -25,6 +25,8 @@
 </template>
 
 <script setup lang="ts">
+import {Guidance} from '~/global';
+
 /*   Data   */
 const isLoaded = ref(false);
 const guidance = ref<Guidance>();
@@ -52,7 +54,7 @@ const getGuidance = async () => {
       version:
         guidance?.attributes?.version?.length !== 0
           ? guidance?.attributes?.version[0].version
-          : 0,
+          : '',
       hardening: guidance?.attributes?.hardening?.data
         ? guidance?.attributes?.hardening?.data.map((harden) => ({
             id: harden?.id,
@@ -71,7 +73,9 @@ const getGuidance = async () => {
                 url: harden?.attributes?.platform?.data?.attributes?.icon?.data
                   ? harden?.attributes?.platform?.data?.attributes?.icon?.data
                       ?.attributes?.url
-                  : null
+                  : null,
+                alt: harden?.attributes?.platform?.data?.attributes?.icon?.data
+                  ?.attributes?.alternativeText
               }
             },
             partner: {
@@ -87,7 +91,9 @@ const getGuidance = async () => {
                 url: harden?.attributes?.partner?.data?.attributes?.icon?.data
                   ? harden?.attributes?.partner?.data?.attributes?.icon?.data
                       ?.attributes?.url
-                  : null
+                  : null,
+                alt: harden?.attributes?.platform?.data?.attributes?.icon?.data
+                  ?.attributes?.alternativeText
               }
             }
           }))
@@ -112,7 +118,9 @@ const getGuidance = async () => {
                   ?.data
                   ? validate?.attributes?.platform?.data?.attributes?.icon?.data
                       ?.attributes?.url
-                  : null
+                  : null,
+                alt: validate?.attributes?.platform?.data?.attributes?.icon
+                  ?.data?.attributes?.alternativeText
               }
             },
             partner: {
@@ -129,7 +137,9 @@ const getGuidance = async () => {
                 url: validate?.attributes?.partner?.data?.attributes?.icon?.data
                   ? validate?.attributes?.partner?.data?.attributes?.icon?.data
                       ?.attributes?.url
-                  : null
+                  : null,
+                alt: validate?.attributes?.platform?.data?.attributes?.icon
+                  ?.data?.attributes?.alternativeText
               }
             }
           }))

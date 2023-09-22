@@ -44,7 +44,7 @@
 
 <script setup lang="ts">
 import slugify from '@/utils/useSlugify';
-import { DocumentationTableContent } from '~/global';
+import {DocumentationTableContent} from '~/global';
 
 /*   Data   */
 const props = defineProps({

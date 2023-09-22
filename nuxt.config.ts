@@ -30,6 +30,6 @@ export default defineNuxtConfig({
       },
       link: [{rel: 'icon', type: 'image/svg', href: '/safLogoFavicon.svg'}]
     },
-    baseURL: '/' // baseURL: '/<repository>/'
+    baseURL: '/saf-site-frontend/' // baseURL: '/<repository>/'
   }
 });

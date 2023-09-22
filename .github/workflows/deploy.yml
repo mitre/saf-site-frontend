@@ -6,6 +6,9 @@ jobs:
   build-and-deploy:
     concurrency: ci-${{ github.ref }}
     runs-on: ubuntu-latest
+    env:
+      STRAPI_URL: https://saf-site-backend.herokuapp.com
+      GQL_HOST: https://saf-site-backend.herokuapp.com/graphql
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v3

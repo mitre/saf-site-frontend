@@ -52,12 +52,12 @@
 import {
   GlobeIcon,
   CurrencyDollarIcon,
-  BeakerIcon,
   AnnotationIcon
 } from '@heroicons/vue/outline';
 import OsiKeyhole from '@/assets/icons/OsiKeyhole.vue';
-import {Tenet} from 'global';
+import {Tenet} from '~/global';
 
+/*   Data   */
 const props = defineProps({
   tenets: {
     type: Array<Tenet>,

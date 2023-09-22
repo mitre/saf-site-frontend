@@ -1,5 +1,3 @@
-import {FunctionalComponent} from 'vue';
-
 declare module '@tailwindcss/forms';
 declare module '@tailwindcss/typography';
 declare module '@tailwindcss/line-clamp';
@@ -64,7 +62,7 @@ type LinkObject = {
   name: string;
   description: string;
   href: string;
-  icon: FunctionalComponent;
+  icon: Component;
 };
 
 type Capability = {
@@ -200,7 +198,7 @@ type FilteredLibraryData = {
 
 type DocLink = {title: string; href: string};
 
-type DocumentationTableContent = {title: any; subtitles: string[]};
+type DocumentationTableContent = {title: string; subtitles: string[]};
 
 type DocumentationCommandPaletteResult = {
   id: string;

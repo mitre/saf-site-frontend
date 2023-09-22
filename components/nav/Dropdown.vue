@@ -72,9 +72,9 @@
 <script setup lang="ts">
 import {Popover, PopoverButton, PopoverPanel} from '@headlessui/vue';
 import {ChevronDownIcon} from '@heroicons/vue/solid';
-import {LinkObject} from 'global';
+import {LinkObject} from '~/global';
 
-/// /  Props  ////
+/*   Data   */
 const route = useRoute();
 
 const props = defineProps({

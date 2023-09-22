@@ -73,7 +73,7 @@ const props = defineProps({
     required: true
   },
   tableOfContents: {
-    type: Array,
+    type: Array<DocumentationTableContent>,
     required: true
   },
   currentSectionTitle: {
@@ -85,7 +85,7 @@ const props = defineProps({
     required: true
   },
   allLinks: {
-    type: Array,
+    type: Array<DocLink>,
     required: true
   },
   currentIndex: {

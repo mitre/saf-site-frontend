@@ -212,7 +212,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import {
   Popover,
   PopoverButton,
@@ -220,7 +220,7 @@ import {
   PopoverPanel,
   PopoverOverlay
 } from '@headlessui/vue';
-import {ref, markRaw, shallowRef} from 'vue';
+import {ref} from 'vue';
 import {
   QuestionMarkCircleIcon,
   XIcon,
@@ -243,11 +243,12 @@ import NormalizeIcon from '@/assets/icons/NormalizeIcon.vue';
 import VisualizeIcon from '@/assets/icons/VisualizeIcon.vue';
 import HeimdallLogo from '@/assets/icons/HeimdallLogo.vue';
 import SafShieldLogo from '@/assets/icons/SafShieldLogo.vue';
+import {VueElement} from 'vue';
 
 /*   Data   */
-const selected = ref('');
+const selected = ref('System');
 const route = useRoute();
-const framework = markRaw([
+const framework = [
   {
     name: 'Plan',
     description:
@@ -282,9 +283,9 @@ const framework = markRaw([
     href: '/framework/visualize',
     icon: VisualizeIcon
   }
-]);
+];
 
-const libraries = ref([
+const libraries = [
   {
     name: 'Harden',
     description:
@@ -330,9 +331,9 @@ const libraries = ref([
     href: '/libs/stig-xccdf-xml-library',
     icon: SafShieldLogo
   }
-]);
+];
 
-const applications = shallowRef([
+const applications = [
   {
     name: 'Heimdall©',
     description: 'Security Data Visualization App',
@@ -357,9 +358,9 @@ const applications = shallowRef([
     href: '/apps/emasser',
     icon: SafShieldLogo
   }
-]);
+];
 
-const navigation = ref([
+const navigation = [
   {
     name: 'Docs',
     description: 'Documentation of MITRE SAF© tools.',
@@ -372,7 +373,7 @@ const navigation = ref([
     href: '/blog',
     icon: RssIcon
   }
-]);
+];
 const resources = ref([
   {
     name: 'FAQ',
@@ -397,7 +398,7 @@ const resources = ref([
 ]);
 
 /*   Methods   */
-const setStorageThemeState = (mode) => {
+const setStorageThemeState = (mode: string) => {
   localStorage.setItem('theme', mode);
 };
 
@@ -438,7 +439,7 @@ onMounted(() => {
     selected.value = 'System';
     setStorageThemeState(selected.value);
   } else {
-    selected.value = localStorage.getItem('theme');
+    selected.value = localStorage.getItem('theme') ?? 'System';
   }
 
   if (selected.value === 'Light') {

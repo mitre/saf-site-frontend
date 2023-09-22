@@ -22,9 +22,9 @@
 </template>
 
 <script setup lang="ts">
-import {LinkObject} from 'global';
+import {LinkObject} from '~/global';
 
-/// /  Props  ////
+/*   Data   */
 const props = defineProps({
   items: {
     type: Array<LinkObject>,

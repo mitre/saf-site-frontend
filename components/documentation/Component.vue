@@ -61,8 +61,8 @@
   </div>
 </template>
 
-<script setup>
-/// /  Data  ////
+<script setup lang="ts">
+/*   Data   */
 const props = defineProps({
   docData: {
     type: Object,

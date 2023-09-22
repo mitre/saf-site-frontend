@@ -62,6 +62,7 @@
 import {Dialog, DialogPanel} from '@headlessui/vue';
 import {MenuIcon, XIcon} from '@heroicons/vue/outline';
 
+/*   Data   */
 const isOpen = ref(false);
 const props = defineProps({
   docData: {
@@ -77,7 +78,9 @@ const props = defineProps({
     required: true
   }
 });
-const setIsOpen = (value) => {
+
+/*   Methods   */
+const setIsOpen = (value: boolean) => {
   isOpen.value = value;
 };
 </script>

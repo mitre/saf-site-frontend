@@ -126,59 +126,64 @@ type DocumentationCommandPaletteResult = {
 };
 
 type Guidance = {
-  name: string,
-  id: number,
-  type: string,
-  category: string,
-  source: string,
-  date: string,
-  version:
-    {__typename: string, version: string},
-  hardening: {
-        id: number,
-        name: string,
-        name_long: string,
-        source: string,string,harden?.attributes?.code_last_updated,
+  name: string;
+  id: number;
+  type: string;
+  category: string;
+  source: string;
+  date: string;
+  version: {__typename: string; version: string};
+  hardening:
+    | {
+        id: number;
+        name: string;
+        name_long: string;
+        source: string;
         platform: {
-          name: string,
-          link: string,
+          name: string;
+          link: string;
           icon: {
-            name: string | null,
-            url: string | null,
-          }
-        },
+            name: string | null;
+            url: string | null;
+          };
+        };
         partner: {
-          name: string,
-          name_long: string,
-          link: string,
+          name: string;
+          name_long: string;
+          link: string;
           icon: {
-            name:string | null,
-            url: string | null,
-          }
-        }
-      }[] | null,
+            name: string | null;
+            url: string | null;
+          };
+        };
+      }[]
+    | null;
   validation: {
-        id: number,
-        name: string,
-        name_long: string,
-        source: string,
-        last_update: string,
-        platform: {
-          name: string,
-          link: string,
-          icon: {
-            name: string | null,
-            url: string | null,
-          }
-        },
-        partner: {
-          name: string,
-          name_long: string,
-          link: string,
-          icon: {
-            name: string | null,
-            url: string | null,
-          }
-        }
-      }| null
+    id: number;
+    name: string;
+    name_long: string;
+    source: string;
+    last_update: string;
+    platform: {
+      name: string;
+      link: string;
+      icon: {
+        name: string | null;
+        url: string | null;
+      };
+    };
+    partner: {
+      name: string;
+      name_long: string;
+      link: string;
+      icon: {
+        name: string | null;
+        url: string | null;
+      };
+    };
+  } | null;
 };
+
+type DocLink = {title: string; href: string};
+
+type DocumentationTableContent = {title: any; subtitles: string[]};

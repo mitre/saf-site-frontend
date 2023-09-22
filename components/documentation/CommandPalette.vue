@@ -127,9 +127,9 @@ import {
   TransitionChild,
   TransitionRoot
 } from '@headlessui/vue';
-import {DocumentationCommandPaletteResult} from 'global';
+import {DocumentationCommandPaletteResult} from '~/global';
 
-/// /  Data  ////
+/*   Data   */
 const isLoaded = ref(false);
 const results = ref<DocumentationCommandPaletteResult[]>();
 const query = ref('');
@@ -144,7 +144,7 @@ const props = defineProps({
 // Updates parent isCommandPaletteOpen variable
 defineEmits(['update:isCommandPaletteOpen']);
 
-/// /  Methods  ////
+/*   Methods   */
 const getDocumentation = async () => {
   results.value = await useAsyncData('getAllDocumentation', () =>
     GqlGetAllDocumentation()
@@ -233,7 +233,7 @@ const filteredItems = computed(() => {
   return resultsMappedObj;
 });
 
-/// /  Lifecycle  ////
+/*   Lifecycle   */
 onMounted(async () => {
   await nextTick(async () => {
     await getDocumentation();

@@ -4,7 +4,7 @@
       <h2 id="on-this-page-title" class="font-bold">On this page</h2>
       <ol role="list" class="mt-4 space-y-3">
         <div v-for="(heading, key) in props.tableOfContents" :key="key">
-          <li key="{{heading.title}}">
+          <li :key="{{heading.title}}">
             <h3>
               <a
                 :href="`#${slugify(heading.title)}`"
@@ -42,12 +42,14 @@
   </nav>
 </template>
 
-<script setup>
-import slugify from '@/utils/useSlugify.ts';
+<script setup lang="ts">
+import slugify from '@/utils/useSlugify';
+import { DocumentationTableContent } from '~/global';
 
+/*   Data   */
 const props = defineProps({
   tableOfContents: {
-    type: Array,
+    type: Array<DocumentationTableContent>,
     required: true
   },
   currentHeading: {

@@ -34,7 +34,7 @@
 import {ref, onMounted, nextTick} from 'vue';
 import {FAQ} from '~/global';
 
-/// /  Data  ////
+/*   Data   */
 const isLoaded = ref(false);
 const faq = ref<
   FAQ & {
@@ -45,7 +45,7 @@ const faq = ref<
 const route = useRoute();
 const answer = ref('');
 
-/// /  Methods  ////
+/*   Methods   */
 const getFAQs = async () => {
   faq.value = await useAsyncData('getFaqByQuestionNumber', () =>
     GqlGetFaqByQuestionNumber({
@@ -53,7 +53,8 @@ const getFAQs = async () => {
     })
   ).then(({data}) => {
     if (!data.value || !data?.value?.faqs?.data[0]) {
-      return navigateTo('/faq');
+      navigateTo('/faq');
+      return;
     }
 
     const date = new Date(data?.value?.faqs?.data[0]?.attributes?.updatedAt);
@@ -69,7 +70,7 @@ const getFAQs = async () => {
   });
 };
 
-/// /  Lifecycle  ////
+/*   Lifecycle   */
 onMounted(async () => {
   await nextTick(async () => {
     await getFAQs();

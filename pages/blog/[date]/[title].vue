@@ -30,7 +30,7 @@
 <script setup lang="ts">
 import {ref, onMounted, nextTick} from 'vue';
 
-/// /  Data  ////
+/*   Data   */
 const isLoaded = ref(false);
 const postTitle = ref('');
 const postDate = ref('');
@@ -38,13 +38,14 @@ const postAuthor = ref('');
 const renderedContent = ref('');
 const route = useRoute();
 
-/// /  Methods  ////
+/*   Methods   */
 const getBlogPost = async () => {
   await useAsyncData('getBlogDataFromID', () =>
     GqlGetBlogDataFromID({id: route.query.id?.toString() ?? 'Error'})
   ).then(({data}) => {
     if (!data.value || !data?.value?.blogPost?.data) {
-      return navigateTo('/blog');
+      navigateTo('/blog');
+      return;
     }
     const postData = data.value.blogPost.data.attributes;
     postTitle.value = postData?.title ?? 'Error';
@@ -56,7 +57,7 @@ const getBlogPost = async () => {
   });
 };
 
-/// /  Lifecycle  ////
+/*   Lifecycle   */
 onMounted(async () => {
   await nextTick(async () => {
     await getBlogPost();

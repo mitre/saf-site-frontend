@@ -36,11 +36,11 @@
 </template>
 
 <script setup lang="ts">
-/// /  Data  ////
+/*   Data   */
 const isLoaded = ref(false);
 const gettingStartedContent = ref<string | undefined>();
 
-/// /  Methods  ////
+/*   Methods   */
 const getGettingStartedContent = async () => {
   gettingStartedContent.value = await useAsyncData(
     'getGettingStartedPage',
@@ -50,7 +50,7 @@ const getGettingStartedContent = async () => {
   );
 };
 
-/// /  Lifecycle  ////
+/*   Lifecycle   */
 onMounted(async () => {
   await nextTick(async () => {
     await getGettingStartedContent();

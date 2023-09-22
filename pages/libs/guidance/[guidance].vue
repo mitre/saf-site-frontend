@@ -36,11 +36,12 @@ const route = useRoute();
 const getGuidance = async () => {
   guidance.value = await useAsyncData(
     'getGuidanceDataFromID',
-    () => GqlGetGuidanceDataFromID({id: route.query.id}),
+    () => GqlGetGuidanceDataFromID({id: route.query.id?.toString() ?? ''}),
     {initialCache: false}
   ).then(({data}) => {
     if (!data.value || !data?.value?.guidance?.data) {
-      return navigateTo('/guidance');
+      navigateTo('/guidance');
+      return;
     }
 
     const guidance = data.value.guidance.data;

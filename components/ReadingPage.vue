@@ -42,7 +42,7 @@
 <script setup lang="ts">
 import {ChevronLeftIcon} from '@heroicons/vue/solid';
 
-/// /  Props  ////
+/*   Data   */
 const props = defineProps({
   title: {
     type: String,

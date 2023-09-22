@@ -22,31 +22,31 @@ const scrollTopButton = ref<HTMLInputElement | null>(null);
 /*  Methods  */
 const handleScroll = () => {
   const scrollBtn = scrollTopButton;
-  if(window){
-  if (window.scrollY > 0) {
-    scrollBtn.value?.classList.remove('hidden');
-  } else {
-    scrollBtn.value?.classList.add('hidden');
+  if (window) {
+    if (window.scrollY > 0) {
+      scrollBtn.value?.classList.remove('hidden');
+    } else {
+      scrollBtn.value?.classList.add('hidden');
+    }
   }
-}
 };
 
 const scrollToTop = () => {
-  if(window){
-  window.scrollTo({top: 0, behavior: 'smooth'});
+  if (window) {
+    window.scrollTo({top: 0, behavior: 'smooth'});
   }
 };
 
 /*  Lifecycle  */
 onMounted(() => {
-  if(window){
-  window.addEventListener('scroll', handleScroll);
+  if (window) {
+    window.addEventListener('scroll', handleScroll);
   }
 });
 
 onBeforeMount(() => {
-  if(window){
-  window.removeEventListener('scroll', handleScroll);
+  if (window) {
+    window.removeEventListener('scroll', handleScroll);
   }
 });
 </script>

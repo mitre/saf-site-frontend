@@ -149,7 +149,9 @@
                           scope="colgroup"
                           class="mr-5 bg-neutral-4 px-4 py-3 text-3xl font-extrabold text-left dark:bg-neutral-2 sm:px-6"
                         >
-                          <div class="flex flex-row justify-between items-center">
+                          <div
+                            class="flex flex-row justify-between items-center"
+                          >
                             <span>{{ key }}</span>
                             <div>
                               <ChevronDownIcon
@@ -158,7 +160,7 @@
                                 aria-hidden="true"
                               />
                               <ChevronUpIcon
-                              class="w-8 h-8"
+                                class="w-8 h-8"
                                 v-if="!open"
                                 aria-hidden="true"
                               />
@@ -341,7 +343,7 @@ import {Disclosure, DisclosureButton, DisclosurePanel} from '@headlessui/vue';
 import GitHubLogo from '@/assets/logos/GitHubLogo.vue';
 import {ref, computed} from 'vue';
 import slugify from '@/utils/useSlugify';
-import _ from 'lodash'
+import _ from 'lodash';
 
 /// /  Data  ////
 const categories = [
@@ -356,9 +358,11 @@ const categories = [
 const currentSort = ref('name');
 const currentSortDir = ref('asc');
 const filter = ref(
-  window ? (window.sessionStorage.getItem('filter') !== null
-    ? window.sessionStorage.getItem('filter')
-    : '') : ''
+  window
+    ? window.sessionStorage.getItem('filter') !== null
+      ? window.sessionStorage.getItem('filter')
+      : ''
+    : ''
 );
 const filteredData = ref({});
 
@@ -374,8 +378,8 @@ const {entries} = toRefs(props);
 /// /  Methods  ////
 
 const addFilterToSessionStorage = () => {
-  if(window){
-  window.sessionStorage.setItem('filter', filter.value);
+  if (window) {
+    window.sessionStorage.setItem('filter', filter.value);
   }
 };
 const sort = (s) => {

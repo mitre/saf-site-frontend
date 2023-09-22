@@ -60,7 +60,7 @@
 
 <script setup lang="ts">
 import {ref, onMounted, nextTick} from 'vue';
-import { FAQ } from '~/global';
+import {FAQ} from '~/global';
 
 /*   Data   */
 const isLoaded = ref(false);

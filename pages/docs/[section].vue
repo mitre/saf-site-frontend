@@ -47,7 +47,14 @@ const getData = async () => {
     }
 
     // Get current document attributes
-    const currentDocAttributes = data.value.currentDoc.data[data.value.currentDoc.data.findIndex(obj => obj.attributes.subsections.find(obj2 => obj2.href === route.params.section))].attributes;
+    const currentDocAttributes =
+      data.value.currentDoc.data[
+        data.value.currentDoc.data.findIndex((obj) =>
+          obj.attributes.subsections.find(
+            (obj2) => obj2.href === route.params.section
+          )
+        )
+      ].attributes;
     const currentSubsectionIndex = currentDocAttributes.subsections.findIndex(
       (elem) => elem.href === route.params.section
     );

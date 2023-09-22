@@ -374,7 +374,7 @@ const filter = ref(
       : ''
     : ''
 );
-const filteredData = ref<FilteredLibraryData>();
+const filteredData = ref<FilteredLibraryData>({});
 
 const props = defineProps({
   entries: {
@@ -454,6 +454,6 @@ const sortedEntries = computed(() => {
       });
     }
   });
-  return filteredData.value;
+  return filteredEntries.value;
 });
 </script>

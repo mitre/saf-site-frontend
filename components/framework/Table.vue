@@ -17,6 +17,7 @@
               <input
                 id="table-search"
                 v-model="filter"
+                :onchange="debounce(addFilterToSessionStorage, 150)"
                 name="table-search"
                 type="text"
                 class="dark:placeholder-dark-subtext block w-full border-0 bg-neutral-1 p-0 placeholder-muted focus:ring-0"
@@ -231,7 +232,6 @@
                                     :to="`/libs/guidance/${slugify(
                                       entry.name
                                     )}?id=${entry.benchmarkID}`"
-                                    @click="addFilterToSessionStorage"
                                   >
                                     <button
                                       class="rounded-lg bg-button-accent p-2 text-button-text"
@@ -309,7 +309,6 @@
                             >
                               <button
                                 class="rounded-lg bg-button-accent p-2 text-button-text"
-                                @click="addFilterToSessionStorage"
                               >
                                 View Details<span class="sr-only"
                                   >, {{ entry.name }}</span
@@ -342,6 +341,7 @@ import {Disclosure, DisclosureButton, DisclosurePanel} from '@headlessui/vue';
 import GitHubLogo from '@/assets/logos/GitHubLogo.vue';
 import {ref, computed} from 'vue';
 import slugify from '@/utils/useSlugify.ts';
+import {debounce} from 'lodash'
 
 /// /  Data  ////
 const categories = [

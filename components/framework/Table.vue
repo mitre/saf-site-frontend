@@ -17,7 +17,7 @@
               <input
                 id="table-search"
                 v-model="filter"
-                :onchange="debounce(addFilterToSessionStorage, 150)"
+                :onchange="_.debounce(addFilterToSessionStorage, 150)"
                 name="table-search"
                 type="text"
                 class="dark:placeholder-dark-subtext block w-full border-0 bg-neutral-1 p-0 placeholder-muted focus:ring-0"
@@ -340,8 +340,8 @@ import {
 import {Disclosure, DisclosureButton, DisclosurePanel} from '@headlessui/vue';
 import GitHubLogo from '@/assets/logos/GitHubLogo.vue';
 import {ref, computed} from 'vue';
-import slugify from '@/utils/useSlugify.ts';
-import {debounce} from 'lodash'
+import slugify from '@/utils/useSlugify';
+import _ from 'lodash'
 
 /// /  Data  ////
 const categories = [
@@ -356,9 +356,9 @@ const categories = [
 const currentSort = ref('name');
 const currentSortDir = ref('asc');
 const filter = ref(
-  window.sessionStorage.getItem('filter') !== null
+  window ? (window.sessionStorage.getItem('filter') !== null
     ? window.sessionStorage.getItem('filter')
-    : ''
+    : '') : ''
 );
 const filteredData = ref({});
 
@@ -374,7 +374,9 @@ const {entries} = toRefs(props);
 /// /  Methods  ////
 
 const addFilterToSessionStorage = () => {
+  if(window){
   window.sessionStorage.setItem('filter', filter.value);
+  }
 };
 const sort = (s) => {
   // if s === current sort then reverse

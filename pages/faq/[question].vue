@@ -31,8 +31,8 @@
 </template>
 
 <script setup lang="ts">
-import {FAQ} from 'global';
 import {ref, onMounted, nextTick} from 'vue';
+import { FAQ } from '~/global';
 
 /// /  Data  ////
 const isLoaded = ref(false);
@@ -52,8 +52,10 @@ const getFAQs = async () => {
       number: parseInt(route.params.question.toString(), 10)
     })
   ).then(({data}) => {
-    if (!data.value || !data?.value?.faqs?.data.length)
+    if (!data.value || !data?.value?.faqs?.data[0]){
       return navigateTo('/faq');
+    }
+     
 
     const date = new Date(data?.value?.faqs?.data[0]?.attributes?.updatedAt);
     answer.value = data?.value?.faqs?.data[0]?.attributes?.answer ?? 'Error';

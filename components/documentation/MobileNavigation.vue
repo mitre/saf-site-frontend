@@ -58,7 +58,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import {Dialog, DialogPanel} from '@headlessui/vue';
 import {MenuIcon, XIcon} from '@heroicons/vue/outline';
 

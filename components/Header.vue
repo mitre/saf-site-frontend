@@ -417,9 +417,9 @@ const switchSelect = (event) => {
     selected.value = 'Dark';
     setStorageThemeState(selected.value);
   } else if (event.target.value === 'System') {
-    const userIsInDarkModeOS = window.matchMedia(
+    const userIsInDarkModeOS =  window ? window.matchMedia(
       '(prefers-color-scheme: dark)'
-    ).matches;
+    ).matches : false;
     if (userIsInDarkModeOS) {
       enableDarkMode();
       selected.value = 'System';
@@ -446,9 +446,9 @@ onMounted(() => {
   } else if (selected.value === 'Dark') {
     enableDarkMode();
   } else if (selected.value === 'System') {
-    const userIsInDarkModeOS = window.matchMedia(
+    const userIsInDarkModeOS = window ? window.matchMedia(
       '(prefers-color-scheme: dark)'
-    ).matches;
+    ).matches : false;
     if (userIsInDarkModeOS) {
       enableDarkMode();
     } else {

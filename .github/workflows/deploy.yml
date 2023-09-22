@@ -19,4 +19,4 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           clean: true # CNAME and .nojekyll shouldn't be cleaned with this
-          folder: ./output/public # The folder the action should deploy.
+          folder: .output/public # The folder the action should deploy.

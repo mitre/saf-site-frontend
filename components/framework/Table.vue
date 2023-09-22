@@ -138,6 +138,7 @@
                 <!-- Table Contents -->
                 <tbody>
                   <template
+                    v-if="sortedEntries"
                     v-for="[key, value] of Object.entries(sortedEntries)"
                     :key="key"
                   >
@@ -179,7 +180,7 @@
                           ]"
                         >
                           <td class="py-4 pl-4 pr-3 sm:pl-6">
-                            <span v-if="entry.version !== 0"
+                            <span v-if="entry.version"
                               >{{ entry.name }} | {{ entry.version }}
                             </span>
                             <span v-else>{{ entry.name }}</span>
@@ -195,8 +196,8 @@
                                   >
                                     <img
                                       class="mr-1 h-8 w-8 rounded-full"
-                                      :src="entry.platform.icon.url"
-                                      :alt="entry.platform.icon.alt"
+                                      :src="entry.platform.icon.url ?? ''"
+                                      :alt="entry.platform.icon.alt ?? 'Unknown Image'"
                                     />
                                   </NuxtLink>
                                   <NuxtLink
@@ -206,8 +207,8 @@
                                   >
                                     <img
                                       class="h-8 w-8 rounded-full"
-                                      :src="entry.partner.icon.url"
-                                      :alt="entry.platform.icon.alt"
+                                      :src="entry.partner.icon.url ?? ''"
+                                      :alt="entry.platform.icon.alt ?? 'Unknown Image'"
                                     />
                                   </NuxtLink>
                                 </span>
@@ -254,8 +255,8 @@
                             <div class="flex items-center">
                               <img
                                 class="aspect-square w-10 object-cover"
-                                :src="entry.platform.icon.url"
-                                :alt="entry.platform.icon.alt"
+                                :src="entry.platform.icon.url ?? ''"
+                                :alt="entry.platform.icon.alt ?? 'Unknown Image'"
                               />
 
                               <NuxtLink
@@ -273,8 +274,8 @@
                             <div class="flex items-center">
                               <img
                                 class="aspect-square w-10 object-cover"
-                                :src="entry.partner.icon.url"
-                                :alt="entry.partner.icon.alt"
+                                :src="entry.partner.icon.url ?? ''"
+                                :alt="entry.partner.icon.alt ?? 'Unknown Image'"
                               />
                               <NuxtLink
                                 :to="entry.partner.link"
@@ -332,7 +333,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import {
   ChevronDownIcon,
   ChevronUpIcon,
@@ -344,8 +345,9 @@ import GitHubLogo from '@/assets/logos/GitHubLogo.vue';
 import {ref, computed} from 'vue';
 import slugify from '@/utils/useSlugify';
 import _ from 'lodash';
+import { FilteredLibraryData, LibraryTableEntry } from '~/global';
 
-/// /  Data  ////
+/*   Data   */
 const categories = [
   'Cloud Service Providers',
   'Virtual Platforms',
@@ -364,7 +366,7 @@ const filter = ref(
       : ''
     : ''
 );
-const filteredData = ref({});
+const filteredData = ref<FilteredLibraryData>();
 
 const props = defineProps({
   entries: {
@@ -375,14 +377,14 @@ const props = defineProps({
 
 const {entries} = toRefs(props);
 
-/// /  Methods  ////
+/*   Methods   */
 
 const addFilterToSessionStorage = () => {
   if (window) {
-    window.sessionStorage.setItem('filter', filter.value);
+    window.sessionStorage.setItem('filter', filter.value ?? '');
   }
 };
-const sort = (s) => {
+const sort = (s: string) => {
   // if s === current sort then reverse
   if (s === currentSort.value) {
     currentSortDir.value = currentSortDir.value === 'asc' ? 'desc' : 'asc';
@@ -390,12 +392,11 @@ const sort = (s) => {
   currentSort.value = s;
 };
 
-const filteredEntries = computed({
-  // Getter
-  get() {
+const filteredEntries = computed(() => {
     categories.forEach((category) => {
-      filteredData.value[category] = entries.value[category].filter((entry) => {
-        if (filter.value === '') {
+      if(filteredData.value){
+      filteredData.value[category] = entries.value[category].filter((entry: LibraryTableEntry) => {
+        if (filter.value === '' || filter.value === null) {
           return true;
         }
         return (
@@ -405,22 +406,16 @@ const filteredEntries = computed({
             .indexOf(filter.value.toLowerCase()) >= 0 ||
           entry.partner.name
             .toLowerCase()
-            .indexOf(filter.value.toLowerCase()) >= 0 ||
-          (entry.version !== 0 &&
-            entry.version.toLowerCase().indexOf(filter.value.toLowerCase()) >=
-              0)
+            .indexOf(filter.value.toLowerCase()) >= 0
         );
-      });
-    });
+      })};
+    })
     return filteredData.value;
-  }
-  // No setter
 });
 
-const sortedEntries = computed({
-  // Getter
-  get() {
+const sortedEntries = computed(() =>{
     categories.forEach((category) => {
+      if(filteredEntries.value){
       filteredEntries.value[category].sort((a, b) => {
         let modifier = 1;
         if (currentSortDir.value === 'desc') {
@@ -443,24 +438,10 @@ const sortedEntries = computed({
           if (a[currentSort.value].name > b[currentSort.value].name) {
             return 1 * modifier;
           }
-        } else if (currentSort.value === 'version') {
-          if (
-            a[currentSort.value][0].version < b[currentSort.value][0].version
-          ) {
-            return -1 * modifier;
-          }
-          if (
-            a[currentSort.value][0].version > b[currentSort.value][0].version
-          ) {
-            return 1 * modifier;
-          }
-        }
-        // If all else fails return 0
+        } 
         return 0;
       });
-    });
+    }});
     return filteredData.value;
-  }
-  // No setter
-});
+  });
 </script>

@@ -116,13 +116,59 @@ type UserStory = {
   orderID: number;
 };
 
-type DocumentationCommandPaletteResult = {
-  id: string;
-  section_title: string;
-  subsection_title: string;
-  subsection_content: string;
-  subsection_href: string;
-  text_found: string | null;
+/*   Library   */
+
+type ValidationContent = {
+  id: number;
+  name: string;
+  name_long: string;
+  source: string;
+  last_update: string;
+  platform: {
+    name: string;
+    link: string;
+    icon: {
+      name: string | null;
+      url: string | null;
+      alt: string | null;
+    };
+  };
+  partner: {
+    name: string;
+    name_long: string;
+    link: string;
+    icon: {
+      name: string | null;
+      url: string | null;
+      alt: string | null;
+    };
+  };
+};
+
+type HardeningContent = {
+  id: number;
+  name: string;
+  name_long: string;
+  source: string;
+  platform: {
+    name: string;
+    link: string;
+    icon: {
+      name: string | null;
+      url: string | null;
+      alt: string | null;
+    };
+  };
+  partner: {
+    name: string;
+    name_long: string;
+    link: string;
+    icon: {
+      name: string | null;
+      url: string | null;
+      alt: string | null;
+    };
+  };
 };
 
 type Guidance = {
@@ -133,57 +179,34 @@ type Guidance = {
   source: string;
   date: string;
   version: {__typename: string; version: string};
-  hardening:
-    | {
-        id: number;
-        name: string;
-        name_long: string;
-        source: string;
-        platform: {
-          name: string;
-          link: string;
-          icon: {
-            name: string | null;
-            url: string | null;
-          };
-        };
-        partner: {
-          name: string;
-          name_long: string;
-          link: string;
-          icon: {
-            name: string | null;
-            url: string | null;
-          };
-        };
-      }[]
-    | null;
-  validation: {
-    id: number;
-    name: string;
-    name_long: string;
-    source: string;
-    last_update: string;
-    platform: {
-      name: string;
-      link: string;
-      icon: {
-        name: string | null;
-        url: string | null;
-      };
-    };
-    partner: {
-      name: string;
-      name_long: string;
-      link: string;
-      icon: {
-        name: string | null;
-        url: string | null;
-      };
-    };
-  } | null;
+  hardening: HardeningContent[] | null;
+  validation: ValidationContent[] | null;
 };
+type LibraryTableEntry = {
+  benchmarkID: string;
+  name: string;
+  platform: {name: string};
+  partner: {name: string};
+  version: string;
+};
+
+type FilteredLibraryData = {
+  [category: string]:
+    | (HardeningContent & LibraryTableEntry)[]
+    | (ValidationContent & LibraryTableEntry)[];
+};
+
+/*   Documentation   */
 
 type DocLink = {title: string; href: string};
 
 type DocumentationTableContent = {title: any; subtitles: string[]};
+
+type DocumentationCommandPaletteResult = {
+  id: string;
+  section_title: string;
+  subsection_title: string;
+  subsection_content: string;
+  subsection_href: string;
+  text_found: string | null;
+};

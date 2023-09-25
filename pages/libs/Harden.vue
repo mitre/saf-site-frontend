@@ -23,6 +23,8 @@
                   >saf@groups.mitre.org</a
                 >.
               </p>
+              <h2 class="mt-2 text-2xl font-bold text-header">Usage</h2>
+              <p class="mt-2 text-xl">The Hardening Library contents are hardening scripts that can be used in conjunction with orchestration tools such as Ansible or Chef recipes to harden system components against baselines. Specific usage instructions for each piece of hardening content can be found in their repository README files.</p>
             </div>
           </div>
           <FrameworkTable :entries="categorizedData" />

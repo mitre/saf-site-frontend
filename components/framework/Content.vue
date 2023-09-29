@@ -1,90 +1,89 @@
 <template>
-    <div class="border-2">
-  <div
-    class="border-b bg-neutral-1 px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6"
-  >
-    <span class="flex items-center underline sm:no-underline">Name</span>
-    <div class="flex items-center">
-      <span class="mt-1 sm:col-span-2 sm:ml-3 sm:mt-0">
-        {{ content.name }}
-      </span>
-    </div>
-  </div>
-  <div
-    class="border-b bg-neutral-2 px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6"
-  >
-    <span class="flex items-center underline sm:no-underline">Platform </span>
-    <div class="flex items-center">
-      <div class="h-10 w-10 flex-shrink-0">
-        <img
-          class="h-10 w-10 rounded-full"
-          :src="content.platform.icon.url"
-          :alt="content.platform.icon.name"
-        />
-      </div>
-      <a
-        class="hover:text-nav-light-active dark:hover:text-nav-dark-active ml-3 mt-1 hover:underline sm:col-span-2 sm:mt-0"
-        target="_blank"
-        :href="content.platform.link"
-        >{{ content.platform.name }}</a
-      >
-    </div>
-  </div>
-  <div
-    class="border-b bg-neutral-1 px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6"
-  >
-    <span class="flex items-center underline sm:no-underline">Partner </span>
-    <div class="flex items-center">
-      <div class="h-10 w-10 flex-shrink-0">
-        <img
-          class="h-10 w-10 rounded-full"
-          :src="content.partner.icon.url"
-          :alt="content.partner.icon.name"
-        />
-      </div>
-      <a
-        class="hover:text-nav-light-active dark:hover:text-nav-dark-active ml-3 mt-1 hover:underline sm:col-span-2 sm:mt-0"
-        target="_blank"
-        :href="content.partner.link"
-        >{{ content.partner.name }}</a
-      >
-    </div>
-  </div>
-  <div
-    class="border-b bg-neutral-2 px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-3 sm:px-6"
-  >
-    <span class="flex items-center underline sm:no-underline"
-      >Last Updated
-    </span>
-    <div class="flex items-center">
-      <span class="mt-1 sm:col-span-2 sm:ml-3 sm:mt-0">
-        {{ content.last_update }}
-      </span>
-    </div>
-  </div>
-  <div
-    class="border-b bg-neutral-1 px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6"
-  >
-    <span class="flex items-center underline sm:no-underline">Link</span>
-    <a
-      class="hover:text-nav-light-active dark:hover:text-nav-dark-active mt-1 inline-block items-center break-all after:content-['_↗'] hover:underline sm:col-span-1 sm:mt-0"
-      target="_blank"
-      :href="content.source"
+  <ul role="list" class="grid grid-cols-1 gap-2 sm:grid-cols-2">
+    <li
+      v-for="content in contents"
+      :key="content.email"
+      class="col-span-1 divide-y divide-neutral-3 dark:divide-neutral-1 rounded-lg bg-neutral-2 dark:bg-neutral-3 shadow"
     >
-      {{ content.source }}
-    </a>
-  </div>
-</div>
+      <div>
+        <div
+          class="-mt-px flex divide-x divide-neutral-3 dark:divide-neutral-1"
+        >
+          <div class="flex w-0 flex-1">
+            <a
+              :href="content.partner.link"
+              class="relative -mr-px inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-bl-lg border border-transparent py-4 font-semibold text-foreground"
+            >
+              <img
+                class="h-10 w-10"
+                :src="content.partner.icon.url"
+                :alt="content.partner.icon.alt"
+              />
+              {{ content.partner.name }}
+            </a>
+          </div>
+          <div class="-ml-px flex w-0 flex-1">
+            <a
+              :href="content.platform.link"
+              class="relative inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-br-lg border border-transparent py-4 font-semibold text-foreground"
+            >
+              <img
+                class="h-10 w-10"
+                :src="content.platform.icon.url"
+                :alt="content.platform.icon.alt"
+              />
+              {{ content.platform.name }}
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="flex w-full items-center justify-between space-x-6 p-5">
+        <div class="flex-1 truncate">
+          <span
+            v-if="isRecentlyUpdated(content.last_update)"
+            class="inline-flex flex-shrink-0 items-center rounded-full bg-green-50 px-1.5 py-0.5 text-sm font-medium text-green-700 ring-1 ring-inset ring-green-600/20"
+          >
+            Recently Updated
+          </span>
+          <h3 class="truncate text-xl font-bold text-foreground">
+            {{ content.name_long }}
+          </h3>
+          <p class="truncate text-lg text-subtext">
+            Last Updated: {{ content.last_update }}
+          </p>
+        </div>
+        <a :href="content.source">
+          <GitHubLogo class="h-10 w-10 fill-[#24292f] dark:fill-white" />
+        </a>
+      </div>
+    </li>
+  </ul>
 </template>
 
 <script setup lang="ts">
+import GitHubLogo from '@/assets/logos/GitHubLogo.vue';
+
 /*   Data   */
 const props = defineProps({
-  content: {
+  contents: {
     type: Object,
     required: true
   }
 });
 
-const {content} = toRefs(props);
+const {contents} = toRefs(props);
+
+/*   Methods   */
+const isRecentlyUpdated = (date: string) => {
+  const oldDate = new Date(date);
+  const now = new Date();
+
+  const msBetweenDates = Math.abs(oldDate.getTime() - now.getTime());
+
+  const daysBetweenDates = msBetweenDates / (24 * 60 * 60 * 1000);
+  if (daysBetweenDates < 30) {
+    return true;
+  }
+  return false;
+};
 </script>

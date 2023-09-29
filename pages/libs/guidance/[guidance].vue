@@ -22,104 +22,6 @@
                 Extra details for the guidance overview
               </h2>
             </div>
-            <!-- <div class="border-2 max-w-3xl mx-auto">
-              <div
-                class="flex grid-cols-3 flex-col gap-4 border-b bg-neutral-1 px-4 py-5 sm:grid"
-              >
-                <span class="underline sm:no-underline">Category</span>
-                <span class="mt-1 sm:col-span-2 sm:mt-0"
-                  >{{ guidance.category.replaceAll('_', ' ') }}
-                </span>
-              </div>
-              <div
-                class="flex grid-cols-3 flex-col gap-4 border-b bg-neutral-2 px-4 py-5 sm:grid"
-              >
-                <span class="underline sm:no-underline">Name</span>
-                <span class="mt-1 sm:col-span-2 sm:mt-0">{{
-                  guidance.name
-                }}</span>
-              </div>
-              <div
-                class="flex grid-cols-3 flex-col gap-4 border-b bg-neutral-1 px-4 py-5 sm:grid"
-              >
-                <span class="underline sm:no-underline">Version</span>
-                <span
-                  v-if="guidance.version != 0"
-                  class="mt-1 sm:col-span-2 sm:mt-0"
-                  >{{ guidance.version }}</span
-                >
-                <span v-else class="mt-1 sm:col-span-2 sm:mt-0"> N/A </span>
-              </div>
-              <div
-                class="flex grid-cols-3 flex-col gap-4 border-b bg-neutral-2 px-4 py-5 sm:grid"
-              >
-                <span class="underline sm:no-underline">Type</span>
-                <span class="mt-1 sm:col-span-2 sm:mt-0">{{
-                  guidance.type
-                }}</span>
-              </div>
-              <div
-                class="flex grid-cols-3 flex-col gap-4 border-b bg-neutral-1 px-4 py-5 sm:grid"
-              >
-                <span class="underline sm:no-underline">Date</span>
-                <span v-if="guidance.date" class="mt-1 sm:col-span-2 sm:mt-0">{{
-                  guidance.date
-                }}</span>
-                <span v-else class="mt-1 sm:col-span-2 sm:mt-0"> N/A </span>
-              </div>
-              <div
-                class="flex grid-cols-3 flex-col gap-4 border-b bg-neutral-2 px-4 py-5 sm:grid"
-              >
-                <span class="underline sm:no-underline">Url</span>
-                <a
-                  class="hover:text-nav-light-active dark:hover:text-nav-dark-active mt-1 flex items-center after:content-['_↗'] hover:underline sm:col-span-2 sm:mt-0"
-                  target="_blank"
-                  :href="guidance.source"
-                  >{{ guidance.source }}
-                </a>
-              </div>
-            </div> -->
-
-            <!-- END HERE -->
-
-            <!-- <div class="rounded-lg bg-gray-50 shadow-sm ring-1 ring-gray-900/5">
-              <dl class="flex flex-wrap">
-                <div class="flex-auto pl-6 pt-6">
-                  <dt class="text-xl font-bold leading-6 text-gray-900">
-                    {{ guidance.name }}
-                  </dt>
-                  <dd class="mt-1 font-semibold leading-6 text-gray-900">
-                    {{ guidance.category }}
-                  </dd>
-                </div>
-                <div class="mt-4 flex w-full flex-none gap-x-4 px-6">
-                  <dt>
-                    <span>Version: </span>
-                  </dt>
-                  <dd class="text-foreground">{{ guidance.version }}</dd>
-                </div>
-                <div class="mt-4 flex w-full flex-none gap-x-4 px-6">
-                  <dt>
-                    <span>Type: </span>
-                  </dt>
-                  <dd class="text-foreground">{{ guidance.type }}</dd>
-                </div>
-                <div class="mt-4 flex w-full flex-none gap-x-4 px-6">
-                  <dt>
-                    <span>Date: </span>
-                  </dt>
-                  <dd class="text-foreground">{{ guidance.date }}</dd>
-                </div>
-              </dl>
-              <div class="mt-6 border-t border-gray-900/5 px-6 py-6">
-                <a
-                  :href="guidance.source"
-                  class="font-semibold leading-6 text-gray-900"
-                  >View Guidance Online
-                  <span aria-hidden="true">&rarr;</span></a
-                >
-              </div>
-            </div> -->
 
             <dl class="grid grid-cols-1 sm:grid-cols-2">
               <div
@@ -139,7 +41,7 @@
                   Category
                 </dt>
                 <dd class="text-xl mt-1 leading-6 text-foreground sm:mt-2">
-                  {{ guidance.category }}
+                  {{ guidance.category.replaceAll('_', ' ') }}
                 </dd>
               </div>
               <div

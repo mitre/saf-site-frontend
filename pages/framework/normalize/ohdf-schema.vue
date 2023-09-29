@@ -18,7 +18,8 @@
               <div class="dark:block hidden">
                 <json-viewer
                   :value="jsonData"
-                  :expand-depth="1"
+                  :expand-depth="2"
+                  :expanded="true"
                   copyable
                   theme="json-code-dark-theme"
                   boxed

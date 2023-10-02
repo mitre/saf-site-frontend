@@ -28,8 +28,13 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: 'en'
       },
+      script: [
+        {
+          src: 'https://cmp.osano.com/AzyhULTdPkqmy4aDN/f0e8e901-3feb-47c4-bd04-96df98c75dab/osano.js'
+        }
+      ],
       link: [{rel: 'icon', type: 'image/svg', href: '/safLogoFavicon.svg'}]
     },
-    baseURL: '/saf-site-frontend/' // baseURL: '/<repository>/'
+    baseURL: '/' // baseURL: '/<repository>/'
   }
 });

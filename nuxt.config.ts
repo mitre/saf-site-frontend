@@ -10,6 +10,7 @@ export default defineNuxtConfig({
   },
   css: ['~/assets/tailwind.css'],
   modules: ['@nuxtjs/strapi', 'nuxt-graphql-client', '@nuxtjs/tailwindcss'],
+  buildModules: ['@nuxtjs/google-analytics'],
   strapi: {
     // Options for strapi
     url: process.env.STRAPI_URL,
@@ -22,6 +23,9 @@ export default defineNuxtConfig({
     public: {
       GQL_HOST: process.env.GQL_HOST
     }
+  },
+  googleAnalytics: {
+    id: process.env.GOOGLE_ANALYTICS_ID,
   },
   app: {
     head: {

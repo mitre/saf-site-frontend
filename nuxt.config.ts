@@ -18,7 +18,8 @@ export default defineNuxtConfig({
     cookieName: 'strapi_jwt'
   },
   gtag: {
-    id: process.env.GOOGLE_ANALYTICS_ID
+    id: process.env.GOOGLE_ANALYTICS_ID,
+    initialConsent: false
   },
   runtimeConfig: {
     public: {

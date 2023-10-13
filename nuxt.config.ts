@@ -25,8 +25,9 @@ export default defineNuxtConfig({
     }
   },
   googleAnalytics: {
-    id: process.env.GOOGLE_ANALYTICS_ID,
+    id: process.env.GOOGLE_ANALYTICS_ID
   },
+  devtools: {enabled: true},
   app: {
     head: {
       htmlAttrs: {

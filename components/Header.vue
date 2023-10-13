@@ -232,7 +232,12 @@ import {
   ChevronDownIcon,
   PresentationChartBarIcon
 } from '@heroicons/vue/outline';
-import {AcademicCapIcon, BookOpenIcon, RssIcon} from '@heroicons/vue/solid';
+import {
+  AcademicCapIcon,
+  BookOpenIcon,
+  ExclamationCircleIcon,
+  RssIcon
+} from '@heroicons/vue/solid';
 
 import PlanIcon from '@/assets/icons/PlanIcon.vue';
 import HardenIcon from '@/assets/icons/HardenIcon.vue';
@@ -254,34 +259,39 @@ const framework = [
     description:
       'Choose, tailor, and create security configuration guidance appropriate for your mission.',
     href: '/framework/plan',
-    icon: PlanIcon
+    icon: PlanIcon,
+    external: false
   },
   {
     name: 'Harden',
     description: 'Take action to configure software for security.',
     href: '/framework/harden',
-    icon: HardenIcon
+    icon: HardenIcon,
+    external: false
   },
   {
     name: 'Validate',
     description:
       'Generate detailed security testing results through automated tests and manual attestation.',
     href: '/framework/validate',
-    icon: ValidateIcon
+    icon: ValidateIcon,
+    external: false
   },
   {
     name: 'Normalize',
     description:
       'Convert security results from all your security tools into a common data format.',
     href: '/framework/normalize',
-    icon: NormalizeIcon
+    icon: NormalizeIcon,
+    external: false
   },
   {
     name: 'Visualize',
     description:
       'View comprehensive security status, identify security defects, and manage remediation.',
     href: '/framework/visualize',
-    icon: VisualizeIcon
+    icon: VisualizeIcon,
+    external: false
   }
 ];
 
@@ -291,45 +301,52 @@ const libraries = [
     description:
       'Implement security baselines using our Ansible, Chef, and Terraform content.',
     href: '/libs/harden',
-    icon: HardenLibIcon
+    icon: HardenLibIcon,
+    external: false
   },
   {
     name: 'Validate',
     description:
       'Generate detailed security testing results through automated tests and manual attestation.',
     href: '/libs/validate',
-    icon: ValidationLibIcon
+    icon: ValidationLibIcon,
+    external: false
   },
   {
     name: 'OHDF Converters',
     description: 'Convert your security data to, or from, normalized OHDF.',
     href: '/libs/ohdf-converters',
-    icon: SafShieldLogo
+    icon: SafShieldLogo,
+    external: false
   },
   {
     name: 'TS InSpec Objects',
     description:
       'Manipulate InSpec profiles programmatically using Typescript.',
     href: '/libs/ts-inspec-objects',
-    icon: SafShieldLogo
+    icon: SafShieldLogo,
+    external: false
   },
   {
     name: 'eMASS Client',
     description: 'Interact with eMASS via API.',
     href: '/libs/emass-client',
-    icon: SafShieldLogo
+    icon: SafShieldLogo,
+    external: false
   },
   {
     name: 'InSpecJS',
     description: 'Deep dive into OHDF files.',
     href: '/libs/inspecjs',
-    icon: SafShieldLogo
+    icon: SafShieldLogo,
+    external: false
   },
   {
     name: 'STIG XCCDF XML Library',
     description: 'Get benchmark files.',
     href: '/libs/stig-xccdf-xml-library',
-    icon: SafShieldLogo
+    icon: SafShieldLogo,
+    external: false
   }
 ];
 
@@ -338,25 +355,29 @@ const applications = [
     name: 'Heimdall©',
     description: 'Security Data Visualization App',
     href: '/apps/heimdall',
-    icon: HeimdallLogo
+    icon: HeimdallLogo,
+    external: false
   },
   {
     name: 'Vulcan©',
     description: 'Security Guidance Authorship App',
     href: '/apps/vulcan',
-    icon: SafShieldLogo
+    icon: SafShieldLogo,
+    external: false
   },
   {
     name: 'SAF CLI',
     description: 'Support utility for security automation',
     href: '/apps/saf-cli',
-    icon: SafShieldLogo
+    icon: SafShieldLogo,
+    external: false
   },
   {
     name: 'eMASSer',
     description: 'Automate interactions with eMASS',
     href: '/apps/emasser',
-    icon: SafShieldLogo
+    icon: SafShieldLogo,
+    external: false
   }
 ];
 
@@ -365,13 +386,15 @@ const navigation = [
     name: 'Docs',
     description: 'Documentation of MITRE SAF© tools.',
     href: '/docs',
-    icon: BookOpenIcon
+    icon: BookOpenIcon,
+    external: false
   },
   {
     name: 'Blog',
     description: 'Learn more.',
     href: '/blog',
-    icon: RssIcon
+    icon: RssIcon,
+    external: false
   }
 ];
 const resources = ref([
@@ -380,20 +403,31 @@ const resources = ref([
     description:
       'Get answers to commonly asked questions and view our contact information.',
     href: '/faq',
-    icon: QuestionMarkCircleIcon
+    icon: QuestionMarkCircleIcon,
+    external: false
   },
   {
     name: 'Training',
     description:
       'Learn how to maximize our platform to get the most out of it.',
     href: '/training',
-    icon: AcademicCapIcon
+    icon: AcademicCapIcon,
+    external: false
   },
   {
     name: 'Admin Login',
     description: 'Update and mantain content as an admin.',
     href: 'https://saf-site-backend.herokuapp.com/admin/',
-    icon: UserGroupIcon
+    icon: UserGroupIcon,
+    external: true
+  },
+  {
+    name: 'Report Issues & Bugs',
+    description:
+      "Encounter a problem on our website? Help us improve by reporting any issues or bugs you've found using GitHub Issues.",
+    href: 'https://github.com/mitre/saf-site-frontend/issues/new?assignees=&labels=&projects=&template=bug-report.md&title=',
+    icon: ExclamationCircleIcon,
+    external: true
   }
 ]);
 

@@ -69,7 +69,7 @@
                     :href="'mailto:' + socialMediaLinks.displayEmail"
                   >
                     <span class="sr-only">Mail Link</span>
-                    <MailIcon class="h-9 w-9" />
+                    <Mail class="h-9 w-9" />
                   </a>
                   <a
                     v-if="socialMediaLinks.twitter"
@@ -138,7 +138,7 @@
                     :href="socialMediaLinks.other"
                   >
                     <span class="sr-only">External Link</span>
-                    <LinkIcon class="h-8 w-7" />
+                    <Link class="h-8 w-7" />
                   </a>
                 </div>
               </div>
@@ -161,7 +161,7 @@
 </template>
 
 <script setup lang="ts">
-import {LinkIcon, MailIcon} from '@heroicons/vue/outline';
+import {Link, Mail} from 'lucide-vue-next';
 
 /*   Data   */
 const posts = ref<BlogPost[]>([]);

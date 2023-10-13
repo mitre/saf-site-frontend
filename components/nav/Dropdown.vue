@@ -10,7 +10,7 @@
       ]"
     >
       <span class="font-semibold">{{ label }}</span>
-      <ChevronDownIcon
+      <ChevronDown
         :class="[
           open ? 'text-nav-hover ' : '',
           items.some((e) => e.href === route.fullPath)
@@ -96,7 +96,7 @@
 
 <script setup lang="ts">
 import {Popover, PopoverButton, PopoverPanel} from '@headlessui/vue';
-import {ChevronDownIcon} from '@heroicons/vue/solid';
+import {ChevronDown} from 'lucide-vue-next';
 import {LinkObject} from '~/global';
 
 /*   Data   */

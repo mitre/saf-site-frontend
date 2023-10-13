@@ -6,7 +6,7 @@
     >
       <div class="text-fill transition hover:brightness-110">
         <button class="flex items-center" @click="scrollToTop">
-          <ArrowCircleUpIcon class="h-10 w-8 text-blue-500 md:h-10 md:w-10" />
+          <ArrowUpCircle class="h-10 w-8 text-blue-500 md:h-10 md:w-10" />
         </button>
       </div>
     </div>
@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import {ArrowCircleUpIcon} from '@heroicons/vue/outline';
+import {ArrowUpCircle} from 'lucide-vue-next';
 
 /*  Data  */
 const scrollTopButton = ref<HTMLInputElement | null>(null);

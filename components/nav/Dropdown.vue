@@ -72,7 +72,6 @@
 <script setup lang="ts">
 import {Popover, PopoverButton, PopoverPanel} from '@headlessui/vue';
 import {ChevronDownIcon} from '@heroicons/vue/solid';
-import {LinkObject} from '~/global';
 
 /*   Data   */
 const route = useRoute();

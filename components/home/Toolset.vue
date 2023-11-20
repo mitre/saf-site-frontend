@@ -61,8 +61,6 @@
 </template>
 
 <script setup lang="ts">
-import {Toolset} from '~/global';
-
 /*   Data   */
 const props = defineProps({
   toolset: {

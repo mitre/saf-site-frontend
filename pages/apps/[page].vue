@@ -22,8 +22,6 @@
 </template>
 
 <script setup lang="ts">
-import {ApplicationPageFeature} from '~/global';
-
 /*   Data   */
 const isLoaded = ref(false);
 const route = useRoute();

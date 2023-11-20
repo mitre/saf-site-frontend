@@ -353,7 +353,6 @@ import GitHubLogo from '@/assets/logos/GitHubLogo.vue';
 import {ref, computed} from 'vue';
 import slugify from '@/utils/useSlugify';
 import _ from 'lodash';
-import {FilteredLibraryData, LibraryTableEntry} from '~/global';
 
 /*   Data   */
 const categories = [

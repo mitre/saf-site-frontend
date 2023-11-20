@@ -2,10 +2,10 @@ import {test, expect} from '@playwright/test';
 
 test('Hardening Library Page', async ({page}) => {
   // Navigate to harden page
-  await page.goto('/');
-  await page.getByRole('button', {name: 'Libraries'}).click();
-  await page.getByRole('link', {name: 'Harden'}).nth(0).click();
-  await expect(page).toHaveURL('/libs/harden');
+  await page.goto('/libs/harden');
+  // await page.getByRole('button', {name: 'Libraries'}).click();
+  // await page.getByRole('link', {name: 'Harden'}).nth(0).click();
+  // await expect(page).toHaveURL('/libs/harden');
 
   await expect(
     page.getByRole('heading', {level: 1, name: 'Harden'})

@@ -69,8 +69,6 @@
 </template>
 
 <script setup lang="ts">
-import {ApplicationPageFeature} from '~/global';
-
 /*   Data   */
 const props = defineProps({
   productIcon: {

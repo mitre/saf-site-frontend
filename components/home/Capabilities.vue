@@ -123,7 +123,6 @@
 
 <script setup lang="ts">
 import DiagonalArrow from '@/assets/icons/DiagonalArrow.vue';
-import {Capability} from '~/global';
 
 /*   Data   */
 const props = defineProps({

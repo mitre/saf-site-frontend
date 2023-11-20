@@ -127,7 +127,6 @@ import {
   TransitionChild,
   TransitionRoot
 } from '@headlessui/vue';
-import {DocumentationCommandPaletteResult} from '~/global';
 
 /*   Data   */
 const isLoaded = ref(false);

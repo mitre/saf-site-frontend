@@ -55,7 +55,6 @@ import {
   AnnotationIcon
 } from '@heroicons/vue/outline';
 import OsiKeyhole from '@/assets/icons/OsiKeyhole.vue';
-import {Tenet} from '~/global';
 
 /*   Data   */
 const props = defineProps({

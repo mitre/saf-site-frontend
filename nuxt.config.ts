@@ -16,21 +16,20 @@ export default defineNuxtConfig({
     'nuxt-gtag'
   ],
   strapi: {
-    // Options for strapi
     url: process.env.STRAPI_URL,
     prefix: '/api',
     version: 'v4',
     cookie: {},
     cookieName: 'strapi_jwt'
   },
+  gtag: {
+    id: process.env.GOOGLE_ANALYTICS_ID,
+    initialConsent: false
+  },
   runtimeConfig: {
     public: {
       GQL_HOST: process.env.GQL_HOST
     }
-  },
-  gtag: {
-    id: process.env.GOOGLE_ANALYTICS_ID,
-    initialConsent: false
   },
   devtools: {enabled: true},
   app: {

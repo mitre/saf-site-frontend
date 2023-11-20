@@ -4,7 +4,6 @@
       <NuxtLoadingIndicator />
       <!-- <NuxtLoadingBar :duration="1000" /> -->
       <NuxtPage />
-      <ConsentBanner />
     </NuxtLayout>
   </div>
 </template>

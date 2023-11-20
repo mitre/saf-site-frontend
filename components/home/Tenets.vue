@@ -17,7 +17,7 @@
           >
             <div class="px-5">
               <div class="flex items-center">
-                <CurrencyDollarIcon
+                <CircleDollarSign
                   v-if="tenet.name === 'Free'"
                   class="mr-1 h-12 w-12"
                 />
@@ -25,11 +25,11 @@
                   v-else-if="tenet.name === 'Open Source'"
                   class="mr-1 h-12 w-12 dark:fill-white fill-black dark:stroke-white stroke-black"
                 />
-                <GlobeIcon
+                <Globe2
                   v-else-if="tenet.name === 'A Community'"
                   class="mr-1 h-12 w-12"
                 />
-                <AnnotationIcon v-else class="mr-1 h-12 w-12" />
+                <MessageSquare v-else class="mr-1 h-12 w-12" />
                 <div
                   class="text-start text-4xl font-extrabold tracking-tight sm:text-4xl"
                 >
@@ -49,11 +49,7 @@
 </template>
 
 <script setup lang="ts">
-import {
-  GlobeIcon,
-  CurrencyDollarIcon,
-  AnnotationIcon
-} from '@heroicons/vue/outline';
+import {Globe2, CircleDollarSign, MessageSquare} from 'lucide-vue-next';
 import OsiKeyhole from '@/assets/icons/OsiKeyhole.vue';
 
 /*   Data   */

@@ -10,7 +10,7 @@
       ]"
     >
       <span class="font-semibold">{{ label }}</span>
-      <ChevronDownIcon
+      <ChevronDown
         :class="[
           open ? 'text-nav-hover ' : '',
           items.some((e) => e.href === route.fullPath)
@@ -39,29 +39,54 @@
           <div
             class="relative grid gap-6 rounded-xl border border-accent bg-neutral-1 px-5 py-6 sm:gap-8 sm:p-8 overflow-auto max-h-[87vh]"
           >
-            <NuxtLink
-              v-for="item in items"
-              :key="item.name"
-              :to="item.href"
-              :class="[
-                '-m-3 flex items-start rounded-lg p-3 hover:bg-neutral-2 ',
-                item.href == route.fullPath ? 'bg-neutral-2 ' : ''
-              ]"
-            >
-              <component
-                :is="item.icon"
-                class="h-6 w-6 flex-shrink-0 text-fill"
-                aria-hidden="true"
-              />
-              <div class="ml-4">
-                <p class="font-medium">
-                  {{ item.name }}
-                </p>
-                <p class="mt-1 text-muted">
-                  {{ item.description }}
-                </p>
-              </div>
-            </NuxtLink>
+            <template v-for="item in items" :key="item.name">
+              <a
+                v-if="item.external"
+                rel="noopener noreferrer"
+                target="_blank"
+                :href="item.href"
+                :class="[
+                  '-m-3 flex items-start rounded-lg p-3 hover:bg-neutral-2 ',
+                  item.href == route.fullPath ? 'bg-neutral-2 ' : ''
+                ]"
+              >
+                <component
+                  :is="item.icon"
+                  class="h-6 w-6 flex-shrink-0 text-fill"
+                  aria-hidden="true"
+                />
+                <div class="ml-4">
+                  <p class="font-medium">
+                    {{ item.name }}
+                  </p>
+                  <p class="mt-1 text-muted">
+                    {{ item.description }}
+                  </p>
+                </div>
+              </a>
+              <NuxtLink
+                v-else
+                :to="item.href"
+                :class="[
+                  '-m-3 flex items-start rounded-lg p-3 hover:bg-neutral-2 ',
+                  item.href == route.fullPath ? 'bg-neutral-2 ' : ''
+                ]"
+              >
+                <component
+                  :is="item.icon"
+                  class="h-6 w-6 flex-shrink-0 text-fill"
+                  aria-hidden="true"
+                />
+                <div class="ml-4">
+                  <p class="font-medium">
+                    {{ item.name }}
+                  </p>
+                  <p class="mt-1 text-muted">
+                    {{ item.description }}
+                  </p>
+                </div>
+              </NuxtLink>
+            </template>
           </div>
         </div>
       </PopoverPanel>
@@ -71,7 +96,7 @@
 
 <script setup lang="ts">
 import {Popover, PopoverButton, PopoverPanel} from '@headlessui/vue';
-import {ChevronDownIcon} from '@heroicons/vue/solid';
+import {ChevronDown} from 'lucide-vue-next';
 
 /*   Data   */
 const route = useRoute();

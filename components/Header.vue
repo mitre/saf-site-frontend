@@ -31,7 +31,7 @@
               class="inline-flex items-center justify-center rounded-md p-2 text-nav-base hover:bg-nav-active focus:outline-none focus:ring-2 focus:ring-inset focus:ring-accent"
             >
               <span class="sr-only">Open menu</span>
-              <DotsVerticalIcon class="h-6 w-6" aria-hidden="true" />
+              <MoreVertical class="h-6 w-6" aria-hidden="true" />
             </PopoverButton>
           </div>
 
@@ -81,9 +81,9 @@
             </div>
             <div class="rounded-lg p-2.5 hover:bg-neutral-2">
               <div class="relative flex items-center text-foreground">
-                <SunIcon :class="selected === 'Light' ? 'h-6 w-6' : 'hidden'" />
-                <MoonIcon :class="selected === 'Dark' ? 'h-6 w-6' : 'hidden'" />
-                <DesktopComputerIcon
+                <Sun :class="selected === 'Light' ? 'h-6 w-6' : 'hidden'" />
+                <Moon :class="selected === 'Dark' ? 'h-6 w-6' : 'hidden'" />
+                <Monitor
                   :class="selected === 'System' ? 'h-6 w-6' : 'hidden'"
                 />
                 <label for="theme-selector" class="sr-only">
@@ -130,7 +130,7 @@
                       class="my-2 inline-flex items-center justify-center rounded-md text-nav-base focus:outline-none focus:ring-2 focus:ring-inset focus:ring-accent"
                     >
                       <span class="sr-only">Close menu</span>
-                      <XIcon class="h-6 w-6" aria-hidden="true" />
+                      <X class="h-6 w-6" aria-hidden="true" />
                     </PopoverButton>
                   </div>
                 </div>
@@ -159,7 +159,7 @@
                             name: 'Getting Started',
                             description: 'Getting started with MITRE SAF©.',
                             href: '/getting-started',
-                            icon: PresentationChartBarIcon
+                            icon: FileBarChart2
                           }
                         ]"
                       />
@@ -175,17 +175,13 @@
                 <div
                   class="relative flex items-center rounded-lg bg-button-accent p-2 font-semibold text-button-text shadow-sm"
                 >
-                  <SunIcon
-                    :class="selected === 'Light' ? 'h-6 w-6' : 'hidden'"
-                  />
-                  <MoonIcon
-                    :class="selected === 'Dark' ? 'h-6 w-6' : 'hidden'"
-                  />
-                  <DesktopComputerIcon
+                  <Sun :class="selected === 'Light' ? 'h-6 w-6' : 'hidden'" />
+                  <Moon :class="selected === 'Dark' ? 'h-6 w-6' : 'hidden'" />
+                  <Monitor
                     :class="selected === 'System' ? 'h-6 w-6' : 'hidden'"
                   />
                   <div class="ml-2">{{ selected }}</div>
-                  <ChevronDownIcon class="h-6 w-5" />
+                  <ChevronDown class="h-6 w-5" />
                   <label for="mobile-theme-selector" class="sr-only">
                     <span>MITRE SAF <sup>©</sup> Theme Selector</span>
                   </label>
@@ -221,18 +217,22 @@ import {
   PopoverOverlay
 } from '@headlessui/vue';
 import {ref} from 'vue';
+
 import {
-  QuestionMarkCircleIcon,
-  XIcon,
-  DotsVerticalIcon,
-  UserGroupIcon,
-  DesktopComputerIcon,
-  MoonIcon,
-  SunIcon,
-  ChevronDownIcon,
-  PresentationChartBarIcon
-} from '@heroicons/vue/outline';
-import {AcademicCapIcon, BookOpenIcon, RssIcon} from '@heroicons/vue/solid';
+  Sun,
+  Moon,
+  Monitor,
+  ChevronDown,
+  X,
+  GraduationCap,
+  BookOpen,
+  Rss,
+  HelpCircle,
+  Bug,
+  MoreVertical,
+  FileBarChart2,
+  Users
+} from 'lucide-vue-next';
 
 import PlanIcon from '@/assets/icons/PlanIcon.vue';
 import HardenIcon from '@/assets/icons/HardenIcon.vue';
@@ -243,7 +243,6 @@ import NormalizeIcon from '@/assets/icons/NormalizeIcon.vue';
 import VisualizeIcon from '@/assets/icons/VisualizeIcon.vue';
 import HeimdallLogo from '@/assets/icons/HeimdallLogo.vue';
 import SafShieldLogo from '@/assets/icons/SafShieldLogo.vue';
-import {VueElement} from 'vue';
 
 /*   Data   */
 const selected = ref('System');
@@ -254,34 +253,39 @@ const framework = [
     description:
       'Choose, tailor, and create security configuration guidance appropriate for your mission.',
     href: '/framework/plan',
-    icon: PlanIcon
+    icon: PlanIcon,
+    external: false
   },
   {
     name: 'Harden',
     description: 'Take action to configure software for security.',
     href: '/framework/harden',
-    icon: HardenIcon
+    icon: HardenIcon,
+    external: false
   },
   {
     name: 'Validate',
     description:
       'Generate detailed security testing results through automated tests and manual attestation.',
     href: '/framework/validate',
-    icon: ValidateIcon
+    icon: ValidateIcon,
+    external: false
   },
   {
     name: 'Normalize',
     description:
       'Convert security results from all your security tools into a common data format.',
     href: '/framework/normalize',
-    icon: NormalizeIcon
+    icon: NormalizeIcon,
+    external: false
   },
   {
     name: 'Visualize',
     description:
       'View comprehensive security status, identify security defects, and manage remediation.',
     href: '/framework/visualize',
-    icon: VisualizeIcon
+    icon: VisualizeIcon,
+    external: false
   }
 ];
 
@@ -291,45 +295,52 @@ const libraries = [
     description:
       'Implement security baselines using our Ansible, Chef, and Terraform content.',
     href: '/libs/harden',
-    icon: HardenLibIcon
+    icon: HardenLibIcon,
+    external: false
   },
   {
     name: 'Validate',
     description:
       'Generate detailed security testing results through automated tests and manual attestation.',
     href: '/libs/validate',
-    icon: ValidationLibIcon
+    icon: ValidationLibIcon,
+    external: false
   },
   {
     name: 'OHDF Converters',
     description: 'Convert your security data to, or from, normalized OHDF.',
     href: '/libs/ohdf-converters',
-    icon: SafShieldLogo
+    icon: SafShieldLogo,
+    external: false
   },
   {
     name: 'TS InSpec Objects',
     description:
       'Manipulate InSpec profiles programmatically using Typescript.',
     href: '/libs/ts-inspec-objects',
-    icon: SafShieldLogo
+    icon: SafShieldLogo,
+    external: false
   },
   {
     name: 'eMASS Client',
     description: 'Interact with eMASS via API.',
     href: '/libs/emass-client',
-    icon: SafShieldLogo
+    icon: SafShieldLogo,
+    external: false
   },
   {
     name: 'InSpecJS',
     description: 'Deep dive into OHDF files.',
     href: '/libs/inspecjs',
-    icon: SafShieldLogo
+    icon: SafShieldLogo,
+    external: false
   },
   {
     name: 'STIG XCCDF XML Library',
     description: 'Get benchmark files.',
     href: '/libs/stig-xccdf-xml-library',
-    icon: SafShieldLogo
+    icon: SafShieldLogo,
+    external: false
   }
 ];
 
@@ -338,25 +349,29 @@ const applications = [
     name: 'Heimdall©',
     description: 'Security Data Visualization App',
     href: '/apps/heimdall',
-    icon: HeimdallLogo
+    icon: HeimdallLogo,
+    external: false
   },
   {
     name: 'Vulcan©',
     description: 'Security Guidance Authorship App',
     href: '/apps/vulcan',
-    icon: SafShieldLogo
+    icon: SafShieldLogo,
+    external: false
   },
   {
     name: 'SAF CLI',
     description: 'Support utility for security automation',
     href: '/apps/saf-cli',
-    icon: SafShieldLogo
+    icon: SafShieldLogo,
+    external: false
   },
   {
     name: 'eMASSer',
     description: 'Automate interactions with eMASS',
     href: '/apps/emasser',
-    icon: SafShieldLogo
+    icon: SafShieldLogo,
+    external: false
   }
 ];
 
@@ -365,13 +380,15 @@ const navigation = [
     name: 'Docs',
     description: 'Documentation of MITRE SAF© tools.',
     href: '/docs',
-    icon: BookOpenIcon
+    icon: BookOpen,
+    external: false
   },
   {
     name: 'Blog',
     description: 'Learn more.',
     href: '/blog',
-    icon: RssIcon
+    icon: Rss,
+    external: false
   }
 ];
 const resources = ref([
@@ -380,20 +397,31 @@ const resources = ref([
     description:
       'Get answers to commonly asked questions and view our contact information.',
     href: '/faq',
-    icon: QuestionMarkCircleIcon
+    icon: HelpCircle,
+    external: false
   },
   {
     name: 'Training',
     description:
       'Learn how to maximize our platform to get the most out of it.',
     href: '/training',
-    icon: AcademicCapIcon
+    icon: GraduationCap,
+    external: false
   },
   {
     name: 'Admin Login',
     description: 'Update and mantain content as an admin.',
     href: 'https://saf-site-backend.herokuapp.com/admin/',
-    icon: UserGroupIcon
+    icon: Users,
+    external: true
+  },
+  {
+    name: 'Report Issues & Bugs',
+    description:
+      "Encounter a problem on our website? Help us improve by reporting any issues or bugs you've found using GitHub Issues.",
+    href: 'https://github.com/mitre/saf-site-frontend/issues/new?assignees=&labels=&projects=&template=bug-report.md&title=',
+    icon: Bug,
+    external: true
   }
 ]);
 

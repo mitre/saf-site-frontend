@@ -9,7 +9,12 @@ export default defineNuxtConfig({
     }
   },
   css: ['~/assets/tailwind.css'],
-  modules: ['@nuxtjs/strapi', 'nuxt-graphql-client', '@nuxtjs/tailwindcss', 'nuxt-gtag'],
+  modules: [
+    '@nuxtjs/strapi',
+    'nuxt-graphql-client',
+    '@nuxtjs/tailwindcss',
+    'nuxt-gtag'
+  ],
   strapi: {
     url: process.env.STRAPI_URL,
     prefix: '/api',
@@ -26,6 +31,7 @@ export default defineNuxtConfig({
       GQL_HOST: process.env.GQL_HOST
     }
   },
+  devtools: {enabled: true},
   app: {
     head: {
       htmlAttrs: {

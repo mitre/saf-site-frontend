@@ -41,13 +41,13 @@
                           v-if="currentSort === 'name'"
                           class="ml-2 flex-none rounded text-muted group-hover:visible group-focus:visible"
                         >
-                          <ChevronDownIcon
+                          <ChevronDown
                             :class="
                               currentSortDir === 'desc' ? 'h-5 w-5' : 'hidden'
                             "
                             aria-hidden="true"
                           />
-                          <ChevronUpIcon
+                          <ChevronUp
                             :class="
                               currentSortDir === 'asc' ? 'h-5 w-5' : 'hidden'
                             "
@@ -55,7 +55,7 @@
                           />
                         </span>
                         <span v-else>
-                          <SwitchVerticalIcon
+                          <ArrowUpDown
                             class="ml-2 h-5 w-5 flex-none rounded text-muted group-hover:visible group-focus:visible"
                           />
                         </span>
@@ -74,13 +74,13 @@
                           v-if="currentSort === 'platform'"
                           class="ml-2 flex-none rounded text-muted group-hover:visible group-focus:visible"
                         >
-                          <ChevronDownIcon
+                          <ChevronDown
                             :class="
                               currentSortDir === 'desc' ? 'h-5 w-5' : 'hidden'
                             "
                             aria-hidden="true"
                           />
-                          <ChevronUpIcon
+                          <ChevronUp
                             :class="
                               currentSortDir === 'asc' ? 'h-5 w-5' : 'hidden'
                             "
@@ -88,7 +88,7 @@
                           />
                         </span>
                         <span v-else>
-                          <SwitchVerticalIcon
+                          <ArrowUpDown
                             class="ml-2 h-5 w-5 flex-none rounded text-muted group-hover:visible group-focus:visible"
                           />
                         </span>
@@ -107,13 +107,13 @@
                           v-if="currentSort === 'partner'"
                           class="ml-2 flex-none rounded text-muted group-hover:visible group-focus:visible"
                         >
-                          <ChevronDownIcon
+                          <ChevronDown
                             :class="
                               currentSortDir === 'desc' ? 'h-5 w-5' : 'hidden'
                             "
                             aria-hidden="true"
                           />
-                          <ChevronUpIcon
+                          <ChevronUp
                             :class="
                               currentSortDir === 'asc' ? 'h-5 w-5' : 'hidden'
                             "
@@ -121,7 +121,7 @@
                           />
                         </span>
                         <span v-else>
-                          <SwitchVerticalIcon
+                          <ArrowUpDown
                             class="ml-2 h-5 w-5 flex-none rounded text-muted group-hover:visible group-focus:visible"
                           />
                         </span>
@@ -155,12 +155,12 @@
                           >
                             <span>{{ key }}</span>
                             <div>
-                              <ChevronDownIcon
+                              <ChevronDown
                                 class="w-8 h-8"
                                 v-if="open"
                                 aria-hidden="true"
                               />
-                              <ChevronUpIcon
+                              <ChevronUp
                                 class="w-8 h-8"
                                 v-if="!open"
                                 aria-hidden="true"
@@ -233,7 +233,7 @@
                                         >,
                                         {{ entry.name }}
                                       </span>
-                                      <ExternalLinkIcon class="h-4 w-4" />
+                                      <ExternalLink class="h-4 w-4" />
                                     </button>
                                   </NuxtLink>
                                   <NuxtLink
@@ -309,7 +309,7 @@
                                   >,
                                   {{ entry.name }}
                                 </span>
-                                <ExternalLinkIcon class="h-4 w-4" />
+                                <ExternalLink class="h-4 w-4" />
                               </button>
                             </NuxtLink>
                             <NuxtLink
@@ -343,11 +343,11 @@
 
 <script setup lang="ts">
 import {
-  ChevronDownIcon,
-  ChevronUpIcon,
-  SwitchVerticalIcon,
-  ExternalLinkIcon
-} from '@heroicons/vue/solid';
+  ChevronDown,
+  ChevronUp,
+  ArrowUpDown,
+  ExternalLink
+} from 'lucide-vue-next';
 import {Disclosure, DisclosureButton, DisclosurePanel} from '@headlessui/vue';
 import GitHubLogo from '@/assets/logos/GitHubLogo.vue';
 import {ref, computed} from 'vue';

@@ -47,8 +47,6 @@
 </template>
 
 <script setup lang="ts">
-import {DocLink} from '~/global';
-
 /*   Data   */
 const props = defineProps({
   renderedContent: {

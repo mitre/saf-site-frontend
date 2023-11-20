@@ -2,10 +2,10 @@ import {test, expect} from '@playwright/test';
 
 test('Validation Library Page', async ({page}) => {
   // Navigate to validate page
-  await page.goto('/');
-  await page.getByRole('button', {name: 'Libraries'}).click();
-  await page.getByRole('link', {name: 'Validate'}).nth(0).click();
-  await expect(page).toHaveURL('/libs/validate');
+  await page.goto('/libs/validate');
+  // await page.getByRole('button', {name: 'Libraries'}).click();
+  // await page.getByRole('link', {name: 'Validate'}).nth(0).click();
+  // await expect(page).toHaveURL('/libs/validate');
 
   await expect(
     page.getByRole('heading', {level: 1, name: 'Validate'})

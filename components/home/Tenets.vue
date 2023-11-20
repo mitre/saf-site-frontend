@@ -51,7 +51,6 @@
 <script setup lang="ts">
 import {Globe2, CircleDollarSign, MessageSquare} from 'lucide-vue-next';
 import OsiKeyhole from '@/assets/icons/OsiKeyhole.vue';
-import {Tenet} from '~/global';
 
 /*   Data   */
 const props = defineProps({

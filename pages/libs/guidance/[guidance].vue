@@ -110,8 +110,6 @@
 </template>
 
 <script setup lang="ts">
-import {Guidance} from '~/global';
-
 /*   Data   */
 const isLoaded = ref(false);
 const guidance = ref<Guidance>();

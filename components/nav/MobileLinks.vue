@@ -42,8 +42,6 @@
 </template>
 
 <script setup lang="ts">
-import {LinkObject} from '~/global';
-
 /*   Data   */
 const props = defineProps({
   items: {

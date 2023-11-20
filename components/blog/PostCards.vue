@@ -57,7 +57,6 @@
 <script setup lang="ts">
 import {ref, onMounted, nextTick} from 'vue';
 import slugify from '@/utils/useSlugify';
-import {BlogPost} from '~/global';
 
 /*   Data   */
 const isLoaded = ref(false);

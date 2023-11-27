@@ -1609,7 +1609,7 @@
     which "^3.0.1"
     ws "^8.14.2"
 
-"@nuxt/kit@3.8.2", "@nuxt/kit@^3.5.1", "@nuxt/kit@^3.6.3", "@nuxt/kit@^3.7.1", "@nuxt/kit@^3.7.4", "@nuxt/kit@^3.8.2":
+"@nuxt/kit@3.8.2", "@nuxt/kit@^3.6.3", "@nuxt/kit@^3.7.1", "@nuxt/kit@^3.7.4", "@nuxt/kit@^3.8.2":
   version "3.8.2"
   resolved "https://registry.yarnpkg.com/@nuxt/kit/-/kit-3.8.2.tgz#f4548f3449d2566dbd2febe2b84f47060f7c668c"
   integrity sha512-LrXCm8hAkw+zpX8teUSD/LqXRarlXjbRiYxDkaqw739JSHFReWzBFgJbojsJqL4h1XIEScDGGOWiEgO4QO1sMg==
@@ -1717,16 +1717,16 @@
     vite-plugin-checker "^0.6.2"
     vue-bundle-renderer "^2.0.0"
 
-"@nuxtjs/strapi@^1.9.3":
-  version "1.9.3"
-  resolved "https://registry.yarnpkg.com/@nuxtjs/strapi/-/strapi-1.9.3.tgz#f7b21fa97dc4c341c66d94f02606992c10fa0547"
-  integrity sha512-h5d26HcQUan5QUd6AKHk+c4GA06QW0zyq6/GjxChHuwzdBz8OHwVR3S9cuHgBpO+1jJRFe0fP14MnCs6CGHQBg==
+"@nuxtjs/strapi@^1.10.0":
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/strapi/-/strapi-1.10.0.tgz#67d06d0d8d4e42bd41ebba5fb192aecd2f3aa181"
+  integrity sha512-nhB7hOkGG7xVbUtYaCbpnajJbLWZ7pIzELQRWP/xUPSmxakMW2oUzodUHDRqyn5DgKSBJwNgzOmzhZOsELr6Kg==
   dependencies:
-    "@nuxt/kit" "^3.5.1"
-    defu "^6.1.2"
-    graphql "^16.6.0"
+    "@nuxt/kit" "^3.8.2"
+    defu "^6.1.3"
+    graphql "^16.8.1"
     qs "^6.11.2"
-    ufo "^1.1.2"
+    ufo "^1.3.2"
 
 "@nuxtjs/tailwindcss@^6.10.1":
   version "6.10.1"
@@ -4954,7 +4954,7 @@ graphql-ws@^5.14.0:
   resolved "https://registry.yarnpkg.com/graphql-ws/-/graphql-ws-5.14.2.tgz#7db6f6138717a544d9480f0213f65f2841ed1c52"
   integrity sha512-LycmCwhZ+Op2GlHz4BZDsUYHKRiiUz+3r9wbhBATMETNlORQJAaFlAgTFoeRh6xQoQegwYwIylVD1Qns9/DA3w==
 
-graphql@^16.6.0, graphql@^16.7.1:
+graphql@^16.7.1, graphql@^16.8.1:
   version "16.8.1"
   resolved "https://registry.yarnpkg.com/graphql/-/graphql-16.8.1.tgz#1930a965bef1170603702acdb68aedd3f3cf6f07"
   integrity sha512-59LZHPdGZVh695Ud9lRzPBVTtlX9ZCV150Er2W43ro37wVof0ctenSaskPPjN7lVTIN8mSZt8PHUNKZuNQUuxw==

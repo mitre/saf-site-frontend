@@ -63,6 +63,7 @@ type LinkObject = {
   description: string;
   href: string;
   icon: Component;
+  external: boolean;
 };
 
 type Capability = {

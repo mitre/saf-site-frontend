@@ -1,43 +1,56 @@
 <template>
   <div
-    v-if="open"
-    class="fixed bottom-0 left-0 w-full h-[8%] z-50 bg-neutral-3 border-accent border-t-4"
+    v-if="cookie === undefined"
+    :class="[
+      'fixed bottom-0 left-0 w-full h-[10%] z-50 bg-neutral-3 border-accent border-t-2'
+    ]"
   >
-    <div class="flex flex-row items-center justify-evenly m-5">
-      <span class="font-bold text-xl"
-        >This website uses cookies to ensure you get the best experience on our
-        website.
-        <a href="#" class="underline text-nav-active"> Learn More</a></span
+    <div class="grid grid-cols-12 gap-4 m-5">
+      <span class="font-semibold text-lg col-span-10"
+        >This website uses cookies so we can measure and improve performance.
+        These cookies are disabled by default and require your permission before
+        they are activated.
+        <a href="/cookies" class="underline text-nav-active ml-2">
+          Learn More</a
+        ></span
       >
-      <div class="space-x-4">
-        <button
-          class="rounded-lg bg-button-accent p-2 text-button-text font-bold text-xl"
-          @click="
-            () => {
-              grantConsent();
-              open = false;
-            }
-          "
-        >
-          Accept Tracking
-        </button>
-        <button
-          class="rounded-lg bg-red-500 p-2 text-button-text font-bold text-xl"
-          @click="
-            () => {
-              revokeConsent();
-              open = false;
-            }
-          "
-        >
-          Decline Tracking
-        </button>
-      </div>
+
+      <button
+        class="rounded-lg bg-button-accent p-2 text-button-text font-bold text-xl"
+        @click="
+          () => {
+            acceptConsent();
+          }
+        "
+      >
+        I Accept
+      </button>
+      <button
+        class="rounded-lg bg-red-500 p-2 text-button-text font-bold text-xl"
+        @click="
+          () => {
+            declineConsent();
+          }
+        "
+      >
+        I Reject
+      </button>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-const open = ref(true);
+const cookie = useCookie<number>('cookie-agreed');
+console.log(cookie);
 const {gtag, grantConsent, revokeConsent} = useGtag();
+
+const acceptConsent = () => {
+  grantConsent();
+  cookie.value = 1;
+};
+
+const declineConsent = () => {
+  revokeConsent();
+  cookie.value = 0;
+};
 </script>

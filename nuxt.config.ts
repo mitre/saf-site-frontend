@@ -44,6 +44,6 @@ export default defineNuxtConfig({
       ],
       link: [{rel: 'icon', type: 'image/svg', href: '/safLogoFavicon.svg'}]
     },
-    baseURL: '/' // baseURL: '/<repository>/'
+    baseURL: process.env.BASE_URL // baseURL: '/<repository>/' for github or '/' for local
   }
 });

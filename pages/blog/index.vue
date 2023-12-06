@@ -35,10 +35,10 @@
 <script setup lang="ts">
 import {ref, onMounted, nextTick} from 'vue';
 
-/// /  Data  ////
+/*   Data   */
 const posts = ref();
 
-/// /  Methods  ////
+/*   Methods   */
 const getBlogPosts = async () => {
   posts.value = await useAsyncData('getAllBlogData', () => GqlBlogPosts()).then(
     ({data}) =>
@@ -55,7 +55,7 @@ const getBlogPosts = async () => {
   );
 };
 
-/// /  Lifecycle  ////
+/*   Lifecycle   */
 onMounted(async () => {
   await nextTick(async () => {
     await getBlogPosts();

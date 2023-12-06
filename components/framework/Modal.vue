@@ -293,6 +293,7 @@
 </template>
 
 <script setup lang="ts">
+/*   Data   */
 const props = defineProps({
   guidance: {
     type: Object,

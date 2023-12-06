@@ -54,7 +54,8 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+/*   Data   */
 const props = defineProps({
   collection: {
     type: Array,

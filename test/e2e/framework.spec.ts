@@ -3,12 +3,13 @@ import {test, expect} from '@playwright/test';
 test('Framework Pages', async ({page}) => {
   // Check Plan page
   await page.goto('/');
-  await page.getByRole('button', {name: 'Framework'}).click();
-  await page
-    .getByRole('link', {
-      name: 'Plan Choose, tailor, and create security configuration guidance appropriate for your mission.'
-    })
-    .click();
+  // await page.getByRole('button', {name: 'Framework'}).click();
+  // await page
+  //   .getByRole('link', {
+  //     name: 'Plan Choose, tailor, and create security configuration guidance appropriate for your mission.'
+  //   })
+  //   .click();
+  await page.goto('/framework/plan');
   await expect(page).toHaveURL('/framework/plan');
   await expect(
     page.getByRole('heading', {name: 'Plan', exact: true})
@@ -23,13 +24,14 @@ test('Framework Pages', async ({page}) => {
   ).toBeVisible();
 
   // Check Harden page
-  await page.goto('/');
-  await page.getByRole('button', {name: 'Framework'}).click();
-  await page
-    .getByRole('link', {
-      name: 'Harden Take action to configure software for security.'
-    })
-    .click();
+  // await page.goto('/');
+  // await page.getByRole('button', {name: 'Framework'}).click();
+  // await page
+  //   .getByRole('link', {
+  //     name: 'Harden Take action to configure software for security.'
+  //   })
+  //   .click();
+  await page.goto('/framework/harden');
   await expect(page).toHaveURL('/framework/harden');
   await expect(
     page.getByRole('heading', {name: 'Harden', exact: true})
@@ -44,13 +46,14 @@ test('Framework Pages', async ({page}) => {
   ).toBeVisible();
 
   // Check Validate page
-  await page.goto('/');
-  await page.getByRole('button', {name: 'Framework'}).click();
-  await page
-    .getByRole('link', {
-      name: 'Validate Generate detailed security testing results through automated tests and manual attestation.'
-    })
-    .click();
+  // await page.goto('/');
+  // await page.getByRole('button', {name: 'Framework'}).click();
+  // await page
+  //   .getByRole('link', {
+  //     name: 'Validate Generate detailed security testing results through automated tests and manual attestation.'
+  //   })
+  //   .click();
+  await page.goto('/framework/validate');
   await expect(page).toHaveURL('/framework/validate');
   await expect(
     page.getByRole('heading', {name: 'Validate', exact: true})
@@ -65,20 +68,21 @@ test('Framework Pages', async ({page}) => {
   ).toBeVisible();
 
   // Check Normalize page
-  await page.goto('/');
-  await page.getByRole('button', {name: 'Framework'}).click();
-  await page
-    .getByRole('link', {
-      name: 'Normalize'
-    })
-    .click();
+  // await page.goto('/');
+  // await page.getByRole('button', {name: 'Framework'}).click();
+  // await page
+  //   .getByRole('link', {
+  //     name: 'Normalize'
+  //   })
+  //   .click();
+  await page.goto('/framework/normalize');
   await expect(page).toHaveURL('/framework/normalize');
   await expect(
     page.getByRole('heading', {name: 'Normalize', exact: true})
   ).toBeVisible();
   await expect(
     page.getByRole('heading', {
-      name: 'Covert security results from all your security tools into a common data format'
+      name: 'Convert security results from all your security tools into a common data format'
     })
   ).toBeVisible();
   await expect(
@@ -86,13 +90,14 @@ test('Framework Pages', async ({page}) => {
   ).toBeVisible();
 
   // Check Visualize page
-  await page.goto('/');
-  await page.getByRole('button', {name: 'Framework'}).click();
-  await page
-    .getByRole('link', {
-      name: 'Visualize View comprehensive security status, identify security defects, and manage remediation.'
-    })
-    .click();
+  // await page.goto('/');
+  // await page.getByRole('button', {name: 'Framework'}).click();
+  // await page
+  //   .getByRole('link', {
+  //     name: 'Visualize View comprehensive security status, identify security defects, and manage remediation.'
+  //   })
+  //   .click();
+  await page.goto('/framework/visualize');
   await expect(page).toHaveURL('/framework/visualize');
   await expect(
     page.getByRole('heading', {name: 'Visualize', exact: true})

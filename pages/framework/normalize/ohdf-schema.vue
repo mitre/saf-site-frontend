@@ -18,7 +18,8 @@
               <div class="dark:block hidden">
                 <json-viewer
                   :value="jsonData"
-                  :expand-depth="1"
+                  :expand-depth="2"
+                  :expanded="true"
                   copyable
                   theme="json-code-dark-theme"
                   boxed
@@ -27,7 +28,8 @@
               <div class="dark:hidden">
                 <json-viewer
                   :value="jsonData"
-                  :expand-depth="1"
+                  :expand-depth="2"
+                  :expanded="true"
                   copyable
                   theme="json-code-light-theme"
                   boxed
@@ -47,7 +49,8 @@
 
 <script setup>
 import {ref, onMounted, nextTick} from 'vue';
-import JsonViewer from 'vue-json-viewer';
+import JsonViewer from 'vue-json-viewer/ssr';
+import 'vue-json-viewer/style.css';
 /// /  Data  ////
 const isLoaded = ref(true);
 const jsonData = ref(null);

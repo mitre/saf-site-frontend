@@ -31,10 +31,9 @@
 </template>
 
 <script setup lang="ts">
-import {FAQ} from 'global';
 import {ref, onMounted, nextTick} from 'vue';
 
-/// /  Data  ////
+/*   Data   */
 const isLoaded = ref(false);
 const faq = ref<
   FAQ & {
@@ -45,15 +44,17 @@ const faq = ref<
 const route = useRoute();
 const answer = ref('');
 
-/// /  Methods  ////
+/*   Methods   */
 const getFAQs = async () => {
   faq.value = await useAsyncData('getFaqByQuestionNumber', () =>
     GqlGetFaqByQuestionNumber({
       number: parseInt(route.params.question.toString(), 10)
     })
   ).then(({data}) => {
-    if (!data.value || !data?.value?.faqs?.data.length)
-      return navigateTo('/faq');
+    if (!data.value || !data?.value?.faqs?.data[0]) {
+      navigateTo('/faq');
+      return;
+    }
 
     const date = new Date(data?.value?.faqs?.data[0]?.attributes?.updatedAt);
     answer.value = data?.value?.faqs?.data[0]?.attributes?.answer ?? 'Error';
@@ -68,7 +69,7 @@ const getFAQs = async () => {
   });
 };
 
-/// /  Lifecycle  ////
+/*   Lifecycle   */
 onMounted(async () => {
   await nextTick(async () => {
     await getFAQs();

@@ -51,7 +51,7 @@
                     <span class="sm:mt-1">{{ author.fields.title }}</span>
                   </div>
                   <div class="flex flex-col">
-                    <!-- TODO: Add a internal link to the relavent partner page here -->
+                    <!-- TODO: Add a internal link to the relevant partner page here -->
                     <span class="font-bold"> Company </span>
                     <span class="sm:mt-1">{{ author.fields.company }}</span>
                   </div>
@@ -69,7 +69,7 @@
                     :href="'mailto:' + socialMediaLinks.displayEmail"
                   >
                     <span class="sr-only">Mail Link</span>
-                    <MailIcon class="h-9 w-9" />
+                    <Mail class="h-9 w-9" />
                   </a>
                   <a
                     v-if="socialMediaLinks.twitter"
@@ -138,7 +138,7 @@
                     :href="socialMediaLinks.other"
                   >
                     <span class="sr-only">External Link</span>
-                    <LinkIcon class="h-8 w-7" />
+                    <Link class="h-8 w-7" />
                   </a>
                 </div>
               </div>
@@ -161,10 +161,10 @@
 </template>
 
 <script setup lang="ts">
-import {LinkIcon, MailIcon} from '@heroicons/vue/outline';
+import {Link, Mail} from 'lucide-vue-next';
 
-/// /  Data  ////
-const posts = ref<BlogPost[]>();
+/*   Data   */
+const posts = ref<BlogPost[]>([]);
 const author = ref<Author>();
 const isLoaded = ref(false);
 const socialMediaLinks = ref<SocialMediaLinkMapping>({
@@ -178,13 +178,14 @@ const socialMediaLinks = ref<SocialMediaLinkMapping>({
 });
 const route = useRoute();
 
-/// /  Methods  ////
+/*   Methods   */
 const getBlogData = async () => {
   posts.value = await useAsyncData('getBlogDataFromAuthor', () =>
     GqlGetBlogDataFromAuthor({author: route.query.name?.toString() ?? ''})
   ).then(({data}) => {
     if (!data.value || !data?.value?.blogPosts?.data) {
-      return navigateTo('/blog');
+      navigateTo('/blog');
+      return;
     }
     return data.value.blogPosts.data.map((post) => ({
       title: post?.attributes?.title,
@@ -203,7 +204,8 @@ const getBlogAuthor = async () => {
     GqlGetBlogAuthor({author: route.query.name?.toString() ?? ''})
   ).then(({data}) => {
     if (!data.value || !data?.value?.usersPermissionsUsers?.data[0]) {
-      return navigateTo('/blog');
+      navigateTo('/blog');
+      return undefined;
     }
     const socialMedia =
       data?.value?.usersPermissionsUsers?.data[0]?.attributes?.SocialMedia;
@@ -269,7 +271,7 @@ const getBlogAuthor = async () => {
   });
 };
 
-/// /  Lifecycle  ////
+/*   Lifecycle   */
 onMounted(async () => {
   await nextTick(async () => {
     await getBlogData();

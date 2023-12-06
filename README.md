@@ -30,7 +30,7 @@ This repository contains the frontend source code for the upcoming new https://s
 - [Nuxt 3](https://v3.nuxtjs.org)
 - [Vue 3](https://vuejs.org/guide/introduction.html)
 - [Tailwind CSS v3](https://tailwindcss.com/docs/configuration)
-- [Heroicons](https://github.com/tailwindlabs/heroicons#vue) - beautiful hand-crafted SVG icons, by the makers of Tailwind CSS
+- [Lucide](https://lucide.dev/)
 - [Vite](https://vitejs.dev/guide/)
 - [Headless UI](https://headlessui.dev/vue/menu) - unstyled, fully accessible UI components, designed to integrate beautifully with Tailwind CSS
 - [prettier-plugin-tailwindcss](https://tailwindcss.com/blog/automatic-class-sorting-with-prettier) - Automatic Class Sorting with Prettier

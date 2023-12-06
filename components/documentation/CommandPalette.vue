@@ -39,7 +39,7 @@
           >
             <Combobox>
               <div class="relative">
-                <SearchIcon
+                <Search
                   class="pointer-events-none absolute left-4 top-3.5 h-5 w-5"
                   aria-hidden="true"
                 />
@@ -100,7 +100,7 @@
                 v-if="query !== '' && Object.keys(filteredItems).length === 0"
                 class="px-6 py-14 text-center sm:px-14"
               >
-                <ExclamationIcon class="mx-auto h-6 w-6" />
+                <AlertTriangle class="mx-auto h-6 w-6" />
                 <p class="mt-4 font-semibold">No results found</p>
                 <p class="mt-2 text-muted">
                   No results found for this search term. Please try again.
@@ -116,7 +116,7 @@
 
 <script setup lang="ts">
 import {computed, ref, onMounted, nextTick} from 'vue';
-import {SearchIcon, ExclamationIcon} from '@heroicons/vue/solid';
+import {Search, AlertTriangle} from 'lucide-vue-next';
 import {
   Combobox,
   ComboboxInput,
@@ -127,9 +127,8 @@ import {
   TransitionChild,
   TransitionRoot
 } from '@headlessui/vue';
-import {DocumentationCommandPaletteResult} from 'global';
 
-/// /  Data  ////
+/*   Data   */
 const isLoaded = ref(false);
 const results = ref<DocumentationCommandPaletteResult[]>();
 const query = ref('');
@@ -144,7 +143,7 @@ const props = defineProps({
 // Updates parent isCommandPaletteOpen variable
 defineEmits(['update:isCommandPaletteOpen']);
 
-/// /  Methods  ////
+/*   Methods   */
 const getDocumentation = async () => {
   results.value = await useAsyncData('getAllDocumentation', () =>
     GqlGetAllDocumentation()
@@ -233,7 +232,7 @@ const filteredItems = computed(() => {
   return resultsMappedObj;
 });
 
-/// /  Lifecycle  ////
+/*   Lifecycle   */
 onMounted(async () => {
   await nextTick(async () => {
     await getDocumentation();

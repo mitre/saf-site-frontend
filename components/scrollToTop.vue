@@ -6,7 +6,7 @@
     >
       <div class="text-fill transition hover:brightness-110">
         <button class="flex items-center" @click="scrollToTop">
-          <ArrowCircleUpIcon class="h-10 w-8 text-blue-500 md:h-10 md:w-10" />
+          <ArrowUpCircle class="h-10 w-8 text-blue-500 md:h-10 md:w-10" />
         </button>
       </div>
     </div>
@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import {ArrowCircleUpIcon} from '@heroicons/vue/outline';
+import {ArrowUpCircle} from 'lucide-vue-next';
 
 /*  Data  */
 const scrollTopButton = ref<HTMLInputElement | null>(null);
@@ -22,23 +22,31 @@ const scrollTopButton = ref<HTMLInputElement | null>(null);
 /*  Methods  */
 const handleScroll = () => {
   const scrollBtn = scrollTopButton;
-  if (window.scrollY > 0) {
-    scrollBtn.value?.classList.remove('hidden');
-  } else {
-    scrollBtn.value?.classList.add('hidden');
+  if (window) {
+    if (window.scrollY > 0) {
+      scrollBtn.value?.classList.remove('hidden');
+    } else {
+      scrollBtn.value?.classList.add('hidden');
+    }
   }
 };
 
 const scrollToTop = () => {
-  window.scrollTo({top: 0, behavior: 'smooth'});
+  if (window) {
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
 };
 
 /*  Lifecycle  */
 onMounted(() => {
-  window.addEventListener('scroll', handleScroll);
+  if (window) {
+    window.addEventListener('scroll', handleScroll);
+  }
 });
 
 onBeforeMount(() => {
-  window.removeEventListener('scroll', handleScroll);
+  if (window) {
+    window.removeEventListener('scroll', handleScroll);
+  }
 });
 </script>

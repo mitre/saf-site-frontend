@@ -32,7 +32,7 @@
 </template>
 
 <script setup lang="ts">
-/// /  Data  ////
+/*   Data   */
 const props = defineProps({
   pageTitle: {
     type: String,

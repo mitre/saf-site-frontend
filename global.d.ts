@@ -1,5 +1,3 @@
-import {FunctionalComponent} from 'vue';
-
 declare module '@tailwindcss/forms';
 declare module '@tailwindcss/typography';
 declare module '@tailwindcss/line-clamp';
@@ -64,7 +62,8 @@ type LinkObject = {
   name: string;
   description: string;
   href: string;
-  icon: FunctionalComponent;
+  icon: Component;
+  external: boolean;
 };
 
 type Capability = {
@@ -115,6 +114,92 @@ type UserStory = {
   answer: string;
   orderID: number;
 };
+
+/*   Library   */
+
+type ValidationContent = {
+  id: number;
+  name: string;
+  name_long: string;
+  source: string;
+  last_update: string;
+  platform: {
+    name: string;
+    link: string;
+    icon: {
+      name: string | null;
+      url: string | null;
+      alt: string | null;
+    };
+  };
+  partner: {
+    name: string;
+    name_long: string;
+    link: string;
+    icon: {
+      name: string | null;
+      url: string | null;
+      alt: string | null;
+    };
+  };
+};
+
+type HardeningContent = {
+  id: number;
+  name: string;
+  name_long: string;
+  source: string;
+  platform: {
+    name: string;
+    link: string;
+    icon: {
+      name: string | null;
+      url: string | null;
+      alt: string | null;
+    };
+  };
+  partner: {
+    name: string;
+    name_long: string;
+    link: string;
+    icon: {
+      name: string | null;
+      url: string | null;
+      alt: string | null;
+    };
+  };
+};
+
+type Guidance = {
+  name: string;
+  id: number;
+  type: string;
+  category: string;
+  source: string;
+  date: string;
+  version: {__typename: string; version: string};
+  hardening: HardeningContent[] | null;
+  validation: ValidationContent[] | null;
+};
+type LibraryTableEntry = {
+  benchmarkID: string;
+  name: string;
+  platform: {name: string};
+  partner: {name: string};
+  version: string;
+};
+
+type FilteredLibraryData = {
+  [category: string]:
+    | (HardeningContent & LibraryTableEntry)[]
+    | (ValidationContent & LibraryTableEntry)[];
+};
+
+/*   Documentation   */
+
+type DocLink = {title: string; href: string};
+
+type DocumentationTableContent = {title: string; subtitles: string[]};
 
 type DocumentationCommandPaletteResult = {
   id: string;

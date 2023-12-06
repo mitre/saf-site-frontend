@@ -21,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-/// /  Data  ////
+/*   Data   */
 const isLoaded = ref(false);
 const route = useRoute();
 const pageIconHref = ref('');
@@ -29,7 +29,7 @@ const pageTitle = ref('');
 const pageContent = ref('');
 const pageGrabber = ref('');
 
-/// /  Methods  ////
+/*   Methods   */
 const getPageContent = async () => {
   await useAsyncData('getFrameworkPage', () =>
     GqlGetFrameworkPage({page: route.params.page.toString()})
@@ -48,7 +48,7 @@ const getPageContent = async () => {
   });
 };
 
-/// /  Lifecycle  ////
+/*   Lifecycle   */
 onMounted(async () => {
   await nextTick(async () => {
     await getPageContent();

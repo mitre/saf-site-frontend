@@ -46,7 +46,8 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+/*   Data   */
 const props = defineProps({
   renderedContent: {
     type: String,
@@ -57,7 +58,7 @@ const props = defineProps({
     required: true
   },
   allLinks: {
-    type: Array,
+    type: Array<DocLink>,
     required: true
   },
   currentIndex: {

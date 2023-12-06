@@ -51,8 +51,7 @@
 </template>
 
 <script setup lang="ts">
-import {LogoCloudEntry} from 'global';
-
+/*   Data   */
 const props = defineProps({
   title: {
     type: String,

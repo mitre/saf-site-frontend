@@ -27,6 +27,8 @@
                 assessment tests under MITRE SAF <sup>©</sup> are associated
                 with NIST SP 800-53 Security Controls.
               </p>
+              <h2 class="mt-2 text-2xl font-bold text-header">Usage</h2>
+              <p class="mt-2 text-xl">The Validation Library contents are collections of test definitions that can be used in conjunction with testing tools such as Progress Chef recipes to validate system components against baselines. Specific usage instructions for each piece of validation content can be found in their repository README files.</p>
             </div>
           </div>
           <FrameworkTable :entries="categorizedData" />

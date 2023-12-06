@@ -28,8 +28,7 @@
 </template>
 
 <script setup lang="ts">
-import {UserStory} from 'global';
-
+/*   Data   */
 const props = defineProps({
   userStories: {
     type: Array<UserStory>,

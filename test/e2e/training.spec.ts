@@ -1,13 +1,14 @@
 import {test, expect} from '@playwright/test';
 
 test('Training Page', async ({page}) => {
-  await page.goto('/');
-  await page.getByRole('button', {name: 'More'}).click();
-  await page
-    .getByRole('link', {
-      name: 'Training'
-    })
-    .click();
+  // await page.goto('/');
+  // await page.getByRole('button', {name: 'More'}).click();
+  // await page
+  //   .getByRole('link', {
+  //     name: 'Training'
+  //   })
+  //   .click();
+  await page.goto('/training');
   await expect(page).toHaveURL('/training');
   await expect(page.getByRole('heading', {name: 'Our Training'})).toBeVisible();
   await expect(

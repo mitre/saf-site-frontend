@@ -6,7 +6,7 @@
       aria-label="Open navigation"
       @click="setIsOpen(true)"
     >
-      <MenuIcon class="stroke-base ml-4 h-6 w-6" />
+      <Menu class="stroke-base ml-4 h-6 w-6" />
       <ol class="ml-4 flex min-w-0 flex-wrap leading-6">
         <li class="flex items-center truncate">
           {{ props.currentSectionTitle }}
@@ -46,7 +46,7 @@
               aria-label="Close navigation"
               @click="setIsOpen(false)"
             >
-              <XIcon class="h-6 w-6 stroke-nav-base" />
+              <X class="h-6 w-6 stroke-nav-base" />
             </button>
           </div>
           <div v-if="props.docData" class="md:mt-5">
@@ -58,10 +58,11 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import {Dialog, DialogPanel} from '@headlessui/vue';
-import {MenuIcon, XIcon} from '@heroicons/vue/outline';
+import {Menu, X} from 'lucide-vue-next';
 
+/*   Data   */
 const isOpen = ref(false);
 const props = defineProps({
   docData: {
@@ -77,7 +78,9 @@ const props = defineProps({
     required: true
   }
 });
-const setIsOpen = (value) => {
+
+/*   Methods   */
+const setIsOpen = (value: boolean) => {
   isOpen.value = value;
 };
 </script>

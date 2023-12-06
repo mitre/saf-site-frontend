@@ -75,7 +75,7 @@
                               <div class="flex items-start space-x-3 pl-1">
                                 <span class="mt-0.5">
                                   <span class="sr-only">Date</span>
-                                  <CalendarIcon
+                                  <Calendar
                                     class="h-5 w-5 text-muted"
                                     aria-hidden="true"
                                   />
@@ -172,7 +172,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import {CalendarIcon} from '@heroicons/vue/solid';
+import {Calendar} from 'lucide-vue-next';
 import {ref, onMounted, nextTick} from 'vue';
 
 /// /  Data  ////

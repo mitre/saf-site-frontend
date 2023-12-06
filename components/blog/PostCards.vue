@@ -57,12 +57,11 @@
 <script setup lang="ts">
 import {ref, onMounted, nextTick} from 'vue';
 import slugify from '@/utils/useSlugify';
-import {BlogPost} from 'global';
 
-/// /  Data  ////
+/*   Data   */
 const isLoaded = ref(false);
 
-/// /  Props  ////
+/*   Props   */
 const props = defineProps({
   posts: {
     type: Array<BlogPost>,
@@ -72,14 +71,14 @@ const props = defineProps({
 
 const {posts} = toRefs(props);
 
-/// /  Methods  ////
+/*   Methods   */
 const readingTime = (text: string) => {
   const wpm = 225;
   const words = text.trim().split(/\s+/).length;
   return Math.ceil(words / wpm);
 };
 
-/// /  Lifecycle  ////
+/*   Lifecycle   */
 onMounted(async () => {
   await nextTick(async () => {
     isLoaded.value = true;

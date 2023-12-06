@@ -69,7 +69,7 @@
 </template>
 
 <script setup lang="ts">
-/// /  Data  ////
+/*   Data   */
 const props = defineProps({
   productIcon: {
     type: String,

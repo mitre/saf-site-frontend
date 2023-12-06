@@ -80,9 +80,10 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import {ref, onUnmounted} from 'vue';
 
+/*   Data   */
 const isCommandPaletteOpen = ref(false);
 const props = defineProps({
   docData: {
@@ -90,8 +91,15 @@ const props = defineProps({
     required: true
   }
 });
+const route = useRoute();
+const currentSubsectionHref = ref(
+  route.params.section !== undefined
+    ? route.params.section
+    : 'mapper-guide-intro'
+);
 
-const onKeyDown = (event) => {
+/*   Methods   */
+const onKeyDown = (event: KeyboardEvent) => {
   if (event.key === 'k' && (event.metaKey || event.ctrlKey)) {
     isCommandPaletteOpen.value = !isCommandPaletteOpen.value;
     event.preventDefault();
@@ -99,6 +107,7 @@ const onKeyDown = (event) => {
   }
 };
 
+/*   Lifecycle   */
 onMounted(() => {
   document.addEventListener('keydown', onKeyDown);
 });
@@ -106,11 +115,4 @@ onMounted(() => {
 onUnmounted(() => {
   document.removeEventListener('keydown', onKeyDown);
 });
-
-const route = useRoute();
-const currentSubsectionHref = ref(
-  route.params.section !== undefined
-    ? route.params.section
-    : 'mapper-guide-intro'
-);
 </script>

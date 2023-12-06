@@ -22,9 +22,7 @@
 </template>
 
 <script setup lang="ts">
-import {ApplicationPageFeature} from 'global';
-
-/// /  Data  ////
+/*   Data   */
 const isLoaded = ref(false);
 const route = useRoute();
 const pageIconHref = ref('');
@@ -33,7 +31,7 @@ const pageContent = ref('');
 const pageGrabber = ref('');
 const pageFeatures = ref<ApplicationPageFeature[]>();
 
-/// /  Methods  ////
+/*   Methods   */
 const getPageContent = async () => {
   await useAsyncData('getApplicationPage', () =>
     GqlGetApplicationPage({
@@ -71,7 +69,7 @@ const getPageContent = async () => {
   });
 };
 
-/// /  Lifecycle  ////
+/*   Lifecycle   */
 onMounted(async () => {
   await nextTick(async () => {
     await getPageContent();

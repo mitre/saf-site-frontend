@@ -59,15 +59,14 @@
 </template>
 
 <script setup lang="ts">
-import {FAQ} from 'global';
 import {ref, onMounted, nextTick} from 'vue';
 
-/// /  Data  ////
+/*   Data   */
 const isLoaded = ref(false);
 const faqs = ref<FAQ[]>([]);
 const parser = new DOMParser();
 
-/// /  Methods  ////
+/*   Methods   */
 const getFAQs = async () => {
   faqs.value = await useAsyncData('getAllFAQs', () => GqlFAQs()).then(
     ({data}) =>
@@ -79,7 +78,7 @@ const getFAQs = async () => {
   );
 };
 
-/// /  Lifecycle  ////
+/*   Lifecycle   */
 onMounted(async () => {
   await nextTick(async () => {
     await getFAQs();

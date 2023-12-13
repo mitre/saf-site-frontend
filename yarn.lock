@@ -20,10 +20,10 @@
     "@jridgewell/gen-mapping" "^0.3.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@antfu/utils@^0.7.6":
-  version "0.7.6"
-  resolved "https://registry.yarnpkg.com/@antfu/utils/-/utils-0.7.6.tgz#30a046419b9e1ecd276e53d41ab68fb6c558c04d"
-  integrity sha512-pvFiLP2BeOKA/ZOS6jxx4XhKzdVLHDhGlFEaZ2flWWYf2xOqVniqpk38I04DFRyz+L0ASggl7SkItTc+ZLju4w==
+"@antfu/utils@^0.7.6", "@antfu/utils@^0.7.7":
+  version "0.7.7"
+  resolved "https://registry.yarnpkg.com/@antfu/utils/-/utils-0.7.7.tgz#26ea493a831b4f3a85475e7157be02fb4eab51fb"
+  integrity sha512-gFPqTG7otEJ8uP6wrhDv6mqwGWYZKNvAcCq6u9hOj0c+IKCEsY4L1oC9trPq2SaWIzAfHvqfBDxF591JkMf+kg==
 
 "@ardatan/relay-compiler@12.0.0":
   version "12.0.0"
@@ -1656,19 +1656,19 @@
   resolved "https://registry.yarnpkg.com/@nuxt/devalue/-/devalue-2.0.2.tgz#5749f04df13bda4c863338d8dabaf370f45ef7c7"
   integrity sha512-GBzP8zOc7CGWyFQS6dv1lQz8VVpz5C2yRszbXufwG/9zhStTIH50EtD87NmWbTMwXDvZLNg8GIpb1UFdH93JCA==
 
-"@nuxt/devtools-kit@1.0.5":
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/@nuxt/devtools-kit/-/devtools-kit-1.0.5.tgz#71f465585fb452a9e97a2b36888360736dd02987"
-  integrity sha512-2SbsYZngD0r6nZCXhEKQ8E6sc10uaYMiN3VicoHj0fZSXNEYjJjLRQ3xD+hbmiqM4dRMGeR06IU6E/Ff0asDcQ==
+"@nuxt/devtools-kit@1.0.6":
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/@nuxt/devtools-kit/-/devtools-kit-1.0.6.tgz#e4a96fc20a9bb88fe58a3d775fcc1e317e3438cb"
+  integrity sha512-CUSE++NRTIwvBWbLsPzLZIDMpXr6oyllaWm8tOR3Wgr/04jW31uyWbXjU/fxRuDotQwZfcTe19uunRoCoBnk1Q==
   dependencies:
     "@nuxt/kit" "^3.8.2"
     "@nuxt/schema" "^3.8.2"
     execa "^7.2.0"
 
-"@nuxt/devtools-wizard@1.0.5":
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/@nuxt/devtools-wizard/-/devtools-wizard-1.0.5.tgz#43f6e9dedf8d353f0e7685a828375ba2225da75c"
-  integrity sha512-1O6uZaR76bu9NGN5qEtxYRf6INLA7FFr4agnw+UUdWKxJqbYoPNrKe9TqgukoPoDdrEG5vm0tDuRMNPIpVJ3mg==
+"@nuxt/devtools-wizard@1.0.6":
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/@nuxt/devtools-wizard/-/devtools-wizard-1.0.6.tgz#f01a40eb2f44bf4b678850ea81c134b9dc2dafc5"
+  integrity sha512-44G+t2sQQii3TPnmktlrZryC4pw7t77GUV7wneEicLGU+w5I5ib7taVMJy8+yBC3kpTs5eYHOmqI63Dqvr73tw==
   dependencies:
     consola "^3.2.3"
     diff "^5.1.0"
@@ -1681,14 +1681,14 @@
     rc9 "^2.1.1"
     semver "^7.5.4"
 
-"@nuxt/devtools@^1.0.3", "@nuxt/devtools@^1.0.5":
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/@nuxt/devtools/-/devtools-1.0.5.tgz#5710aeb217d242edce6b8d6db9c8ea474f831830"
-  integrity sha512-kGgxDFD3/Zw0HqCRl+S+ZIZ0NxGJoiseTzKreD2sW8q7otnqSSjte3z4qhGWI2HpvwN0Gwu/C4FtfkAVGUxPTQ==
+"@nuxt/devtools@^1.0.3", "@nuxt/devtools@^1.0.6":
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/@nuxt/devtools/-/devtools-1.0.6.tgz#9cc2aaaa7ac8470d2bf24d260474f9b247ed1716"
+  integrity sha512-3P914IHBvKl2aYSrwaCAU9E1ndVNnGJR0Jn0XKUFktsbjU5kGlwLGrtRKXAw4Yz1VNiSZPrapVrFOQWbXRGRvg==
   dependencies:
-    "@antfu/utils" "^0.7.6"
-    "@nuxt/devtools-kit" "1.0.5"
-    "@nuxt/devtools-wizard" "1.0.5"
+    "@antfu/utils" "^0.7.7"
+    "@nuxt/devtools-kit" "1.0.6"
+    "@nuxt/devtools-wizard" "1.0.6"
     "@nuxt/kit" "^3.8.2"
     birpc "^0.2.14"
     consola "^3.2.3"
@@ -1722,7 +1722,7 @@
     vite-plugin-inspect "^0.8.1"
     vite-plugin-vue-inspector "^4.0.2"
     which "^3.0.1"
-    ws "^8.14.2"
+    ws "^8.15.0"
 
 "@nuxt/kit@3.8.2", "@nuxt/kit@^3.6.3", "@nuxt/kit@^3.7.1", "@nuxt/kit@^3.7.4", "@nuxt/kit@^3.8.2":
   version "3.8.2"
@@ -9243,10 +9243,15 @@ wrappy@1:
   resolved "https://registry.yarnpkg.com/wrappy/-/wrappy-1.0.2.tgz#b5243d8f3ec1aa35f1364605bc0d1036e30ab69f"
   integrity sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==
 
-ws@8.14.2, ws@^8.12.0, ws@^8.13.0, ws@^8.14.2:
+ws@8.14.2:
   version "8.14.2"
   resolved "https://registry.yarnpkg.com/ws/-/ws-8.14.2.tgz#6c249a806eb2db7a20d26d51e7709eab7b2e6c7f"
   integrity sha512-wEBG1ftX4jcglPxgFCMJmZ2PLtSbJ2Peg6TmpJFTbe9GZYOQCDPdMYu/Tm0/bGZkw8paZnJY45J4K2PZrLYq8g==
+
+ws@^8.12.0, ws@^8.13.0, ws@^8.15.0:
+  version "8.15.1"
+  resolved "https://registry.yarnpkg.com/ws/-/ws-8.15.1.tgz#271ba33a45ca0cc477940f7f200cd7fba7ee1997"
+  integrity sha512-W5OZiCjXEmk0yZ66ZN82beM5Sz7l7coYxpRkzS+p9PP+ToQry8szKh+61eNktr7EA9DOwvFGhfC605jDHbP6QQ==
 
 xml-name-validator@^4.0.0:
   version "4.0.0"

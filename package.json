@@ -25,7 +25,7 @@
     "nuxt": "^3.8.2",
     "nuxt-graphql-client": "^0.2.30",
     "prismjs": "^1.29.0",
-    "tailwindcss": "^3.3.6",
+    "tailwindcss": "^3.3.7",
     "vue": "^3.3.12",
     "vue-json-viewer": "3"
   },

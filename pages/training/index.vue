@@ -83,7 +83,7 @@
                                 <span v-if="schedule.date !== ''">
                                   <time :datetime="schedule.date">
                                     {{ formatDate(schedule.date) }} at
-                                    {{ formatTime(schedule.date) }} EST
+                                    {{ formatTime(schedule.date) }}
                                   </time>
                                 </span>
                                 <span v-else>
@@ -219,7 +219,8 @@ const formatDate = (value: string, locale = 'en-US') => {
 const formatTime = (value: string, locale = 'en-US') => {
   return new Date(value).toLocaleTimeString(locale, {
     hour: '2-digit',
-    minute: '2-digit'
+    minute: '2-digit',
+    timeZoneName: 'short'
   });
 };
 

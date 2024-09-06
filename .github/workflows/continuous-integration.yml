@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 'Waiting for Netlify Preview'
-        uses: archiewood/wait-for-netlify-action@v1
+        uses: archiewood/wait-for-netlify-action@v1.0.3
         id: wait-for-netflify-preview
         with:
           site_name: 'mitre-saf-v2'
